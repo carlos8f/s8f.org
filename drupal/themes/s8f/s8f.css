@@ -1,0 +1,107 @@
+body {
+  background: top center repeat-y white;
+  color: white;
+  line-height: 1.5em;
+  font-family: Verdana, sans-serif;
+  font-size: 70%;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+a {
+  border-bottom: 1px solid gray;
+  color: gray;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+  border-bottom: 1px solid white;
+}
+#page {
+  background-color: black;
+  margin: 0 auto;
+  width: 633px;
+}
+#header {
+  background: center no-repeat;
+  height: 254px;
+  text-align: center;
+}
+#logo {
+  display: none;
+}
+#header .section {
+  background: url(logo.png) center no-repeat;
+  height: 254px;
+  padding-top: 50px;
+}
+#header h1 {
+  display: none;
+}
+#header #name-and-slogan a {
+  display: none;
+}
+#header #name-and-slogan {
+  padding-top: 140px;
+}
+#content {
+  margin: 10px 30px;
+}
+.one-sidebar #content {
+  float: left;
+  margin-right: 0;
+  width: 350px;
+}
+#sidebar-first {
+  float: right;
+  margin: 10px 30px;
+  width: 180px;
+}
+#sidebar-first .section {
+  padding: 10px;
+}
+a.feed-icon {
+  display: none;
+}
+div.user-picture {
+  float: right;
+}
+div.user-picture img {
+  width: 50px;
+  height: 50px;
+}
+a#main-content {
+  display: none;
+}
+div.breadcrumb {
+  margin: 10px 20px;
+}
+div.submitted {
+  color: gray;
+}
+#footer {
+  border-top: 1px solid gray;
+  font-size: 80%;
+  padding: 10px 30px;
+}
+#navigation {
+  margin-top: -30px;
+}
+#navigation ul {
+  margin: none;
+}
+#navigation li {
+  display: inline;
+}
+#navigation li a {
+  display: block;
+  float: left;
+  padding: 5px 10px;
+}
+#navigation li a.active {
+  color: white;
+}
+#navigation h2 {
+  display: none;
+}

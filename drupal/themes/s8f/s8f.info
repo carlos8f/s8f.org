@@ -1,0 +1,4 @@
+name = S8F
+description = Custom theme for s8f.org.
+core = 7.x
+stylesheets[all][] = s8f.css
