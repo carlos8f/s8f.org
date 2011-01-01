@@ -1,4 +1,4 @@
-[s8f.org] (http://s8f.org/software) git repo
+[s8f.org](http://s8f.org/software) git repo
 ============================================
 
 This repository contains scripts written by Carlos Rodriguez (carlos@s8f.org).
