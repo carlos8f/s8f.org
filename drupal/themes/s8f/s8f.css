@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 0;
   background: top center repeat-y white;
   color: black;
   line-height: 1.7em;
@@ -42,6 +44,9 @@ a:hover#logo {
 }
 #content {
   margin: 10px 30px;
+}
+#content h1, #content h2 {
+  margin-bottom: .2em;
 }
 .one-sidebar #content {
   float: left;
@@ -106,7 +111,9 @@ div.submitted {
   color: white;
 }
 #navigation li a:hover {
-  background-color: #444;
+  color: black;
+}
+#navigation li a.active:hover {
   color: white;
 }
 #navigation h2 {
@@ -122,6 +129,7 @@ div.submitted {
 }
 .submitted {
   font-size: 80%;
+  line-height: 1;
 }
 .submitted a {
   color: black;
@@ -156,6 +164,18 @@ pre {
 code {
   background-color: #ffeeda;
 }
-body.front #main {
+.front #header {
+  margin-top: 30px;
+}
+.not-front #header {
+  float: left;
+}
+.not-front #name-and-slogan {
   display: none;
+}
+.not-front #logo {
+  background-image: url(reactor-logo-small.jpg);
+  margin: 0 1em 0 0;
+  height: 70px;
+  width: 81px;
 }
