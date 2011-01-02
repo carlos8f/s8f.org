@@ -106,7 +106,8 @@ div.submitted {
   color: white;
 }
 #navigation li a:hover {
-  background-color: #222;
+  background-color: #444;
+  color: white;
 }
 #navigation h2 {
   display: none;
@@ -154,4 +155,7 @@ pre {
 }
 code {
   background-color: #ffeeda;
+}
+body.front #main {
+  display: none;
 }
