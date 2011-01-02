@@ -7,6 +7,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: Georgia, serif;
   font-weight: normal;
+  color: #ff7700;
 }
 #page {
   background-color: white;
@@ -14,19 +15,27 @@ h1, h2, h3, h4, h5, h6 {
   width: 50em;
 }
 #header {
-  background: black center no-repeat;
-  height: 230px;
   text-align: center;
 }
-#header .section {
-  height: 254px;
-  padding-top: 80px;
+#logo {
+  background: black url(reactor-logo.jpg) center no-repeat;
+  display: block;
+  margin: auto;
+  width: 272px;
+  height: 236px;
+}
+a:hover#logo {
+  background-color: gray;
+}
+#logo img {
+  display: none;
 }
 #header h1 {
   display: none;
 }
 #header #name-and-slogan {
   color: gray;
+  margin-bottom: 2em;
 }
 #site-name {
   display: none;
@@ -61,18 +70,19 @@ a#main-content {
   display: none;
 }
 div.breadcrumb {
-  margin: 2em 3em;
+  font-size: 80%;
+  color: gray;
 }
 div.submitted {
   color: gray;
 }
 #footer {
-  border-top: 1px solid gray;
   font-size: 80%;
-  padding: 2em 3em;
+  padding-top: 2em;
+  text-align: center;
 }
 #navigation {
-  background: black;
+  background: #eee;
   height: 3em;
 }
 #navigation ul {
@@ -88,11 +98,12 @@ div.submitted {
   line-height: 3em;
   padding: 0 2em;
   height: 3em;
-  color: white;
+  color: #888;
   font-weight: bold;
 }
 #navigation li a.active {
   background-color: #444;
+  color: white;
 }
 #navigation li a:hover {
   background-color: #222;
@@ -100,13 +111,47 @@ div.submitted {
 #navigation h2 {
   display: none;
 }
-#content a {
-  text-decoration: underline;
-  color: gray;
+#page a {
+  text-decoration: none;
+  color: #666;
+  background-color: #eee;
 }
-#content a:hover {
+#page a:hover {
   color: black;
 }
 .submitted {
   font-size: 80%;
+}
+.submitted a {
+  color: black;
+}
+.submitted a:hover {
+  color: gray;
+}
+pre {
+  background: none repeat scroll 0 0 #F8F8F8;
+  border-color: #E7E5DC;
+  border-style: solid;
+  border-width: 1px 0 4px 6px;
+  color: black;
+  font-family: "Consolas","Courier New",Courier,mono;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 120%;
+  overflow: auto;
+  padding: 1em;
+}
+.field-type-image {
+  float: right;
+  margin: 0 0 2em 2em;
+}
+.node {
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 1em;
+}
+#content .node .links {
+  display: none;
+}
+code {
+  background-color: #ffeeda;
 }
