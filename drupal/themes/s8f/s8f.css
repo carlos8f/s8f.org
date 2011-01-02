@@ -1,49 +1,35 @@
 body {
   background: top center repeat-y white;
-  color: white;
-  line-height: 1.5em;
-  font-family: Verdana, sans-serif;
-  font-size: 70%;
+  color: black;
+  line-height: 1.7em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Georgia, serif;
   font-weight: normal;
 }
-a {
-  border-bottom: 1px solid gray;
-  color: gray;
-  text-decoration: none;
-}
-a:hover {
-  color: white;
-  border-bottom: 1px solid white;
-}
 #page {
-  background-color: black;
+  background-color: white;
   margin: 0 auto;
-  width: 633px;
+  width: 50em;
 }
 #header {
-  background: center no-repeat;
-  height: 254px;
+  background: black center no-repeat;
+  height: 230px;
   text-align: center;
 }
-#logo {
-  display: none;
-}
 #header .section {
-  background: url(logo.png) center no-repeat;
   height: 254px;
-  padding-top: 50px;
+  padding-top: 80px;
 }
 #header h1 {
   display: none;
 }
-#header #name-and-slogan a {
-  display: none;
-}
 #header #name-and-slogan {
-  padding-top: 140px;
+  color: gray;
+}
+#site-name {
+  display: none;
 }
 #content {
   margin: 10px 30px;
@@ -51,15 +37,15 @@ a:hover {
 .one-sidebar #content {
   float: left;
   margin-right: 0;
-  width: 350px;
+  width: 30em;
 }
 #sidebar-first {
   float: right;
   margin: 10px 30px;
-  width: 180px;
+  width: 10em;
 }
 #sidebar-first .section {
-  padding: 10px;
+  padding: 2em;
 }
 a.feed-icon {
   display: none;
@@ -75,7 +61,7 @@ a#main-content {
   display: none;
 }
 div.breadcrumb {
-  margin: 10px 20px;
+  margin: 2em 3em;
 }
 div.submitted {
   color: gray;
@@ -83,25 +69,44 @@ div.submitted {
 #footer {
   border-top: 1px solid gray;
   font-size: 80%;
-  padding: 10px 30px;
+  padding: 2em 3em;
 }
 #navigation {
-  margin-top: -30px;
+  background: black;
+  height: 3em;
 }
 #navigation ul {
-  margin: none;
+  margin: 0;
+  float: left;
 }
 #navigation li {
-  display: inline;
+  padding: 0;
 }
 #navigation li a {
   display: block;
   float: left;
-  padding: 5px 10px;
+  line-height: 3em;
+  padding: 0 2em;
+  height: 3em;
+  color: white;
+  font-weight: bold;
 }
 #navigation li a.active {
-  color: white;
+  background-color: #444;
+}
+#navigation li a:hover {
+  background-color: #222;
 }
 #navigation h2 {
   display: none;
+}
+#content a {
+  text-decoration: underline;
+  color: gray;
+}
+#content a:hover {
+  color: black;
+}
+.submitted {
+  font-size: 80%;
 }
