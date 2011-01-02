@@ -3,7 +3,7 @@
 # title:        Supertight firewall
 # author:       (c) 2010 Carlos Rodriguez <carlos@s8f.org>
 # url:          http://s8f.org/software
-# license:      LGPL
+# license:      MIT
 # 
 # Sets up a restrictive firewall that only allows ssh and outgoing www/https,
 # DNS to the nameserver, and log and drop all other traffic. This provides
