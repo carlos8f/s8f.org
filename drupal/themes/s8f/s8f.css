@@ -137,16 +137,16 @@ div.submitted {
 .submitted a:hover {
   color: gray;
 }
-pre {
+div.codeblock, pre {
   background: none repeat scroll 0 0 #F8F8F8;
   border-color: #E7E5DC;
   border-style: solid;
   border-width: 1px 0 4px 6px;
   color: black;
   font-family: "Consolas","Courier New",Courier,mono;
-  font-size: 12px;
+  font-size: 110%;
   letter-spacing: 0;
-  line-height: 120%;
+  line-height: 1.3em;
   overflow: auto;
   padding: 1em;
 }
@@ -163,6 +163,9 @@ pre {
 }
 code {
   background-color: #ffeeda;
+}
+div.codeblock code {
+  background-color: inherit;
 }
 .front #header {
   margin-top: 30px;
