@@ -3,5 +3,4 @@ name = Ip address
 description = Shows the IP address of the visitor.
 core = 7.x
 files[] = ip.module
-files[] = ip.css
-
+stylesheets[all][] = ip.css
