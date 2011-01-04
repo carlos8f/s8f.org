@@ -2,15 +2,8 @@
 (function ($) {
 Drupal.behaviors.ip_address = {
   attach: function (context, settings) {
-    $('#ip_geoip_country_code', context).once('ip').html(geoip_country_code());
-    $('#ip_geoip_country_name', context).once('ip').html(geoip_country_name());
-    $('#ip_geoip_city', context).once('ip').html(geoip_city());
-    $('#ip_geoip_region', context).once('ip').html(geoip_region());
-    $('#ip_geoip_region_name', context).once('ip').html(geoip_region_name());
-    $('#ip_geoip_latitude', context).once('ip').html(geoip_latitude());
-    $('#ip_geoip_longitude', context).once('ip').html(geoip_longitude());
-    $('#ip_geoip_postal_code', context).once('ip').html(geoip_postal_code());
-    $('#ip_geoip_area_code', context).once('ip').html(geoip_area_code());
+    $('#ip_address', context).once('ip_address').load(Drupal.settings.basePath + Drupal.settings.ip_address_path + '/ip_address.php');
+    $('#ip_geoip', context).once('ip_address_geoip').html(geoip_city() + ', ' + geoip_region() + ', ' + geoip_country_code());
   }
 };
 
