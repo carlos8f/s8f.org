@@ -1,0 +1,28 @@
+<?php
+// $Id$
+/**
+ * @file
+ * Implementation of "Ip address" module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function ip_menu() {
+  $items['ip'] = array(
+    'title' => 'Your IP address',
+    'page callback' => 'ip_view',
+    'access arguments' => array('access content'),
+    'description' => 'View your IP address.',
+  );
+
+  return $items;
+}
+
+/**
+ * Page callback.
+ */
+function ip_view() {
+  return ip_address();
+}
+
