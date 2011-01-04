@@ -1,6 +1,6 @@
 // $Id$
 (function ($) {
-Drupal.behaviors.ip = {
+Drupal.behaviors.ip_address = {
   attach: function (context, settings) {
     $('#ip_geoip_country_code', context).once('ip').html(geoip_country_code());
     $('#ip_geoip_country_name', context).once('ip').html(geoip_country_name());

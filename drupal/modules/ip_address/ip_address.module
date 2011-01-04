@@ -8,17 +8,17 @@
 /**
  * Implements hook_menu().
  */
-function ip_menu() {
+function ip_address_menu() {
   $items['ip'] = array(
     'title' => 'Your IP address is:',
-    'page callback' => 'ip_view',
+    'page callback' => 'ip_address_view',
     'access arguments' => array('access content'),
     'description' => 'View your IP address.',
   );
-  $items['admin/config/system/ip'] = array(
+  $items['admin/config/system/ip_address'] = array(
     'title' => 'Ip address',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('ip_settings'),
+    'page arguments' => array('ip_address_settings'),
     'access arguments' => array('administer site configuration'),
     'description' => 'Administer settings for Ip address module.',
   );
@@ -29,7 +29,7 @@ function ip_menu() {
 /**
  * Page callback.
  */
-function ip_view($format = NULL) {
+function ip_address_view($format = NULL) {
   // Disable caching.
   drupal_page_is_cacheable(FALSE);
 
@@ -50,9 +50,9 @@ function ip_view($format = NULL) {
     case 'html':
     default:
       $geoip = '';
-      if (variable_get('ip_show_geoip', FALSE)) {
+      if (variable_get('ip_address_show_geoip', FALSE)) {
         drupal_add_js('http://j.maxmind.com/app/geoip.js', array('type' => 'external', 'scope' => 'footer'));
-        drupal_add_js(drupal_get_path('module', 'ip') . '/ip.js', array('type' => 'file', 'scope' => 'footer'));
+        drupal_add_js(drupal_get_path('module', 'ip_address') . '/ip_address.js', array('type' => 'file', 'scope' => 'footer'));
         $geoip = '<div class="geoip"><span id="ip_geoip_city"></span>, <span id="ip_geoip_region"></span></div>';
         $geoip .= '<div class="attribution">' . t('Geo IP service provided by !link', array('!link' => l('www.maxmind.com', 'http://www.maxmind.com/', array('external' => TRUE)))) . '</div>';
       }
@@ -60,12 +60,12 @@ function ip_view($format = NULL) {
   }
 }
 
-function ip_settings() {
-  $form['ip_show_geoip'] = array(
+function ip_address_settings() {
+  $form['ip_address_show_geoip'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show geo IP information'),
     '#description' => t("This feature uses a geo IP service provided by !maxmind to show the user's city and state.", array('!maxmind' => l('MaxMind', 'http://www.maxmind.com/'))),
-    '#default_value' => variable_get('ip_show_geoip', FALSE),
+    '#default_value' => variable_get('ip_address_show_geoip', FALSE),
   );
 
   return system_settings_form($form);
