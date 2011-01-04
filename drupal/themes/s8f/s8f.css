@@ -158,9 +158,6 @@ div.codeblock, pre {
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1em;
 }
-#content .node .links {
-  display: none;
-}
 code {
   background-color: #ffeeda;
 }
