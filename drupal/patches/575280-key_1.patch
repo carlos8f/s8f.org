@@ -1,0 +1,61 @@
+Index: includes/session.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/session.inc,v
+retrieving revision 1.91
+diff -u -p -r1.91 session.inc
+--- includes/session.inc	5 Nov 2010 19:05:02 -0000	1.91
++++ includes/session.inc	12 Nov 2010 17:55:27 -0000
+@@ -76,9 +76,9 @@ function _drupal_session_read($sid) {
+   drupal_register_shutdown_function('session_write_close');
+ 
+   // Handle the case of first time visitors and clients that don't store
+-  // cookies (eg. web crawlers).
++  // cookies (eg. web crawlers). Also, do not allow an empty session ID.
+   $insecure_session_name = substr(session_name(), 1);
+-  if (!isset($_COOKIE[session_name()]) && !isset($_COOKIE[$insecure_session_name])) {
++  if ((!isset($_COOKIE[session_name()]) && !isset($_COOKIE[$insecure_session_name])) || empty($sid)) {
+     $user = drupal_anonymous_user();
+     return '';
+   }
+@@ -88,10 +88,7 @@ function _drupal_session_read($sid) {
+   // a HTTPS session or we are about to log in so we check the sessions table
+   // for an anonymous session with the non-HTTPS-only cookie.
+   if ($is_https) {
+-    // Ensure that an empty secure session ID cannot be selected.
+-    if ($sid) {
+-      $user = db_query("SELECT u.*, s.* FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.ssid = :ssid", array(':ssid' => $sid))->fetchObject();
+-    }
++    $user = db_query("SELECT u.*, s.* FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.ssid = :ssid", array(':ssid' => $sid))->fetchObject();
+     if (!$user) {
+       if (isset($_COOKIE[$insecure_session_name])) {
+         $user = db_query("SELECT u.*, s.* FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.sid = :sid AND s.uid = 0", array(
+@@ -200,6 +197,9 @@ function _drupal_session_write($sid, $va
+           }
+         }
+       }
++      elseif (variable_get('https', FALSE)) {
++        unset($key['ssid']);
++      }
+ 
+       db_merge('sessions')
+         ->key($key)
+Index: modules/system/system.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.install,v
+retrieving revision 1.522
+diff -u -p -r1.522 system.install
+--- modules/system/system.install	5 Nov 2010 19:05:02 -0000	1.522
++++ modules/system/system.install	12 Nov 2010 17:55:28 -0000
+@@ -2910,7 +2910,11 @@ function system_update_7065() {
+     'length' => 128,
+     'not null' => TRUE,
+   );
+-  db_change_field('sessions', 'sid', 'sid', $spec);
++  db_drop_primary_key('sessions');
++  db_change_field('sessions', 'sid', 'sid', $spec,
++    array('primary key' => array('sid', 'ssid')));
++  // Delete any sessions with empty session ID.
++  db_delete('sessions')->condition('sid', '')->execute();
+ }
+ 
+ /**

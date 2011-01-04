@@ -1,0 +1,189 @@
+Index: modules/comment/comment.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.install,v
+retrieving revision 1.73
+diff -u -p -r1.73 comment.install
+--- modules/comment/comment.install	28 Sep 2010 03:30:37 -0000	1.73
++++ modules/comment/comment.install	9 Dec 2010 21:58:33 -0000
+@@ -8,6 +8,8 @@
+ 
+ /**
+  * Implements hook_install().
++ *
++ * @see comment_flush_caches()
+  */
+ function comment_install() {
+   // Create comment body field.
+@@ -19,20 +21,6 @@ function comment_install() {
+     );
+     field_create_field($field);
+   }
+-
+-  // There is a separate comment bundle for each node type to allow for
+-  // per-node-type customization of comment fields. Each one of these bundles
+-  // needs a comment body field instance. A comment bundle is needed even for
+-  // node types whose comments are disabled by default, because individual nodes
+-  // may override that default.
+-  // @todo This should be changed to call field_attach_create_bundle() instead,
+-  //   and a comment_field_attach_create_bundle() function should be added to
+-  //   handle the creation of the comment body field instance.
+-  foreach (node_type_get_types() as $type => $info) {
+-    if (!isset($info->is_new) && !isset($info->disabled) && !field_info_instance('comment', 'comment_body', 'comment_node_' . $info->type)) {
+-      _comment_body_field_instance_create($info);
+-    }
+-  }
+ }
+ 
+ /**
+Index: modules/comment/comment.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.module,v
+retrieving revision 1.927
+diff -u -p -r1.927 comment.module
+--- modules/comment/comment.module	9 Dec 2010 01:57:56 -0000	1.927
++++ modules/comment/comment.module	9 Dec 2010 21:58:34 -0000
+@@ -2689,3 +2689,28 @@ function comment_file_download_access($f
+     return user_access('access comments') && $entity->status == COMMENT_PUBLISHED || user_access('administer comments');
+   }
+ }
++
++/**
++ * Implements hook_flush_caches().
++ *
++ * This hook is invoked after groups of modules are installed or enabled. This
++ * is the first time we have access to a rebuilt node type list. Create comment
++ * body field and/or field instances for each node type in the rebuilt list.
++ *
++ * @see comment_install()
++ */
++function comment_flush_caches() {
++  // There is a separate comment bundle for each node type to allow for
++  // per-node-type customization of comment fields. Each one of these bundles
++  // needs a comment body field instance. A comment bundle is needed even for
++  // node types whose comments are disabled by default, because individual nodes
++  // may override that default.
++  // @todo This should be changed to call field_attach_create_bundle() instead,
++  //   and a comment_field_attach_create_bundle() function should be added to
++  //   handle the creation of the comment body field instance.
++  foreach (node_type_get_types() as $type => $info) {
++    if (empty($info->is_new) && empty($info->disabled) && !field_info_instance('comment', 'comment_body', 'comment_node_' . $info->type)) {
++      _comment_body_field_instance_create($info);
++    }
++  }
++}
+Index: modules/comment/comment.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.test,v
+retrieving revision 1.95
+diff -u -p -r1.95 comment.test
+--- modules/comment/comment.test	9 Dec 2010 02:16:21 -0000	1.95
++++ modules/comment/comment.test	9 Dec 2010 21:58:34 -0000
+@@ -1478,3 +1478,34 @@ class CommentActionsTestCase extends Com
+     db_truncate('watchdog')->execute();
+   }
+ }
++
++/**
++ * Test that comment module works after being enabled after a content module.
++ */
++class CommentEnableTest extends CommentHelperCase {
++  protected $profile = 'testing';
++
++  public static function getInfo() {
++    return array(
++      'name' => 'Comment enable test',
++      'description' => 'Test that comment module works after being enabled after a content module.',
++      'group' => 'Comment',
++    );
++  }
++
++  function setUp() {
++    // Do not call parent::setUp() because we selectively enable modules.
++    DrupalWebTestCase::setUp(array('blog', 'comment'));
++    // Create a user and test node.
++    $this->web_user = $this->drupalCreateUser(array('access comments', 'post comments', 'skip comment approval'));
++    $this->node = $this->drupalCreateNode(array('type' => 'blog'));
++  }
++
++  /**
++   * Test that comment module works after being enabled after a content module.
++   */
++  function testCommentEnable() {
++    $this->drupalLogin($this->web_user);
++    $comment = $this->postComment($this->node, $this->randomName(), $this->randomName());
++  }
++}
+Index: modules/node/node.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/node/node.module,v
+retrieving revision 1.1330
+diff -u -p -r1.1330 node.module
+--- modules/node/node.module	2 Dec 2010 23:58:21 -0000	1.1330
++++ modules/node/node.module	9 Dec 2010 21:58:34 -0000
+@@ -672,10 +672,14 @@ function node_type_update_nodes($old_typ
+  */
+ function _node_types_build($rebuild = FALSE) {
+   $cid = 'node_types:' . $GLOBALS['language']->language;
++  $_node_types = &drupal_static(__FUNCTION__, (object) array('init' => TRUE, 'types' => array(), 'names' => array()));
+ 
+-  if (!$rebuild) {
+-    $_node_types = &drupal_static(__FUNCTION__);
+-    if (isset($_node_types)) {
++  if ($rebuild) {
++    // Reset the static cache.
++    $_node_types->types = $_node_types->names = array();
++  }
++  else {
++    if (!isset($_node_types->init)) {
+       return $_node_types;
+     }
+     if ($cache = cache_get($cid)) {
+@@ -683,8 +687,8 @@ function _node_types_build($rebuild = FA
+       return $_node_types;
+     }
+   }
+-
+-  $_node_types = (object) array('types' => array(), 'names' => array());
++  // Unset internal initialization flag.
++  unset($_node_types->init);
+ 
+   foreach (module_implements('node_info') as $module) {
+     $info_array = module_invoke($module, 'node_info');
+@@ -734,6 +738,8 @@ function _node_types_build($rebuild = FA
+     foreach ($_node_types->types as $type => $type_object) {
+       if (!empty($type_object->is_new) || !empty($type_object->disabled_changed)) {
+         node_type_save($type_object);
++        // Since the type has been saved, the is_new flag is no longer needed.
++        unset($_node_types->types[$type]->is_new);
+       }
+     }
+   }
+Index: modules/node/node.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/node/node.test,v
+retrieving revision 1.104
+diff -u -p -r1.104 node.test
+--- modules/node/node.test	9 Dec 2010 08:01:56 -0000	1.104
++++ modules/node/node.test	9 Dec 2010 21:58:35 -0000
+@@ -1220,6 +1220,21 @@ class NodeTypeTestCase extends DrupalWeb
+     $this->drupalGet('node/add/bar');
+     $this->assertNoRaw('Body', t('Body field was not found.'));
+   }
++
++  /**
++   * Test that fresh node types are returned by node_type_get_types().
++   */
++  function testNodeTypeCaching() {
++    // Prime the node type cache.
++    node_types_rebuild();
++    // Enable the blog module, which provides a content type.
++    module_enable(array('blog'), FALSE);
++    $this->resetAll();
++    // node_type_get_types() should include the new type.
++    $new_types = node_type_get_types();
++    $this->assertTrue(isset($new_types['blog']), t('Retrieved node types include new type.'));
++    $this->assertTrue(empty($new_types['blog']->is_new), t('The is_new flag was unset after the type was saved.'));
++  }
+ }
+ 
+ /**

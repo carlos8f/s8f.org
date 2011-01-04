@@ -1,0 +1,110 @@
+? .project
+Index: devel.module
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/devel/devel.module,v
+retrieving revision 1.258.2.84
+diff -u -p -r1.258.2.84 devel.module
+--- devel.module	13 Nov 2010 09:04:39 -0000	1.258.2.84
++++ devel.module	17 Nov 2010 20:54:00 -0000
+@@ -1772,10 +1772,20 @@ function drupal_debug($data, $label = NU
+ }
+ 
+ /**
++ * Access callback for debug messages.
++ *
++ * Allows an array of whitelisted IPs set in $conf['devel_trusted_ips'] to
++ * access dpm() and dvm().
++ */
++function devel_message_access() {
++  return in_array(ip_address(), variable_get('devel_trusted_ips', array())) || user_access('access devel information');
++}
++
++/**
+  * Print a variable to the 'message' area of the page. Uses drupal_set_message()
+  */
+ function dpm($input, $name = NULL) {
+-  if (user_access('access devel information')) {
++  if (devel_message_access()) {
+     $export = kprint_r($input, TRUE, $name);
+     drupal_set_message($export);
+   }
+@@ -1785,7 +1795,7 @@ function dpm($input, $name = NULL) {
+  * Var_dump() a variable to the 'message' area of the page. Uses drupal_set_message()
+  */
+ function dvm($input, $name = NULL) {
+-  if (user_access('access devel information')) {
++  if (devel_message_access()) {
+     $export = dprint_r($input, TRUE, $name, 'var_dump', FALSE);
+     drupal_set_message($export);
+   }
+@@ -1818,11 +1828,12 @@ function dvr($input, $return = FALSE, $n
+ }
+ 
+ function kprint_r($input, $return = FALSE, $name = NULL, $function = 'print_r') {
++  if (!$return && !user_access('access devel information')) {
++    return;
++  }
+   // We do not want to krumo() strings and integers and such
+   if (merits_krumo($input)) {
+-    if (user_access('access devel information')) {
+-      return $return ? (isset($name) ? $name .' => ' : '') . krumo_ob($input) : krumo($input);
+-    }
++    return $return ? (isset($name) ? $name .' => ' : '') . krumo_ob($input) : krumo($input);
+   }
+   else {
+     return dprint_r($input, $return, $name, $function);
+@@ -1835,30 +1846,31 @@ function kprint_r($input, $return = FALS
+  * you want a string returned instead of a print, use the 2nd param.
+  */
+ function dprint_r($input, $return = FALSE, $name = NULL, $function = 'print_r', $check= TRUE) {
+-  if (user_access('access devel information')) {
+-    if ($name) {
+-      $name .= ' => ';
+-    }
+-    ob_start();
+-    $function($input);
+-    $output = ob_get_clean();
+-    if ($check) {
+-      $output = check_plain($output);
+-    }
+-    if (count($input, COUNT_RECURSIVE) > DEVEL_MIN_TEXTAREA) {
+-        // don't use fapi here because sometimes fapi will not be loaded
+-        $printed_value = "<textarea rows=30 style=\"width: 100%;\">\n". $name . $output .'</textarea>';
+-    }
+-    else {
+-      $printed_value = '<pre>'. $name . $output .'</pre>';
+-    }
++  if (!$return && !user_access('access devel information')) {
++    return;
++  }
++  if ($name) {
++    $name .= ' => ';
++  }
++  ob_start();
++  $function($input);
++  $output = ob_get_clean();
++  if ($check) {
++    $output = check_plain($output);
++  }
++  if (count($input, COUNT_RECURSIVE) > DEVEL_MIN_TEXTAREA) {
++      // don't use fapi here because sometimes fapi will not be loaded
++      $printed_value = "<textarea rows=30 style=\"width: 100%;\">\n". $name . $output .'</textarea>';
++  }
++  else {
++    $printed_value = '<pre>'. $name . $output .'</pre>';
++  }
+ 
+-    if ($return) {
+-      return $printed_value;
+-    }
+-    else {
+-      print $printed_value;
+-    }
++  if ($return) {
++    return $printed_value;
++  }
++  else {
++    print $printed_value;
+   }
+ }
+ 

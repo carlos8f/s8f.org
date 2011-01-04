@@ -1,0 +1,297 @@
+Index: modules/block/block.api.php
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/block/block.api.php,v
+retrieving revision 1.13
+diff -u -p -r1.13 block.api.php
+--- modules/block/block.api.php	13 Aug 2010 12:25:14 -0000	1.13
++++ modules/block/block.api.php	4 Oct 2010 18:56:28 -0000
+@@ -57,6 +57,7 @@
+  *     - DRUPAL_CACHE_GLOBAL: The block is the same for every user on every
+  *       page where it is visible.
+  *     - DRUPAL_NO_CACHE: The block should not get cached.
++ *   - 'properties': (optional) @todo: Document me!
+  *   - 'weight': (optional) Initial value for the ordering weight of this block.
+  *     Most modules do not provide an initial value, and any value provided can
+  *     be modified by a user on the block configuration screen.
+Index: modules/comment/comment.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.module,v
+retrieving revision 1.903
+diff -u -p -r1.903 comment.module
+--- modules/comment/comment.module	4 Oct 2010 14:54:10 -0000	1.903
++++ modules/comment/comment.module	4 Oct 2010 18:56:28 -0000
+@@ -402,6 +402,7 @@ function comment_permission() {
+  */
+ function comment_block_info() {
+   $blocks['recent']['info'] = t('Recent comments');
++  $blocks['recent']['properties']['administrative'] = TRUE;
+ 
+   return $blocks;
+ }
+Index: modules/dashboard/dashboard.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/dashboard/dashboard.module,v
+retrieving revision 1.39
+diff -u -p -r1.39 dashboard.module
+--- modules/dashboard/dashboard.module	3 Oct 2010 00:14:57 -0000	1.39
++++ modules/dashboard/dashboard.module	4 Oct 2010 18:56:28 -0000
+@@ -185,6 +185,36 @@ function dashboard_system_info_alter(&$i
+ }
+ 
+ /**
++ * Implements hook_block_info_alter().
++ *
++ * Compiles a list of blocks defined as "administrative" and stores them for
++ * later use.
++ */
++function dashboard_block_info_alter(&$blocks, $theme, $code_blocks) {
++  if (!$theme = variable_get('admin_theme')) {
++    global $theme_key;
++    $theme = $theme_key;
++  }
++  $administrative_blocks = variable_get('dashboard_administrative_blocks', array());
++
++  foreach ($blocks as $module => &$module_blocks) {
++    foreach ($module_blocks as $delta => &$block) {
++      if ($block['theme'] != $theme) {
++        // Only process for the admin theme, which displays the dashboard.
++        continue;
++      }
++      if (!empty($code_blocks[$module][$delta]['properties']['administrative'])) {
++        $administrative_blocks[$module][$delta] = TRUE;
++      }
++      else {
++        unset($administrative_blocks[$module][$delta]);
++      }
++    }
++  }
++  variable_set('dashboard_administrative_blocks', $administrative_blocks);
++}
++
++/**
+  * Implements hook_theme().
+  */
+ function dashboard_theme() {
+@@ -281,14 +311,16 @@ function dashboard_admin_blocks() {
+   module_load_include('inc', 'block', 'block.admin');
+ 
+   // Prepare the blocks for the current theme, and remove those that are
+-  // currently displayed in non-dashboard regions.
++  // currently displayed in non-dashboard regions, or are not specified as
++  // "administrative" in hook_block_info().
+   // @todo This assumes the current page is being displayed using the same
+   //   theme that the dashboard is displayed in.
+   $blocks = block_admin_display_prepare_blocks($theme_key);
+   $dashboard_regions = dashboard_region_descriptions();
+   $regions_to_remove = array_diff_key(system_region_list($theme_key, REGIONS_VISIBLE), $dashboard_regions);
++  $administrative_blocks = variable_get('dashboard_administrative_blocks', array());
+   foreach ($blocks as $id => $block) {
+-    if (isset($regions_to_remove[$block['region']])) {
++    if (isset($regions_to_remove[$block['region']]) || (empty($administrative_blocks[$block['module']][$block['delta']]) && !in_array($block['region'], dashboard_regions()))) {
+       unset($blocks[$id]);
+     }
+   }
+@@ -356,6 +388,62 @@ function dashboard_form_block_admin_conf
+       $region['#options'] = array_diff_key($region['#options'], $dashboard_regions);
+     }
+   }
++
++  // Provide a block setting to control dashboard visibility.
++  $form['settings']['dashboard_visibility'] = array(
++    '#type' => 'checkbox',
++    '#title' => t('Enable on dashboard'),
++    '#default_value' => FALSE,
++  );
++  // If the block is currently assigned to a non-dashboard region, give a note
++  // to the user that the region and setting are not compatible.
++  $current_region = $form['regions'][$theme_key]['#default_value'];
++  if (!empty($current_region) && !in_array($current_region, dashboard_regions())) {
++    $form['settings']['dashboard_visibility']['#description'] = t('Note: The block must be removed from a region on the @theme theme to enable it on the dashboard.', array('@theme' => $form['regions'][$theme_key]['#title']));
++  }
++  // Set the default value based on whether the block is in a dashboard region.
++  elseif (in_array($current_region, dashboard_regions())) {
++    $form['settings']['dashboard_visibility']['#default_value'] = TRUE;
++  }
++  $form['#validate'][] = 'dashboard_form_block_admin_configure_validate';
++  $form['#submit'] = array_merge(array('dashboard_form_block_admin_configure_submit'), $form['#submit']);
++}
++
++/**
++ * Form validation handler for block configuration form.
++ */
++function dashboard_form_block_admin_configure_validate($form, &$form_state) {
++  global $theme_key;
++  drupal_theme_initialize();
++
++  // Ensure that the dashboard visibility flag is only settable if the block
++  // hasn't been assigned to a non-dashboard region.
++  $selected_region = $form_state['values']['regions'][$theme_key];
++  if ($form_state['values']['dashboard_visibility'] && $selected_region != BLOCK_REGION_NONE && !in_array($selected_region, dashboard_regions())) {
++    form_set_error('regions][' . $theme_key, t('The block must be removed from a region on the @theme theme to enable it on the dashboard.', array('@theme' => $form['regions'][$theme_key]['#title'])));
++  }
++}
++
++/**
++ * Form submission handler for block configuration form.
++ */
++function dashboard_form_block_admin_configure_submit($form, &$form_state) {
++  global $theme_key;
++  drupal_theme_initialize();
++
++  // Cause the block to be added/removed from the dashboard based on the
++  // dashboard visibility setting.
++  $region = &$form_state['values']['regions'][$theme_key];
++  if ($form_state['values']['dashboard_visibility']) {
++    // Add the block to the dashboard if not already assigned to a region.
++    if ($region == BLOCK_REGION_NONE) {
++      $region = 'dashboard_main';
++      drupal_set_message(t('Block added to the dashboard.'));
++    }
++  }
++  elseif (in_array($region, dashboard_regions())) {
++    $region = BLOCK_REGION_NONE;
++  }
+ }
+ 
+ /**
+@@ -445,9 +533,11 @@ function dashboard_show_disabled() {
+   // Blocks are not necessarily initialized at this point.
+   $blocks = _block_rehash();
+ 
+-  // Limit the list to disabled blocks for the current theme.
++  // Limit the list to disabled blocks for the current theme which are
++  // specified as "administrative".
++  $administrative_blocks = variable_get('dashboard_administrative_blocks', array());
+   foreach ($blocks as $key => $block) {
+-    if ($block['theme'] != $theme_key || (!empty($block['status']) && !empty($block['region']))) {
++    if ($block['theme'] != $theme_key || (!empty($block['status']) && !empty($block['region'])) || empty($administrative_blocks[$block['module']][$block['delta']])) {
+       unset($blocks[$key]);
+     }
+   }
+Index: modules/dashboard/dashboard.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/dashboard/dashboard.test,v
+retrieving revision 1.5
+diff -u -p -r1.5 dashboard.test
+--- modules/dashboard/dashboard.test	14 Sep 2010 21:51:01 -0000	1.5
++++ modules/dashboard/dashboard.test	4 Oct 2010 18:56:28 -0000
+@@ -43,6 +43,7 @@ class DashboardBlocksTestCase extends Dr
+     $custom_block['title'] = $this->randomName(8);
+     $custom_block['body[value]'] = $this->randomName(32);
+     $custom_block['regions[stark]'] = 'dashboard_main';
++    $custom_block['dashboard_visibility'] = TRUE;
+     $this->drupalPost('admin/structure/block/add', $custom_block, t('Save block'));
+ 
+     // Ensure admin access.
+@@ -79,4 +80,59 @@ class DashboardBlocksTestCase extends Dr
+       $this->assertTrue(empty($elements), t('%region is not an available choice on the block configuration page.', array('%region' => $region)));
+     }
+   }
++
++  /**
++   * Test that defining a block with ['properties']['administrative'] = TRUE
++   * adds it as an available block for the dashboard.
++   */
++  function testBlockAvailability() {
++    // Enable our test module and flush caches.
++    module_enable(array('dashboard_test'), FALSE);
++    drupal_flush_all_caches();
++    $this->drupalGet('admin/structure/dashboard');
++    // test1 should be available in the dashboard block admin UI.
++    $this->assertText('test1', t('Block defined as "administrative" found in the dashboard block admin UI.'));
++    // test2 should not show up in the UI since it is not defined
++    // as "administrative".
++    $this->assertNoText('test2', t('Blocks not defined as "administrative" are excluded from dashboard UI by default.'));
++
++    // Now test admin/dashboard/drawer in the same way.
++    $this->drupalGet('admin/dashboard/drawer');
++    $this->assertText('test1', t('Drawer of disabled blocks includes the one defined as "administrative".'));
++    $this->assertNoText('test2', t('Drawer of disabled blocks excludes the one not defined as "administrative".'));
++  }
++
++  /**
++   * Test that a block can be added and removed from the dashboard via the
++   * "Enable on dashboard" checkbox. Also test the validation error if the
++   * block is already assigned to a region.
++   */
++  function testDashboardEnableCheckbox() {
++    // Attempt to put "System help" block on the dashboard. This should fail
++    // since the block is already assigned to a non-dashboard region of the
++    // admin theme.
++    $this->drupalGet('admin/structure/block/manage/system/help/configure');
++    $elements = $this->xpath('//input[@id=:id]', array(':id' => 'edit-dashboard-visibility'));
++    $this->assertTrue(!empty($elements[0]) && empty($elements[0]['checked']), t('Dashboard enable checkbox is present and unchecked.'));
++    $values = array();
++    $values['dashboard_visibility'] = TRUE;
++    $this->drupalPost('admin/structure/block/manage/system/help/configure', $values, t('Save block'));
++    $this->assertText(t('The block must be removed from a region on the @theme theme to enable it on the dashboard.', array('@theme' => 'Stark')), t('Dashboard enable setting not selectable when the block is already in a non-dashboard region for the admin theme.'));
++
++    // Unassign the region, and now we should see a success message.
++    $values['regions[stark]'] = BLOCK_REGION_NONE;
++    $this->drupalPost('admin/structure/block/manage/system/help/configure', $values, t('Save block'));
++    $this->assertText(t('Block added to the dashboard.'), t('Validation error is fixed by unassigning the region.'));
++
++    // Ensure that the block shows up on the dashboard.
++    $this->drupalGet('admin/dashboard');
++    $this->assertText(t('System help'), t('Block is now on the dashboard.'));
++
++    // Now remove the block from the dashboard via the checkbox.
++    $values = array();
++    $values['dashboard_visibility'] = FALSE;
++    $this->drupalPost('admin/structure/block/manage/system/help/configure', $values, t('Save block'));
++    $this->drupalGet('admin/dashboard');
++    $this->assertNoText(t('System help'), t('Block was removed from the dashboard via the dashboard visibility setting.'));
++  }
+ }
+Index: modules/node/node.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/node/node.module,v
+retrieving revision 1.1304
+diff -u -p -r1.1304 node.module
+--- modules/node/node.module	3 Oct 2010 01:15:33 -0000	1.1304
++++ modules/node/node.module	4 Oct 2010 18:56:29 -0000
+@@ -2045,6 +2045,7 @@ function node_block_info() {
+   $blocks['syndicate']['cache'] = DRUPAL_NO_CACHE;
+ 
+   $blocks['recent']['info'] = t('Recent content');
++  $blocks['recent']['properties']['administrative'] = TRUE;
+ 
+   return $blocks;
+ }
+Index: modules/search/search.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/search/search.module,v
+retrieving revision 1.363
+diff -u -p -r1.363 search.module
+--- modules/search/search.module	1 Oct 2010 15:24:18 -0000	1.363
++++ modules/search/search.module	4 Oct 2010 18:56:29 -0000
+@@ -143,6 +143,8 @@ function search_block_info() {
+   $blocks['form']['info'] = t('Search form');
+   // Not worth caching.
+   $blocks['form']['cache'] = DRUPAL_NO_CACHE;
++  $blocks['form']['properties']['administrative'] = TRUE;
++
+   return $blocks;
+ }
+ 
+Index: modules/user/user.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/user/user.module,v
+retrieving revision 1.1206
+diff -u -p -r1.1206 user.module
+--- modules/user/user.module	4 Oct 2010 14:54:10 -0000	1.1206
++++ modules/user/user.module	4 Oct 2010 18:56:29 -0000
+@@ -1273,10 +1273,13 @@ function user_block_info() {
+   $blocks['login']['cache'] = DRUPAL_NO_CACHE;
+ 
+   $blocks['new']['info'] = t('Who\'s new');
++  $blocks['new']['properties']['administrative'] = TRUE;
+ 
+   // Too dynamic to cache.
+   $blocks['online']['info'] = t('Who\'s online');
+   $blocks['online']['cache'] = DRUPAL_NO_CACHE;
++  $blocks['online']['properties']['administrative'] = TRUE;
++
+   return $blocks;
+ }
+ 

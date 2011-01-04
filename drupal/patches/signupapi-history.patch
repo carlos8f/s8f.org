@@ -1,0 +1,445 @@
+Index: sites/all/modules/terraeclipse/signupapi/tests/signupapi_test.info
+===================================================================
+--- sites/all/modules/terraeclipse/signupapi/tests/signupapi_test.info	(revision 2178)
++++ sites/all/modules/terraeclipse/signupapi/tests/signupapi_test.info	(revision 2179)
+@@ -1,7 +1,7 @@
+ ; $Id$
+ name = Signup API Tests
+ description = Extensibility tests for Signup API.
+-package = Terra Eclipse
++package = Signup
+ version = "6.x-1.0"
+ core = 6.x
+ hidden = TRUE
+Index: sites/all/modules/terraeclipse/signupapi/signupapi.module
+===================================================================
+--- sites/all/modules/terraeclipse/signupapi/signupapi.module	(revision 2178)
++++ sites/all/modules/terraeclipse/signupapi/signupapi.module	(revision 2179)
+@@ -6,6 +6,9 @@
+  * A simple framework that acts as a backend for info-capture forms.
+  */
+ 
++// Signupapi Vocabulary.
++define('SIGNUPAPI_VID', variable_get('signupapi_vid', NULL));
++
+ /**
+  * Implementation of hook_menu().
+  */
+@@ -49,7 +52,7 @@
+ /**
+  * This function is used to alter data objects by reference,
+  * and run functions when various hooks/events are invoked.
+- * 
++ *
+  * @param $op
+  *   Operation to perform.
+  * @param &$signup
+@@ -65,7 +68,7 @@
+ /**
+  * Public API function to fetch signup data for a given
+  * data object, which must contain an sid or email.
+- * 
++ *
+  * @param $signup
+  *   Signup object to use as a base, must be an array or
+  *   object containing one of the keys/properties: sid or email.
+@@ -100,7 +103,17 @@
+       foreach ($extra as $key => $value) {
+         $existing_signup[$key] = $value;
+       }
+-    } 
++    }
++
++    // Load terms.
++    $existing_signup['taxonomy'] = array();
++    $result = db_query("SELECT DISTINCT tid FROM {signups_terms} WHERE sid = %d", $existing_signup['sid']);
++    while ($tid = db_result($result)) {
++      if ($term = taxonomy_get_term($tid)) {
++        $existing_signup['taxonomy'][$tid] = $term;
++      }
++    }
++
+     foreach ($existing_signup as $key => $value) {
+       if (!isset($signup->$key) || (preg_match("/(text|char|varchar)/", $schema['fields'][$key]['type']) && $signup->$key == '')) {
+         $signup->$key = $value;
+@@ -121,9 +134,9 @@
+ 
+ /**
+  * Public API function to insert/update a signup record,
+- * given an array or object of signup data. The only 
++ * given an array or object of signup data. The only
+  * required field is 'email'.
+- * 
++ *
+  * @todo
+  *   use schema "serialize" key for "extra" field
+  */
+@@ -134,32 +147,43 @@
+   elseif (!is_object($signup)) {
+     return FALSE;
+   }
+-  $signup = signupapi_load($signup);
++
++  // Initial signup preparation.
+   if (empty($signup->email) || !_signupapi_is_email($signup->email)) {
+     return FALSE;
+   }
+   _signupapi_split_name($signup);
+   $signup->email = strtolower($signup->email);
++  $signup->ip_address = ip_address();
++  $signup->referer = $_SERVER['HTTP_REFERER'];
++  $signup->user_agent = $_SERVER['HTTP_USER_AGENT'];
++
++  // Clone a copy for the history.
++  $current_signup = drupal_clone($signup);
++
++  // Updated timestamp.
++  $signup->updated = time();
++
++  // Zip to state.
++  if (!empty($signup->zip) && $state = _signupapi_zip2state($signup->zip)) {
++    $signup->state = $state;
++  }
++
++  // Load signup object so extras can be merged and sid can be retrieved.
++  $signup = signupapi_load($signup);
+   if (isset($signup->sid) && $signup->sid > 0) {
+     $update = 'sid';
+   }
+   else {
+     $update = array();
++    $signup->uid = $GLOBALS['user']->uid;
+     $signup->created = time();
+   }
+-  // zip to state conversion.
+-  if (!empty($signup->zip) && $state = _signupapi_zip2state($signup->zip)) {
+-    $signup->state = $state;
+-  }
+-  $signup->ip_address = ip_address();
+-  $signup->referer = $_SERVER['HTTP_REFERER'];
+-  $signup->user_agent = $_SERVER['HTTP_USER_AGENT'];
+-  if (empty($signup->sid)) {
+-    $signup->uid = $GLOBALS['user']->uid;
+-  }
+-  $signup->updated = time();
++
++  // Let other modules modify the signup object.
+   signupapi_invoke(count($update) ? 'update' : 'insert', $signup);
+-  // collapse extra properties into the serialized "extra" column, ignoring
++
++  // Collapse extra properties into the serialized "extra" column, ignoring
+   // fields defined in hook_signupapi_ignore().
+   $schema = drupal_get_schema('signups');
+   $ignore = array_merge(array_keys($schema['fields']), module_invoke_all('signupapi_ignore'));
+@@ -171,6 +195,8 @@
+   }
+   _signupapi_track_extra($extra);
+   $signup->extra = serialize($extra);
++
++  // Save signup.
+   $result = drupal_write_record('signups', $signup, $update);
+   if (!$result) {
+     return FALSE;
+@@ -193,6 +219,50 @@
+     $name .= '<'. $signup->email .'>';
+     watchdog('signupapi', '@a signed up.', array('@a' => $name), WATCHDOG_NOTICE);
+   }
++
++  // Save history entry.
++  $properties = array_keys(get_object_vars($current_signup));
++  foreach ($properties as $key => $prop) {
++    if (empty($current_signup->$prop)) {
++      unset($properties[$key]);
++    }
++  }
++  $history = array(
++    'sid' => $signup->sid,
++    'timestamp' => time(),
++    'data' => serialize($signup),
++    'properties' => serialize($properties),
++  );
++  $result = drupal_write_record('signup_history', $history);
++  if (!$result) {
++    watchdog('signupapi', 'Failure to write signup to {signup_history} table. (sid = !sid)', array('!sid' => $signup->sid), WATCHDOG_ERROR);
++  }
++  else {
++    $signup->shid = $history['shid'];
++
++    // Save taxonomy terms.
++    if (isset($signup->terms) && !empty($signup->terms)) {
++      foreach ($signup->terms as $tid) {
++        $signup_term = array(
++          'shid' => $signup->shid,
++          'tid' => $tid,
++          'sid' => $signup->sid,
++        );
++        $result = drupal_write_record('signups_terms', $signup_term);
++        if (!$result) {
++          watchdog('signupapi', 'Failure to write signup to {signups_terms} table. (sid = !sid)', array('!sid' => $signup->sid), WATCHDOG_ERROR);
++        }
++        else {
++          if (!isset($signup->taxonomy[$tid])) {
++            if ($term = taxonomy_get_term($tid)) {
++              $signup->taxonomy[$tid] = $term;
++            }
++          }
++        }
++      }
++    }
++  }
++
+   signupapi_invoke(count($update) ? 'after update' : 'after insert', $signup);
+   return $signup;
+ }
+@@ -204,7 +274,7 @@
+  * the 'extra' serialized column in the {signups} table.
+  */
+ function signupapi_signupapi_ignore() {
+-  return array('new_opt_in', 'new_zip', 'op', 'submit', 'form_build_id', 'form_token', 'form_id');
++  return array('new_opt_in', 'new_zip', 'op', 'submit', 'form_build_id', 'form_token', 'form_id', 'shid', 'taxonomy', 'terms');
+ }
+ 
+ function _signupapi_track_extra($extra) {
+@@ -231,7 +301,7 @@
+     'IA' => array('5000052999'), 'ID' => array('8320083899'), 'IL' => array('6000062999'),
+     'IN' => array('4600047999'), 'KS' => array('6600067999'), 'KY' => array('4000042799', '4527545275'),
+     'LA' => array('7000071499', '7174971749'), 'MA' => array('0100002799'), 'MD' => array('2033120331', '2060021999'),
+-    'ME' => array('0380103801', '0380403804', '0390004999'), 'MI' => array('4800049999'), 'MN' => array('5500056799'), 
++    'ME' => array('0380103801', '0380403804', '0390004999'), 'MI' => array('4800049999'), 'MN' => array('5500056799'),
+     'MO' => array('6300065899'), 'MS' => array('3860039799'), 'MT' => array('5900059999'), 'NC' => array('2700028999'),
+     'ND' => array('5800058899'), 'NE' => array('6800069399'), 'NH' => array('0300003803', '0380903899'),
+     'NJ' => array('0700008999'), 'NM' => array('8700088499'), 'NV' => array('8900089899'),
+@@ -242,7 +312,7 @@
+     'UT' => array('8400084799'), 'VA' => array('2010520199', '2030120301', '2037020370', '2200024699'),
+     'VT' => array('0500005999'), 'WA' => array('9800099499'), 'WI' => array('4993649936', '5300054999'),
+     'WV' => array('2470026899'), 'WY' => array('8200083199'));
+-  
++
+   foreach ($allstates as $state => $ranges) {
+     foreach ($ranges as $range) {
+       $low = (int) substr($range, 0, 5);
+@@ -252,7 +322,7 @@
+       }
+     }
+   }
+-  
++
+   return FALSE;
+ }
+ 
+@@ -315,7 +385,7 @@
+ /**
+  * Create a column in the signups table if it doesn't exist, using a
+  * pre-defined schema unless it is overriden by $spec.
+- * 
++ *
+  * @param $field_name
+  *   String naming the field in the database.
+  * @param $spec
+@@ -345,9 +415,9 @@
+ 
+ /**
+  * Implementation of hook_schema_alter().
+- * 
++ *
+  * Append optional fields to the {signups} schema.
+- * 
++ *
+  * @see signupapi_enable_field()
+  */
+ function signupapi_schema_alter(&$schema) {
+@@ -357,10 +427,10 @@
+ 
+ /**
+  * Fetch the field definition for any signupapi field.
+- * 
++ *
+  * This function is useful for getting a field $spec array for optional
+  * fields, to be used with signupapi_enable_field().
+- * 
++ *
+  * @see signupapi_enable_field()
+  */
+ function signupapi_get_field_spec($field_name) {
+Index: sites/all/modules/terraeclipse/signupapi/signupapi.install
+===================================================================
+--- sites/all/modules/terraeclipse/signupapi/signupapi.install	(revision 2178)
++++ sites/all/modules/terraeclipse/signupapi/signupapi.install	(revision 2179)
+@@ -9,6 +9,23 @@
+ 
+ function signupapi_install() {
+   drupal_install_schema('signupapi');
++
++  // Create signupapi vocabulary.
++  $vocabulary = array(
++    'name' => t('Signup API'),
++    'multiple' => 0,
++    'description' => t('Allows modules implementing the signupapi to categorize submissions.'),
++    'required' => 0,
++    'hierarchy' => 0,
++    'relations' => 0,
++    'tags' => 0,
++    'weight' => 0,
++    'module' => 'signupapi',
++    'nodes' => array(),
++  );
++  if (taxonomy_save_vocabulary($vocabulary)) {
++    variable_set('signupapi_vid', $vocabulary['vid']);
++  }
+ }
+ 
+ function signupapi_schema() {
+@@ -48,9 +65,109 @@
+     ),
+     'primary key' => array('name')
+   );
++  // History of signups.
++  $schema['signup_history'] = array(
++    'fields' => array(
++      'shid'       => array('type' => 'serial', 'unsigned' => TRUE, 'not null' => TRUE),
++      'sid'        => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++      'timestamp'  => array('type' => 'int', 'not null' => TRUE),
++      'data'       => array('type' => 'text', 'size' => 'medium'),
++      'properties' => array('type' => 'text', 'size' => 'medium'),
++    ),
++    'primary key' => array('shid'),
++  );
++  // Taxonomy terms associated with signups.
++  $schema['signups_terms'] = array(
++    'fields' => array(
++      'shid'      => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++      'tid'       => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++      'sid'       => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++    ),
++    'primary key' => array('shid', 'tid'),
++    'indexes' => array(
++      'sid' => array('sid'),
++    ),
++  );
++
+   return $schema;
+ }
+ 
+ function signupapi_uninstall() {
+   drupal_uninstall_schema('signupapi');
+ }
++
++/**
++ * Update 6001.  Add signup_history table.
++ */
++function signupapi_update_6001() {
++  $ret = array();
++  $table = array(
++    'fields' => array(
++      'shid'      => array('type' => 'serial', 'unsigned' => TRUE, 'not null' => TRUE),
++      'sid'       => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++      'timestamp' => array('type' => 'int', 'not null' => TRUE),
++      'data'      => array('type' => 'text', 'size' => 'medium'),
++      'tid'       => array('type' => 'int', 'unsigned' => TRUE, 'default' => NULL),
++    ),
++    'primary key' => array('shid'),
++  );
++  db_create_table($ret, 'signup_history', $table);
++
++  // Create signupapi vocabulary.
++  $vocabulary = array(
++    'name' => t('Signup API'),
++    'multiple' => 0,
++    'description' => t('Allows modules implementing the signupapi to categorize submissions.'),
++    'required' => 0,
++    'hierarchy' => 0,
++    'relations' => 0,
++    'tags' => 0,
++    'weight' => 0,
++    'module' => 'signupapi',
++    'nodes' => array(),
++  );
++  if (taxonomy_save_vocabulary($vocabulary)) {
++    variable_set('signupapi_vid', $vocabulary['vid']);
++  }
++  return $ret;
++}
++
++/**
++ * Update 6002.  Add signups_terms table. Remove tid field from signup_history.
++ */
++function signupapi_update_6002() {
++  $ret = array();
++  // Add signups_terms table
++  $table = array(
++    'fields' => array(
++      'shid'      => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++      'tid'       => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++      'sid'       => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
++    ),
++    'primary key' => array('shid', 'tid'),
++    'indexes' => array(
++      'sid' => array('sid'),
++    ),
++  );
++  db_create_table($ret, 'signups_terms', $table);
++
++  // Migrate terms.
++  $ret[] = update_sql("INSERT INTO {signups_terms} SELECT shid, tid, sid FROM {signup_history}");
++
++  // Remove tid from signup_history.
++  db_drop_field($ret, 'signup_history', 'tid');
++
++  return $ret;
++}
++
++/**
++ * Update 6003.  Add properties field to signup_history.
++ */
++function signupapi_update_6003() {
++  $ret = array();
++
++  // Add properties field.
++  db_add_field($ret, 'signup_history', 'properties', array('type' => 'text', 'size' => 'medium'));
++
++  return $ret;
++}
+\ No newline at end of file
+Index: sites/all/modules/terraeclipse/signupapi/signupapi.info
+===================================================================
+--- sites/all/modules/terraeclipse/signupapi/signupapi.info	(revision 2178)
++++ sites/all/modules/terraeclipse/signupapi/signupapi.info	(revision 2179)
+@@ -1,6 +1,8 @@
+ ; $Id$
+ name = Signup API
+-description = A simple storage API for sign-up forms.
+-package = Terra Eclipse
+-version = "6.x-1.2-beta"
++description = A storage API for signups.
++package = Signup
++version = "6.x-2.0-alpha"
+ core = 6.x
++
++dependencies[] = taxonomy
+\ No newline at end of file
+Index: sites/all/modules/terraeclipse/signupapi/signupapi_google/signupapi_google.info
+===================================================================
+--- sites/all/modules/terraeclipse/signupapi/signupapi_google/signupapi_google.info	(revision 2178)
++++ sites/all/modules/terraeclipse/signupapi/signupapi_google/signupapi_google.info	(revision 2179)
+@@ -1,7 +1,7 @@
+ ; $Id$
+ name = Signup API Google Geocoder
+ description = Fetch longitude, latitude, city and state information for signups from Google's webservice.
+-package = Terra Eclipse
++package = Signup
+ core = 6.x
+ version = "6.x-1.0-alpha"
+ dependencies[] = signupapi
+Index: sites/all/modules/terraeclipse/signupapi/signupapi_sunlightlabs/signupapi_sunlightlabs.info
+===================================================================
+--- sites/all/modules/terraeclipse/signupapi/signupapi_sunlightlabs/signupapi_sunlightlabs.info	(revision 2178)
++++ sites/all/modules/terraeclipse/signupapi/signupapi_sunlightlabs/signupapi_sunlightlabs.info	(revision 2179)
+@@ -1,7 +1,7 @@
+ ; $Id$
+ name = Signup API Sunlight Labs
+ description = Fetch congressional district information for signups from Sunlight Labs' webservice.
+-package = Terra Eclipse
++package = Signup
+ core = 6.x
+ version = "6.x-1.0-alpha"
+ dependencies[] = signupapi

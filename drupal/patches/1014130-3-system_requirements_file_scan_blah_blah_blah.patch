@@ -1,0 +1,16 @@
+Index: modules/system/system.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.install,v
+retrieving revision 1.532
+diff -u -p -r1.532 system.install
+--- modules/system/system.install	2 Jan 2011 17:26:39 -0000	1.532
++++ modules/system/system.install	4 Jan 2011 06:44:21 -0000
+@@ -33,7 +33,7 @@ function system_requirements($phase) {
+     // is not running the default install profile.
+     $profile = drupal_get_profile();
+     if ($profile != 'standard') {
+-      $info = install_profile_info($profile);
++      $info = system_get_info('module', $profile);
+       $requirements['install_profile'] = array(
+         'title' => $t('Install profile'),
+         'value' => $t('%profile_name (%profile-%version)', array(

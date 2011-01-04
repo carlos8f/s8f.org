@@ -1,0 +1,12 @@
+diff --git a/cursor.c b/cursor.c
+index cb9b75f..8d9649c 100644
+--- a/cursor.c
++++ b/cursor.c
+@@ -869,6 +869,6 @@ void mongo_init_MongoCursor(TSRMLS_D) {
+   zend_class_implements(mongo_ce_Cursor TSRMLS_CC, 1, zend_ce_iterator);
+ 
+   zend_declare_property_bool(mongo_ce_Cursor, "slaveOkay", strlen("slaveOkay"), 0, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC TSRMLS_CC);
+-  zend_declare_property_long(mongo_ce_Cursor, "timeout", strlen("timeout"), 30000, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC TSRMLS_CC);
++  zend_declare_property_long(mongo_ce_Cursor, "timeout", strlen("timeout"), 0, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC TSRMLS_CC);
+ }
+ 

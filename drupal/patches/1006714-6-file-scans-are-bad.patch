@@ -1,0 +1,44 @@
+Index: includes/module.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/module.inc,v
+retrieving revision 1.209
+diff -u -p -r1.209 module.inc
+--- includes/module.inc	27 Nov 2010 20:41:38 -0000	1.209
++++ includes/module.inc	4 Jan 2011 07:56:58 -0000
+@@ -835,16 +835,29 @@ function module_invoke_all() {
+  * Array of modules required by core.
+  */
+ function drupal_required_modules() {
+-  $files = drupal_system_listing('/^' . DRUPAL_PHP_FUNCTION_PATTERN . '\.info$/', 'modules', 'name', 0);
+   $required = array();
+ 
+-  // An install profile is required and one must always be loaded.
+-  $required[] = drupal_get_profile();
++  // If installation is already finished, all required modules should be enabled
++  // and available through system_get_info().
++  if (variable_get('install_task') == 'done') {
++    foreach (system_get_info('module') as $module => $info) {
++      if (!empty($info['required'])) {
++        $required[] = $module;
++      }
++    }
++  }
++  else {
++    // During site installation, we need to scan the filesystem to list modules.
++    $files = drupal_system_listing('/^' . DRUPAL_PHP_FUNCTION_PATTERN . '\.info$/', 'modules', 'name', 0);
++
++    // An install profile is required and one must always be loaded.
++    $required[] = drupal_get_profile();
+ 
+-  foreach ($files as $name => $file) {
+-    $info = drupal_parse_info_file($file->uri);
+-    if (!empty($info) && !empty($info['required']) && $info['required']) {
+-      $required[] = $name;
++    foreach ($files as $name => $file) {
++      $info = drupal_parse_info_file($file->uri);
++      if (!empty($info['required'])) {
++        $required[] = $name;
++      }
+     }
+   }
+ 

@@ -1,0 +1,31 @@
+Index: dreditor.user.js
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/dreditor/dreditor.user.js,v
+retrieving revision 1.58
+diff -u -p -r1.58 dreditor.user.js
+--- dreditor.user.js	15 Dec 2010 00:36:06 -0000	1.58
++++ dreditor.user.js	15 Dec 2010 02:54:22 -0000
+@@ -1344,10 +1344,23 @@ Drupal.dreditor.syntaxAutocomplete = fun
+     .insertAfter(this.$element)
+     .append(this.$suggestion);
+ 
++  this.$element.bind('keypress.syntaxAutocomplete', { syntax: this }, this.keypressHandler);
+   this.$element.bind('keyup.syntaxAutocomplete', { syntax: this }, this.keyupHandler);
+ };
+ 
+ /**
++ * Responds to any keypress event in the bound element to prevent a browser's default keyboard shortcut.
++ */
++Drupal.dreditor.syntaxAutocomplete.prototype.keypressHandler = function (event) {
++  var self = event.data.syntax;
++  // In some browsers, in the keypress event, open bracket might be read as
++  // charCode 91 (left window key).
++  if (event.ctrlKey && event.which == 91) {
++    event.preventDefault();
++  }
++};
++
++/**
+  * Responds to any keyUp event in the bound element.
+  */
+ Drupal.dreditor.syntaxAutocomplete.prototype.keyupHandler = function (event) {

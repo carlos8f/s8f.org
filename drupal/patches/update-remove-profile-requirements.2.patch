@@ -1,0 +1,57 @@
+Index: modules/system/system.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.install,v
+retrieving revision 1.469
+diff -u -p -r1.469 system.install
+--- modules/system/system.install	19 May 2010 19:14:43 -0000	1.469
++++ modules/system/system.install	25 May 2010 00:53:25 -0000
+@@ -362,8 +362,8 @@ function system_requirements($phase) {
+   if ($phase == 'update') {
+     $files = system_rebuild_module_data();
+     foreach ($files as $module => $file) {
+-      // Ignore disabled modules.
+-      if (!$file->status) {
++      // Ignore disabled modules and install profiles.
++      if (!$file->status || preg_match('/\.profile$/', $file->filename)) {
+         continue;
+       }
+       // Check the module's PHP version.
+Index: modules/system/system.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.test,v
+retrieving revision 1.124
+diff -u -p -r1.124 system.test
+--- modules/system/system.test	20 Apr 2010 09:48:06 -0000	1.124
++++ modules/system/system.test	25 May 2010 00:53:25 -0000
+@@ -1687,6 +1687,31 @@ class UpdateScriptFunctionalTest extends
+   }
+ 
+   /**
++   * Tests the detection of requirements for the update script to proceed.
++   */
++  function testUpdateRequirements() {
++    $this->drupalLogin($this->update_user);
++    $this->drupalGet($this->update_url, array('external' => TRUE));
++    $this->assertResponse(200);
++    // Test if disabling a module that another enabled module depends on will
++    // prevent the update from proceeding.
++    module_disable(array('block'), FALSE);
++    $this->assertFalse(module_exists('block'), t('Block module is disabled.'));
++    $this->assertTrue(module_exists('dashboard'), t('Dashboard module is enabled.'));
++    $this->drupalGet($this->update_url, array('external' => TRUE));
++    $this->assertText(t('Unresolved dependency'), t('The update process cannot proceed when a module dependency is not enabled.'));
++
++    // Test if modules required by the current install profile are not required
++    // to be enabled for an update to proceed.
++    module_enable(array('block'));
++    $this->assertTrue(module_exists('block'), t('Block module is enabled.'));
++    module_disable(array('overlay'));
++    $this->assertFalse(module_exists('overlay'), t('Overlay module is disabled.'));
++    $this->drupalGet($this->update_url, array('external' => TRUE));
++    $this->assertNoText(t('Unresolved dependency'), t('The update process can proceed when modules from the install profile are disabled.'));
++  }
++
++  /**
+    * Tests the effect of using the update script on the theme system.
+    */
+   function testThemeSystem() {

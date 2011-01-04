@@ -1,0 +1,126 @@
+From 49ceaf77e6515dd8003183e99ee14ac9f0c2d23a Mon Sep 17 00:00:00 2001
+From: Bradley M. Froehle <brad.froehle@gmail.com>
+Date: Mon, 8 Nov 2010 15:43:56 -0800
+Subject: [PATCH] 963656: node_access_view_all_nodes() is never invoked
+
+Includes a patch to fix the issue, a unit test which accurately
+detects the presence of the patch, and some improved documentation.
+---
+ modules/node/node.module                   |   10 +++++
+ modules/node/node.test                     |   57 ++++++++++++++++++++++++++++
+ modules/node/tests/node_access_test.module |    3 +
+ 3 files changed, 70 insertions(+), 0 deletions(-)
+
+diff --git modules/node/node.module modules/node/node.module
+index 2097a91..75f3a13 100644
+--- modules/node/node.module
++++ modules/node/node.module
+@@ -3006,6 +3006,12 @@ function node_access_grants($op, $account = NULL) {
+ 
+ /**
+  * Determine whether the user has a global viewing grant for all nodes.
++ *
++ * By design, this function checks to see whether any module grants
++ * 'view' for node id 0. Node module provides this record if no node
++ * access modules are present. This function allows other modules to
++ * replicate this core behavior by providing their own conditional grant
++ * for nid 0.
+  */
+ function node_access_view_all_nodes() {
+   $access = &drupal_static(__FUNCTION__);
+@@ -3099,6 +3105,10 @@ function _node_query_node_access_alter($query, $base_table, $type) {
+   if (!count(module_implements('node_grants'))) {
+     return;
+   }
++  // If viewing nodes, make sure access rules should be enforced.
++  if ($op == 'view' && node_access_view_all_nodes()) {
++    return;
++  }
+ 
+   // Prevent duplicate records.
+   $query->distinct();
+diff --git modules/node/node.test modules/node/node.test
+index 66d6bf7..975728a 100644
+--- modules/node/node.test
++++ modules/node/node.test
+@@ -1801,6 +1801,63 @@ class NodeQueryAlter extends DrupalWebTestCase {
+       $this->fail(t('Altered query is malformed'));
+     }
+   }
++
++  /**
++   * Lower-level test of 'node_access' query alter override.
++   *
++   * Verifies that node_access_view_all_nodes() is called from
++   * node_query_node_access_alter().  We do this by checking that
++   * a user which normally would not have view privileges is able
++   * to view the nodes when we add a record to {node_access} paired
++   * with a corresponding privilege in hook_node_grants().
++   */
++  function testNodeQueryAlterOverride() {
++    $record = array(
++      'nid' => 0,
++      'gid' => 0,
++      'realm' => 'node_access_all',
++      'grant_view' => 1,
++      'grant_update' => 0,
++      'grant_delete' => 0,
++    );
++    drupal_write_record('node_access', $record);
++
++    // Test that the noAccessUser still doesn't have the 'view'
++    // privilege after adding the node_access record.
++    drupal_static_reset('node_access_view_all_nodes');
++    try {
++      $query = db_select('node', 'mytab')
++        ->fields('mytab');
++      $query->addTag('node_access');
++      $query->addMetaData('op', 'view');
++      $query->addMetaData('account', $this->noAccessUser);
++
++      $result = $query->execute()->fetchAll();
++      $this->assertEqual(count($result), 0, t('User view privileges are not overridden'));
++    }
++    catch (Exception $e) {
++      $this->fail(t('Altered query is malformed'));
++    }
++
++    // Have node_test_node_grants return a node_access_all privilege,
++    // to grant the noAccessUser 'view' access.
++    variable_set('node_test_node_access_all', 1);
++    drupal_static_reset('node_access_view_all_nodes');
++    try {
++      $query = db_select('node', 'mytab')
++        ->fields('mytab');
++      $query->addTag('node_access');
++      $query->addMetaData('op', 'view');
++      $query->addMetaData('account', $this->noAccessUser);
++
++      $result = $query->execute()->fetchAll();
++      $this->assertEqual(count($result), 4, t('User view privileges are overridden'));
++    }
++    catch (Exception $e) {
++      $this->fail(t('Altered query is malformed'));
++    }
++    variable_del('node_test_node_access_all');
++  }
+ }
+ 
+ 
+diff --git modules/node/tests/node_access_test.module modules/node/tests/node_access_test.module
+index ac71667..33f7a01 100644
+--- modules/node/tests/node_access_test.module
++++ modules/node/tests/node_access_test.module
+@@ -16,6 +16,9 @@ function node_access_test_node_grants($account, $op) {
+   if ($op == 'view' && user_access('node test view', $account)) {
+     $grants['node_access_test'] = array(888);
+   }
++  if ($op == 'view' && variable_get('node_test_node_access_all', 0)) {
++    $grants['node_access_all'] = array(0);
++  }
+   return $grants;
+ }
+ 
+-- 
+1.7.0.4
+

@@ -1,0 +1,140 @@
+? .cvsignore
+? .project
+? .settings
+? install.log
+? install_log.php
+? test.php
+? sites/default/files
+? sites/default/private
+? sites/default/settings.php
+Index: modules/filter/filter.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/filter/filter.test,v
+retrieving revision 1.77
+diff -u -p -r1.77 filter.test
+--- modules/filter/filter.test	28 Sep 2010 03:30:37 -0000	1.77
++++ modules/filter/filter.test	28 Sep 2010 20:37:06 -0000
+@@ -835,6 +835,52 @@ class FilterUnitTestCase extends DrupalU
+     if (!$success) {
+       $this->verbose("\n" . $source . "\n<hr />\n" . $result);
+     }
++
++    // Tests that the filter outputs valid XHTML. If the output is valid, it
++    // will not need to be corrected.
++    $tests = array();
++    $test1 = "<div>\nParagraph text\n\nMore text\n</div>";
++    $this->assertCorrectHTML($test1);
++    $this->assertCorrectHTML(_filter_autop($test1));
++
++    $test2 = <<<EOT
++<img src="/logo.png" />
++
++<big class="fat">The quick brown fox <em>jumps over the lazy dog.
++
++The lazy dog</em> jumps over the quick brown </big>fox.
++
++<div id="some-id">
++  Quick lazy fox,
++
++  Jumps <span style="color:blue">over a lazy</span> fish.
++</div>
++The end.
++EOT;
++    $this->assertCorrectHTML($test2);
++    $this->assertCorrectHTML(_filter_autop($test2));
++
++    // test3 is identical to test2, just with a <pre> tag inserted.
++    $test3 = <<<EOT
++<img src="/logo.png" />
++
++<pre>
++This is a pre tag!
++</pre>
++
++<big class="fat">The quick brown fox <em>jumps over the lazy dog.
++
++The lazy dog</em> jumps over the quick brown </big>fox.
++
++<div id="some-id">
++  Quick lazy fox,
++
++  Jumps <span style="color:blue">over a lazy</span> fish.
++</div>
++The end.
++EOT;
++    $this->assertCorrectHTML($test3);
++    $this->assertCorrectHTML(_filter_autop($test3));
+   }
+ 
+   /**
+@@ -1072,7 +1118,7 @@ class FilterUnitTestCase extends DrupalU
+     $f = _filter_html('<p onerror="alert(0);" />', $filter);
+     $this->assertNoNormalized($f, 'onerror', t('HTML filter should remove on* attributes on default.'));
+ 
+-    $f = _filter_html('<code onerror>&nbsp;</code>', $filter);    
++    $f = _filter_html('<code onerror>&nbsp;</code>', $filter);
+     $this->assertNoNormalized($f, 'onerror', t('HTML filter should remove empty on* attributes on default.'));
+   }
+ 
+@@ -1462,6 +1508,61 @@ www.example.com with a newline in commen
+   }
+ 
+   /**
++   * Asserts that a string consists of valid HTML.
++   *
++   * If $source is valid HTML, _filter_htmlcorrector() will return the same
++   * $source without modification.
++   *
++   * @param $source
++   *   String of HTML to test.
++   * @param $message
++   *   The message to display along with the assertion.
++   * @param $group
++   *   The type of assertion - examples are "Browser", "PHP".
++   *
++   * @return
++   *   TRUE if the assertion succeeded, FALSE otherwise.
++   */
++  function assertCorrectHTML($source, $message = '', $group = 'Other') {
++    $corrected = _filter_htmlcorrector($source);
++
++    if (empty($message)) {
++      $message = t('@source: Consists of valid HTML.', array('@source' => var_export($source, TRUE)));
++    }
++    $success = $this->assertIdenticalWithoutWhitespace($source, $corrected, $message, $group);
++
++    if (!$success) {
++      $this->verbose('Source:<pre>' . check_plain(var_export($source, TRUE)) . '</pre>'
++        . '<hr />' . 'Corrected:<pre>' . check_plain(var_export($corrected, TRUE)) . '</pre>'
++      );
++    }
++
++    return $success;
++  }
++
++  /**
++   * Assert that aside from whitespace differences, the two strings are equal.
++   *
++   * @param $first
++   *   The first value to check.
++   * @param $second
++   *   The second value to check.
++   * @param $message
++   *   The message to display along with the assertion.
++   * @param $group
++   *   The type of assertion - examples are "Browser", "PHP".
++   *
++   * @return
++   *   TRUE if the assertion succeeded, FALSE otherwise.
++   */
++  function assertIdenticalWithoutWhitespace($first, $second, $message = '', $group = 'Other') {
++    $first = preg_replace('~\s~', '', $first);
++    $second = preg_replace('~\s~', '', $second);
++
++    return $this->assertIdentical($first, $second, $message, $group);
++  }
++
++  /**
+    * Tests URL filter on longer content.
+    *
+    * Filters based on regular expressions should also be tested with a more

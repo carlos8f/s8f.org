@@ -1,0 +1,60 @@
+? 1.patch
+? 2.patch
+? 944308_jquery-1.4.4rc2.patch
+? 966238-system-update-7061.patch
+? debug.patch
+? thepatch.patch
+Index: modules/simpletest/tests/upgrade/drupal-6.upload.database.php
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/simpletest/tests/upgrade/drupal-6.upload.database.php,v
+retrieving revision 1.1
+diff -u -p -r1.1 drupal-6.upload.database.php
+--- modules/simpletest/tests/upgrade/drupal-6.upload.database.php       3 Oct 2010 23:19:52 -0000       1.1
++++ modules/simpletest/tests/upgrade/drupal-6.upload.database.php       11 Nov 2010 20:55:05 -0000
+@@ -22,16 +22,6 @@ db_insert('files')->fields(array(
+   'timestamp' => '1285700240',
+ ))
+ ->values(array(
+-  'fid' => '2',
+-  'uid' => '1',
+-  'filename' => 'powered-blue-80x15.png',
+-  'filepath' => 'sites/default/files/powered-blue-80x15_0.png',
+-  'filemime' => 'image/png',
+-  'filesize' => '1011',
+-  'status' => '1',
+-  'timestamp' => '1285700317',
+-))
+-->values(array(
+   'fid' => '3',
+   'uid' => '1',
+   'filename' => 'powered-blue-88x31.png',
+Index: modules/simpletest/tests/upgrade/upgrade.upload.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/simpletest/tests/upgrade/upgrade.upload.test,v
+retrieving revision 1.1
+diff -u -p -r1.1 upgrade.upload.test
+--- modules/simpletest/tests/upgrade/upgrade.upload.test        3 Oct 2010 23:19:52 -0000       1.1
++++ modules/simpletest/tests/upgrade/upgrade.upload.test        11 Nov 2010 20:55:05 -0000
+@@ -20,6 +20,7 @@ class UploadUpgradePathTestCase extends
+       drupal_get_path('module', 'simpletest') . '/tests/upgrade/drupal-6.upload.database.php',
+     );
+     parent::setUp();
++    $this->variable_set('upload_update_batch_size', 2);
+
+     $this->uninstallModulesExcept(array('upload'));
+   }
+Index: modules/system/system.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.install,v
+retrieving revision 1.522
+diff -u -p -r1.522 system.install
+--- modules/system/system.install       5 Nov 2010 19:05:02 -0000       1.522
++++ modules/system/system.install       11 Nov 2010 20:55:05 -0000
+@@ -2776,7 +2776,7 @@ function system_update_7061(&$sandbox) {
+
+   // Determine vids for this batch.
+   // Process all files attached to a given revision during the same batch.
+-  $limit = 100;
++  $limit = variable_get('upload_update_batch_size', 100);
+   $vids = db_query_range('SELECT vid FROM {system_update_7061} WHERE vid > :lastvid ORDER BY vid', 0, $limit, array(':lastvid' => $sandbox['last_vid_processed']))
+     ->fetchCol();

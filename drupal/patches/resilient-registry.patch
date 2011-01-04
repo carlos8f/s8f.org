@@ -1,0 +1,83 @@
+Index: includes/bootstrap.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/bootstrap.inc,v
+retrieving revision 1.348
+diff -u -p -r1.348 bootstrap.inc
+--- includes/bootstrap.inc	31 Jan 2010 18:31:46 -0000	1.348
++++ includes/bootstrap.inc	4 Feb 2010 23:54:27 -0000
+@@ -2081,7 +2081,32 @@ function drupal_autoload_class($class) {
+  *   NULL if either of the REGISTRY_* constants is passed in as $type.
+  */
+ function _registry_check_code($type, $name = NULL) {
+-  static $lookup_cache, $cache_update_needed;
++  static $lookup_cache, $cache_update_needed, $database_included;
++
++  // Include all database-related files. This avoids a problem when the db
++  // layer uses class_exists(), which indirectly calls  _registry_check_code()
++  // through the registered autoloader. _registry_check_code() needs to use the
++  // database to do the check properly, so we avoid the circular logic here.
++  $connection_info = Database::getConnectionInfo();
++  $driver = $connection_info['default']['driver'];
++
++  if ($name && preg_match('/_' . $driver . '$/', $name)) {
++    if (!isset($database_included)) {
++      require_once DRUPAL_ROOT . '/includes/database/database.inc';
++      require_once DRUPAL_ROOT . '/includes/database/query.inc';
++      require_once DRUPAL_ROOT . '/includes/database/select.inc';
++      require_once DRUPAL_ROOT . '/includes/database/schema.inc';
++
++      foreach (glob(DRUPAL_ROOT . '/includes/database/' . $driver . '/*.inc') as $include_file) {
++        if (basename($include_file) != 'install.inc') {
++          require_once $include_file;
++        }
++      }
++      $database_included = TRUE;
++    }
++    $function = $type . '_exists';
++    return $function($name);
++  }
+ 
+   if ($type == 'class' && class_exists($name) || $type == 'interface' && interface_exists($name)) {
+     return TRUE;
+@@ -2124,7 +2149,23 @@ function _registry_check_code($type, $na
+   // This function may get called when the default database is not active, but
+   // there is no reason we'd ever want to not use the default database for
+   // this query.
+-  $file = Database::getConnection('default', 'default')->query("SELECT filename FROM {registry} WHERE name = :name AND type = :type", array(
++  $db = Database::getConnection('default', 'default');
++  // Repopulate the registry if it appears empty.
++  if (!$count = $db->query('SELECT 1 FROM {registry}')->fetchField()) {
++    // If Drupal hasn't been fully boostrapped, we need to include common.inc.
++    require_once DRUPAL_ROOT . '/includes/common.inc';
++    require_once DRUPAL_ROOT . '/includes/registry.inc';
++    _registry_update();
++    if (!$count = $db->query('SELECT 1 FROM {registry}')->fetchField()) {
++      // Registry is still empty.
++      return FALSE;
++    }
++  }
++
++  // This function may get called when the default database is not active, but
++  // there is no reason we'd ever want to not use the default database for
++  // this query.
++  $file = $db->query("SELECT filename FROM {registry} WHERE name = :name AND type = :type", array(
+       ':name' => $name,
+       ':type' => $type,
+     ))
+Index: includes/registry.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/registry.inc,v
+retrieving revision 1.27
+diff -u -p -r1.27 registry.inc
+--- includes/registry.inc	28 Dec 2009 10:48:51 -0000	1.27
++++ includes/registry.inc	4 Feb 2010 23:54:27 -0000
+@@ -52,6 +52,9 @@ function _registry_update() {
+       }
+     }
+   }
++  if (!function_exists('file_scan_directory')) {
++    require_once DRUPAL_ROOT . '/includes/file.inc';
++  }
+   foreach (file_scan_directory('includes', '/\.inc$/') as $filename => $file) {
+     $files["$filename"] = array('module' => '', 'weight' => 0);
+   }

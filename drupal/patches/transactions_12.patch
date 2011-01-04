@@ -1,0 +1,341 @@
+Index: modules/comment/comment.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.module,v
+retrieving revision 1.906
+diff -u -p -r1.906 comment.module
+--- modules/comment/comment.module	20 Oct 2010 01:31:06 -0000	1.906
++++ modules/comment/comment.module	22 Oct 2010 02:21:38 -0000
+@@ -1586,20 +1586,27 @@ function comment_delete($cid) {
+ function comment_delete_multiple($cids) {
+   $comments = comment_load_multiple($cids);
+   if ($comments) {
+-
+-    // Delete the comments.
+-    db_delete('comment')
+-      ->condition('cid', array_keys($comments), 'IN')
+-      ->execute();
+-    foreach ($comments as $comment) {
+-      field_attach_delete('comment', $comment);
+-      module_invoke_all('comment_delete', $comment);
+-      module_invoke_all('entity_delete', $comment, 'comment');
+-
+-      // Delete the comment's replies.
+-      $child_cids = db_query('SELECT cid FROM {comment} WHERE pid = :cid', array(':cid' => $comment->cid))->fetchCol();
+-      comment_delete_multiple($child_cids);
+-      _comment_update_node_statistics($comment->nid);
++    $transaction = db_transaction();
++    try {
++      // Delete the comments.
++      db_delete('comment')
++        ->condition('cid', array_keys($comments), 'IN')
++        ->execute();
++      foreach ($comments as $comment) {
++        field_attach_delete('comment', $comment);
++        module_invoke_all('comment_delete', $comment);
++        module_invoke_all('entity_delete', $comment, 'comment');
++
++        // Delete the comment's replies.
++        $child_cids = db_query('SELECT cid FROM {comment} WHERE pid = :cid', array(':cid' => $comment->cid))->fetchCol();
++        comment_delete_multiple($child_cids);
++        _comment_update_node_statistics($comment->nid);
++      }
++    }
++    catch (Exception $e) {
++      $transaction->rollback();
++      watchdog_exception('comment', $e);
++      throw $e;
+     }
+   }
+ }
+Index: modules/node/node.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/node/node.module,v
+retrieving revision 1.1309
+diff -u -p -r1.1309 node.module
+--- modules/node/node.module	20 Oct 2010 08:15:33 -0000	1.1309
++++ modules/node/node.module	22 Oct 2010 02:21:38 -0000
+@@ -1123,7 +1123,7 @@ function node_save($node) {
+     db_ignore_slave();
+   }
+   catch (Exception $e) {
+-    $transaction->rollback('node');
++    $transaction->rollback();
+     watchdog_exception('node', $e);
+     throw $e;
+   }
+@@ -1164,41 +1164,45 @@ function node_delete($nid) {
+  *   An array of node IDs.
+  */
+ function node_delete_multiple($nids) {
++  $transaction = db_transaction();
+   if (!empty($nids)) {
+     $nodes = node_load_multiple($nids, array());
+ 
+-    foreach ($nodes as $nid => $node) {
+-      // Call the node-specific callback (if any):
+-      node_invoke($node, 'delete');
+-      module_invoke_all('node_delete', $node);
+-      module_invoke_all('entity_delete', $node, 'node');
+-      field_attach_delete('node', $node);
+-
+-      // Remove this node from the search index if needed.
+-      // This code is implemented in node module rather than in search module,
+-      // because node module is implementing search module's API, not the other
+-      // way around.
+-      if (module_exists('search')) {
+-        search_reindex($nid, 'node');
++    try {
++      foreach ($nodes as $nid => $node) {
++        // Call the node-specific callback (if any):
++        node_invoke($node, 'delete');
++        module_invoke_all('node_delete', $node);
++        module_invoke_all('entity_delete', $node, 'node');
++        field_attach_delete('node', $node);
++
++        // Remove this node from the search index if needed.
++        // This code is implemented in node module rather than in search module,
++        // because node module is implementing search module's API, not the other
++        // way around.
++        if (module_exists('search')) {
++          search_reindex($nid, 'node');
++        }
+       }
+-    }
+ 
+-    // Delete after calling hooks so that they can query node tables as needed.
+-    db_delete('node')
+-      ->condition('nid', $nids, 'IN')
+-      ->execute();
+-    db_delete('node_revision')
+-      ->condition('nid', $nids, 'IN')
+-      ->execute();
+-    db_delete('history')
+-      ->condition('nid', $nids, 'IN')
+-      ->execute();
+-    db_delete('node_access')
+-      ->condition('nid', $nids, 'IN')
+-      ->execute();
++      // Delete after calling hooks so that they can query node tables as needed.
++      db_delete('node')
++        ->condition('nid', $nids, 'IN')
++        ->execute();
++      db_delete('node_revision')
++        ->condition('nid', $nids, 'IN')
++        ->execute();
++      db_delete('history')
++        ->condition('nid', $nids, 'IN')
++        ->execute();
++    }
++    catch (Exception $e) {
++      $transaction->rollback();
++      watchdog_exception('node', $e);
++      throw $e;
++    }
+ 
+     // Clear the page and block and node_load_multiple caches.
+-    cache_clear_all();
+     entity_get_controller('node')->resetCache();
+   }
+ }
+Index: modules/taxonomy/taxonomy.admin.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/taxonomy/taxonomy.admin.inc,v
+retrieving revision 1.114
+diff -u -p -r1.114 taxonomy.admin.inc
+--- modules/taxonomy/taxonomy.admin.inc	20 Oct 2010 01:31:07 -0000	1.114
++++ modules/taxonomy/taxonomy.admin.inc	22 Oct 2010 02:21:38 -0000
+@@ -902,6 +902,7 @@ function taxonomy_term_confirm_delete_su
+   drupal_set_message(t('Deleted term %name.', array('%name' => $form_state['values']['name'])));
+   watchdog('taxonomy', 'Deleted term %name.', array('%name' => $form_state['values']['name']), WATCHDOG_NOTICE);
+   $form_state['redirect'] = 'admin/structure/taxonomy';
++  cache_clear_all();
+   return;
+ }
+ 
+@@ -941,6 +942,7 @@ function taxonomy_vocabulary_confirm_del
+   drupal_set_message(t('Deleted vocabulary %name.', array('%name' => $form_state['values']['name'])));
+   watchdog('taxonomy', 'Deleted vocabulary %name.', array('%name' => $form_state['values']['name']), WATCHDOG_NOTICE);
+   $form_state['redirect'] = 'admin/structure/taxonomy';
++  cache_clear_all();
+   return;
+ }
+ 
+Index: modules/taxonomy/taxonomy.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/taxonomy/taxonomy.module,v
+retrieving revision 1.613
+diff -u -p -r1.613 taxonomy.module
+--- modules/taxonomy/taxonomy.module	15 Oct 2010 05:25:32 -0000	1.613
++++ modules/taxonomy/taxonomy.module	22 Oct 2010 02:21:38 -0000
+@@ -423,21 +423,29 @@ function taxonomy_vocabulary_delete($vid
+ 
+   // Only load terms without a parent, child terms will get deleted too.
+   $result = db_query('SELECT t.tid FROM {taxonomy_term_data} t INNER JOIN {taxonomy_term_hierarchy} th ON th.tid = t.tid WHERE t.vid = :vid AND th.parent = 0', array(':vid' => $vid))->fetchCol();
+-  foreach ($result as $tid) {
+-    taxonomy_term_delete($tid);
+-  }
+-  db_delete('taxonomy_vocabulary')
+-    ->condition('vid', $vid)
+-    ->execute();
+-
+-  field_attach_delete_bundle('taxonomy_term', $vocabulary['machine_name']);
+-  module_invoke_all('taxonomy_vocabulary_delete', $vocabulary);
+-  module_invoke_all('entity_delete', $vocabulary, 'taxonomy_vocabulary');
+ 
+-  cache_clear_all();
+-  entity_get_controller('taxonomy_vocabulary')->resetCache();
++  $transaction = db_transaction();
++  try {
++    foreach ($result as $tid) {
++      taxonomy_term_delete($tid);
++    }
++    db_delete('taxonomy_vocabulary')
++      ->condition('vid', $vid)
++      ->execute();
+ 
+-  return SAVED_DELETED;
++    field_attach_delete_bundle('taxonomy_term', $vocabulary['machine_name']);
++    module_invoke_all('taxonomy_vocabulary_delete', $vocabulary);
++    module_invoke_all('entity_delete', $vocabulary, 'taxonomy_vocabulary');
++
++    entity_get_controller('taxonomy_vocabulary')->resetCache();
++
++    return SAVED_DELETED;
++  }
++  catch (Exception $e) {
++    $transaction->rollback();
++    watchdog_exception('taxonomy', $e);
++    throw $e;
++  }
+ }
+ 
+ /**
+@@ -588,41 +596,45 @@ function taxonomy_term_save($term) {
+  *   Status constant indicating deletion.
+  */
+ function taxonomy_term_delete($tid) {
+-  $tids = array($tid);
+-  while ($tids) {
+-    $children_tids = $orphans = array();
+-    foreach ($tids as $tid) {
+-      // See if any of the term's children are about to be become orphans:
+-      if ($children = taxonomy_get_children($tid)) {
+-        foreach ($children as $child) {
+-          // If the term has multiple parents, we don't delete it.
+-          $parents = taxonomy_get_parents($child->tid);
+-          if (count($parents) == 1) {
+-            $orphans[] = $child->tid;
++  $transaction = db_transaction();
++  try {
++    $tids = array($tid);
++    while ($tids) {
++      $children_tids = $orphans = array();
++      foreach ($tids as $tid) {
++        // See if any of the term's children are about to be become orphans:
++        if ($children = taxonomy_get_children($tid)) {
++          foreach ($children as $child) {
++            // If the term has multiple parents, we don't delete it.
++            $parents = taxonomy_get_parents($child->tid);
++            if (count($parents) == 1) {
++              $orphans[] = $child->tid;
++            }
+           }
+         }
+-      }
+ 
+-      if ($term = taxonomy_term_load($tid)) {
+-        db_delete('taxonomy_term_data')
+-          ->condition('tid', $tid)
+-          ->execute();
+-        db_delete('taxonomy_term_hierarchy')
+-          ->condition('tid', $tid)
+-          ->execute();
+-
+-        field_attach_delete('taxonomy_term', $term);
+-        module_invoke_all('taxonomy_term_delete', $term);
+-        module_invoke_all('entity_delete', $term, 'taxonomy_term');
+-        taxonomy_terms_static_reset();
++        if ($term = taxonomy_term_load($tid)) {
++          db_delete('taxonomy_term_data')
++            ->condition('tid', $tid)
++            ->execute();
++          db_delete('taxonomy_term_hierarchy')
++            ->condition('tid', $tid)
++            ->execute();
++
++          field_attach_delete('taxonomy_term', $term);
++          module_invoke_all('taxonomy_term_delete', $term);
++          module_invoke_all('entity_delete', $term, 'taxonomy_term');
++          taxonomy_terms_static_reset();
++        }
+       }
+     }
+-
+-    $tids = $orphans;
++    return SAVED_DELETED;
++  }
++  catch (Exception $e) {
++    $transaction->rollback();
++    watchdog_exception('taxonomy', $e);
++    throw $e;
+   }
+-
+-  cache_clear_all();
+-  return SAVED_DELETED;
+ }
+ 
+ /**
+Index: modules/user/user.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/user/user.module,v
+retrieving revision 1.1211
+diff -u -p -r1.1211 user.module
+--- modules/user/user.module	20 Oct 2010 05:32:31 -0000	1.1211
++++ modules/user/user.module	22 Oct 2010 02:21:39 -0000
+@@ -2343,23 +2343,30 @@ function user_delete_multiple(array $uid
+   if (!empty($uids)) {
+     $accounts = user_load_multiple($uids, array());
+ 
+-    foreach ($accounts as $uid => $account) {
+-      module_invoke_all('user_delete', $account);
+-      module_invoke_all('entity_delete', $account, 'user');
+-      field_attach_delete('user', $account);
+-      drupal_session_destroy_uid($account->uid);
+-    }
+-
+-    db_delete('users')
+-      ->condition('uid', $uids, 'IN')
+-      ->execute();
+-    db_delete('users_roles')
+-      ->condition('uid', $uids, 'IN')
+-      ->execute();
+-    db_delete('authmap')
+-      ->condition('uid', $uids, 'IN')
+-      ->execute();
++    $transaction = db_transaction();
++    try {
++      foreach ($accounts as $uid => $account) {
++        module_invoke_all('user_delete', $account);
++        module_invoke_all('entity_delete', $account, 'user');
++        field_attach_delete('user', $account);
++        drupal_session_destroy_uid($account->uid);
++      }
+ 
++      db_delete('users')
++        ->condition('uid', $uids, 'IN')
++        ->execute();
++      db_delete('users_roles')
++        ->condition('uid', $uids, 'IN')
++        ->execute();
++      db_delete('authmap')
++        ->condition('uid', $uids, 'IN')
++        ->execute();
++    }
++    catch (Exception $e) {
++      $transaction->rollback();
++      watchdog_exception('user', $e);
++      throw $e;
++    }
+     entity_get_controller('user')->resetCache();
+   }
+ }

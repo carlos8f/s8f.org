@@ -1,0 +1,31 @@
+Index: includes/common.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/common.inc,v
+retrieving revision 1.1175
+diff -u -p -r1.1175 common.inc
+--- includes/common.inc	5 Jun 2010 13:18:09 -0000	1.1175
++++ includes/common.inc	7 Jun 2010 18:43:01 -0000
+@@ -6030,12 +6030,18 @@ function drupal_write_record($table, &$o
+  * @see drupal_parse_info_format()
+  */
+ function drupal_parse_info_file($filename) {
+-  if (!file_exists($filename)) {
+-    return array();
+-  }
++  $info = &drupal_static(__FUNCTION__, array());
+ 
+-  $data = file_get_contents($filename);
+-  return drupal_parse_info_format($data);
++  if (!isset($info[$filename])) {
++    if (!file_exists($filename)) {
++      $info[$filename] = array();
++    }
++    else {
++      $data = file_get_contents($filename);
++      $info[$filename] = drupal_parse_info_format($data);
++    }
++  }
++  return $info[$filename];
+ }
+ 
+ /**

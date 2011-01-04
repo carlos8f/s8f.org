@@ -1,0 +1,219 @@
+Index: includes/install.core.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/install.core.inc,v
+retrieving revision 1.22
+diff -u -p -r1.22 install.core.inc
+--- includes/install.core.inc	5 Jun 2010 12:02:33 -0000	1.22
++++ includes/install.core.inc	24 Jun 2010 18:53:54 -0000
+@@ -1356,6 +1356,7 @@ function install_profile_modules(&$insta
+     'operations' => $operations,
+     'title' => st('Installing @drupal', array('@drupal' => drupal_install_profile_distribution_name())),
+     'error_message' => st('The installation has encountered an error.'),
++    'finished' => '_install_profile_modules_finished',
+   );
+   return $batch;
+ }
+@@ -1518,6 +1519,14 @@ function _install_module_batch($module, 
+ }
+ 
+ /**
++ * 'Finished' callback for module installation batch.
++ */
++function _install_profile_modules_finished($success, $results, $operations) {
++  system_rebuild_module_data();
++  system_rebuild_theme_data();
++}
++
++/**
+  * Checks installation requirements and reports any errors.
+  */
+ function install_check_requirements($install_state) {
+Index: includes/module.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/module.inc,v
+retrieving revision 1.192
+diff -u -p -r1.192 module.inc
+--- includes/module.inc	9 May 2010 13:49:33 -0000	1.192
++++ includes/module.inc	24 Jun 2010 18:53:54 -0000
+@@ -173,6 +173,8 @@ function system_list($type) {
+  */
+ function system_list_reset() {
+   drupal_static_reset('system_list');
++  drupal_static_reset('system_region_list');
++  drupal_static_reset('list_themes');
+   cache_clear_all('bootstrap_modules', 'cache_bootstrap');
+   cache_clear_all('system_list', 'cache_bootstrap');
+ }
+@@ -393,6 +395,15 @@ function module_enable($module_list, $en
+     }
+   }
+ 
++  if (variable_get('install_task') == 'done') {
++    // If newly enabled modules implement hook_system_info_alter(), we need to
++    // rebuild the {system} table with new altered info.
++    if (array_intersect($modules_enabled, module_implements('system_info_alter'))) {
++      system_rebuild_module_data();
++      system_rebuild_theme_data();
++    }
++  }
++
+   // If any modules were newly installed, invoke hook_modules_installed().
+   if (!empty($modules_installed)) {
+     module_invoke_all('modules_installed', $modules_installed);
+@@ -467,10 +478,20 @@ function module_disable($module_list, $d
+   }
+ 
+   if (!empty($invoke_modules)) {
++    // If newly disabled modules implement hook_system_info_alter(), we need to
++    // rebuild the {system} table with new altered info.
++    $rebuild_system = (bool) array_intersect($invoke_modules, module_implements('system_info_alter'));
++
+     // Refresh the module list to exclude the disabled modules.
+     system_list_reset();
+     module_list(TRUE);
+     module_implements('', FALSE, TRUE);
++
++    if ($rebuild_system) {
++      system_rebuild_module_data();
++      system_rebuild_theme_data();
++    }
++
+     // Invoke hook_modules_disabled before disabling modules,
+     // so we can still call module hooks to get information.
+     module_invoke_all('modules_disabled', $invoke_modules);
+@@ -567,6 +588,7 @@ function module_implements($hook, $sort 
+   if ($reset) {
+     $implementations = array();
+     cache_set('module_implements', array(), 'cache_bootstrap');
++    drupal_static_reset('module_implements');
+     drupal_static_reset('module_hook_info');
+     drupal_static_reset('drupal_alter');
+     cache_clear_all('hook_info', 'cache_bootstrap');
+Index: modules/simpletest/tests/module_test.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/simpletest/tests/module_test.module,v
+retrieving revision 1.6
+diff -u -p -r1.6 module_test.module
+--- modules/simpletest/tests/module_test.module	22 Apr 2010 18:56:31 -0000	1.6
++++ modules/simpletest/tests/module_test.module	24 Jun 2010 18:53:54 -0000
+@@ -36,6 +36,9 @@ function module_test_system_info_alter(&
+       $info['dependencies'][] = 'php';
+     }
+   }
++  if ($file->name == 'seven' && $type == 'theme') {
++    $info['regions']['test_region'] = t('Test region');
++  }
+ }
+ 
+ /**
+Index: modules/system/system.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.module,v
+retrieving revision 1.939
+diff -u -p -r1.939 system.module
+--- modules/system/system.module	21 Jun 2010 02:27:47 -0000	1.939
++++ modules/system/system.module	24 Jun 2010 18:53:54 -0000
+@@ -2245,6 +2245,10 @@ function _system_rebuild_module_data() {
+     'bootstrap' => 0,
+   );
+ 
++  // Reset the module list to ensure that drupal_alter() runs on a completely
++  // fresh list.
++  module_implements('', FALSE, TRUE);
++
+   // Read info files for each module.
+   foreach ($modules as $key => $module) {
+     // The module system uses the key 'filename' instead of 'uri' so copy the
+@@ -2356,6 +2360,10 @@ function _system_rebuild_theme_data() {
+     'php' => DRUPAL_MINIMUM_PHP,
+   );
+ 
++  // Reset the module list to ensure that drupal_alter() runs on a completely
++  // fresh list.
++  module_implements('', FALSE, TRUE);
++
+   $sub_themes = array();
+   // Read info files for each theme
+   foreach ($themes as $key => $theme) {
+Index: modules/system/system.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.test,v
+retrieving revision 1.127
+diff -u -p -r1.127 system.test
+--- modules/system/system.test	21 Jun 2010 02:27:47 -0000	1.127
++++ modules/system/system.test	24 Jun 2010 18:53:55 -0000
+@@ -1697,6 +1697,74 @@ array_space[a b] = Value';
+ }
+ 
+ /**
++ * Tests the effectiveness of hook_system_info_alter().
++ */
++class SystemInfoAlterTestCase extends DrupalWebTestCase {
++  public static function getInfo() {
++    return array(
++      'name' => 'System info alter',
++      'description' => 'Tests the effectiveness of hook_system_info_alter().',
++      'group' => 'System',
++    );
++  }
++
++  /**
++   * Tests that {system}.info is rebuilt after a module that implements
++   * hook_system_info_alter() is enabled. Also tests if core *_list() functions
++   * return freshly altered info.
++   */
++  function testSystemInfoAlter() {
++    // Enable our test module. We do it explicitly instead of using the setUp()
++    // method because setUp() calls system_rebuild_module_data() and could
++    // interfere with our tests.
++    module_enable(array('module_test'), FALSE);
++    $this->assertTrue(module_exists('module_test'), t('Test module is enabled.'));
++
++    $info = $this->_getSystemInfo('seven', 'theme');
++    $this->assertTrue(isset($info['regions']['test_region']), t('Altered theme info was added to {system}.info.'));
++    $seven_regions = system_region_list('seven');
++    $this->assertTrue(isset($seven_regions['test_region']), t('Altered theme info was returned by system_region_list().'));
++    $system_list_themes = system_list('theme');
++    $info = $system_list_themes['seven']->info;
++    $this->assertTrue(isset($info['regions']['test_region']), t('Altered theme info was returned by system_list().'));
++    $list_themes = list_themes();
++    $this->assertTrue(isset($list_themes['seven']->info['regions']['test_region']), t('Altered theme info was returned by list_themes().'));
++
++    // Disable the module and verify that {system}.info is rebuilt without it.
++    // We avoid $disable_dependents on module_disable() because it calls
++    // system_rebuild_module_data() and could interfere with our tests.
++    module_disable(array('module_test'), FALSE);
++    $this->assertFalse(module_exists('module_test'), t('Test module is disabled.'));
++
++    $info = $this->_getSystemInfo('seven', 'theme');
++    $this->assertFalse(isset($info['regions']['test_region']), t('Altered theme info was removed from {system}.info.'));
++    $seven_regions = system_region_list('seven');
++    $this->assertFalse(isset($seven_regions['test_region']), t('Altered theme info was not returned by system_region_list().'));
++    $system_list_themes = system_list('theme');
++    $info = $system_list_themes['seven']->info;
++    $this->assertFalse(isset($info['regions']['test_region']), t('Altered theme info was not returned by system_list().'));
++    $list_themes = list_themes();
++    $this->assertFalse(isset($list_themes['seven']->info['regions']['test_region']), t('Altered theme info was not returned by list_themes().'));
++  }
++
++  /**
++   * Support function. Returns the info array as it is stored in {system}.
++   *
++   * @param $name
++   *   The name of the record in {system}.
++   * @param $type
++   *   The type of record in {system}.
++   *
++   * @return
++   *   Array of info, or FALSE if the record is not found.
++   */
++  function _getSystemInfo($name, $type) {
++    $raw_info = db_query("SELECT info FROM {system} WHERE name = :name AND type = :type", array(':name' => $name, ':type' => $type))->fetchField();
++    return $raw_info ? unserialize($raw_info) : FALSE;
++  }
++}
++
++/**
+  * Tests for the update system functionality.
+  */
+ class UpdateScriptFunctionalTest extends DrupalWebTestCase {

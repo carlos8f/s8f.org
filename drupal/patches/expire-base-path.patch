@@ -1,0 +1,21 @@
+? .project
+Index: expire.module
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/expire/expire.module,v
+retrieving revision 1.1.2.3
+diff -u -p -r1.1.2.3 expire.module
+--- expire.module	26 May 2010 18:38:14 -0000	1.1.2.3
++++ expire.module	20 Jul 2010 01:00:41 -0000
+@@ -333,10 +333,8 @@ function expire_cache_derivative(&$node,
+ 
+     // Path alias
+     $path_alias = url($path, array('absolute' => FALSE));
+-    if ($base_path != '/') {
+-      $path_alias = implode('/', array_diff_assoc(array_filter(explode('/', $path_alias)), array_filter(explode('/', $base_path))));
+-    }
+-    $expire[] = $path_alias;
++    // Remove the base path
++    $expire[] = substr($path_alias, strlen($base_path));
+ 
+     // Path redirects
+     if (module_exists('path_redirect')) {

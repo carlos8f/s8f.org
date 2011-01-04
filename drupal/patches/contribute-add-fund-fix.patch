@@ -1,0 +1,31 @@
+Index: contribute.admin.inc
+===================================================================
+--- contribute.admin.inc	(revision 313)
++++ contribute.admin.inc	(working copy)
+@@ -470,7 +470,7 @@
+   );
+   if (isset($form['#fund'])) {
+     $fund->fid = $form['#fund']->fid;
+-    if (!$fund = drupal_write_record('contribution_funds', $fund, 'fid')) {
++    if (!drupal_write_record('contribution_funds', $fund, 'fid')) {
+       drupal_set_message(t('Error updating fund.'), 'error');
+       return;
+     }
+@@ -478,7 +478,7 @@
+   }
+   else {
+     $fund->created = time();
+-    if (!$fund = drupal_write_record('contribution_funds', $fund)) {
++    if (!drupal_write_record('contribution_funds', $fund)) {
+       drupal_set_message(t('Error creating fund.'), 'error');
+     }
+     $data = array();
+@@ -491,7 +491,7 @@
+       $data[$key] = trim($value);
+     }
+   }
+-  db_query("UPDATE {contribution_funds} SET data = '%s' WHERE fid = %d", serialize($data), $form['#fund']->fid);
++  db_query("UPDATE {contribution_funds} SET data = '%s' WHERE fid = %d", serialize($data), $fund->fid);
+   if (!variable_get('contribute_fund_default', FALSE)) {
+     variable_set('contribute_fund_default', $fund->name);
+   }

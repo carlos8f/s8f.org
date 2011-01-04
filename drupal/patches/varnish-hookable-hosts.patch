@@ -1,0 +1,76 @@
+? .project
+Index: varnish.module
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/varnish/varnish.module,v
+retrieving revision 1.23
+diff -u -p -r1.23 varnish.module
+--- varnish.module	19 Jul 2010 19:10:37 -0000	1.23
++++ varnish.module	21 Jul 2010 01:29:09 -0000
+@@ -118,10 +118,13 @@ function varnish_comment($comment, $op) 
+  * You may also safely call this function directly with an array of local urls to purge.
+  */
+ function varnish_expire_cache($paths) {
+-  $host = _varnish_get_host();
+-  $base = base_path();
+-  $purge = implode('$|^'. $base, $paths);
+-   _varnish_terminal_run('purge req.http.host ~ '. $host .' && req.url ~ "^'. $base . $purge .'$"');
++  if (variable_get('varnish_cache_clear', VARNISH_DEFAULT_CLEAR) == VARNISH_SELECTIVE_CLEAR) {
++    $base = base_path();
++    $purge = implode('$|^'. $base, $paths);
++    foreach (_varnish_get_hosts() as $host) {
++      _varnish_terminal_run('purge req.http.host ~ '. $host .' && req.url ~ "^'. $base . $purge .'$"');
++    }
++  }
+ }
+ 
+ /**
+@@ -130,7 +133,7 @@ function varnish_expire_cache($paths) {
+  * Add our submit callback to the "clear caches" button.
+  */
+ function varnish_form_alter(&$form, $form_state, $form_id) {
+-  if ($form_id == 'system_performance_settings') {
++  if ($form_id == 'system_performance_settings' && !variable_get('varnish_flush_cron', 0)) {
+     $form['clear_cache']['clear']['#submit'][] = 'varnish_purge_all_pages';
+   }
+ }
+@@ -165,12 +168,13 @@ function varnish_flush_caches() {
+  */
+ function varnish_purge_all_pages() {
+   $path = base_path();
+-  $host = _varnish_get_host();
+-  _varnish_terminal_run("purge req.http.host ~ $host && req.url ~ ^$path");
++  foreach (_varnish_get_hosts() as $host) {
++    _varnish_terminal_run("purge req.http.host ~ $host && req.url ~ ^$path");
++  }
+ }
+ 
+ /**
+- * Help[er function to parse the host from the global $base_url
++ * Helper function to parse the host from the global $base_url
+  */
+ function _varnish_get_host() {
+   global $base_url;
+@@ -178,6 +182,23 @@ function _varnish_get_host() {
+   return $parts['host'];
+ }
+ 
++/**
++ * Helper function to get all hosts associated with this site. Invokes
++ * hook_varnish_hosts() to fetch the list.
++ */
++function _varnish_get_hosts() {
++  $hosts = module_invoke_all('varnish_hosts');
++  return array_unique($hosts);
++}
++
++/**
++ * Implementation of hook_varnish_hosts().
++ *
++ * @see _varnish_get_hosts()
++ */
++function varnish_varnish_hosts() {
++  return array(_varnish_get_host());
++}
+ 
+ /**
+  * Helper function that sends commands to Varnish

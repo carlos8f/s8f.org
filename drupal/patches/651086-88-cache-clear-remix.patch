@@ -1,0 +1,447 @@
+Index: includes/common.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/common.inc,v
+retrieving revision 1.1187
+diff -u -p -r1.1187 common.inc
+--- includes/common.inc	28 Jun 2010 19:57:34 -0000	1.1187
++++ includes/common.inc	29 Jun 2010 19:07:26 -0000
+@@ -2108,7 +2108,7 @@ function url($path = NULL, array $option
+  * @param $path
+  *   The internal path or external URL being linked to, such as "node/34" or
+  *   "http://example.com/foo".
+- * @return 
++ * @return
+  *   Boolean TRUE or FALSE, where TRUE indicates an external path.
+  */
+ function url_is_external($path) {
+@@ -6231,20 +6231,23 @@ function drupal_implode_tags($tags) {
+  * invokes a hook so that other modules' cache data can be cleared as well.
+  */
+ function drupal_flush_all_caches() {
+-  // Change query-strings on css/js files to enforce reload for all users.
+-  _drupal_flush_css_js();
+-
++  // Rebuild registries.
+   registry_rebuild();
+-  drupal_clear_css_cache();
+-  drupal_clear_js_cache();
++  menu_rebuild();
++  node_types_rebuild();
++  actions_synchronize();
+ 
+   // Rebuild the theme data. Note that the module data is rebuilt above, as
+   // part of registry_rebuild().
++  // Change query-strings on css/js files to enforce reload for all users.
++  _drupal_flush_css_js();
+   system_rebuild_theme_data();
++  drupal_clear_css_cache();
++  drupal_clear_js_cache();
+   drupal_theme_rebuild();
+ 
+-  menu_rebuild();
+-  node_types_rebuild();
++  // Call special cache clear functions.
++  entity_info_cache_clear();
+ 
+   // Don't clear cache_form - in-progress form submissions may break.
+   // Ordered so clearing the page cache will always be the last action.
+@@ -6674,7 +6677,7 @@ function entity_form_field_validate($ent
+  * For some entity forms (e.g., forms with complex non-field data and forms that
+  * simultaneously edit multiple entities), this behavior may be inappropriate,
+  * so the #builder_function for such forms needs to implement the required
+- * functionality instead of calling this function. 
++ * functionality instead of calling this function.
+  */
+ function entity_form_submit_build_entity($entity_type, $entity, $form, &$form_state) {
+   $info = entity_get_info($entity_type);
+Index: includes/install.core.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/install.core.inc,v
+retrieving revision 1.24
+diff -u -p -r1.24 install.core.inc
+--- includes/install.core.inc	28 Jun 2010 19:57:34 -0000	1.24
++++ includes/install.core.inc	29 Jun 2010 19:07:26 -0000
+@@ -1365,6 +1365,7 @@ function install_profile_modules(&$insta
+     'operations' => $operations,
+     'title' => st('Installing @drupal', array('@drupal' => drupal_install_profile_distribution_name())),
+     'error_message' => st('The installation has encountered an error.'),
++    'finished' => '_install_profile_modules_finished',
+   );
+   return $batch;
+ }
+@@ -1527,6 +1528,15 @@ function _install_module_batch($module, 
+ }
+ 
+ /**
++ * 'Finished' callback for module installation batch.
++ */
++function _install_profile_modules_finished($success, $results, $operations) {
++  // Flush all caches to complete the module installation process. Subsequent
++  // installation tasks will now have full access to the profile's modules.
++  drupal_flush_all_caches();
++}
++
++/**
+  * Checks installation requirements and reports any errors.
+  */
+ function install_check_requirements($install_state) {
+Index: includes/module.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/module.inc,v
+retrieving revision 1.195
+diff -u -p -r1.195 module.inc
+--- includes/module.inc	26 Jun 2010 12:34:44 -0000	1.195
++++ includes/module.inc	29 Jun 2010 19:07:26 -0000
+@@ -173,6 +173,7 @@ function system_list($type) {
+  */
+ function system_list_reset() {
+   drupal_static_reset('system_list');
++  drupal_static_reset('system_region_list');
+   drupal_static_reset('list_themes');
+   cache_clear_all('bootstrap_modules', 'cache_bootstrap');
+   cache_clear_all('system_list', 'cache_bootstrap');
+@@ -374,48 +375,59 @@ function module_enable($module_list, $en
+       drupal_load('module', $module);
+       module_load_install($module);
+ 
+-      // Update the database and module list to reflect the new module. This
+-      // needs to be done first so that the module's hook implementations,
+-      // hook_schema() in particular, can be called while it is being
+-      // installed.
++      // Update the database to reflect the new module. This needs to be done
++      // first so that the module's hook implementations, hook_schema() in
++      // particular, can be called while it is being installed.
+       db_update('system')
+         ->fields(array('status' => 1))
+         ->condition('type', 'module')
+         ->condition('name', $module)
+         ->execute();
+-      // Refresh the module list to include it.
+-      system_list_reset();
+-      module_list(TRUE);
+-      module_implements('', FALSE, TRUE);
+-      _system_update_bootstrap_status();
+-      // Update the registry to include it.
+-      registry_update();
+-      // Refresh the schema to include it.
+-      drupal_get_schema(NULL, TRUE);
+-      // Clear entity cache.
+-      entity_info_cache_clear();
+ 
+       // Now install the module if necessary.
+       if (drupal_get_installed_schema_version($module, TRUE) == SCHEMA_UNINSTALLED) {
++        // Reset the module list in preparation for running hook_schema().
++        system_list_reset();
++        module_list(TRUE);
++        module_implements('', FALSE, TRUE);
++
+         drupal_install_schema($module);
+         $versions = drupal_get_schema_versions($module);
+         drupal_set_installed_schema_version($module, $versions ? max($versions) : SCHEMA_INSTALLED);
+-        // Allow the module to perform install tasks.
+-        module_invoke($module, 'install');
+-        // Record the fact that it was installed.
++        // Remember this module as being installed.
+         $modules_installed[] = $module;
+-        watchdog('system', '%module module installed.', array('%module' => $module), WATCHDOG_INFO);
+       }
+-
+-      // Enable the module.
+-      module_invoke($module, 'enable');
+-
+-      // Record the fact that it was enabled.
++      // Remember this module as being enabled.
+       $modules_enabled[] = $module;
+-      watchdog('system', '%module module enabled.', array('%module' => $module), WATCHDOG_INFO);
+     }
+   }
+ 
++  if (!$modules_enabled) {
++    // Nothing to do. All modules already enabled.
++    return TRUE;
++  }
++
++  // Refresh module list, code registry, and other relevant caches.
++  system_list_reset();
++  module_list(TRUE);
++  module_implements('', FALSE, TRUE);
++  registry_update();
++  entity_info_cache_clear();
++  _system_update_bootstrap_status();
++  drupal_get_schema(NULL, TRUE);
++
++  foreach ($modules_installed as $module) {
++    // Allow the module to perform tasks when installed.
++    module_invoke($module, 'install');
++    watchdog('system', '%module module installed.', array('%module' => $module), WATCHDOG_INFO);
++  }
++
++  foreach ($modules_enabled as $module) {
++    // Allow the module to perform tasks when enabled.
++    module_invoke($module, 'enable');
++    watchdog('system', '%module module enabled.', array('%module' => $module), WATCHDOG_INFO);
++  }
++
+   // If any modules were newly installed, invoke hook_modules_installed().
+   if (!empty($modules_installed)) {
+     module_invoke_all('modules_installed', $modules_installed);
+Index: includes/update.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/update.inc,v
+retrieving revision 1.59
+diff -u -p -r1.59 update.inc
+--- includes/update.inc	27 Jun 2010 16:51:38 -0000	1.59
++++ includes/update.inc	29 Jun 2010 19:07:27 -0000
+@@ -591,6 +591,9 @@ function update_fix_d7_requirements() {
+     // Add new primary key.
+     db_add_primary_key('sessions', array('sid', 'ssid'));
+ 
++    // Rename action description to label.
++    db_change_field('actions', 'description', 'label', array('type' => 'varchar', 'length' => 255, 'not null' => TRUE, 'default' => '0'));
++
+     variable_set('update_d7_requirements', TRUE);
+   }
+ 
+Index: modules/simpletest/drupal_web_test_case.php
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/simpletest/drupal_web_test_case.php,v
+retrieving revision 1.223
+diff -u -p -r1.223 drupal_web_test_case.php
+--- modules/simpletest/drupal_web_test_case.php	29 Jun 2010 18:24:10 -0000	1.223
++++ modules/simpletest/drupal_web_test_case.php	29 Jun 2010 19:07:27 -0000
+@@ -1197,6 +1197,10 @@ class DrupalWebTestCase extends DrupalTe
+     variable_set('install_profile', 'standard');
+     $profile_details = install_profile_info('standard', 'en');
+ 
++    // It's necessary to build the menu now for some modules to install
++    // correctly.
++    menu_rebuild();
++
+     // Install the modules specified by the default profile.
+     module_enable($profile_details['dependencies'], FALSE);
+ 
+Index: modules/simpletest/tests/entity_cache_test.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/simpletest/tests/entity_cache_test.module,v
+retrieving revision 1.1
+diff -u -p -r1.1 entity_cache_test.module
+--- modules/simpletest/tests/entity_cache_test.module	18 Apr 2010 15:01:56 -0000	1.1
++++ modules/simpletest/tests/entity_cache_test.module	29 Jun 2010 19:07:27 -0000
+@@ -7,7 +7,7 @@
+  */
+ 
+ /**
+- * Implements hook_watchdog().
++ * Implements hook_enable().
+  *
+  * This function is called during module_enable() and tries to access entity
+  * information provided by the module this one depends on. The information is
+@@ -16,7 +16,7 @@
+  *
+  * @see EnableDisableTestCase::testEntityCache()
+  */
+-function entity_cache_test_watchdog() {
++function entity_cache_test_enable() {
+   $info = entity_get_info('entity_cache_test');
+   variable_set('entity_cache_test', $info);
+ }
+Index: modules/simpletest/tests/module_test.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/simpletest/tests/module_test.module,v
+retrieving revision 1.6
+diff -u -p -r1.6 module_test.module
+--- modules/simpletest/tests/module_test.module	22 Apr 2010 18:56:31 -0000	1.6
++++ modules/simpletest/tests/module_test.module	29 Jun 2010 19:07:27 -0000
+@@ -36,6 +36,9 @@ function module_test_system_info_alter(&
+       $info['dependencies'][] = 'php';
+     }
+   }
++  if ($file->name == 'seven' && $type == 'theme') {
++    $info['regions']['test_region'] = t('Test region');
++  }
+ }
+ 
+ /**
+Index: modules/system/system.admin.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.admin.inc,v
+retrieving revision 1.290
+diff -u -p -r1.290 system.admin.inc
+--- modules/system/system.admin.inc	26 Jun 2010 21:32:20 -0000	1.290
++++ modules/system/system.admin.inc	29 Jun 2010 19:07:28 -0000
+@@ -1213,6 +1213,7 @@ function system_modules_submit($form, &$
+     if ($module['enabled']) {
+       if (drupal_get_installed_schema_version($name) == SCHEMA_UNINSTALLED) {
+         $actions['install'][] = $name;
++        $actions['enable'][] = $name;
+       }
+       elseif (!module_exists($name)) {
+         $actions['enable'][] = $name;
+@@ -1229,38 +1230,22 @@ function system_modules_submit($form, &$
+   unset($form_state['storage']);
+ 
+   // Installs, enables, and disables modules.
+-  module_enable($actions['enable']);
+-  module_disable($actions['disable']);
+-  module_enable($actions['install']);
++  module_enable($actions['enable'], FALSE);
++  module_disable($actions['disable'], FALSE);
+ 
+   // Gets module list after install process, displays message if there are changes.
+   $post_install_list = module_list(TRUE);
+   if ($pre_install_list != $post_install_list) {
++    drupal_flush_all_caches();
+     drupal_set_message(t('The configuration options have been saved.'));
+   }
+ 
+-  // Clear all caches.
+-  registry_rebuild();
+-  system_rebuild_theme_data();
+-  drupal_theme_rebuild();
+-  node_types_rebuild();
+-  menu_rebuild();
+-  cache_clear_all('schema', 'cache');
+-  entity_info_cache_clear();
+-  drupal_clear_css_cache();
+-  drupal_clear_js_cache();
+-
+   $form_state['redirect'] = 'admin/modules';
+ 
+   // Notify locale module about module changes, so translations can be
+   // imported. This might start a batch, and only return to the redirect
+   // path after that.
+   module_invoke('locale', 'system_update', $actions['install']);
+-
+-  // Synchronize to catch any actions that were added or removed.
+-  actions_synchronize();
+-
+-  return;
+ }
+ 
+ /**
+Index: modules/system/system.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.install,v
+retrieving revision 1.484
+diff -u -p -r1.484 system.install
+--- modules/system/system.install	29 Jun 2010 16:52:11 -0000	1.484
++++ modules/system/system.install	29 Jun 2010 19:07:28 -0000
+@@ -2264,7 +2264,7 @@ function system_update_7036() {
+  * Rename action description to label.
+  */
+ function system_update_7037() {
+-  db_change_field('actions', 'description', 'label', array('type' => 'varchar', 'length' => 255, 'not null' => TRUE, 'default' => '0'));
++  // Moved to update_fix_d7_requirements().
+ }
+ 
+ /**
+Index: modules/system/system.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.module,v
+retrieving revision 1.943
+diff -u -p -r1.943 system.module
+--- modules/system/system.module	29 Jun 2010 18:24:10 -0000	1.943
++++ modules/system/system.module	29 Jun 2010 19:07:28 -0000
+@@ -2250,6 +2250,10 @@ function _system_rebuild_module_data() {
+     'bootstrap' => 0,
+   );
+ 
++  // Reset the module list to ensure that drupal_alter() runs on a completely
++  // fresh list.
++  module_implements('', FALSE, TRUE);
++
+   // Read info files for each module.
+   foreach ($modules as $key => $module) {
+     // The module system uses the key 'filename' instead of 'uri' so copy the
+@@ -2361,6 +2365,10 @@ function _system_rebuild_theme_data() {
+     'php' => DRUPAL_MINIMUM_PHP,
+   );
+ 
++  // Reset the module list to ensure that drupal_alter() runs on a completely
++  // fresh list.
++  module_implements('', FALSE, TRUE);
++
+   $sub_themes = array();
+   // Read info files for each theme
+   foreach ($themes as $key => $theme) {
+Index: modules/system/system.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.test,v
+retrieving revision 1.129
+diff -u -p -r1.129 system.test
+--- modules/system/system.test	28 Jun 2010 20:27:34 -0000	1.129
++++ modules/system/system.test	29 Jun 2010 19:07:29 -0000
+@@ -1620,6 +1620,73 @@ array_space[a b] = Value';
+ }
+ 
+ /**
++ * Tests the effectiveness of hook_system_info_alter().
++ */
++class SystemInfoAlterTestCase extends DrupalWebTestCase {
++  public static function getInfo() {
++    return array(
++      'name' => 'System info alter',
++      'description' => 'Tests the effectiveness of hook_system_info_alter().',
++      'group' => 'System',
++    );
++  }
++
++  /**
++   * Tests that {system}.info is rebuilt after a module that implements
++   * hook_system_info_alter() is enabled. Also tests if core *_list() functions
++   * return freshly altered info.
++   */
++  function testSystemInfoAlter() {
++    // Enable our test module. Flush all caches, which we assert is the only
++    // thing necessary to use the rebuilt {system}.info.
++    module_enable(array('module_test'), FALSE);
++    drupal_flush_all_caches();
++    $this->assertTrue(module_exists('module_test'), t('Test module is enabled.'));
++
++    $info = $this->_getSystemInfo('seven', 'theme');
++    $this->assertTrue(isset($info['regions']['test_region']), t('Altered theme info was added to {system}.info.'));
++    $seven_regions = system_region_list('seven');
++    $this->assertTrue(isset($seven_regions['test_region']), t('Altered theme info was returned by system_region_list().'));
++    $system_list_themes = system_list('theme');
++    $info = $system_list_themes['seven']->info;
++    $this->assertTrue(isset($info['regions']['test_region']), t('Altered theme info was returned by system_list().'));
++    $list_themes = list_themes();
++    $this->assertTrue(isset($list_themes['seven']->info['regions']['test_region']), t('Altered theme info was returned by list_themes().'));
++
++    // Disable the module and verify that {system}.info is rebuilt without it.
++    module_disable(array('module_test'), FALSE);
++    drupal_flush_all_caches();
++    $this->assertFalse(module_exists('module_test'), t('Test module is disabled.'));
++
++    $info = $this->_getSystemInfo('seven', 'theme');
++    $this->assertFalse(isset($info['regions']['test_region']), t('Altered theme info was removed from {system}.info.'));
++    $seven_regions = system_region_list('seven');
++    $this->assertFalse(isset($seven_regions['test_region']), t('Altered theme info was not returned by system_region_list().'));
++    $system_list_themes = system_list('theme');
++    $info = $system_list_themes['seven']->info;
++    $this->assertFalse(isset($info['regions']['test_region']), t('Altered theme info was not returned by system_list().'));
++    $list_themes = list_themes();
++    $this->assertFalse(isset($list_themes['seven']->info['regions']['test_region']), t('Altered theme info was not returned by list_themes().'));
++  }
++
++  /**
++   * Support function. Returns the info array as it is stored in {system}.
++   *
++   * @param $name
++   *   The name of the record in {system}.
++   * @param $type
++   *   The type of record in {system}.
++   *
++   * @return
++   *   Array of info, or FALSE if the record is not found.
++   */
++  function _getSystemInfo($name, $type) {
++    $raw_info = db_query("SELECT info FROM {system} WHERE name = :name AND type = :type", array(':name' => $name, ':type' => $type))->fetchField();
++    return $raw_info ? unserialize($raw_info) : FALSE;
++  }
++}
++
++/**
+  * Tests for the update system functionality.
+  */
+ class UpdateScriptFunctionalTest extends DrupalWebTestCase {

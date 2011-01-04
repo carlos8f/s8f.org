@@ -1,0 +1,30 @@
+? .cvsignore
+? .project
+? .settings
+Index: includes/bootstrap.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/bootstrap.inc,v
+retrieving revision 1.348
+diff -u -p -r1.348 bootstrap.inc
+--- includes/bootstrap.inc	31 Jan 2010 18:31:46 -0000	1.348
++++ includes/bootstrap.inc	4 Feb 2010 21:06:13 -0000
+@@ -2121,6 +2121,19 @@ function _registry_check_code($type, $na
+     return (bool)$lookup_cache[$cache_key];
+   }
+ 
++  // Check the database to see if it is active.
++  if (!db_is_active()) {
++    throw new Exception(t('Cannot find %file in the registry with an inactive database. Backtrace: <pre>!trace</pre>', array('%file' => $file, '!trace' => print_r(debug_backtrace(), 1))));
++  }
++  elseif (!$count = Database::getConnection('default', 'default')->query("SELECT 1 FROM {registry}")->fetchField()) {
++    // The registry is empty. Rebuild it and verify that the table is populated.
++    require_once DRUPAL_ROOT . '/includes/registry.inc';
++    _registry_update();
++    if (!$count = Database::getConnection('default', 'default')->query("SELECT 1 FROM {registry}")->fetchField()) {
++      throw new Exception(t('Cannot build registry. Backtrace: <pre>!trace</pre>', array('!trace' => print_r(debug_backtrace(), 1))));
++    }
++  }
++
+   // This function may get called when the default database is not active, but
+   // there is no reason we'd ever want to not use the default database for
+   // this query.

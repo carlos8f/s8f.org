@@ -1,0 +1,36 @@
+Index: includes/update.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/update.inc,v
+retrieving revision 1.76
+diff -u -p -r1.76 update.inc
+--- includes/update.inc	6 Oct 2010 21:51:10 -0000	1.76
++++ includes/update.inc	10 Oct 2010 22:55:15 -0000
+@@ -270,6 +270,18 @@ function update_prepare_d7_bootstrap() {
+     // Set the timezone for this request only.
+     $GLOBALS['conf']['date_default_timezone'] = 'UTC';
+   }
++
++  if (variable_get('update_d7_requirements', FALSE) === -1) {
++    $requirements = array(
++      'failed' => array(
++        'title' => 'Schema upgrade',
++        'value' => 'Failed',
++        'severity' => REQUIREMENT_ERROR,
++        'description' => 'Please check your error logs, restore a backup of your database, make sure you have read UPGRADE.txt and try again.',
++      ),
++    );
++    update_extra_requirements($requirements);
++  }
+ }
+ 
+ /**
+@@ -427,6 +439,9 @@ function update_fix_d7_requirements() {
+     file_put_contents(conf_path() . '/settings.php', "\n" . '$databases = ' . var_export($databases, TRUE) . ";\n\$drupal_hash_salt = '$salt';", FILE_APPEND);
+   }
+   if (drupal_get_installed_schema_version('system') < 7000 && !variable_get('update_d7_requirements', FALSE)) {
++    // Record that we have started updates. This can be useful in case the
++    // procedure crashes.
++    variable_set('update_d7_requirements', -1);
+     // Change 6.x system table field values to 7.x equivalent.
+     // Change field values.
+     db_change_field('system', 'schema_version', 'schema_version', array(

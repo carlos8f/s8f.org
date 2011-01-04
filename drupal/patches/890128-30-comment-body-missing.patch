@@ -1,0 +1,153 @@
+? .cvsignore
+? .project
+? .settings
+? install.log
+? install_log.php
+? test.php
+? sites/default/files
+? sites/default/private
+? sites/default/settings.php
+Index: modules/blog/blog.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/blog/blog.install,v
+retrieving revision 1.1
+diff -u -p -r1.1 blog.install
+--- modules/blog/blog.install	5 May 2010 15:11:51 -0000	1.1
++++ modules/blog/blog.install	11 Dec 2010 01:11:48 -0000
+@@ -5,13 +5,3 @@
+  * @file
+  * Install, update and uninstall functions for the blog module.
+  */
+-
+-/**
+- * Implements hook_install().
+- */
+-function blog_install() {
+-  // Ensure the blog node type is available.
+-  node_types_rebuild();
+-  $types = node_type_get_types();
+-  node_add_body_field($types['blog']);
+-}
+Index: modules/blog/blog.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/blog/blog.module,v
+retrieving revision 1.362
+diff -u -p -r1.362 blog.module
+--- modules/blog/blog.module	14 Nov 2010 21:04:45 -0000	1.362
++++ modules/blog/blog.module	11 Dec 2010 01:11:48 -0000
+@@ -20,6 +20,15 @@ function blog_node_info() {
+ }
+ 
+ /**
++ * Implements hook_node_type_insert().
++ */
++function blog_node_type_insert($info) {
++  if ($info->type == 'blog') {
++    node_add_body_field($info);
++  }
++}
++
++/**
+  * Implements hook_user_view().
+  */
+ function blog_user_view($account) {
+Index: modules/book/book.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/book/book.install,v
+retrieving revision 1.36
+diff -u -p -r1.36 book.install
+--- modules/book/book.install	23 Jun 2010 19:05:15 -0000	1.36
++++ modules/book/book.install	11 Dec 2010 01:11:48 -0000
+@@ -7,11 +7,13 @@
+  */
+ 
+ /**
+- * Implements hook_install().
++ * Implements hook_modules_installed().
+  */
+-function book_install() {
+-  // Add the node type.
+-  _book_install_type_create();
++function book_modules_installed($modules) {
++  if (in_array('book', $modules)) {
++    // Add the node type.
++    _book_install_type_create();
++  }
+ }
+ 
+ /**
+Index: modules/comment/comment.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.install,v
+retrieving revision 1.73
+diff -u -p -r1.73 comment.install
+--- modules/comment/comment.install	28 Sep 2010 03:30:37 -0000	1.73
++++ modules/comment/comment.install	11 Dec 2010 01:11:48 -0000
+@@ -19,20 +19,6 @@ function comment_install() {
+     );
+     field_create_field($field);
+   }
+-
+-  // There is a separate comment bundle for each node type to allow for
+-  // per-node-type customization of comment fields. Each one of these bundles
+-  // needs a comment body field instance. A comment bundle is needed even for
+-  // node types whose comments are disabled by default, because individual nodes
+-  // may override that default.
+-  // @todo This should be changed to call field_attach_create_bundle() instead,
+-  //   and a comment_field_attach_create_bundle() function should be added to
+-  //   handle the creation of the comment body field instance.
+-  foreach (node_type_get_types() as $type => $info) {
+-    if (!isset($info->is_new) && !isset($info->disabled) && !field_info_instance('comment', 'comment_body', 'comment_node_' . $info->type)) {
+-      _comment_body_field_instance_create($info);
+-    }
+-  }
+ }
+ 
+ /**
+Index: modules/comment/comment.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/comment/comment.test,v
+retrieving revision 1.95
+diff -u -p -r1.95 comment.test
+--- modules/comment/comment.test	9 Dec 2010 02:16:21 -0000	1.95
++++ modules/comment/comment.test	11 Dec 2010 01:11:48 -0000
+@@ -1478,3 +1478,39 @@ class CommentActionsTestCase extends Com
+     db_truncate('watchdog')->execute();
+   }
+ }
++
++/**
++ * Test that comment module works after being enabled after a content module.
++ */
++class CommentEnableTest extends CommentHelperCase {
++  protected $profile = 'testing';
++
++  public static function getInfo() {
++    return array(
++      'name' => 'Comment enable test',
++      'description' => 'Test that comment module works after being enabled after a content module.',
++      'group' => 'Comment',
++    );
++  }
++
++  function setUp() {
++    // Do not call parent::setUp() because we selectively enable modules.
++    DrupalWebTestCase::setUp(array('blog', 'poll', 'book', 'comment'));
++    // Create a user and test nodes.
++    $this->web_user = $this->drupalCreateUser(array('access comments', 'post comments', 'skip comment approval'));
++    $this->drupalLogin($this->web_user);
++    $this->blog_node = $this->drupalCreateNode(array('type' => 'blog'));
++    $this->poll_node = $this->drupalCreateNode(array('type' => 'poll', 'runtime' => 0, 'active' => 1, 'choice' => array(array('chtext' => ''))));
++    $this->book_node = $this->drupalCreateNode(array('type' => 'book'));
++  }
++
++  /**
++   * Test that comment module works after being enabled after a content module.
++   */
++  function testCommentEnable() {
++    // If the body field was not created, posting will trigger failures.
++    $comment = $this->postComment($this->blog_node, $this->randomName(), $this->randomName());
++    $comment = $this->postComment($this->poll_node, $this->randomName(), $this->randomName());
++    $comment = $this->postComment($this->book_node, $this->randomName(), $this->randomName());
++  }
++}

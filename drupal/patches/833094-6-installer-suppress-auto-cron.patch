@@ -1,0 +1,54 @@
+Index: includes/install.core.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/install.core.inc,v
+retrieving revision 1.22
+diff -u -p -r1.22 install.core.inc
+--- includes/install.core.inc	5 Jun 2010 12:02:33 -0000	1.22
++++ includes/install.core.inc	21 Jun 2010 17:58:28 -0000
+@@ -755,6 +755,9 @@ function install_system_module(&$install
+   // Install system.module.
+   drupal_install_system();
+ 
++  // Set a temporary flag to indicate that we are still installing.
++  variable_set('installing', TRUE);
++
+   // Enable the user module so that sessions can be recorded during the
+   // upcoming bootstrap step.
+   module_enable(array('user'), FALSE);
+@@ -1475,6 +1478,9 @@ function install_finished(&$install_stat
+   $output = '<p>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</p>';
+   $output .= '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+ 
++  // Delete our temporary install flag.
++  variable_del('installing');
++
+   // Flush all caches to ensure that any full bootstraps during the installer
+   // do not leave stale cached data, and that any content types or other items
+   // registered by the install profile are registered correctly.
+@@ -1499,7 +1505,9 @@ function install_finished(&$install_stat
+   // Run cron to populate update status tables (if available) so that users
+   // will be warned if they've installed an out of date Drupal version.
+   // Will also trigger indexing of profile-supplied content or feeds.
+-  drupal_cron_run();
++  // Profiles may choose to opt out of auto cron by calling
++  // variable_set('cron_safe_threshold', 0).
++  system_run_automated_cron();
+ 
+   return $output;
+ }
+Index: modules/system/system.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.module,v
+retrieving revision 1.939
+diff -u -p -r1.939 system.module
+--- modules/system/system.module	21 Jun 2010 02:27:47 -0000	1.939
++++ modules/system/system.module	21 Jun 2010 17:58:28 -0000
+@@ -3283,7 +3283,7 @@ function system_page_alter(&$page) {
+  * Run the automated cron if enabled.
+  */
+ function system_run_automated_cron() {
+-  if (($threshold = variable_get('cron_safe_threshold', DRUPAL_CRON_DEFAULT_THRESHOLD)) > 0) {
++  if (!variable_get('installing', FALSE) && ($threshold = variable_get('cron_safe_threshold', DRUPAL_CRON_DEFAULT_THRESHOLD)) > 0) {
+     $cron_last = variable_get('cron_last', NULL);
+     if (!isset($cron_last) || (REQUEST_TIME - $cron_last > $threshold)) {
+       drupal_cron_run();

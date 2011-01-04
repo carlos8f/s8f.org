@@ -1,0 +1,251 @@
+Index: modules/block/block.module
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/block/block.module,v
+retrieving revision 1.409
+diff -u -p -r1.409 block.module
+--- modules/block/block.module	24 Jan 2010 16:20:50 -0000	1.409
++++ modules/block/block.module	1 Feb 2010 21:08:00 -0000
+@@ -825,7 +825,7 @@ function _block_get_cache_id($block) {
+     // Start with common sub-patterns: block identification, theme, language.
+     $cid_parts[] = $block->module;
+     $cid_parts[] = $block->delta;
+-    $cid_parts += drupal_render_cid_parts($block->cache);
++    $cid_parts = array_merge($cid_parts, drupal_render_cid_parts($block->cache));
+ 
+     return implode(':', $cid_parts);
+   }
+Index: modules/block/block.test
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/block/block.test,v
+retrieving revision 1.36
+diff -u -p -r1.36 block.test
+--- modules/block/block.test	24 Jan 2010 16:20:50 -0000	1.36
++++ modules/block/block.test	1 Feb 2010 21:08:00 -0000
+@@ -318,3 +318,181 @@ class BlockAdminThemeTestCase extends Dr
+     $this->assertResponse(200, t('The block admin page for the admin theme can be accessed'));
+   }
+ }
++
++/**
++ * Test block caching.
++ */
++class BlockCacheTestCase extends DrupalWebTestCase {
++  protected $admin_user;
++  protected $normal_user;
++  protected $normal_user_alt;
++
++  public static function getInfo() {
++    return array(
++      'name' => 'Block caching',
++      'description' => 'Test block caching.',
++      'group' => 'Block',
++    );
++  }
++
++  function setUp() {
++    parent::setUp('block_test');
++
++    // Create an admin user, log in and enable test blocks.
++    $this->admin_user = $this->drupalCreateUser(array('administer blocks', 'administer filters', 'access administration pages'));
++    $this->drupalLogin($this->admin_user);
++
++    // Create additional users to test caching modes.
++    $this->normal_user = $this->drupalCreateUser();
++    $this->normal_user_alt = $this->drupalCreateUser();
++    // Sync the roles, since drupalCreateUser() creates separate roles for
++    // the same permission sets.
++    user_save($this->normal_user_alt, array('roles' => $this->normal_user->roles));
++    $this->normal_user_alt->roles = $this->normal_user->roles;
++
++    // Enable block caching.
++    variable_set('block_cache', 1);
++
++    // Enable our test block.
++    $edit['block_test_test_cache[region]'] = 'sidebar_first';
++    $this->drupalPost('admin/structure/block', $edit, t('Save blocks'));
++  }
++
++  /**
++   * Test per-role caching.
++   */
++  function testCachePerRole() {
++    $this->setCacheMode(DRUPAL_CACHE_PER_ROLE);
++
++    // Enable our test block. Set some content for it to display.
++    variable_set('block_test_content', $this->randomName());
++    $this->drupalLogin($this->normal_user);
++    $this->drupalGet('');
++    $this->assertText(variable_get('block_test_content', ''), t('Block content displays.'));
++
++    // Change the content, but the cached copy should still be served.
++    $old_content = variable_get('block_test_content', '');
++    variable_set('block_test_content', $this->randomName());
++    $this->drupalGet('');
++    $this->assertText($old_content, t('Block is served from the cache.'));
++
++    // Clear the cache and verify that the stale data is no longer there.
++    cache_clear_all();
++    $this->drupalGet('');
++    $this->assertNoText($old_content, t('Block cache clear removes stale cache data.'));
++
++    // Test whether the cached data is served for the correct users.
++    $old_content = variable_get('block_test_content', '');
++    variable_set('block_test_content', $this->randomName());
++    $this->drupalLogout();
++    $this->drupalGet('');
++    $this->assertNoText($old_content, t('Anonymous user does not see content cached per-role for normal user.'));
++
++    $this->drupalLogin($this->normal_user_alt);
++    $this->drupalGet('');
++    $this->assertText($old_content, t('User with the same roles sees per-role cached content.'));
++
++    $this->drupalLogin($this->admin_user);
++    $this->drupalGet('');
++    $this->assertNoText($old_content, t('Admin user does not see content cached per-role for normal user.'));
++
++    $this->drupalLogin($this->normal_user);
++    $this->drupalGet('');
++    $this->assertText($old_content, t('Block is served from the per-role cache.'));
++  }
++
++  /**
++   * Test global caching.
++   */
++  function testCacheGlobal() {
++    $this->setCacheMode(DRUPAL_CACHE_GLOBAL);
++    variable_set('block_test_content', $this->randomName());
++
++    $this->drupalGet('');
++    $this->assertText(variable_get('block_test_content', ''), t('Block content displays.'));
++
++    $old_content = variable_get('block_test_content', '');
++    variable_set('block_test_content', $this->randomName());
++
++    $this->drupalLogout();
++    $this->drupalGet('user');
++    $this->assertText($old_content, t('Block content served from global cache.'));
++  }
++
++  /**
++   * Test DRUPAL_NO_CACHE.
++   */
++  function testNoCache() {
++    $this->setCacheMode(DRUPAL_NO_CACHE);
++    variable_set('block_test_content', $this->randomName());
++
++    // If DRUPAL_NO_CACHE has no effect, the next request would be cached.
++    $this->drupalGet('');
++    $this->assertText(variable_get('block_test_content', ''), t('Block content displays.'));
++
++    // A cached copy should not be served.
++    variable_set('block_test_content', $this->randomName());
++    $this->drupalGet('');
++    $this->assertText(variable_get('block_test_content', ''), t('DRUPAL_NO_CACHE prevents blocks from being cached.'));
++  }
++
++  /**
++   * Test per-user caching.
++   */
++  function testCachePerUser() {
++    $this->setCacheMode(DRUPAL_CACHE_PER_USER);
++    variable_set('block_test_content', $this->randomName());
++    $this->drupalLogin($this->normal_user);
++
++    $this->drupalGet('');
++    $this->assertText(variable_get('block_test_content', ''), t('Block content displays.'));
++
++    $old_content = variable_get('block_test_content', '');
++    variable_set('block_test_content', $this->randomName());
++
++    $this->drupalGet('');
++    $this->assertText($old_content, t('Block is served from per-user cache.'));
++
++    $this->drupalLogin($this->normal_user_alt);
++    $this->drupalGet('');
++    $this->assertText(variable_get('block_test_content', ''), t('Per-user block cache is not served for other users.'));
++
++    $this->drupalLogin($this->normal_user);
++    $this->drupalGet('');
++    $this->assertText($old_content, t('Per-user block cache is persistent.'));
++  }
++
++  /**
++   * Test per-page caching.
++   */
++  function testCachePerPage() {
++    $this->setCacheMode(DRUPAL_CACHE_PER_PAGE);
++    variable_set('block_test_content', $this->randomName());
++
++    $this->drupalGet('node');
++    $this->assertText(variable_get('block_test_content', ''), t('Block content displays on the node page.'));
++
++    $old_content = variable_get('block_test_content', '');
++    variable_set('block_test_content', $this->randomName());
++
++    $this->drupalGet('user');
++    $this->assertNoText($old_content, t('Block content cached for the node page does not show up for the user page.'));
++    $this->drupalGet('node');
++    $this->assertText($old_content, t('Block content cached for the node page.'));
++  }
++
++  /**
++   * Private helper method to set the test block's cache mode.
++   */
++  private function setCacheMode($cache_mode) {
++    db_update('block')
++      ->fields(array('cache' => $cache_mode))
++      ->condition('module', 'block_test')
++      ->execute();
++
++    $current_mode = db_query("SELECT cache FROM {block} WHERE module = 'block_test'")->fetchField();
++    if ($current_mode != $cache_mode) {
++      $this->fail(t('Unable to set cache mode to %mode. Current mode: %current_mode', array('%mode' => $cache_mode, '%current_mode' => $current_mode)));
++    }
++  }
++}
+Index: modules/block/tests/block_test.info
+===================================================================
+RCS file: modules/block/tests/block_test.info
+diff -N modules/block/tests/block_test.info
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ modules/block/tests/block_test.info	1 Feb 2010 21:08:00 -0000
+@@ -0,0 +1,8 @@
++; $Id$
++name = Block test
++description = Provides test blocks.
++package = Core
++version = VERSION
++core = 7.x
++files[] = block_test.module
++hidden = TRUE
+Index: modules/block/tests/block_test.module
+===================================================================
+RCS file: modules/block/tests/block_test.module
+diff -N modules/block/tests/block_test.module
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ modules/block/tests/block_test.module	1 Feb 2010 21:08:00 -0000
+@@ -0,0 +1,24 @@
++<?php
++// $Id$
++
++/**
++ * @file
++ *   Provide test blocks.
++ */
++
++/**
++ * Implements hook_block_info().
++ */
++function block_test_block_info() {
++  $blocks['test_cache'] = array(
++    'info' => 'Test block caching',
++  );
++  return $blocks;
++}
++
++/**
++ * Implements hook_block_view().
++ */
++function block_test_block_view($delta = 0) {
++  return array('content' => variable_get('block_test_content', ''));
++}

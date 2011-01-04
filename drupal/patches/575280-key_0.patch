@@ -1,0 +1,37 @@
+Index: includes/session.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/session.inc,v
+retrieving revision 1.91
+diff -u -p -r1.91 session.inc
+--- includes/session.inc	5 Nov 2010 19:05:02 -0000	1.91
++++ includes/session.inc	11 Nov 2010 09:00:26 -0000
+@@ -200,6 +200,9 @@ function _drupal_session_write($sid, $va
+           }
+         }
+       }
++      elseif (variable_get('https', FALSE)) {
++        unset($key['ssid']);
++      }
+ 
+       db_merge('sessions')
+         ->key($key)
+Index: modules/system/system.install
+===================================================================
+RCS file: /cvs/drupal/drupal/modules/system/system.install,v
+retrieving revision 1.522
+diff -u -p -r1.522 system.install
+--- modules/system/system.install	5 Nov 2010 19:05:02 -0000	1.522
++++ modules/system/system.install	11 Nov 2010 09:00:26 -0000
+@@ -2910,7 +2910,11 @@ function system_update_7065() {
+     'length' => 128,
+     'not null' => TRUE,
+   );
+-  db_change_field('sessions', 'sid', 'sid', $spec);
++  db_drop_primary_key('sessions');
++  db_change_field('sessions', 'sid', 'sid', $spec,
++    array('primary key' => array('sid', 'ssid')));
++  // Delete any sessions with empty session identifier.
++  db_delete('sessions')->condition('sid', '')->execute();
+ }
+ 
+ /**
