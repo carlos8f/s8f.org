@@ -45,7 +45,7 @@ class S8f_Progress {
   protected $size = 50;
   protected $inner_time = 0;
   protected $outer_time = 0;
-  protected $avg_time = 0;
+  protected $elapsed = 0;
   protected $time_start = 0;
   protected $time_end = 0;
   protected $time_left = 0;
@@ -105,6 +105,7 @@ class S8f_Progress {
 
     // Start collecting time.
     $this->time_start = microtime(TRUE);
+    $this->elapsed = $this->time_start - $this->started;
     if ($this->time_end > 0) {
       $this->outer_time = $this->time_start - $this->time_end;
     }
@@ -113,13 +114,8 @@ class S8f_Progress {
       $this->time_burden = ($this->inner_time / ($this->inner_time + $this->outer_time)) * 100;
 
       // Estimate time left.
-      if ($this->avg_time > 0) {
-        $this->avg_time = ($this->avg_time + ($this->inner_time + $this->outer_time)) / 2;
-      }
-      else {
-        $this->avg_time = $this->inner_time + $this->outer_time;
-      }
-      $this->time_left = $this->avg_time * (($this->total - $this->current) / ($this->skip_steps + 1));
+      $this->time_left = ($this->elapsed / $this->current) * ($this->total - $this->current);
+
       if ($this->time_left < 0) $this->time_left = 0;
     }
     // If our "burden" is too high, increase the skip steps.
@@ -154,7 +150,6 @@ class S8f_Progress {
     }
 
     // Output times.
-    $this->elapsed = $this->time_start - $this->started;
     $hours = floor($this->elapsed / 3600);
     $min = floor($this->elapsed % 3600 / 60);
     $sec = $this->elapsed % 60;
