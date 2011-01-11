@@ -92,7 +92,7 @@ class S8f_Progress {
       $this->total = $new_total;
     }
 
-    if ($this->current >= $this->total || $this->burden_reached()) {
+    if ($this->burden_reached()) {
       return;
     }
 
@@ -165,9 +165,8 @@ class S8f_Progress {
 
     // The task is complete.
     if ($this->current >= $this->total) {
-      $output .= "\n\n";
+      $output .= "\n";
       $output .= "Finished in " . $this->bold . $this->elapsed . $this->close . " !";
-      $output .= "\n\n";
     }
 
     // "Clear" the rest of the line.
