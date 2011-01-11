@@ -55,11 +55,11 @@ function ip_address_view($format = 'html') {
       $geoip = '';
       if (variable_get('ip_address_show_geoip', FALSE)) {
         drupal_add_js('http://j.maxmind.com/app/geoip.js', array('type' => 'external', 'scope' => 'footer'));
-        drupal_add_js(drupal_get_path('module', 'ip_address') . '/ip_address.js', array('type' => 'file', 'scope' => 'footer'));
         $geoip = '<div id="ip_geoip"></div>';
         $geoip .= '<div class="attribution">' . t('Geo IP service provided by !link', array('!link' => l('www.maxmind.com', 'http://www.maxmind.com/', array('external' => TRUE)))) . '</div>';
       }
       drupal_add_js(array('ip_address_path' => drupal_get_path('module', 'ip_address')), 'setting');
+      drupal_add_js(drupal_get_path('module', 'ip_address') . '/ip_address.js');
       return '<div id="ip_address">&nbsp;<noscript><p>Oops, this service requires javascript enabled.</p></noscript></div>' . $geoip;
   }
 }
