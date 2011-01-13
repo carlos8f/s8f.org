@@ -10,6 +10,9 @@
 # url: http://s8f.org/software
 # license: MIT
 
+## Options for git format-patch:
+patch_opts="-1 --stdout --no-prefix -b -B --inter-hunk-context=20"
+
 ## Parse arguments.
 versus="master"
 m_flag=
@@ -67,7 +70,7 @@ else
 fi
 
 ## Create the patch.
-git format-patch --no-prefix -1 -b -B --inter-hunk-context=20 --stdout
+git format-patch $patch_opts
 ## Return to the original branch and clean up.
 git checkout -q $branch
 git branch -D patch_tmp > /dev/null
