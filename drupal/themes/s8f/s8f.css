@@ -143,12 +143,12 @@ div.codeblock, pre {
   border-style: solid;
   border-width: 1px 0 4px 6px;
   color: black;
-  font-family: "Consolas","Courier New",Courier,mono;
-  font-size: 110%;
+  font-family: Consolas, "Courier New", Courier, mono;
   letter-spacing: 0;
-  line-height: 1.3em;
+  line-height: 1.1em;
   overflow: auto;
   padding: 1em;
+  margin: 1em 0;
 }
 .field-type-image {
   float: right;
