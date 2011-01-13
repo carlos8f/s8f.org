@@ -29,11 +29,17 @@ if [ "$1" ]; then
   versus=$1;
 fi
 
+git status -s &> /dev/null
+if [ $? -gt 0 ]; then
+  echo "Current directory is not a git repository!"
+  exit 1
+fi
+
 ## Check for uncommitted changes which would be lost in the process.
 git diff --exit-code --numstat > /dev/null
 if [ $? -eq 1 ]; then
   echo "You have uncommitted changes. Please commit or stash them first."
-  exit 1;
+  exit 1
 fi
 
 ## Get the current branch.
