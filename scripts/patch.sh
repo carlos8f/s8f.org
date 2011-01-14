@@ -12,6 +12,7 @@
 
 from=""
 message=""
+banner=""
 capture_from=0
 capture_message=0
 diff_opts="--no-prefix"
@@ -132,7 +133,7 @@ if [ $pad_top -eq 1 ]; then
   echo
 fi
 
-if [ -n "$banner" ]; then
+if [ -f "$banner" ]; then
   cat $banner | sed -e 's/^/ /g'
   echo
 fi
