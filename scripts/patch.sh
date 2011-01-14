@@ -128,6 +128,13 @@ do
   fi
 done
 
+## Bail out if there is no repository.
+git status -s &> /dev/null
+if [ $? -gt 0 ]; then
+  echo "Current directory is not a git repository!"
+  exit 1
+fi
+
 if [ $pad_top -eq 1 ]; then
   ## Pad the top.
   echo
