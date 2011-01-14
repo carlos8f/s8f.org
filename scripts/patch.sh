@@ -2,9 +2,9 @@
 #
 # patch.sh -- a patch creation script for git.
 #
-# description: Creates a single patch of the changes between the
-# current branch and <versus>, with a pretty header and diffstat,
-# and sends it to the standard output.
+# description: An extension of git-diff which formats a pretty patch
+# header with a From: line, description, diffstat and even a mini
+# commit log.
 #
 # author: Carlos Rodriguez <carlos@s8f.org>
 # url: http://s8f.org/software
