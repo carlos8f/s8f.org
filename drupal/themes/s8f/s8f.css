@@ -147,7 +147,7 @@ div.codeblock, pre {
   letter-spacing: 0;
   line-height: 1.1em;
   overflow: auto;
-  padding: 1em;
+  padding: 0 1em;
   margin: 1em 0;
 }
 .field-type-image {
