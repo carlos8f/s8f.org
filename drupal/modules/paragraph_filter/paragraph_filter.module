@@ -7,7 +7,7 @@
 function paragraph_filter_filter_info() {
   $filters['linebreak'] = array(
     'title' => t('Convert line breaks into HTML (i.e. <code>&lt;br&gt;</code> and <code>&lt;p&gt;</code>) (XHTML-compliant)'),
-    'process callback' => 'paragraph_filter_process',
+    'process callback' => '_paragraph_filter_process',
     'tips callback' => 'paragraph_filter_tips',
   );
 
