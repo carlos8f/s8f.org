@@ -16,7 +16,7 @@ set_time_limit(0);
 ini_set('memory_limit', -1);
 
 if (isset($argv[1]) && $argv[1] == '--help') {
-  exit("usage: grep 'pattern' /path/to/log | $argv[0] [-s WxH ] [ -m MAX_Y ] [-o output_png]\n");
+  exit("usage: grep 'pattern' /path/to/log | $argv[0] [-s WxH ] [-m MAX_Y] [-t] [-o output_png]\n");
 }
 
 array_shift($argv);
@@ -38,6 +38,9 @@ while ($arg = array_shift($argv)) {
     case '-q':
       $no_label = TRUE;
       break;
+    case '-t';
+      $tabular = TRUE;
+      break;
     case '-x':
      $scale = (int) array_shift($argv);
      if (empty($scale)) exit("-x must be followed by a positive integer.\n");
@@ -54,6 +57,9 @@ if (!isset($out)) {
 }
 if (!isset($scale)) {
   $scale = 60;
+}
+if (!isset($tabular)) {
+  $tabular = FALSE;
 }
 
 $events = array();
@@ -73,12 +79,25 @@ while ($line = fgets(STDIN)) {
   if (empty($line)) {
     continue;
   }
+  if ($tabular) {
+    preg_match('~^(\d+)(?:\w+|,)([\d\.]+)$~', $line, $matches);
+    if (count($matches) != 3) {
+      continue;
+    }
+    $line = $matches[1];
+    $value = floatval($matches[2]);
+  }
   if (is_numeric($line)) {
     $line = "@$line";
   }
   if ($ts = strtotime($line)) {
     $base = $ts - ($ts % $scale);
-    $events[$base] = isset($events[$base]) ? $events[$base] + 1 : 1;
+    if ($tabular) {
+      $events[$base] = isset($events[$base]) ? ($events[$base] + $value) / 2 : $value;
+    }
+    else {
+      $events[$base] = isset($events[$base]) ? $events[$base] + 1 : 1;
+    }
     if (!isset($begin) || $begin > $base) {
       $begin = $base;
     }
@@ -102,21 +121,27 @@ for ($ts = $begin; $ts <= $end; $ts += $scale) {
 }
 
 if (!isset($no_label) && $max_y) {
-  switch ($scale) {
-    case 1: $scale_label = 'sec'; break;
-    case 60: $scale_label = 'min'; break;
-    case 300: $scale_label = '5min'; break;
-    case 600: $scale_label = '10min'; break;
-    case 900: $scale_label = '15min'; break;
-    case 1800: $scale_label = '.5hour'; break;
-    case 3600: $scale_label = 'hour'; break;
-    case 86400: $scale_label = 'day'; break;
-    case 604800: $scale_label = 'week'; break;
-    case 2419200: $scale_label = 'month'; break;
-    default:
-      $scale_label = $scale .'sec';
+  if ($tabular) {
+    $label = sprintf('%.2f', $max_y);
   }
-  $sparkline->SetFeaturePoint($max_x / $scale, $max_y, 'red', 0, date('g:i a T, m/d/Y', $max_ts) .' - '. number_format($max_y) .'/'. $scale_label, TEXT_RIGHT, FONT_2);
+  else {
+    switch ($scale) {
+      case 1: $scale_label = 'sec'; break;
+      case 60: $scale_label = 'min'; break;
+      case 300: $scale_label = '5min'; break;
+      case 600: $scale_label = '10min'; break;
+      case 900: $scale_label = '15min'; break;
+      case 1800: $scale_label = '.5hour'; break;
+      case 3600: $scale_label = 'hour'; break;
+      case 86400: $scale_label = 'day'; break;
+      case 604800: $scale_label = 'week'; break;
+      case 2419200: $scale_label = 'month'; break;
+      default:
+        $scale_label = $scale .'sec';
+    }
+    $label = number_format($max_y) .'/'. $scale_label;
+  }
+  $sparkline->SetFeaturePoint($max_x / $scale, $max_y, 'red', 0, date('g:i a T, m/d/Y', $max_ts) .' - '. $label, TEXT_RIGHT, FONT_2);
 }
 
 $sparkline->RenderResampled($size[0], $size[1]);
