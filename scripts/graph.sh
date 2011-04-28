@@ -16,7 +16,7 @@ set_time_limit(0);
 ini_set('memory_limit', -1);
 
 if (isset($argv[1]) && $argv[1] == '--help') {
-  exit("usage: grep 'pattern' /path/to/log | $argv[0] [-s WxH ] [-m MAX_Y] [-t] [-o output_png]\n");
+  exit("usage: grep 'pattern' /path/to/log | $argv[0] [-s WxH ] [-m MAX_Y] [-t] [-b BEGIN] [-e END] [-o output_png]\n");
 }
 
 array_shift($argv);
@@ -46,6 +46,12 @@ while ($arg = array_shift($argv)) {
      if (empty($scale)) exit("-x must be followed by a positive integer.\n");
      if ($scale < 60) exit("-x must be >= 60.\n");
      break;
+    case '-b':
+      $arbitrary_begin = array_shift($argv);
+      break;
+    case '-e':
+      $arbitrary_end = array_shift($argv);
+      break;
   }
 }
 
@@ -114,6 +120,21 @@ while ($line = fgets(STDIN)) {
 
 if (empty($begin)) {
   exit("error: no valid datestamps found!\n");
+}
+
+if (isset($arbitrary_begin)) {
+  if (is_numeric($arbitrary_begin)) {
+    $arbitrary_begin = '@'. $arbitrary_begin;
+  }
+  $begin = strtotime($arbitrary_begin);
+  $begin = $begin - ($begin % $scale);
+}
+if (isset($arbitrary_end)) {
+  if (is_numeric($arbitrary_end)) {
+    $arbitrary_end = '@'. $arbitrary_end;
+  }
+  $end = strtotime($arbitrary_end);
+  $end = $end - ($end % $scale);
 }
 
 for ($ts = $begin; $ts <= $end; $ts += $scale) {
