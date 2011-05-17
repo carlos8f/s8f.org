@@ -16,3 +16,5 @@ $IPTABLES -I INPUT 1 -j RACKSPACEIPS
 $IPTABLES -I OUTPUT -o eth1 -p tcp -d 10.251.0.0/16 -j ACCEPT
 $IPTABLES -I OUTPUT -o eth1 -p tcp -d 10.191.0.0/16 -j ACCEPT
 
+/sbin/service iptables save
+
