@@ -1,0 +1,168 @@
+<?php
+
+function instagram_menu() {
+  $items['instagram/callback'] = array(
+    'type' => MENU_CALLBACK,
+    'page callback' => 'instagram_callback',
+    'access callback' => TRUE,
+  );
+  $items['instagram/authorize'] = array(
+    'type' => MENU_CALLBACK,
+    'page callback' => 'instagram_authorize',
+    'access arguments' => array('link instagram account'),
+  );
+  $items['admin/config/content/instagram'] = array(
+    'title' => 'Instagram',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('instagram_settings'),
+    'access arguments' => array('administer site configuration'),
+    'description' => 'Administer settings for Instagram module.',
+  );
+
+  return $items;
+}
+
+function hook_permission() {
+  return array(
+    'link instagram account' => array(
+      'title' => t('Access Instagram API'),
+      'description' => t('User can link Instagram account with their Drupal account.'),
+    ),
+  );
+}
+
+function instagram_callback() {
+  global $user;
+
+  // Data comes in as a raw HTTP request of JSON.
+  $data = file_get_contents('php://input');
+  // Verify the signature before processing.
+  $expected = hash_hmac('sha1', $data, variable_get('instagram_client_secret'));
+  if (isset($_SERVER['HTTP_X_HUB_SIGNATURE']) && $_SERVER['HTTP_X_HUB_SIGNATURE'] == $expected) {
+    $autopost_users = explode(',', variable_get('instagram_autopost_users'));
+    foreach (json_decode($data, TRUE) as $item) {
+      $uid = db_query('SELECT uid FROM {authmap} WHERE authname = :authname AND module = :module', array(':authname' => $item['object_id'], ':module' => 'instagram'))->fetchField();
+      if (in_array($uid, $autopost_users)) {
+        instagram_autopost_latest($uid, $item['object_id']);
+      }
+    }
+  }
+}
+
+function instagram_autopost_latest($uid, $instagram_user_id) {
+  $result = drupal_http_request("https://api.instagram.com/v1/users/$instagram_user_id/media/recent/?access_token=". urlencode(variable_get('instagram_access_token')) .'&count=1');
+  if ($result->code == 200) {
+    $account = user_load($uid);
+    $response = json_decode($result->data, TRUE);
+    foreach ($response['data'] as $item) {
+      $node = (object) array(
+        'body' => array(LANGUAGE_NONE => array(array())),
+        'title' => '',
+        'comment' => 2,
+        'changed' => $item['created_time'],
+        'moderate' => 0,
+        'promote' => 1,
+        'revision' => 1,
+        'log' => '',
+        'status' => 1,
+        'sticky' => 0,
+        'type' => 'page',
+        'revisions' => NULL,
+        'language' => LANGUAGE_NONE,
+      );
+      $node->title = $item['caption'] ? $item['caption']['text'] : t('Untitled');
+      // Merge body field value and format separately.
+      $body = theme('image', array('path' => $item['images']['standard_resolution']['url'], 'width' => $item['images']['standard_resolution']['width'], 'height' => $item['images']['standard_resolution']['height'], 'title' => t('Filter used') . ': '. $item['filter']));
+      $body = '<div style="text-align: center;">' . l($body, $item['link'], array('html' => TRUE, 'external' => TRUE)) . '</div>';
+      $body = array(
+        'value' => $body,
+        'format' => filter_default_format($account),
+      );
+      $node->body[LANGUAGE_NONE][0] += $body;
+      $node->type = variable_get('instagram_autopost_node_type');
+      $node->uid = $uid;
+      $node->date = format_date($item['created_time'], 'custom', 'Y-m-d H:i:s O');
+      // Tag with "Photography".
+      $node->field_category[LANGUAGE_NONE][0]['tid'] = 3;
+
+      node_save($node);
+    }
+  }
+  else {
+    watchdog('instagram', 'Error trying to autopost (code %code): %error', array('%code' => $result->code, '%error' => $result->data), WATCHDOG_ERROR);
+  }
+}
+
+function instagram_authorize() {
+  global $user;
+
+  if (!$user->uid) {
+    drupal_set_message(t('You must be logged in to authenticate with Instagram.'), 'warning');
+    drupal_goto('user/login', drupal_get_destination());
+  }
+
+  if (isset($_GET['code'])) {
+    $options = array(
+      'headers' => array('Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'),
+      'method' => 'POST',
+      'data' => drupal_http_build_query(array(
+        'client_id' => variable_get('instagram_client_id'),
+        'redirect_uri' => url('instagram/authorize', array('absolute' => TRUE)),
+        'client_secret' => variable_get('instagram_client_secret'),
+        'grant_type' => 'authorization_code',
+        'code' => $_GET['code'],
+      )),
+    );
+    $result = drupal_http_request('https://api.instagram.com/oauth/access_token', $options);
+    if ($result->code == 200) {
+      $response = json_decode($result->data, TRUE);
+      user_set_authmaps($user, array('authname_instagram' => $response['user']['id']));
+      variable_set('instagram_access_token', $response['access_token']);
+      drupal_set_message(t('Instagram user %username has been successfully associated with your account.', array('%username' => $response['user']['username'])));
+      drupal_goto();
+    }
+    else {
+      drupal_set_message(t('Error authenticating with Instagram: %error', array('%error' => $result->data)), 'error');
+      drupal_goto();
+    }
+  }
+  elseif (isset($_GET['error'])) {
+    drupal_set_message(t('Request denied.'), 'error');
+    drupal_goto();
+  }
+  drupal_goto('https://api.instagram.com/oauth/authorize/?client_id=' . urlencode(variable_get('instagram_client_id')) . '&redirect_uri=' . urlencode(url('instagram/authorize', array('absolute' => TRUE))) . '&response_type=code');
+}
+
+function instagram_settings() {
+  $form['instagram_client_id'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Client ID'),
+    '#description' => t('Instagram API client_id.'),
+    '#default_value' => variable_get('instagram_client_id'),
+  );
+  $form['instagram_client_secret'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Client secret'),
+    '#description' => t('Instagram API client_secret.'),
+    '#default_value' => variable_get('instagram_client_secret'),
+  );
+  $form['instagram_autopost_users'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Auto-post for these users'),
+    '#description' => t('Comma-separated list of user IDs to enable auto-posting for.'),
+    '#default_value' => variable_get('instagram_autopost_users'),
+  );
+  $form['instagram_autopost_node_type'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Auto-post node type'),
+    '#description' => t('Nodes will be auto-posted as this type.'),
+    '#default_value' => variable_get('instagram_autopost_node_type'),
+  );
+  $form['instagram_autopost_node_author'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Auto-post node author'),
+    '#description' => t('Auto-posted nodes will be owned by this user.'),
+    '#default_value' => variable_get('instagram_autopost_node_author', 'author of photo in instagram'),
+  );
+  return system_settings_form($form);
+}
