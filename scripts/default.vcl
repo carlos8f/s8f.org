@@ -60,17 +60,18 @@ sub vcl_recv {
      set req.grace = 30s;
 }
 
-sub vcl_hash {
-    ## Remove Google advertising GET variable.
-    set req.url = regsub(req.url, "\?gclid=.*", "");
-    set req.hash += req.url;
-    if (req.http.host) {
-        set req.hash += req.http.host;
-    } else {
-        set req.hash += server.ip;
-    }
-    return (hash);
-}
+## Does not work with varnish 3.x
+#sub vcl_hash {
+#    ## Remove Google advertising GET variable.
+#    set req.url = regsub(req.url, "\?gclid=.*", "");
+#    set req.hash += req.url;
+#    if (req.http.host) {
+#        set req.hash += req.http.host;
+#    } else {
+#        set req.hash += server.ip;
+#    }
+#    return (hash);
+#}
 
 sub vcl_deliver {
     if (obj.hits > 0) {
