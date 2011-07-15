@@ -38,7 +38,7 @@ sub vcl_recv {
      }
      
      ## Catch Drupal theme files
-     if (req.url ~ "^/(sites/|misc/|modules/.*\.(js|css)|)") {
+     if (req.url ~ "^/(sites/|misc/|modules/.*\.(js|css))") {
         unset req.http.Cookie;
      }
 
