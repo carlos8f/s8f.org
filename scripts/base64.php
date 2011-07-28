@@ -32,6 +32,8 @@
     <p><label>Input<br /><textarea name="content" cols="80" rows="10"><?php print htmlspecialchars($_POST['content']); ?></textarea></label></p>
     <p><input type="submit" name="decode" value="decode" /> <input type="submit" name="encode" value="encode" /></p>
   </form>
+
+  <p>(<a href="https://github.com/carlos8f/s8f.org/blob/master/scripts/base64.php">source</a>)</p>
 </div>
 </body>
 </html>
