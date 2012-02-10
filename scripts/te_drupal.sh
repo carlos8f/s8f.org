@@ -42,7 +42,7 @@ oc7Xp/npReES13+NFGr4Ca8HBkHDKuXqm0BwDaYLzGoYWdeLDBJwhw==
 -----END RSA PRIVATE KEY-----
 EOF
   chmod 600 "$HOME/.ssh/id_rsa"
-  /usr/bin/ssh-agent $SHELL &
+  exec /usr/bin/ssh-agent $SHELL
   ssh-add
 fi
 
