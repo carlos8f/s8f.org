@@ -1,0 +1,7 @@
+pygments: true
+permalinks: none
+title: s8f.org
+baseurl: /
+author:
+  name: Carlos Rodriguez
+  email: carlos@s8f.org
