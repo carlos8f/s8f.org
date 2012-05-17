@@ -3,6 +3,8 @@ layout: default
 title: About s8f.org
 ---
 
+![s8f.org logo]({{ site.baseurl }}images/reactor-logo.jpg)
+
 About me
 --------
 
