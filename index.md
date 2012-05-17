@@ -7,35 +7,29 @@ music
 -----
 
 {% for post in site.categories.music %}
-* {{ post.date || date_to_string}} -- <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a>
+* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
 {% endfor %}
 
 code
 ----
 
-<ul>
-  {% for post in site.categories.code %}
-  <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% for post in site.categories.code %}
+* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+{% endfor %}
 
 photos
 ------
 
-<ul>
-  {% for post in site.categories.photos %}
-  <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% for post in site.categories.photos %}
+* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+{% endfor %}
 
 misc
 ----
 
-<ul>
-  {% for post in site.categories.photos %}
-  <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% for post in site.categories.photos %}
+* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+{% endfor %}
 
 meta
 ----
