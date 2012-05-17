@@ -9,7 +9,7 @@ code, tt {
 }
 html {
   background-color: #f2f2f2;
-  font-size: 100%;
+  font-size: 82%;
 }
 body {
   margin: 0;
@@ -22,7 +22,8 @@ body {
   margin-right: auto;
 }
 #banner h2 {
-  font-size: 200%;
+  font-size: 180%;
+  padding-right: 90px;
 }
 #banner h2 a {
   color: #999;
@@ -52,6 +53,9 @@ body {
   color: #25f;
   font-weight: 400;
   text-decoration: none;
+}
+#content a:visited {
+  color: #20c;
 }
 footer {
   width: 700px;

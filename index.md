@@ -6,32 +6,42 @@ title: Carlos Rodriguez
 music
 -----
 
+<ul class="posts">
 {% for post in site.categories.music %}
-* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+<li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
+</ul>
 
 code
 ----
 
+<ul class="posts">
 {% for post in site.categories.code %}
-* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+<li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
+</ul>
 
 photos
 ------
 
+<ul class="posts">
 {% for post in site.categories.photos %}
-* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+<li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
+</ul>
 
 misc
 ----
 
+<ul class="posts">
 {% for post in site.categories.photos %}
-* {{ post.date || date_to_string}} --- [{{ post.title}}]({{ site.root }}{{ post.url }})
+<li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
+</ul>
 
 meta
 ----
 
-* [about {{ site.title }}]({{ site.baseurl }}README.html)
+<ul class="posts">
+<li><a href="{{ site.baseurl }}README.html">About {{ site.title }}</a></li>
+</ul>
