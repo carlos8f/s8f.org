@@ -3,15 +3,14 @@
   <meta charset="utf-8">
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="author" content="{{ site.author.name }}">
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" media="screen">
-  <link rel="alternate" title="{{ site.title }}" type="application/atom+xml" href="/atom.xml">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}css/screen.css" media="screen">
 </head>
 
 <body>
   <header id="banner">
     <div id="banner-inner">
       <p>{{ page.date | date_to_string }}</p>
-      <h2><a href="/">{{ site.title }}</a> / {{ page.categories | array_to_sentence_string }} / {{ page.title }}</h2>
+      <h2><a href="{{ site.url }}{{ site.baseurl}}">{{ site.title }}</a> / {{ page.categories | array_to_sentence_string }} / {{ page.title }}</h2>
     </div>
   </header>
 
