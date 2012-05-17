@@ -3,6 +3,7 @@ layout: default
 title: Carlos Rodriguez
 ---
 
+{% if site.categories.music %}
 music
 -----
 
@@ -11,7 +12,9 @@ music
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
 </ul>
+{% endif %}
 
+{% if site.categories.code %}
 code
 ----
 
@@ -20,7 +23,9 @@ code
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
 </ul>
+{% endif %}
 
+{% if site.categories.photos %}
 photos
 ------
 
@@ -29,7 +34,9 @@ photos
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
 </ul>
+{% endif %}
 
+{% if site.categories.misc %}
 misc
 ----
 
@@ -38,6 +45,7 @@ misc
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
 </ul>
+{% endif %}
 
 meta
 ----

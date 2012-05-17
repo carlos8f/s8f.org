@@ -17,6 +17,10 @@
   <section id="content">
     <div id="content-inner">
       {{ content }}
+
+      {% if page.tags %}
+      <p class="tags">tags: {{ page.tags | array_to_sentence_string }}</p>
+      {% endif %}
     </div>
   </section>
 

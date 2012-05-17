@@ -57,6 +57,9 @@ body {
 #content a:visited {
   color: #20c;
 }
+.tags {
+  color: #888;
+}
 footer {
   width: 700px;
   margin: auto;
