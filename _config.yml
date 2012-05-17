@@ -2,6 +2,7 @@ pygments: true
 permalinks: none
 title: s8f.org
 baseurl: /
+auto: true
 author:
   name: Carlos Rodriguez
   email: carlos@s8f.org

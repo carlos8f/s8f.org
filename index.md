@@ -3,40 +3,41 @@ layout: default
 title: Carlos Rodriguez
 ---
 
-<h1>music</h1>
+music
+-----
 
-<ul class="posts">
-  {% for post in site.categories.music %}
-  <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% for post in site.categories.music %}
+* {{ post.date || date_to_string}} &mdash; <a href="{{ post.url }}">{{ post.title }}</a>
+{% endfor %}
 
-<h1>code</h1>
+code
+----
 
-<ul class="posts">
+<ul>
   {% for post in site.categories.code %}
   <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
-<h1>photos</h1>
+photos
+------
 
-<ul class="posts">
+<ul>
   {% for post in site.categories.photos %}
   <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
-<h1>misc</h1>
+misc
+----
 
-<ul class="posts">
+<ul>
   {% for post in site.categories.photos %}
   <li><span>{{ post.date || date_to_string}}</span> &mdash; <a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
-<h1>meta</h1>
+meta
+----
 
-<ul class="posts">
-  <li><a href="{{ site.baseurl }}README.html">about {{ site.title }}</a></li>
-</ul>
+* [about {{ site.title }}]({{ site.baseurl }}README.html)

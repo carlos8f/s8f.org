@@ -11,6 +11,10 @@ html {
   background-color: #f2f2f2;
   font-size: 80%;
 }
+body {
+  margin: 0;
+  padding: 0;
+}
 #banner h2 {
   width: 700px;
   margin-left: auto;
@@ -34,18 +38,18 @@ html {
   padding: 40px 0 40px 0;
 }
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
-  font-weight: 700;
+  font-weight: 400;
 }
 #content a {
-  color: #333;
-  font-weight: 700;
+  color: #25f;
+  font-weight: 400;
   text-decoration: none;
-  border-bottom: 1px dotted gray;
 }
 footer {
   font-size: 80%;
   text-align: right;
   color: #888;
+  padding-right: 10px;
 }
 footer a {
   color: #333;
