@@ -1,6 +1,0 @@
-; $Id$
-name = Ip address
-description = Shows the IP address of the visitor.
-core = 7.x
-files[] = ip_address.module
-stylesheets[all][] = ip_address.css

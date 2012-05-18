@@ -1,8 +1,0 @@
-; $Id$
-name = Paragraph filter
-description = "An XHTML-compliant filter to convert newlines in content to paragraph and break tags."
-version = VERSION
-core = 7.x
-files[] = paragraph_filter.module
-files[] = paragraph_filter.test
-dependencies[] = filter
