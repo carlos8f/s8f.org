@@ -1,0 +1,8 @@
+---
+layout: default
+---
+
+<ul class="posts">
+  {% for post in site.posts %}{% for tag in post.tags %}{% if tag == page.tag %}<li>{{ post.date | date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endif %}{% endfor %}{% endfor %}
+</ul>

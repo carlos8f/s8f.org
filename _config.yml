@@ -1,9 +1,9 @@
+safe: false
 pygments: true
 permalink: /:categories/:title.html
 title: s8f.org
 root:
 baseurl: /
-auto: true
 author:
   name: Carlos Rodriguez
   email: carlos@s8f.org
