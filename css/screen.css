@@ -60,6 +60,17 @@ body {
 .tags {
   color: #888;
 }
+.photos li {
+  list-style: none;
+  float: left;
+}
+.photos:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 footer {
   width: 700px;
   margin: auto;

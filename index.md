@@ -29,9 +29,9 @@ code
 photos
 ------
 
-<ul class="posts">
+<ul class="photos">
 {% for post in site.categories.photos %}
-<li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
+<li><a href="{{ site.root }}{{ post.url }}"><img alt="{{ post.title }}" src="{{ post.thumb}}" /></a></li>
 {% endfor %}
 </ul>
 {% endif %}
@@ -41,7 +41,7 @@ misc
 ----
 
 <ul class="posts">
-{% for post in site.categories.photos %}
+{% for post in site.categories.misc %}
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
 {% endfor %}
 </ul>
