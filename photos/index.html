@@ -1,0 +1,9 @@
+---
+layout: default
+title: photos
+---
+
+<ul class="photos">
+  {% for post in site.categories.photos %}<li><a href="{{ site.root }}{{ post.url }}"><img alt="{{ post.title }}" src="{{ post.thumb}}" /></a></li>
+  {% endfor %}
+</ul>

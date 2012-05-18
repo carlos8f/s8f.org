@@ -1,0 +1,9 @@
+---
+layout: default
+title: music
+---
+
+<ul class="posts">
+  {% for post in site.categories.music %}<li>{{ post.date | date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+---
+layout: default
+title: misc
+---
+
+<ul class="posts">
+  {% for post in site.categories.misc %}<li>{{ post.date | date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>

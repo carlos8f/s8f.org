@@ -10,7 +10,7 @@
   <header id="banner">
     <div id="banner-inner">
       <p>{{ page.date | date_to_string }}</p>
-      <h2><a href="{{ site.baseurl}}">{{ site.title }}</a> / {{ page.categories | array_to_sentence_string }} / {{ page.title }}</h2>
+      <h2><a href="{{ site.baseurl}}">{{ site.title }}</a> / <a href="{{ site.baseurl }}{{ page.category }}/">{{ page.category }}</a> / {{ page.title }}</h2>
     </div>
   </header>
 
