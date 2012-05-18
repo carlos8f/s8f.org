@@ -9,6 +9,7 @@ code, tt {
 }
 html {
   background-color: #f2f2f2;
+  color: #444;
   font-size: 82%;
 }
 body {
@@ -46,8 +47,8 @@ li {
   background-color: white;
 }
 #content p {
-  line-height: 2em;
-  margin: 1.2em 0;
+  line-height: 1.8em;
+  margin: .8em 0;
 }
 #content-inner {
   width: 700px;
