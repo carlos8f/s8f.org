@@ -3,7 +3,7 @@ layout: default
 title: Carlos Rodriguez
 ---
 
-<nav id="social">
+<nav id="sidebar">
   <h2>hi, I'm Carlos. I&hellip;</h2>
   <ul>
     <li>play <a href="{{ site.baseurl }}music/everything-reminds-me-of-her.html">music</a></li>
@@ -11,10 +11,10 @@ title: Carlos Rodriguez
     <li>code on <a href="http://github.com/carlos8f" target="_blank">github</a></li>
     <li>contribute to <a href="http://drupal.org/user/454578" target="_blank">drupal</a></li>
     <li>am not big on <a href="http://twitter.com/#!/carlos8f" target="_blank">twitter</a></li>
-    <li>have some friends on <a href="https://www.facebook.com/carlos8f" target="_blank">facebook</a></li>
+    <li>have friends on <a href="https://www.facebook.com/carlos8f" target="_blank">facebook</a></li>
     <li>buy records on <a href="http://www.discogs.com/collection?user=carlos8f" target="_blank">discogs</a></li>
     <li>listen on <a href="http://www.rdio.com/people/carlos8f" target="_blank">rdio</a></li>
-    <li>love to make coffee with my <a href="http://amzn.com/B0047BIWSK" target="_blank">aeropress</a></li>
+    <li>love to <a href="http://amzn.com/B0047BIWSK" target="_blank">make coffee</a></li>
     <li>play <a href="https://www.google.com/search?q=disc+golf" target="_blank">disc golf</a></li>
   </ul>
 
@@ -23,6 +23,9 @@ title: Carlos Rodriguez
     <li>about <a href="{{ site.baseurl }}README.html">{{ site.title }}</a></li>
     <li><a href="javascript:alert('carlos [at] s8f [dot] org')">email</a></li>
   </ul>
+
+  <h2>tags</h2>
+  {% include tags.html %}
 </nav>
 
 {% if site.categories.music %}
@@ -51,7 +54,7 @@ code
 photos
 ------
 
-<ul class="photos">
+<ul class="photos skinny">
 {% for post in site.categories.photos %}
 <li><a href="{{ site.root }}{{ post.url }}"><img alt="{{ post.title }}" src="{{ post.thumb}}" /></a></li>
 {% endfor %}

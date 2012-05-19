@@ -1,8 +1,33 @@
----
-layout: default
----
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="author" content="{{ site.author.name }}">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}css/screen.css" media="screen">
+</head>
 
-<ul class="posts">
-  {% for post in site.posts %}{% for tag in post.tags %}{% if tag == page.tag %}<li>{{ post.date | date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endif %}{% endfor %}{% endfor %}
-</ul>
+<body>
+  <header id="banner">
+    <div id="banner-inner">
+      <h2><a href="{{ site.baseurl}}">{{ site.title }}</a> / <a href="{{ site.baseurl }}tags/">tags</a> / {{ page.title }}</h2>
+    </div>
+  </header>
+
+  <section id="content">
+    <div id="content-inner">
+      {{ content }}
+
+      <ul class="posts">
+        {% for post in site.posts %}{% for tag in post.tags %}{% if tag == page.tag %}<li>{{ post.date | date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}{% endfor %}{% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <p>copyright &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}<br>
+      <span class="credit">powered by <a href="https://github.com/mojombo/jekyll">jekyll</a></span>
+    </p>
+  </footer>
+</body>
+</html>

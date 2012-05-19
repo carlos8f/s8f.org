@@ -16,6 +16,9 @@ body {
   margin: 0;
   padding: 0;
 }
+li {
+  list-style: none;
+}
 #banner-inner {
   position: relative;
   width: 700px;
@@ -35,13 +38,14 @@ body {
   position: absolute;
   right: 0;
 }
-#social {
+#sidebar {
   float: right;
-  width: 300px;
+  width: 200px;
   text-align: right;
 }
-li {
-  list-style: none;
+#sidebar ul {
+  padding: 0;
+  margin-left: 0;
 }
 #content {
   background-color: white;
@@ -51,6 +55,7 @@ li {
   margin: .8em 0;
 }
 #content-inner {
+  position: relative;
   width: 700px;
   margin: auto;
   padding: 40px 0 40px 0;
@@ -68,6 +73,9 @@ li {
 }
 .tags {
   color: #888;
+}
+.skinny {
+  width: 450px;
 }
 .photos li {
   float: left;
