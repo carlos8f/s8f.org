@@ -29,9 +29,8 @@ title: Carlos Rodriguez
 </nav>
 
 {% if site.categories.music %}
-music
------
 
+<h1>music</h1>
 <ul class="posts">
 {% for post in site.categories.music %}
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
@@ -40,9 +39,8 @@ music
 {% endif %}
 
 {% if site.categories.code %}
-code
-----
 
+<h1>code</h1>
 <ul class="posts">
 {% for post in site.categories.code %}
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
@@ -51,9 +49,8 @@ code
 {% endif %}
 
 {% if site.categories.photos %}
-photos
-------
 
+<h1>photos</h1>
 <ul class="photos skinny">
 {% for post in site.categories.photos %}
 <li><a href="{{ site.root }}{{ post.url }}"><img alt="{{ post.title }}" src="{{ post.thumb}}" /></a></li>
@@ -62,9 +59,8 @@ photos
 {% endif %}
 
 {% if site.categories.misc %}
-misc
-----
 
+<h1>misc</h1>
 <ul class="posts">
 {% for post in site.categories.misc %}
 <li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
