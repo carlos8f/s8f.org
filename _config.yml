@@ -2,6 +2,7 @@ safe: false
 pygments: true
 permalink: /:categories/:title.html
 title: s8f.org
+url: http://s8f.org
 root:
 baseurl: /
 author:
