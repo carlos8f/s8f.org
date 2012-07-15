@@ -1,6 +1,2 @@
 #!/bin/sh
-
-wget https://raw.github.com/isaacs/nave/master/nave.sh -P /tmp
-chmod +x /tmp/nave.sh
-mv /tmp/nave.sh /usr/local/bin/nave
-nave usemain latest
+wget https://raw.github.com/isaacs/nave/master/nave.sh -q -O- | sudo sh -s -- usemain latest
