@@ -17,5 +17,5 @@ wget -q https://www.serverdensity.com/downloads/boxedice-public.key -O- | sudo a
 echo "deb http://www.serverdensity.com/downloads/linux/deb all main" > /etc/apt/sources.list.d/sd-agent.list
 apt-get update
 apt-get install sd-agent -y
-sudo sed -e "s/sd_url:.*/sd_url: $SD_URL" -e "s/agent_key:.*/agent_key: $AGENT_KEY/" -i.backup /etc/sd-agent/config.cfg
+sudo sed -e "s/sd_url:.*/sd_url: $SD_URL/" -e "s/agent_key:.*/agent_key: $AGENT_KEY/" -i.backup /etc/sd-agent/config.cfg
 service sd-agent restart
