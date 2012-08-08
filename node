@@ -1,2 +1,2 @@
 #!/bin/sh
-wget https://raw.github.com/isaacs/nave/master/nave.sh -q -O- | sudo bash -s -- usemain stable
+curl https://raw.github.com/isaacs/nave/master/nave.sh --silent | sudo bash -s -- usemain stable
