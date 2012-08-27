@@ -34,7 +34,7 @@ feed: feed.xml
 <h1>code</h1>
 <ul class="posts">
 {% for post in site.categories.code %}
-<li>{{ post.date || date_to_string}} &mdash; <a href="{{ site.root }}{{ post.url }}">{{ post.title}}</a></li>
+<li>{{ post.date || date_to_string}} &mdash; <a href="{% if post.link %}{{post.link}}{% else %}{{ post.root }}{{ post.url }}{% endif %}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
 {% endif %}
