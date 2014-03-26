@@ -1,0 +1,85 @@
+## HMX
+
+_HMX is a Message eXchange_, or a _Hacker Mail rolodeX_, whichever you prefer.
+
+E-mail is, ironically, *the most popularly trusted AND least secure internet
+protocol in wide use*. How do we explain that?
+
+Believe it or not, many [highly](https://www.dropbox.com/)-[touted](http://www.google.com/hangouts/)
+["cloud"](http://www.salesforce.com/company/privacy/security.jsp) [services](https://www.facebook.com/)
+[out there](http://www.skype.com/) which claim to
+support "encryption" or "privacy" do **NOT** actually maintain
+[end-to-end encryption](http://en.wikipedia.org/wiki/End-to-end_encryption).
+What this means for you is, by using the service, you have agreed to let your
+precious data be siezed, altered, or silently monitored by third parties without
+your express permission!
+
+Employees for these services have "backdoor" encryption
+keys to decrypt your data. What's more, the NSA,
+who has [paid RSA Security $10m USD](http://www.theverge.com/2013/12/20/5231006/nsa-paid-10-million-for-a-back-door-into-rsa-encryption-according-to)
+to suppress the standardization of [superior crypto algorithms](http://en.wikipedia.org/wiki/NTRU),
+is [threatening secure email providers](http://www.zdnet.com/the-truth-about-why-silent-circle-silenced-their-secure-email-service-7000019300/),
+and [illegally hacking the internet backbones](https://www.eff.org/nsa-spying)
+to get at your data, in the name of "national security".
+
+In light of all this, you owe it to yourself to protect your rights and to STOP
+FEEDING THE MACHINE. HMX to the rescue.
+
+### Features
+
+- Security by default: end-to-end **4096-bit RSA** asymmetric, **256-bit AES** symmetric, and **Diffie-Hellman** ephemeral encryption.
+- Future support for [NTRU](http://en.wikipedia.org/wiki/NTRU), a quantum-computing-resistant lattice-based cryptography.
+- Users don't have to trust servers. Servers are merely the custodians of identities (pubkeys), and encrypted data blobs, with NO KNOWN backdoor keys.
+- The HMX protocol is designed for a minimum of info leakage, so your web of trust is safe from prying eyes and data miners.
+- Servers **MAY** authenticate WHO is posting a message, but they **MUST NOT** record it, or any other metadata.
+- Addresses look like (and can also function as) email addresses!
+- Automatically verifies messages using double-encoded SHA256 digital signatures.
+- All interactions are client-server. No central server, signing authority, p2p network, or agency required.
+- BSD-licensed
+
+### Goals for HMX alpha
+
+- Mail sending and checking via CLI
+- Optional encryption, optional signing
+- Basic keyserver functionality
+- Data on server is immutable, but has configurable (on server) TTL
+- Configurable (on server) payload size cap and random padding
+- Hashcash required upon upload
+
+### HMX 1.0 and beyond
+
+- Linking scheme to upload payload spanning multiple messages
+- Support NTRU or equivalent. RSA may already be cracked, and performance and bandwidth are factors!
+- Timed delete by sender
+- Merkle Tree upload confirmation signatures and validation
+- Advanced keyserver w/ searching
+- Instant messaging app or something else fun
+- Optionally use DNS TXT records to create custom HMX server pointers (`username@your-host.com`).
+- Servers can require pre-registration and signature authentication
+- Postage fees, paid via Bitcoin wallet identity on keyserver
+
+### Relevant reading
+
+- [Secure Share](http://secushare.org/)
+- [https://gnunet.org/](GNUnet, secure p2p framework)
+- [PSYC: efficient message envelopes](http://about.psyc.eu/)
+- [Efficiency through signcryption](http://en.wikipedia.org/wiki/Signcryption)
+- [Signcryption security model](http://onlinelibrary.wiley.com/doi/10.1002/sec.836/abstract)
+- [Another signcryption security model](http://coitweb.uncc.edu/~yzheng/publications/files/BaekSteifeldZheng-fsps-joc-bsz-261206.pdf)
+- [Signcryption "group key"](http://www.cs.bham.ac.uk/~mdr/teaching/modules04/security/students/SS3/Introduction%20to%20Signcryption.htm)
+- [Price to pay for forward security](http://nmav.gnutls.org/2011/12/price-to-pay-for-perfect-forward.html)
+- [Telehash](https://www.adayinthelifeof.nl/2013/11/12/telehash-an-encrypted-p2p-network-for-your-apps/)
+- [Curve25519: fastest, most secure elliptic crypto we know of](https://gnunet.org/curve25519)
+- [PGP web of trust is "suboptimal"](https://lists.torproject.org/pipermail/tor-talk/2013-September/030235.html)
+- [OTR "off the record" ephemeral encryption](http://about.psyc.eu/OTR)
+- [SecuShare development SVN](https://gnunet.org/svn/gnunet/)
+- [NTRU whitepaper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.25.8422&rep=rep1&type=pdf)
+- [RSA 4096 cracked using microphone](http://www.forbes.com/sites/timworstall/2013/12/21/researchers-break-rsa-4096-encryption-with-just-a-microphone-and-a-couple-of-emails/)
+- ["Technical notes and reports" related to RSA](http://www.emc.com/emc-plus/rsa-labs/historical/technical-notes-and-reports.htm)
+
+### Alternate names
+
+- Happy Mail Xylophone
+- Handy Merkle eXcavator
+- Horrible Marketing eXecutive
+- Historic Meeting of Xenophobes
