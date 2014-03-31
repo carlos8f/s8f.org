@@ -169,9 +169,6 @@ a:visited { color: #a0a; }
 }
 
 .gist .gist-file .file-data {
-  font-size: 75%;
-}
-
-.gist pre {
-  line-height: 0.9em;
+  font-size: 75% !important;
+  line-height: 0.9em !important;
 }
