@@ -168,6 +168,6 @@ a:visited { color: #a0a; }
   margin: 1em 0;
 }
 
-.gist .file-data {
-  font-size: 85% !important;
+.gist .gist-file .file-data {
+  font-size: 75% !important;
 }
