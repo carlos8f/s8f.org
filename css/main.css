@@ -68,6 +68,11 @@ a:visited { color: #a0a; }
   text-decoration: none;
 }
 
+.header h1.title {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
 .title {
   display: inline-block;
   margin-bottom: 2em;
