@@ -168,9 +168,15 @@ a:visited { color: #a0a; }
   margin: 1em 0;
 }
 
+.gist .gist-file {
+  border: none !important;
+}
+
 .gist .gist-file .gist-data {
   font-size: 75% !important;
   line-height: 1.1em !important;
+  background-color: transparent !important;
+  border-bottom: none !important;
 }
 
 .featured {
