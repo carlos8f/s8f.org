@@ -36,7 +36,7 @@ a:visited { color: #a0a; }
 /*****************************************************************************/
 .posts {
   list-style-type: none;
-  margin-bottom: 2em;
+  margin: 1em 0 2em;
 }
 
 .posts li {
@@ -171,4 +171,9 @@ a:visited { color: #a0a; }
 .gist .gist-file .file-data {
   font-size: 75% !important;
   line-height: 1.1em !important;
+}
+
+.featured {
+  border-bottom: 4px solid #eee;
+  margin-bottom: 1em;
 }
