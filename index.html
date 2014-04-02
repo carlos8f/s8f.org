@@ -1,0 +1,23 @@
+---
+layout: default
+title: I stepped inside and went straight for the canisters
+---
+
+<div id="home">
+  {% for post in site.categories.featured limit: 1 %}
+  {% assign content = post.content %}
+  {% assign featured = post.id %}
+  {% include featured.html %}
+  {% endfor %}
+
+  <h3>Posts</h3>
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.id == featured %}
+      {% else %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
