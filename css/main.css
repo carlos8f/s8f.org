@@ -168,7 +168,7 @@ a:visited { color: #a0a; }
   margin: 1em 0;
 }
 
-.gist .gist-file .file-data {
+.gist .gist-file .gist-data {
   font-size: 75% !important;
   line-height: 1.1em !important;
 }
@@ -176,4 +176,16 @@ a:visited { color: #a0a; }
 .featured {
   border-bottom: 4px solid #eee;
   margin-bottom: 1em;
+}
+
+.gist .markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 2em;
+  font-family: sans-serif;
+}
+
+.gist .markdown-body td, .gist .markdown-body th {
+  padding: .8em;
+  border: 2px solid #ccc;
 }
