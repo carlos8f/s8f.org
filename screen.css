@@ -68,7 +68,7 @@ body, input, textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+  margin: 0 0 20px 0;
   line-height: 1.2em;
   font-family: "Karla", "lucida grande", sans-serif;
   font-weight: 600;
@@ -192,10 +192,6 @@ a:hover {
   transition: color 0, border 0;
 }
 
-.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 {
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
 .entry-content ul li {
   list-style: square;
   list-style-position: inside;
@@ -206,6 +202,8 @@ a:hover {
 }
 
 .entry-header .entry-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
   font-weight: 800;
 }
 .entry-header .entry-title .entry-title-link {
@@ -512,7 +510,7 @@ img.avatar {
 .meta {
   color: #b3b3b3;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .image-wrapper-wide {
