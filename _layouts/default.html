@@ -1,11 +1,20 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>{{ page.title }}</title>
+<meta name="author" content="{{ site.author }}">
+<link href="http://fonts.googleapis.com/css?family=Karla:400,700|Cousine" rel="stylesheet" type="text/css">
+<link href="{{ site.baseurl }}/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 </head>
 <body>
-{{ content }}
-<hr>
-{% include footer.html %}
+  <div class="main-column">
+    {% include header.html %}
+    {{ content }}
+  </div>
+
+  {% include sidebar.html %}
+  {% include scripts.html %}
+
 </body>
 </html>

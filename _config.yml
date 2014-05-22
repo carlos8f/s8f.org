@@ -1,8 +1,10 @@
-name: s8f.org
+name: Carlos Rodriguez
+author: Carlos Rodriguez
 timezone: America/Los_Angeles
 encoding: utf-8
 markdown: kramdown
-pygments: false
+pygments: true
 permalink: /:title
 exclude: [_scripts,Makefile]
 baseurl: ""
+paginate: 10
