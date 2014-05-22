@@ -6,8 +6,8 @@ layout: default
   <header class="entry-header">
     <h1 class="entry-title">{{ page.title }}</h1>
     <div class="meta">
-      <!--<time datetime="2007-09-04T21:59:00-07:00" pubdate data-updated="true">Sep 4<span>th</span>, 2007</time>-->
-      {{ page.date | date_to_string }}
+      {% assign post = page %}
+      {% include date.html %}
     </div>
   </header>
 

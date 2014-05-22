@@ -1,12 +1,11 @@
 <section class="sidebar">
-  <h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+  <h1 class="logo"><a href="{{site.url}}/">{{ site.name }}</a></h1>
 
   <nav role="navigation" class="main-nav">
-    {% if page.url != "/index.html" %}
     <p>on this site:<br>
-    <a href="{{ site.baseurl }}/index.html">index</a>
+    {% if page.url != "/index.html" %}<a href="{{site.url}}/index.html">index</a><br>{% endif %}
+    <a href="{{site.url}}/atom.xml">atom feed</a>
     </p>
-    {% endif %}
 
     <p>on the internet:<br>
     <a href="https://github.com/carlos8f">github</a><br>

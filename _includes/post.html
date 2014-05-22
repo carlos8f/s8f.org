@@ -2,13 +2,10 @@
   <header class="entry-header">
     <h1 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
     <div class="meta">
-      <!--<time datetime="2007-09-04T21:59:00-07:00" pubdate data-updated="true">Sep 4<span>th</span>, 2007</time>-->
-      {{ post.date | date_to_string }}
+      {% include date.html %}
     </div>
   </header>
-
   <div class="entry-content">
   {{ content }}
   </div>
-
 </section>
