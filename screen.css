@@ -504,6 +504,17 @@ img.avatar {
   img.avatar {
     margin-right: 20px;
   }
+  .entry-content img {
+    width: 100%;
+  }
+
+  .entry-content img:active {
+    -webkit-transform: scale(0.98, 0.98);
+    -moz-transform: scale(0.98, 0.98);
+    -ms-transform: scale(0.98, 0.98);
+    -o-transform: scale(0.98, 0.98);
+    transform: scale(0.98, 0.98);
+  }
 }
 
 .meta {
@@ -520,18 +531,6 @@ img.avatar {
 .image-wrapper {
   margin: 20px 0;
   max-width: 650px;
-}
-
-img.scale {
-  width: 100%;
-}
-
-a img.scale:active {
-  -webkit-transform: scale(0.98, 0.98);
-  -moz-transform: scale(0.98, 0.98);
-  -ms-transform: scale(0.98, 0.98);
-  -o-transform: scale(0.98, 0.98);
-  transform: scale(0.98, 0.98);
 }
 
 .page .entry-title {
