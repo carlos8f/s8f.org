@@ -1,5 +1,6 @@
 name: Carlos Rodriguez
-author: Carlos Rodriguez
+author:
+  name: Carlos Rodriguez
 timezone: America/Los_Angeles
 encoding: utf-8
 markdown: kramdown
