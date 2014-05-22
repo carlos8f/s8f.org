@@ -62,7 +62,7 @@ body, input, textarea {
   color: #666666;
   font-size: 18px;
   line-height: 1.5em;
-  font-family: "Karla", "lucida grande", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
@@ -70,8 +70,6 @@ body, input, textarea {
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px 0;
   line-height: 1.2em;
-  font-family: "Karla", "lucida grande", sans-serif;
-  font-weight: 600;
   color: #444444;
 }
 
@@ -99,7 +97,6 @@ hr {
 }
 
 p {
-  font-family: "Karla", "lucida grande", sans-serif;
   margin: 0 0 20px 0;
 }
 
@@ -136,7 +133,7 @@ dd {
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 cite, em, i {
@@ -144,7 +141,6 @@ cite, em, i {
 }
 
 blockquote {
-  font-family: Georgia, "Bitstream Charter", serif;
   font-style: italic;
   font-weight: normal;
   margin: 0 3em;
@@ -156,7 +152,7 @@ blockquote em, blockquote i, blockquote cite {
 
 blockquote cite {
   color: #666666;
-  font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
   font-weight: 300;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -164,7 +160,7 @@ blockquote cite {
 
 pre {
   background: #555555;
-  font: 13px "Courier 10 Pitch", Courier, monospace;
+  font: 13px "PT Mono", monospace;
   color: #eeffff;
   line-height: 1.5;
   margin-bottom: 1.625em;
@@ -173,7 +169,7 @@ pre {
 }
 
 code, kbd {
-  font: 14px "Cousine", Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font: 14px "PT Mono", monospace;
 }
 
 a {
@@ -204,7 +200,7 @@ a:hover {
 .entry-header .entry-title {
   margin-top: 20px;
   margin-bottom: 30px;
-  font-weight: 800;
+  font-weight: 500;
 }
 .entry-header .entry-title .entry-title-link {
   color: #444444;
@@ -286,7 +282,7 @@ a.button {
   text-transform: uppercase;
   text-shadow: 0 1px 0 white;
   padding: 0.5em 1em;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   border: 1px solid #bcbcbc;
   border-bottom-color: #a2a2a2;
@@ -381,7 +377,7 @@ select {
 
 label,
 .label {
-  font-weight: 600;
+  font-weight: 500;
   color: #b3b3b3;
   line-height: 1.4em;
 }
@@ -509,7 +505,7 @@ img.avatar {
 
 .meta {
   color: #b3b3b3;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
