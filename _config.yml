@@ -7,5 +7,4 @@ markdown: kramdown
 pygments: true
 permalink: /:title
 exclude: [_scripts,Makefile]
-baseurl: ""
 paginate: 10

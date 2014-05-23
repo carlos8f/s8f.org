@@ -170,6 +170,9 @@ pre {
 
 code, kbd {
   font: 14px "PT Mono", monospace;
+  padding: 2px 4px;
+  background-color: #ddf;
+  border-radius: 5px;
 }
 
 a {
