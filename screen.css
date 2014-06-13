@@ -175,8 +175,8 @@ pre {
   font-family: "Source Sans Pro", sans-serif !important;
 }
 
-.gist .gist-file .gist-data {
-  font-size: 14px;
+.gist-data {
+  font-size: 0.86em;
 }
 
 .gist .gist-file .gist-data pre, .gist-syntax pre {
