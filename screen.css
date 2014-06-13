@@ -158,21 +158,13 @@ blockquote cite {
   text-transform: uppercase;
 }
 
-pre {
-  background: #555555;
-  font: 13px "PT Mono", monospace;
-  color: #eeffff;
-  line-height: 1.5;
-  margin-bottom: 1.625em;
-  overflow: auto;
-  padding: 0.75em 1.625em;
-}
-
-code, kbd {
+code, kbd, pre {
   font: 14px "PT Mono", monospace;
   padding: 2px 4px;
   background-color: #ddf;
   border-radius: 5px;
+  overflow: auto;
+  line-height: 1.5;
 }
 
 a {
