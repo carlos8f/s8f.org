@@ -456,6 +456,11 @@ body {
 .sidebar {
   font-size: 16px;
   text-align: right;
+  white-space: nowrap;
+}
+
+.sidebar h3, .sidebar h4 {
+  margin: 1em 0;
 }
 
 img.avatar {
