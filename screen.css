@@ -170,17 +170,9 @@ pre {
   overflow: auto;
 }
 
-.gist .gist-file .gist-data, .gist-syntax {
-  font: 14px "PT Mono", monospace !important;
-}
-
 .markdown-body {
   padding: 1em !important;
   font-family: "Source Sans Pro", sans-serif !important;
-}
-
-.markdown-body code, .markdown-body pre {
-  font: 14px "PT Mono", monospace !important;
 }
 
 .gist .gist-file .gist-data pre, .gist-syntax pre {
