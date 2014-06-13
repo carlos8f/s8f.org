@@ -225,7 +225,7 @@ body {
 
 .main-column {
   max-width: 1000px;
-  margin-left: 230px;
+  margin-left: 300px;
 }
 
 .main-column .header {
@@ -283,7 +283,7 @@ body {
 }
 
 .sidebar {
-  font-size: 14px;
+  font-size: 16px;
   text-align: right;
   white-space: nowrap;
 }
