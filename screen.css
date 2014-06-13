@@ -168,6 +168,21 @@ pre {
   margin: 2em 0;
 }
 
+.markdown-body {
+  padding: 0.5em !important;
+}
+
+.gist-syntax .k {
+  color: blue !important;
+}
+
+.gist .gist-file .gist-data, .gist-syntax {
+  font: 14px "PT Mono", monospace white !important;
+  background-color: black !important;
+  color: white !important;
+  font-size: 14px;
+}
+
 a {
   text-decoration: none;
   color: rgba(3, 139, 255, 1);
