@@ -157,15 +157,17 @@ blockquote cite {
 code, kbd {
   font: 14px "PT Mono", monospace;
   padding: 2px 4px;
-  background-color: black;
-  color: ;
+  background-color: #eee;
+  color: #777;
   border-radius: 5px;
-  overflow: auto;
-  line-height: 1.5;
 }
 
 pre {
   margin: 2em 0;
+  padding: 2px 4px;
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: auto;
 }
 
 .markdown-body {
@@ -178,6 +180,14 @@ pre {
 
 .gist .gist-file .gist-data, .gist-syntax {
   font: 14px "PT Mono", monospace !important;
+}
+
+.gist .gist-file .gist-data pre, .gist-syntax pre {
+  margin: inherit;
+  padding: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  overflow: inherit;
 }
 
 a {
