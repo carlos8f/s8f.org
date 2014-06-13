@@ -179,6 +179,10 @@ pre {
 }
 
 .gist .gist-file .gist-data, .gist-syntax {
+  font-size: 14px;
+}
+
+.gist-syntax {
   font: 14px "PT Mono", monospace !important;
 }
 
