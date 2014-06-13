@@ -177,7 +177,7 @@ pre {
 
 .gist .gist-file .gist-data {
   font-size: 0.86em !important;
-  line-height: 0.86em !important;
+  line-height: 1em !important;
 }
 
 .gist .gist-file .gist-data pre, .gist-syntax pre {
