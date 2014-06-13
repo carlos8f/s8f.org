@@ -154,11 +154,11 @@ blockquote cite {
   text-transform: uppercase;
 }
 
-code, kbd, pre {
+code, kbd {
   font: 14px "PT Mono", monospace;
   padding: 2px 4px;
   background-color: black;
-  color: Chartreuse;
+  color: ;
   border-radius: 5px;
   overflow: auto;
   line-height: 1.5;
@@ -177,10 +177,7 @@ pre {
 }
 
 .gist .gist-file .gist-data, .gist-syntax {
-  font: 14px "PT Mono", monospace white !important;
-  background-color: black !important;
-  color: white !important;
-  font-size: 14px;
+  font: 14px "PT Mono", monospace !important;
 }
 
 a {
