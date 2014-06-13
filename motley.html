@@ -1,0 +1,4 @@
+{% for post in site.categories.motley %}
+  {% assign content = post.content %}
+  {% include post.html %}
+{% endfor %}
