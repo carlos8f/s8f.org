@@ -167,6 +167,10 @@ code, kbd, pre {
   line-height: 1.5;
 }
 
+pre {
+  margin: 2em 0;
+}
+
 a {
   color: #00bfa8;
   text-decoration: none;
