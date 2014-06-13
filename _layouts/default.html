@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class="main-column">
-    {% include header.html %}
+    {% if page.url == "/index.html" %}{% include header.html %}{% endif %}
     {{ content }}
   </div>
 
