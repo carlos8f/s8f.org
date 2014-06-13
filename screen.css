@@ -175,6 +175,10 @@ pre {
   font-family: "Source Sans Pro", sans-serif !important;
 }
 
+.gist .gist-file .gist-data {
+  font-size: 14px;
+}
+
 .gist .gist-file .gist-data pre, .gist-syntax pre {
   margin: inherit;
   padding: inherit;
