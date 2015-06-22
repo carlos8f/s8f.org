@@ -334,7 +334,6 @@ img.avatar {
   .entry-content img {
     width: 100%;
   }
-
   .entry-content img:active {
     -webkit-transform: scale(0.98, 0.98);
     -moz-transform: scale(0.98, 0.98);
@@ -342,6 +341,22 @@ img.avatar {
     -o-transform: scale(0.98, 0.98);
     transform: scale(0.98, 0.98);
   }
+}
+
+.entry-content img {
+  width: 100%;
+}
+.entry-content img:active {
+  -webkit-transform: scale(0.98, 0.98);
+  -moz-transform: scale(0.98, 0.98);
+  -ms-transform: scale(0.98, 0.98);
+  -o-transform: scale(0.98, 0.98);
+  transform: scale(0.98, 0.98);
+}
+
+.entry-content iframe {
+  min-width: 100%;
+  min-height: 500px;
 }
 
 .meta {
