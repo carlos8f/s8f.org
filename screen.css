@@ -354,7 +354,7 @@ img.avatar {
   transform: scale(0.98, 0.98);
 }
 
-.entry-content iframe {
+.entry-content iframe, .entry-content .video {
   min-width: 100%;
   min-height: 500px;
 }
