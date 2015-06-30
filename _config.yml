@@ -9,4 +9,4 @@ kramdown:
 pygments: true
 permalink: /:title
 exclude: [_scripts,Makefile]
-paginate: 10
+paginate: 3
