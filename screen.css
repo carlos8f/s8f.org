@@ -378,3 +378,12 @@ img.avatar {
 .page .entry-title {
   text-align: center;
 }
+
+.newer {
+  float: right;
+}
+
+audio {
+  width: 100%;
+}
+
