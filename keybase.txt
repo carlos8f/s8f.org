@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/carlos8f
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://s8f.org
+  * I am carlos8f (https://keybase.io/carlos8f) on keybase.
+  * I have a public key ASANZIMkGUxDsNPMB1dExKy4Uc1gjAv8OH6nZwG66gIk6Ao
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01200d648324194c43b0d3cc075744c4acb851cd608c0bfc387ea76701baea0224e80a",
+            "host": "keybase.io",
+            "kid": "01200d648324194c43b0d3cc075744c4acb851cd608c0bfc387ea76701baea0224e80a",
+            "uid": "7a7588b1bdb08360642bd849cfbab200",
+            "username": "carlos8f"
+        },
+        "service": {
+            "hostname": "s8f.org",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.15"
+    },
+    "ctime": 1463951333,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1463951197,
+        "hash": "f00095454c53d3d6c6351447dafac993135bfcfcf40bb20a7ae3b830472dca55603e175a0c99ead44a05f029a26675c150ab96dee1d16d725afafc039b498009",
+        "seqno": 468985
+    },
+    "prev": "cf59d16b2a97318c85ffa993837e7f4d3dc9ba3011a224f22b479100a8e9379f",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgDWSDJBlMQ7DTzAdXRMSsuFHNYIwL/Dh+p2cBuuoCJOgKp3BheWxvYWTFAvB7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMGQ2NDgzMjQxOTRjNDNiMGQzY2MwNzU3NDRjNGFjYjg1MWNkNjA4YzBiZmMzODdlYTc2NzAxYmFlYTAyMjRlODBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMGQ2NDgzMjQxOTRjNDNiMGQzY2MwNzU3NDRjNGFjYjg1MWNkNjA4YzBiZmMzODdlYTc2NzAxYmFlYTAyMjRlODBhIiwidWlkIjoiN2E3NTg4YjFiZGIwODM2MDY0MmJkODQ5Y2ZiYWIyMDAiLCJ1c2VybmFtZSI6ImNhcmxvczhmIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJzOGYub3JnIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTUifSwiY3RpbWUiOjE0NjM5NTEzMzMsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ2Mzk1MTE5NywiaGFzaCI6ImYwMDA5NTQ1NGM1M2QzZDZjNjM1MTQ0N2RhZmFjOTkzMTM1YmZjZmNmNDBiYjIwYTdhZTNiODMwNDcyZGNhNTU2MDNlMTc1YTBjOTllYWQ0NGEwNWYwMjlhMjY2NzVjMTUwYWI5NmRlZTFkMTZkNzI1YWZhZmMwMzliNDk4MDA5Iiwic2Vxbm8iOjQ2ODk4NX0sInByZXYiOiJjZjU5ZDE2YjJhOTczMThjODVmZmE5OTM4MzdlN2Y0ZDNkYzliYTMwMTFhMjI0ZjIyYjQ3OTEwMGE4ZTkzNzlmIiwic2Vxbm8iOjEzLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQKrxvBRlstebmHlAwfe+/oDU3Cn5xFua89rgt1KLNU9tDq3RSn2xqT99IOMtt2lIeKlbArBncoz9va5w0quJVAaoc2lnX3R5cGUgo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/carlos8f
+
+==================================================================
+
