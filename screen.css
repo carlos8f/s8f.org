@@ -392,3 +392,6 @@ audio {
   width: 100%;
 }
 
+.line-numbers {
+  padding-right: 10px;
+}
