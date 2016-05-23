@@ -160,11 +160,13 @@ code, kbd {
   background-color: #eee;
   color: #444;
   border-radius: 5px;
+  line-height: 1.5em;
 }
 
 div.code {
   font: 14px "PT Mono", monospace;
   color: #444;
+  line-height: 1.5em;
 }
 
 pre {
