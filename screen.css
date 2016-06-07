@@ -66,7 +66,7 @@ body, input, textarea {
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px 0;
   line-height: 1.2em;
-  color: #444444;
+  color: black;
   font-weight: 900;
 }
 
