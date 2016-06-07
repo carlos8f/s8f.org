@@ -59,7 +59,7 @@ body, input, textarea {
   font-size: 18px;
   line-height: 1.5em;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: normal;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -67,6 +67,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px 0;
   line-height: 1.2em;
   color: #444444;
+  font-weight: 900;
 }
 
 h1 {
