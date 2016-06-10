@@ -1,0 +1,8 @@
+---
+layout: default
+---
+
+{% for post in site.categories.music %}
+  {% assign content = post.content %}
+  {% include post.html %}
+{% endfor %}
