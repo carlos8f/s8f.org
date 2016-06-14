@@ -1,3 +1,8 @@
+pub   dsa2048/38621AFF 2016-05-13 [SC]
+      Key fingerprint = 2FED CDB0 4E0C 11A6 FEAF  49B1 5FBB 2F98 3862 1AFF
+uid         [ultimate] Carlos Rodriguez <carlos@s8f.org>
+sub   elg2048/2B82C3D5 2016-05-13 [E]
+
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 
