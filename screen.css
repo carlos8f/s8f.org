@@ -414,7 +414,7 @@ audio {
   width: 50%;
   text-decoration: none;
   color: black;
-  border-bottom: 10px transparent;
+  border-bottom: 10px solid #fff;
 }
 
 .projects a:hover {
@@ -429,7 +429,6 @@ audio {
 .projects .row {
   margin-bottom: 20px;
   display: block;
-  border-bottom: 1px solid #ccc;
 }
 
 .projects .row:after {
