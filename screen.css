@@ -416,8 +416,13 @@ audio {
   color: black;
 }
 
+.projects a:hover {
+  border-bottom: 4px solid #ccc;
+}
+
 .projects .inner {
   padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 .projects .row {
