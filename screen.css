@@ -474,3 +474,12 @@ audio {
 .contact a {
   color: black;
 }
+
+.accounts {
+  margin-bottom: 20px;
+}
+
+.accounts .col {
+  width: 50%;
+  float: left;
+}
