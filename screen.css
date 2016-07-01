@@ -459,9 +459,16 @@ audio {
 
 .contact {
   font-family: monospace;
-  font-size: 0.6em;
+  font-size: 0.8em;
   letter-spacing: 0;
-  line-height: 0.8em;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.contact li {
+  margin: 0;
+  line-height: 0.5em;
 }
 
 .contact a {
