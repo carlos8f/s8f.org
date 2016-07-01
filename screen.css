@@ -317,7 +317,8 @@ body {
 }
 
 .sidebar h3, .sidebar h4 {
-  margin: 1em 0;
+  font-size: 1.2em;
+  margin: 0.5em 0;
 }
 
 img.avatar {
@@ -460,6 +461,9 @@ audio {
   font-family: monospace;
   font-size: 0.6em;
   letter-spacing: 0;
+  line-height: 0.8em;
+}
+
+.contact a {
   color: #555;
-  line-height: ;
 }
