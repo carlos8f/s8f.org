@@ -455,3 +455,8 @@ audio {
 .projects .description {
   color: #888;
 }
+
+.contact {
+  font-family: monospace;
+  font-size: 0.8em;
+}
