@@ -397,11 +397,11 @@ audio {
   width: 50%;
   text-decoration: none;
   color: black;
-  border-bottom: 10px solid #fff;
 }
 
 .projects a:hover {
-  border-bottom: 10px solid #ccc;
+  color: white;
+  background: black;
 }
 
 .projects .inner {
