@@ -466,7 +466,7 @@ audio {
   float: left;
 }
 
-.accounts a {
+.accounts .link {
   display: block;
 }
 
