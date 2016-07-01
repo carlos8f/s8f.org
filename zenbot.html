@@ -1,0 +1,9 @@
+---
+layout: default
+title: zenbot: automated Bitcoin trading bot for GDAX (Coinbase Exchange)
+---
+
+{% for post in site.categories.zenbot %}
+  {% assign content = post.content %}
+  {% include post.html %}
+{% endfor %}
