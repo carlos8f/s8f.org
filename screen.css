@@ -395,6 +395,7 @@ audio {
   display: inline-block;
   float: left;
   width: 50%;
+  height: 100px;
   text-decoration: none;
   color: black;
 }
@@ -402,6 +403,10 @@ audio {
 .projects a:hover {
   color: white;
   background: black;
+}
+
+.projects a:hover h3 {
+  color: white;
 }
 
 .projects .inner {
