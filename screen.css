@@ -403,3 +403,39 @@ audio {
   list-style: normal;
   padding-left: 2em;
 }
+
+.projects h2 {
+  text-align: center;
+}
+
+.projects a {
+  display: inline-block;
+  float: left;
+  padding: 20px 0;
+  text-decoration: none;
+  color: black;
+}
+
+.projects .row {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.projects .row:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.projects .thumb {
+  width: 100px;
+  margin-right: 10px;
+  float: left;
+}
+
+.projects .description {
+  color: #888;
+}
