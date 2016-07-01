@@ -453,8 +453,16 @@ audio {
   line-height: 1.5em;
 }
 
-.contact a {
+.sidebar a {
   color: black;
+  display: inline-block;
+  padding: 2px;
+  border-bottom: 1px solid white;
+}
+
+.contact a:hover {
+  background-color: black;
+  color: white;
 }
 
 .accounts {
@@ -466,10 +474,6 @@ audio {
   float: left;
 }
 
-.accounts .link {
-  display: block;
-}
-
-.accounts a:hover {
+.sidebar a:hover {
   border-bottom: 1px dotted #ccc;
 }
