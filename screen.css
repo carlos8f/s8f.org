@@ -432,7 +432,7 @@ audio {
   display: block;
 }
 
-.projects .row:after {
+.row:after {
   visibility: hidden;
   display: block;
   font-size: 0;
