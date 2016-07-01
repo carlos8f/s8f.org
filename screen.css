@@ -457,10 +457,9 @@ audio {
   color: black;
   display: inline-block;
   padding: 2px;
-  border-bottom: 1px solid white;
 }
 
-.contact a:hover {
+.sidebar a:hover {
   background-color: black;
   color: white;
 }
@@ -474,6 +473,6 @@ audio {
   float: left;
 }
 
-.sidebar a:hover {
-  border-bottom: 1px dotted #ccc;
+.sidebar .accounts a {
+  display: block;
 }
