@@ -248,7 +248,7 @@ a:hover {
 
 body {
   background: white;
-  padding: 40px;
+  padding: 40px 40px 40px 0;
 }
 
 .main-column {
@@ -278,9 +278,9 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 40px;
+  top: 0;
   left: 40px;
-  width: 220px;
+  width: 280px;
 }
 
 @media (max-width: 768px) {
@@ -458,5 +458,8 @@ audio {
 
 .contact {
   font-family: monospace;
-  font-size: 0.8em;
+  font-size: 0.6em;
+  letter-spacing: 0;
+  color: #555;
+  line-height: ;
 }
