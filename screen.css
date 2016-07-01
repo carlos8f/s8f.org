@@ -414,10 +414,11 @@ audio {
   width: 50%;
   text-decoration: none;
   color: black;
+  border-bottom: 10px transparent;
 }
 
 .projects a:hover {
-  border-bottom: 4px solid #ccc;
+  border-bottom: 10px solid #ccc;
 }
 
 .projects .inner {
@@ -441,8 +442,8 @@ audio {
 }
 
 .projects h3 {
-  margin-top: 10px;
-  margin-bottom: 5px;
+  padding-top: 20px;
+  margin-bottom: 0;
   font-size: 1.6em;
 }
 
