@@ -225,6 +225,27 @@ a:hover {
   color: black;
 }
 
+@media (max-width: 586px) {
+  body, input, textarea {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 17px;
+  }
+  code, kbd {
+    font-size: 11px;
+  }
+}
+
 body {
   background: white;
   padding: 0;
@@ -264,23 +285,13 @@ body {
 }
 
 @media (max-width: 586px) {
-  body, input, textarea {
-    font-size: 15px;
+  .main-column {
+    margin-left: 0;
   }
-  h1 {
-    font-size: 30px;
-  }
-  h2 {
-    font-size: 20px;
-  }
-  h3 {
-    font-size: 18px;
-  }
-  h4 {
-    font-size: 17px;
-  }
-  code, kbd {
-    font-size: 11px;
+  .sidebar {
+    position: static;
+    top: 0;
+    left: 0;
   }
   body {
     padding: 20px;
@@ -315,6 +326,29 @@ img.avatar {
   height: 110px;
   float: left;
   margin: 0 40px 20px 0;
+}
+
+@media (max-width: 768px) {
+  .read-more-section {
+    display: none;
+  }
+  .sidebar {
+    font-size: 16px;
+    text-align: left;
+  }
+  img.avatar {
+    margin-right: 20px;
+  }
+  .entry-content img {
+    width: 100%;
+  }
+  .entry-content img:active {
+    -webkit-transform: scale(0.98, 0.98);
+    -moz-transform: scale(0.98, 0.98);
+    -ms-transform: scale(0.98, 0.98);
+    -o-transform: scale(0.98, 0.98);
+    transform: scale(0.98, 0.98);
+  }
 }
 
 .entry-content img {
