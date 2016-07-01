@@ -280,7 +280,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 280px;
+  width: 250px
 }
 
 @media (max-width: 768px) {
