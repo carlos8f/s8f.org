@@ -248,7 +248,7 @@ a:hover {
 
 body {
   background: white;
-  padding: 0;
+  padding: 20px 20px 20px 0;
 }
 
 .main-column {
@@ -280,7 +280,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px
+  width: 270px
 }
 
 @media (max-width: 768px) {
@@ -468,7 +468,7 @@ audio {
 
 .contact li {
   margin: 0;
-  line-height: 0.5em;
+  line-height: 0.8em;
 }
 
 .contact a {
