@@ -257,6 +257,7 @@ body {
 }
 
 .main-column .header {
+  margin-top: 20px;
   margin-bottom: 80px;
 }
 
@@ -280,7 +281,7 @@ body {
   position: fixed;
   top: 25px;
   left: 0;
-  width: 270px
+  width: 255px
 }
 
 @media (max-width: 768px) {
