@@ -351,6 +351,9 @@ img.avatar {
   }
 }
 
+.entry-content img {
+  max-width: 100%;
+}
 .entry-content img:active {
   -webkit-transform: scale(0.98, 0.98);
   -moz-transform: scale(0.98, 0.98);
