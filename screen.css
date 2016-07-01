@@ -248,7 +248,7 @@ a:hover {
 
 body {
   background: white;
-  padding: 20px 20px 20px 0;
+  padding: 0;
 }
 
 .main-column {
@@ -278,7 +278,7 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 270px
 }
@@ -468,9 +468,9 @@ audio {
 
 .contact li {
   margin: 0;
-  line-height: 0.8em;
+  line-height: 1.1em;
 }
 
 .contact a {
-  color: #555;
+  color: black;
 }
