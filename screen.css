@@ -464,5 +464,12 @@ audio {
 .accounts .col {
   width: 50%;
   float: left;
+}
+
+.accounts a {
+  display: block;
+}
+
+.accounts a:hover {
   border-bottom: 1px dotted #ccc;
 }
