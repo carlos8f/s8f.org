@@ -421,8 +421,9 @@ audio {
 }
 
 .projects .row {
-  margin-bottom: 10px;
-  display: inline-block;
+  margin-bottom: 20px;
+  display: block;
+  border-bottom: 1px solid #ccc;
 }
 
 .projects .row:after {
@@ -432,6 +433,12 @@ audio {
   content: " ";
   clear: both;
   height: 0;
+}
+
+.projects h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 1.6em;
 }
 
 .projects .thumb {
