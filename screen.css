@@ -411,9 +411,13 @@ audio {
 .projects a {
   display: inline-block;
   float: left;
-  padding: 20px 0;
+  width: 50%;
   text-decoration: none;
   color: black;
+}
+
+.projects .inner {
+  padding-right: 20px;
 }
 
 .projects .row {
