@@ -220,7 +220,7 @@ a:hover {
 .entry-header .entry-title {
   margin-top: 20px;
   margin-bottom: 5px;
-  font-weight: 700;
+  font-weight: 900;
 }
 .entry-header .entry-title .entry-title-link {
   color: #444444;
@@ -357,7 +357,6 @@ img.avatar {
 
 .meta {
   color: #b3b3b3;
-  font-weight: 500;
   margin-bottom: 20px;
 }
 
