@@ -161,6 +161,8 @@ code, kbd {
   background-color: black;
   color: #3ceb00;
   font-weight: 500;
+  border-radius: 4px;
+  padding: 0 4px;
 }
 
 pre, div.code {
