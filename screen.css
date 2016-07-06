@@ -157,14 +157,14 @@ blockquote cite {
 
 code, kbd {
   display: inline;
-  font: 14px "PT Mono", monospace;
+  font: 14px "Roboto Mono", monospace;
   background-color: black;
   color: #3ceb00;
   line-height: 1.5em;
 }
 
 div.code {
-  font: 14px "PT Mono", monospace;
+  font: 14px "Roboto Mono", monospace;
   color: #3ceb00;
   background-color: black;
   line-height: 1.5em;
