@@ -158,15 +158,16 @@ blockquote cite {
 code, kbd {
   font: 14px "PT Mono", monospace;
   padding: 2px 4px;
-  background-color: #a7f073;
-  color: #444;
+  background-color: black;
+  color: white;
   border-radius: 5px;
   line-height: 1.5em;
 }
 
 div.code {
   font: 14px "PT Mono", monospace;
-  color: #444;
+  color: white;
+  background-color: black;
   line-height: 1.5em;
 }
 
