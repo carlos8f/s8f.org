@@ -161,6 +161,7 @@ code, kbd {
   background-color: black;
   color: #3ceb00;
   line-height: 1.5em;
+  font-weight: 500;
 }
 
 div.code {
@@ -168,10 +169,11 @@ div.code {
   color: #3ceb00;
   background-color: black;
   line-height: 1.5em;
-  padding: ;
+  font-weight: 500;
 }
 
 pre {
+  font: 14px "Roboto Mono", monospace;
   display: block;
   margin: 2em 0;
   padding: 5px 15px;
@@ -179,6 +181,7 @@ pre {
   color: #3ceb00;
   border-radius: 5px;
   overflow: auto;
+  font-weight: 500;
 }
 
 .markdown-body {
