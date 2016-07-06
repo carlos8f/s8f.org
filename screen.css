@@ -178,6 +178,10 @@ pre, div.code {
   line-height: 1.35em;
 }
 
+pre code {
+  padding: 0;
+}
+
 .markdown-body {
   padding: 1em !important;
   font-family: "Source Sans Pro", sans-serif !important;
