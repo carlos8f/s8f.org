@@ -252,7 +252,6 @@ body {
 }
 
 .main-column {
-  max-width: 1000px;
   margin-left: 300px;
 }
 
@@ -274,7 +273,7 @@ body {
 }
 
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content p, .entry-content ul, .entry-content ol {
-  max-width: 650px;
+  max-width: 850px;
 }
 
 .sidebar {
