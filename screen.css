@@ -160,7 +160,7 @@ code, kbd {
   font: 14px "Roboto Mono", monospace;
   background-color: black;
   color: #3ceb00;
-  line-height: 1.5em;
+  line-height: 1em;
   font-weight: 500;
 }
 
@@ -168,7 +168,7 @@ div.code {
   font: 14px "Roboto Mono", monospace;
   color: #3ceb00;
   background-color: black;
-  line-height: 1.5em;
+  line-height: 1em;
   font-weight: 500;
 }
 
@@ -182,6 +182,7 @@ pre {
   border-radius: 5px;
   overflow: auto;
   font-weight: 500;
+  line-height: 1em;
 }
 
 .markdown-body {
