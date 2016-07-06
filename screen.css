@@ -174,7 +174,8 @@ div.code {
 pre {
   margin: 2em 0;
   padding: 2px 4px;
-  background-color: #a7f073;
+  background-color: black;
+  color: white;
   border-radius: 5px;
   overflow: auto;
 }
