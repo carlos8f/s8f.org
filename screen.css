@@ -156,13 +156,13 @@ blockquote cite {
 }
 
 code, kbd {
-  display: inline;
+  display: inline-block;
   font: 14px "Roboto Mono", monospace;
   background-color: black;
   color: #3ceb00;
   font-weight: 500;
   border-radius: 4px;
-  padding: 0 4px;
+  padding: 2px 4px;
 }
 
 pre, div.code {
