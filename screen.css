@@ -159,13 +159,13 @@ code, kbd {
   display: inline;
   font: 14px "PT Mono", monospace;
   background-color: black;
-  color: white;
+  color: green;
   line-height: 1.5em;
 }
 
 div.code {
   font: 14px "PT Mono", monospace;
-  color: white;
+  color: green;
   background-color: black;
   line-height: 1.5em;
   padding: ;
@@ -176,7 +176,7 @@ pre {
   margin: 2em 0;
   padding: 5px 15px;
   background-color: black;
-  color: white;
+  color: green;
   border-radius: 5px;
   overflow: auto;
 }
@@ -404,12 +404,12 @@ audio {
 }
 
 .projects a:hover {
-  color: white;
+  color: green;
   background: black;
 }
 
 .projects a:hover h3 {
-  color: white;
+  color: green;
 }
 
 .projects .inner {
@@ -469,7 +469,7 @@ audio {
 
 .sidebar a:hover {
   background-color: black;
-  color: white;
+  color: green;
 }
 
 .accounts {
