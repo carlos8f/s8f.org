@@ -257,6 +257,8 @@ body {
 
 .main-column {
   margin-left: 300px;
+  padding-right: 50px;
+  padding-bottom: 50px;
 }
 
 .main-column .header {
