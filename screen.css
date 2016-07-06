@@ -156,11 +156,10 @@ blockquote cite {
 }
 
 code, kbd {
+  display: inline;
   font: 14px "PT Mono", monospace;
-  padding: 2px 4px;
   background-color: black;
   color: white;
-  border-radius: 5px;
   line-height: 1.5em;
 }
 
@@ -169,11 +168,13 @@ div.code {
   color: white;
   background-color: black;
   line-height: 1.5em;
+  padding: ;
 }
 
 pre {
+  display: block;
   margin: 2em 0;
-  padding: 15px 5px;
+  padding: 5px 15px;
   background-color: black;
   color: white;
   border-radius: 5px;
