@@ -1,6 +1,6 @@
 all:
 	@git pull
-	@jekyll _site
+	@jekyll build
 server:
 	@jekyll serve --watch
 new:
