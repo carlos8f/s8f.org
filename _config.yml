@@ -9,6 +9,6 @@ encoding: utf-8
 #  input: GFM
 #pygments: true
 markdown: KramdownPygments
-permalink: /:title
+permalink: /:title/index.html
 exclude: [_scripts,Makefile]
 paginate: 3
