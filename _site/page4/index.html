@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>s8f.org 💾 I stepped inside and went straight for the canisters</title>
+<meta name="description" content="">
+<meta name="author" content="Carlos Rodriguez">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500|Source+Sans+Pro:400,400i,900&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://localhost:4000/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="http://localhost:4000/atom.xml" rel="alternate" title="s8f.org 💾 I stepped inside and went straight for the canisters" type="application/atom+xml">
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+</head>
+<body>
+  <div class="main-column">
+    <section class="header">
+  <img class="avatar" alt="picture of Carlos Rodriguez" src="http://localhost:4000/files/helvetica.jpg">
+  <div class="author">
+    <h2><i class="far fa-comment-dots"></i> Hi, I'm Carlos Rodriguez.</h2>
+    <p>
+      I build <i class="fas fa-wrench"></i> software <i class="fas fa-globe"></i> at home <i class="fab fa-fort-awesome-alt"></i> in Watsonville, CA <i class="fas fa-sun"></i>.<br>
+      I'm a hacker <i class="fas fa-terminal"></i>, audiophile <i class="fas fa-microphone-alt"></i>, and enjoyer of all things technical <i class="fas fa-flask"></i>.
+    </p>
+  </div>
+</section>
+<hr>
+
+<div class="projects">
+  <div class="row">
+    <a href="/zenbot.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/zenbot_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-line-chart"></i> zenbot</h3>
+        <div class="description">Bitcoin trading bot</div>
+      </div>
+    </a>
+    <a href="/salty.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/salty_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-lock"></i> Salty</h3>
+        <div class="description">next-gen pubkey crypto</div>
+      </div>
+    </a>
+  </div>
+  <div class="row">
+    <a href="/motley.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/motley_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-laptop"></i> Motley</h3>
+        <div class="description">Node.js framework</div>
+      </div>
+    </a>
+    <a href="/music.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/music_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-music"></i> Music</h3>
+        <div class="description">by Carlos Rodriguez</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<hr>
+
+<div class="posts">
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1466743328/index.html">Salty 4.0 released</a></h1>
+    <div class="meta">
+      <time datetime="2016-06-23T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 23<span>rd</span>, 2016
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p>40 years ago today, Diffie and Hellman invented the public key exchange algorithm. Today, I present you:</p>
+
+<h2 id="salty">Salty</h2>
+
+<p>Salty is a <a href="https://nodejs.org/">nodejs</a>-powered CLI-based alternative to PGP/GPG using <a href="https://en.wikipedia.org/wiki/NaCl_(software)">NaCl</a> instead of RSA/DSA.</p>
+
+<p>Github repo here: https://github.com/carlos8f/salty</p>
+
+<p>Commits and tags in this repo are signed with GPG key <a href="https://keybase.io/carlos8f">5FBB 2F98 3862 1AFF</a>.</p>
+
+<h3 id="upcoming-gui">Upcoming GUI</h3>
+
+<p>A GUI is being developed as a node HTTP server you can host locally or remotely to access your wallet. Follow its development <a href="https://github.com/carlos8f/salty-gui">here</a>.</p>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>NO <a href="https://peerio.com/pricing.html">3rd parties</a>, NO <a href="https://en.wikipedia.org/wiki/PRISM_(surveillance_program)">p2p network</a>, NO <a href="https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/">browser js</a>, NO <a href="https://www.openssl.org/news/vulnerabilities.html">exotic/compiled deps</a>, no <a href="https://www.reddit.com/r/programming/comments/4pj89t/support_lets_encrypt_get_cloudflare_cdn_et_al_to/">Comodo SSL</a>, and NO <a href="https://github.com/VirgilSecurity">shady corporations</a>. PERIOD.</li>
+  <li>general purpose CLI, lightweight library attached</li>
+  <li>audited, bundled dependencies - no install scripts or backdoors</li>
+  <li>supports anonymous-sender or signed/verified messaging</li>
+  <li>sharable pubkey string that can fit in a single tweet</li>
+  <li>does NOT use your ssh keys, pgp keys, or anything RSA</li>
+  <li>encrypt public key is always ephemeral - does NOT leak metadata</li>
+  <li>sender identity is deniable, unless they explicitly commit to sign the message</li>
+  <li>file length hidden with padding</li>
+  <li>public signing/verifying with detached signatures</li>
+  <li>binary or “ascii armor” PEM output</li>
+  <li>import/export your wallet folder - PEM encoded and secretboxed with Scrypt KDF</li>
+  <li>(new in 3.1) can use anonymous private <a href="https://gist.github.com/">Github gists</a> to remotely store salty messages</li>
+  <li>(new in 3.1) full tar/gz support for encrypting/decrypting directories (supports symmetric or asymmetric cipher)</li>
+  <li>MIT-licensed</li>
+</ul>
+
+<h2 id="install-mac-osx">Install (Mac OSX)</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew tap carlos8f/tap
+$ brew install salty
+</code></pre></div></div>
+
+<h2 id="other-unix-based-platforms">Other UNIX-based platforms:</h2>
+
+<p>Install first: <a href="https://nodejs.org/">nodejs</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget https://github.com/carlos8f/salty/archive/v4.1.0.tar.gz
+$ shasum -a 256 v4.1.0.tar.gz
+3eb6e0bcb1461af2aa88d81c9be5c69b1b0069e40a30abb90c11420c88504126  v4.1.0.tar.gz
+$ tar -xf v4.1.0.tar.gz
+$ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
+</code></pre></div></div>
+
+<h2 id="useful-links">Useful links</h2>
+
+<ul>
+  <li><a href="https://s8f.org/1465282150/">S8F Console: How to use Salty</a> - Basic demonstration of the Salty CLI</li>
+  <li><a href="https://s8f.org/1465262642/">Salty: PGP Evolved</a> - How Salty improves on the PGP model</li>
+</ul>
+
+<h2 id="patch-notes-411">Patch notes (4.1.1)</h2>
+
+<ul>
+  <li>no longer asks for name/email for wallet</li>
+  <li>fix translateHeader if no name/email</li>
+  <li>fix ascii armor signature headers not wrapped</li>
+  <li>add signing examples</li>
+  <li>updated generic install example to use wget instead of git</li>
+  <li>now you can regenerate your decryption key with <code class="highlighter-rouge">salty init --regen</code></li>
+  <li>switch to base58-encoding for everything but hashes</li>
+  <li>hashes are now hex-encoded</li>
+  <li><code class="highlighter-rouge">\r\n</code> newlines in header/PEM changed to <code class="highlighter-rouge">\n</code></li>
+  <li>Custom header support for encryption or signing</li>
+  <li>import now dedupes on verifyPk/email</li>
+  <li>key removal by pubkey/email now supported</li>
+  <li>“attached” signatures now available with ASCII armor flag</li>
+  <li>signatures can be verified without previous setup (wallet creation)</li>
+  <li>signatures support arbitrary hash algorithms</li>
+  <li>added <code class="highlighter-rouge">--no-translate</code> flag to output raw header</li>
+</ul>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1465539942/index.html">cyberpunk midnight nintendo street jam with SMALL MYTH SOUNDSYSTEM</a></h1>
+    <div class="meta">
+      <time datetime="2016-06-09T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 9<span>th</span>, 2016
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <iframe width="100%" height="500" src="https://www.youtube.com/embed/xh_AHrBVpcg?start=229" frameborder="0" allowfullscreen=""></iframe>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1465282150/index.html">S8F Console: How to use Salty</a></h1>
+    <div class="meta">
+      <time datetime="2016-06-06T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 6<span>th</span>, 2016
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <script type="text/javascript" src="https://asciinema.org/a/0ugtoagc27nbow9cixedejw4f.js" id="asciicast-0ugtoagc27nbow9cixedejw4f" async=""></script>
+
+
+  </div>
+</section>
+
+  
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  
+    <a href="/page5/" class="older">&larr; Older</a>
+  
+  
+    
+      <a href="/page3/" class="newer">Newer &rarr;</a>
+    
+  
+  
+  <div style="clear:right"></div>
+  
+</div>
+
+  </div>
+
+  <section class="sidebar">
+  <nav role="navigation" class="main-nav">
+    <h3><a href="http://localhost:4000/">s8f.org <i class="fas fa-save"></i></a></h3>
+
+    <h3>contact me:</h3>
+    <ul class="contact">
+      <li><a href="/salty.txt">Salty ID <i class="fas fa-lock"></i></a></li>
+      <li>GPG <a href="http://localhost:4000/gpg.txt">5FBB2F9838621AFF <i class="fas fa-lock"></i></a></li>
+      <li><a href="https://gist.github.com/carlos8f/a0afc9a28937bd800e2a61b316641610">Bitcoin <i class="fab fa-bitcoin"></i></a></li>
+      <li><script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'c'+
+      'a'+'&'+'#'+'1'+'1'+'4'+';'+'l'+'o'+'s'+'%'+'&'+'#'+'5'+'2'+';'+'&'+'#'+'4'+'8'+';'+'s'+'8'+'&'+'#'+
+      '1'+'0'+'2'+';'+'&'+'#'+'4'+'6'+';'+'o'+'r'+'g'+"'"+'>E-mail <i class="far fa-envelope-open"></i><'+'/'+'a'+'>');
+        </script><noscript>[Turn on JavaScript to see the email address]</noscript></li>
+    </ul>
+  </nav>
+</section>
+
+  <script type="text/javascript">
+  var _sf_async_config = { uid: 7589, domain: 's8f.org', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20561928-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>

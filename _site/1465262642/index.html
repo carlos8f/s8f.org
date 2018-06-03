@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Salty: PGP Evolved | s8f.org 💾 I stepped inside and went straight for the canisters</title>
+<meta name="description" content="">
+<meta name="author" content="Carlos Rodriguez">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500|Source+Sans+Pro:400,400i,900&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://localhost:4000/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="http://localhost:4000/atom.xml" rel="alternate" title="s8f.org 💾 I stepped inside and went straight for the canisters" type="application/atom+xml">
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+</head>
+<body>
+  <div class="main-column">
+    <section class="post-section section">
+  <header class="entry-header">
+    <h1 class="entry-title">Salty: PGP Evolved</h1>
+    <div class="meta">
+      
+      <time datetime="2016-06-06T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 6<span>th</span>, 2016
+</time>
+
+    </div>
+  </header>
+
+  <div class="entry-content">
+  <p>This is a step-by-step rebuttal to <a href="http://secushare.org/PGP">secushare</a>’s arguments against the PGP model, and how <a href="https://s8f.org/salty.html">Salty</a> tries to make things right again.</p>
+
+<h3 id="1-downgrade-attack-the-risk-of-using-it-wrong">1. Downgrade Attack: The risk of using it wrong.</h3>
+
+<p>Unlike PGP, Salty does not “integrate” into your browser, email client, or other sensitive software. Therefore, usability shortcomings of integration UIs will not raise security issues. It is up to the user to safeguard the connection (i.e. their email account) which Salty can’t control, and is not interested in controlling. “Doing it wrong” is barely possible since there are so few modes of use, and all parameters are hard-coded into the software, so no critical choices are necessary on the part of the user.</p>
+
+<h3 id="2-the-openpgp-format-you-might-aswell-run-around-the-city-naked">2. The OpenPGP Format: You might aswell run around the city naked.</h3>
+
+<p>Salty does not include the sender or recipient’s public key in plaintext. By default it encrypts using an ephemeral key and nonce, obscures the message length with padding, encrypts the real message length, and encrypts the info for verifying authenticity and integrity (hmac, public keys, and signature). Signature is opt-in.</p>
+
+<h3 id="3-transaction-data-mallory-knows-who-you-are-talking-to">3. Transaction Data: Mallory knows who you are talking to.</h3>
+
+<p>Fully anonymized traffic seems like a pipe dream, and (despite the existence of the Tor project) will probably not be possible in the near future. However, for what it’s worth:</p>
+
+<p>In theory, the idea of a “mixing service” from Bitcoin for psuedo-anonymizing transactions is possible using Salty files. Since a Salty file can only be made sense of by one who posesses the receiver’s private key, a secure “drop box” could be set up where everyone dumps to the same folder, and everyone reads every file, trying to decrypt everything until decryptable files are found.</p>
+
+<h3 id="4-no-forward-secrecy-it-makes-sense-to-collect-it-all">4. No Forward Secrecy: It makes sense to collect it all.</h3>
+
+<p>Salty solves this problem in two ways:</p>
+
+<ol>
+  <li>With Salty it’s easy to refresh keys: just regenerate your decryption key, and tweet the resulting pubkey string. Destroying your encryption key effectively renders your previously received messages unreadable and useless to collect.</li>
+  <li>Recovering the 32-byte key used to encrypt a message will not allow decryption of all Alice&lt;-&gt;Bob messages, since each message has a unique key as the result of Diffie-Hellman with Alice using an ephemeral key.</li>
+</ol>
+
+<h3 id="5-cryptogeddon-time-to-upgrade-cryptography-itself">5. Cryptogeddon: Time to upgrade cryptography itself?</h3>
+
+<p>Salty throws out RSA and NIST-approved curves entirely, using the independently developed, peer-reviewed, battle tested, public domain NaCl crypto suite.</p>
+
+<h3 id="6-federation-get-off-the-inter-server-super-highway">6. Federation: Get off the inter-server super-highway.</h3>
+
+<p>Salty is not a network protocol, but it’s recommended to use the most secure channel possible to trade Salty messages. The same goes for any sensitive information transferred between two parties.</p>
+
+<h3 id="7-discovery-a-web-of-trust-you-cant-trust">7. Discovery: A Web of Trust you can’t trust.</h3>
+
+<p>Salty does not prescribe a web-of-trust model. Keyservers are optional and if one has a Twitter account, not necessary at all. End of story!</p>
+
+<h3 id="8-pgp-conflates-non-repudiation-and-authentication">8. PGP conflates non-repudiation and authentication.</h3>
+
+<p>Salty allows the sender to decide whether to sign the message, revealing to the receiver (via HMAC) that they in fact constructed it with their known identity. By default, only message integrity is ensured, protecting the sender’s privacy if they desire it.</p>
+
+<h3 id="9-statistical-analysis-guessing-on-the-size-of-messages">9. Statistical Analysis: Guessing on the size of messages.</h3>
+
+<p>Salty does some random-padding to help obscure the message size.</p>
+
+<h3 id="10-workflow-group-messaging-with-pgp-is-impractical">10. Workflow: Group messaging with PGP is impractical.</h3>
+
+<p>This is still true. Group messaging is better done by a network protocol.</p>
+
+  </div>
+
+</section>
+
+<section class="comments-section section">
+  <div id="disqus_thread" aria-live="polite">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+<script type="text/javascript">
+  var disqus_shortname = 's8f'; // required: replace example with your forum shortname
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  </div>
+
+  <section class="sidebar">
+  <nav role="navigation" class="main-nav">
+    <h3><a href="http://localhost:4000/">s8f.org <i class="fas fa-save"></i></a></h3>
+
+    <h3>contact me:</h3>
+    <ul class="contact">
+      <li><a href="/salty.txt">Salty ID <i class="fas fa-lock"></i></a></li>
+      <li>GPG <a href="http://localhost:4000/gpg.txt">5FBB2F9838621AFF <i class="fas fa-lock"></i></a></li>
+      <li><a href="https://gist.github.com/carlos8f/a0afc9a28937bd800e2a61b316641610">Bitcoin <i class="fab fa-bitcoin"></i></a></li>
+      <li><script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'c'+
+      'a'+'&'+'#'+'1'+'1'+'4'+';'+'l'+'o'+'s'+'%'+'&'+'#'+'5'+'2'+';'+'&'+'#'+'4'+'8'+';'+'s'+'8'+'&'+'#'+
+      '1'+'0'+'2'+';'+'&'+'#'+'4'+'6'+';'+'o'+'r'+'g'+"'"+'>E-mail <i class="far fa-envelope-open"></i><'+'/'+'a'+'>');
+        </script><noscript>[Turn on JavaScript to see the email address]</noscript></li>
+    </ul>
+  </nav>
+</section>
+
+  <script type="text/javascript">
+  var _sf_async_config = { uid: 7589, domain: 's8f.org', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20561928-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>

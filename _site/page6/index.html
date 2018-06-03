@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>s8f.org 💾 I stepped inside and went straight for the canisters</title>
+<meta name="description" content="">
+<meta name="author" content="Carlos Rodriguez">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500|Source+Sans+Pro:400,400i,900&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://localhost:4000/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="http://localhost:4000/atom.xml" rel="alternate" title="s8f.org 💾 I stepped inside and went straight for the canisters" type="application/atom+xml">
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+</head>
+<body>
+  <div class="main-column">
+    <section class="header">
+  <img class="avatar" alt="picture of Carlos Rodriguez" src="http://localhost:4000/files/helvetica.jpg">
+  <div class="author">
+    <h2><i class="far fa-comment-dots"></i> Hi, I'm Carlos Rodriguez.</h2>
+    <p>
+      I build <i class="fas fa-wrench"></i> software <i class="fas fa-globe"></i> at home <i class="fab fa-fort-awesome-alt"></i> in Watsonville, CA <i class="fas fa-sun"></i>.<br>
+      I'm a hacker <i class="fas fa-terminal"></i>, audiophile <i class="fas fa-microphone-alt"></i>, and enjoyer of all things technical <i class="fas fa-flask"></i>.
+    </p>
+  </div>
+</section>
+<hr>
+
+<div class="projects">
+  <div class="row">
+    <a href="/zenbot.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/zenbot_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-line-chart"></i> zenbot</h3>
+        <div class="description">Bitcoin trading bot</div>
+      </div>
+    </a>
+    <a href="/salty.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/salty_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-lock"></i> Salty</h3>
+        <div class="description">next-gen pubkey crypto</div>
+      </div>
+    </a>
+  </div>
+  <div class="row">
+    <a href="/motley.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/motley_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-laptop"></i> Motley</h3>
+        <div class="description">Node.js framework</div>
+      </div>
+    </a>
+    <a href="/music.html">
+      <div class="inner">
+        <div class="thumb"><img src="/files/music_thumb.png"></div>
+        <h3><i class="fa fa-fw fa-music"></i> Music</h3>
+        <div class="description">by Carlos Rodriguez</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<hr>
+
+<div class="posts">
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1402636102/index.html">Motley</a></h1>
+    <div class="meta">
+      <time datetime="2014-06-12T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 12<span>th</span>, 2014
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p><img src="https://raw.github.com/carlos8f/motley/master/assets/motley-full.png" alt="motley" /></p>
+
+<h2 id="get-started-in-3-shell-commands">Get Started in 3 shell commands:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:carlos8f/motley-init.git
+cd motley-init &amp;&amp; npm install
+node server.js
+</code></pre></div></div>
+
+<p>(or just fork the <a href="https://github.com/carlos8f/motley-init">motley-init</a> repo!)</p>
+
+<h2 id="example-serverjs">Example server.js</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">motley</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'motley'</span><span class="p">)</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">motley</span><span class="p">({</span>
+    <span class="na">_ns</span><span class="p">:</span> <span class="s1">'motley'</span><span class="p">,</span>
+    <span class="na">_maps</span><span class="p">:</span> <span class="p">[</span>
+      <span class="c1">// require()'ed motley plugins go here.</span>
+    <span class="p">],</span>
+    <span class="s1">'hooks.listen[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="nx">task</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">get</span><span class="p">(</span><span class="s1">'console'</span><span class="p">).</span><span class="nx">log</span><span class="p">(</span><span class="s1">'listening on http://localhost:'</span> <span class="o">+</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'site.server'</span><span class="p">).</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span> <span class="o">+</span> <span class="s1">'/'</span><span class="p">)</span>
+        <span class="nx">setImmediate</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">'middleware[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="nx">handler</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span> <span class="o">||</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">vars</span> <span class="o">=</span> <span class="p">{})</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span><span class="p">.</span><span class="nx">nonce</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+        <span class="nx">next</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">'controllers[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'controller'</span><span class="p">)()</span>
+        <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
+            <span class="s1">'welcome'</span><span class="p">:</span> <span class="s1">'to '</span> <span class="o">+</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'conf.site.title'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'!'</span><span class="p">,</span>
+            <span class="s1">'version'</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./package.json'</span><span class="p">).</span><span class="nx">version</span><span class="p">,</span>
+            <span class="s1">'nonce'</span><span class="p">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span><span class="p">.</span><span class="nx">nonce</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">},</span>
+    <span class="s1">'hooks.close[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="nx">task</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">get</span><span class="p">(</span><span class="s1">'console'</span><span class="p">).</span><span class="nx">log</span><span class="p">(</span><span class="s1">'</span><span class="err">\</span><span class="s1">n</span><span class="err">\</span><span class="s1">nmotley says goodbye :)</span><span class="err">\</span><span class="s1">n'</span><span class="p">)</span>
+        <span class="nx">setImmediate</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">exit</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">)</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="kd">function</span> <span class="nx">onExit</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'SIGINT'</span><span class="p">,</span> <span class="nx">onExit</span><span class="p">)</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'SIGTERM'</span><span class="p">,</span> <span class="nx">onExit</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="license">License</h2>
+
+<p>Motley is released under the MIT license.</p>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1400780521/index.html">Poster: Coffee Drinks Illustrated</a></h1>
+    <div class="meta">
+      <time datetime="2014-05-22T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  May 22<span>nd</span>, 2014
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p>In 2010 I found <a href="http://lokeshdhakar.com/coffee-drinks-illustrated/">this awesome coffee drink infographic</a>, but at the time I couldn’t find a PDF or vector version available. I wanted a large print of it, so I took it upon myself to re-illustrate it using <a href="http://www.inkscape.org/">Inkscape</a>, with some slight modifications so it shows up well in a tabloid-format print.</p>
+
+<p>I found afterwards that the author, Lokesh Dhakar, released a <a href="http://lokeshdhakar.com/coffee-diagram-follow-up/">vector version</a>, but I still like the header and wide format that I created.</p>
+
+<p>This is a derivative work of the original, © Lokesh Dhakar, released under the <a href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial License</a>, for <strong>non-commercial purposes only</strong>.</p>
+
+<p>Thanks, Lokesh!</p>
+
+<p><a href="http://localhost:4000/files/coffee_poster_tabloid.pdf"><img src="http://localhost:4000/files/coffee_poster_tabloid.png" alt="screenshot" /></a></p>
+
+<p><a href="http://localhost:4000/files/coffee_poster_tabloid.pdf">Download PDF</a> /
+<a href="http://localhost:4000/files/coffee_poster_tabloid.svg">Download Inkscape SVG</a></p>
+
+  </div>
+</section>
+
+  
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  
+  
+    
+      <a href="/page5/" class="newer">Newer &rarr;</a>
+    
+  
+  
+</div>
+
+  </div>
+
+  <section class="sidebar">
+  <nav role="navigation" class="main-nav">
+    <h3><a href="http://localhost:4000/">s8f.org <i class="fas fa-save"></i></a></h3>
+
+    <h3>contact me:</h3>
+    <ul class="contact">
+      <li><a href="/salty.txt">Salty ID <i class="fas fa-lock"></i></a></li>
+      <li>GPG <a href="http://localhost:4000/gpg.txt">5FBB2F9838621AFF <i class="fas fa-lock"></i></a></li>
+      <li><a href="https://gist.github.com/carlos8f/a0afc9a28937bd800e2a61b316641610">Bitcoin <i class="fab fa-bitcoin"></i></a></li>
+      <li><script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'o'+'&'+'#'+'5'+'8'+';'+'c'+
+      'a'+'&'+'#'+'1'+'1'+'4'+';'+'l'+'o'+'s'+'%'+'&'+'#'+'5'+'2'+';'+'&'+'#'+'4'+'8'+';'+'s'+'8'+'&'+'#'+
+      '1'+'0'+'2'+';'+'&'+'#'+'4'+'6'+';'+'o'+'r'+'g'+"'"+'>E-mail <i class="far fa-envelope-open"></i><'+'/'+'a'+'>');
+        </script><noscript>[Turn on JavaScript to see the email address]</noscript></li>
+    </ul>
+  </nav>
+</section>
+
+  <script type="text/javascript">
+  var _sf_async_config = { uid: 7589, domain: 's8f.org', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20561928-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>

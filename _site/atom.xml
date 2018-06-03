@@ -1,0 +1,1586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>s8f.org 💾 I stepped inside and went straight for the canisters</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2018-06-03T08:31:11-07:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Carlos Rodriguez</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title></title>
+   <link href="http://localhost:4000/1473767018/index.html"/>
+   <updated>2016-09-13T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1473767018/1473767018</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>An alternate solution to the "The 3 Light Switches" problem</title>
+   <link href="http://localhost:4000/1473461226/index.html"/>
+   <updated>2016-09-09T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1473461226/1473461226</id>
+   <content type="html">&lt;p&gt;Today, I accidentally came up with an alternative, novel solution to the classic interview question, “The 3 Light Switches”.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/carlos8f/9fd4053e4af2d12c2d070c2c42c2e6d4&quot;&gt;Proof of discovery and originality&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/puzzles/comments/51zoi8/my_solution_to_the_3_lightbulb_switches_problem_%E8%B7%AF/&quot;&gt;Post on /r/puzzles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rules&quot;&gt;Rules&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Suppose that you are standing in a hallway next to 3 light switches, which are all off. There is another room down the hallway, where there are 3 incandescent light bulbs – each light bulb is operated by one of the switches in the hallway. Because the light bulbs are in another room, you can not see them since you are standing in the hallway.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How would you figure out which switch operates which light bulb, if you can only go the room with the light bulbs one time, and only one time?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-official-solution&quot;&gt;The “Official” Solution&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;turn on switch A.&lt;/li&gt;
+  &lt;li&gt;turn on switch B briefly, and turn it off.&lt;/li&gt;
+  &lt;li&gt;go in the room&lt;/li&gt;
+  &lt;li&gt;notice the lit bulb, that’s switch A.&lt;/li&gt;
+  &lt;li&gt;notice the “warm” bulb, with your hand. that’s switch B.&lt;/li&gt;
+  &lt;li&gt;the final bulb is switch C.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;my-alternative-solution&quot;&gt;My Alternative Solution&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;label the switches A, B and C&lt;/li&gt;
+  &lt;li&gt;turn switch A on&lt;/li&gt;
+  &lt;li&gt;open door&lt;/li&gt;
+  &lt;li&gt;go into room&lt;/li&gt;
+  &lt;li&gt;notice the lit bulb. that’s switch A. unscrew it and carry it with you, labeling it A.&lt;/li&gt;
+  &lt;li&gt;the room goes dark.&lt;/li&gt;
+  &lt;li&gt;unscrew one of the other bulbs, label it X, and carry it with you.&lt;/li&gt;
+  &lt;li&gt;do NOT touch the door on the way out, leaving it open&lt;/li&gt;
+  &lt;li&gt;exit the room.&lt;/li&gt;
+  &lt;li&gt;turn on switch B. does light appear in the room?&lt;/li&gt;
+  &lt;li&gt;if yes, the bulb in the room is switch B.&lt;/li&gt;
+  &lt;li&gt;if no, the bulb in the room is switch C.&lt;/li&gt;
+  &lt;li&gt;the “X” bulb is the remaining switch, either B or C depending on the light or darkness coming from the room.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Zenbot 3.5.13 released</title>
+   <link href="http://localhost:4000/1472017438/index.html"/>
+   <updated>2016-08-23T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1472017438/1472017438</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/carlos8f/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Check out Zenbot 3 &lt;a href=&quot;https://github.com/carlos8f/zenbot&quot;&gt;on Github&lt;/a&gt; (and don’t forget to “star” it!)&lt;/p&gt;
+
+&lt;h3 id=&quot;update-log&quot;&gt;Update Log&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/carlos8f/zenbot/releases/tag/v3.5.13&quot;&gt;&lt;strong&gt;3.5.13&lt;/strong&gt;&lt;/a&gt; (Latest)
+    &lt;ul&gt;
+      &lt;li&gt;Change &lt;code class=&quot;highlighter-rouge&quot;&gt;check_period&lt;/code&gt; to 5m in trading engine&lt;/li&gt;
+      &lt;li&gt;ROI 1.477 -&amp;gt; 1.720&lt;/li&gt;
+      &lt;li&gt;Speed up sim by only processing 5m ticks&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.12&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Tweaks to default trade params, ROI = 1.364 -&amp;gt; 1.477&lt;/li&gt;
+      &lt;li&gt;Misc warning text changes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.11&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix 1m reporter not working in advisor mode.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.10&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; not starting server.&lt;/li&gt;
+      &lt;li&gt;Remove –verbose from new run script.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.9&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Add –backfill and –verbose to new run script.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.8&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix “skipping historical tick” (prevented bot from acting on trends) issue with Zenbrain update.&lt;/li&gt;
+      &lt;li&gt;Fix ANSI graph range again.&lt;/li&gt;
+      &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; back to run the default pair BTC/USD and reducer/server.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.7&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;make use of rs.rsi for indicators (instead of querying for rsi tick), spacing for ETA.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.6&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix ANSI graph range.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.5&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;ANSI graph now follows RSI instead of SMA.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.4&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;ETA indicator replaces progress, and removal of &lt;code class=&quot;highlighter-rouge&quot;&gt;hold_ticks&lt;/code&gt; mechanism in favor of wait params in ms. More warnings in default_logic to show what’s going on with the trader.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.3&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fixed &lt;code class=&quot;highlighter-rouge&quot;&gt;--config&lt;/code&gt; usage with absolute path.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.2&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Re-organized some config vars, GDAX key now in &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;config_eth_btc.js&lt;/code&gt; etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Bugfixes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; split into 3 scripts. Now you’ll need to run &lt;code class=&quot;highlighter-rouge&quot;&gt;./reducer.sh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;./server.sh&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;./run-{asset}-{currency}.sh&lt;/code&gt; in separate windows. Multiple currency pairs can be run in parallel as of Zenbot 3.5.0!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.3&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix sim URL not having selector in it&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;min_trade&lt;/code&gt; now controlled by &lt;code class=&quot;highlighter-rouge&quot;&gt;product.min_size&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.2&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Exit default logic if run command and historical tick&lt;/li&gt;
+      &lt;li&gt;Add balance stats to trade actions&lt;/li&gt;
+      &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;--config&lt;/code&gt; arg doc. You can switch to using a different config with &lt;code class=&quot;highlighter-rouge&quot;&gt;--config &amp;lt;path&amp;gt;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Update gist links for newest simulation results.&lt;/li&gt;
+      &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;config_eth.js&lt;/code&gt; example config for ETH trading.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Slight re-code of &lt;code class=&quot;highlighter-rouge&quot;&gt;default_logic.js&lt;/code&gt; to fix slipped ROI (1.1 -&amp;gt; 1.8)&lt;/li&gt;
+      &lt;li&gt;Added All Poloniex USDT pairs by @JFD3D, Thanks!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Zenbot 3.4.0 Released</title>
+   <link href="http://localhost:4000/1471848006/index.html"/>
+   <updated>2016-08-21T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1471848006/1471848006</id>
+   <content type="html">&lt;h2 id=&quot;zenbot-340-latest&quot;&gt;Zenbot &lt;a href=&quot;https://github.com/carlos8f/zenbot/releases/tag/v3.4.0&quot;&gt;&lt;strong&gt;3.4.0&lt;/strong&gt;&lt;/a&gt; (Latest)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Re-organized the config so &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; is git-ignored, so you should copy &lt;code class=&quot;highlighter-rouge&quot;&gt;config_sample.js&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;config_defaults.js&lt;/code&gt; provides all options that you can override in &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Many config variable changes, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;c.watch_exchanges&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;c.enabled_plugins&lt;/code&gt;, see &lt;code class=&quot;highlighter-rouge&quot;&gt;config_sample.js&lt;/code&gt; for details.&lt;/li&gt;
+  &lt;li&gt;Zenbrain updated.&lt;/li&gt;
+  &lt;li&gt;Development now happening in &lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt; branch, master will be pushed to only on stable releases going forward.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;simulator-demo&quot;&gt;Simulator Demo&lt;/h1&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/1irbzjacy0vfdx64ma3110lzo.js&quot; id=&quot;asciicast-1irbzjacy0vfdx64ma3110lzo&quot; async=&quot;&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Zenbot 3.2 released</title>
+   <link href="http://localhost:4000/1471728397/index.html"/>
+   <updated>2016-08-20T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1471728397/1471728397</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/carlos8f/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/carlos8f/zenbot/releases/tag/v3.2.4&quot;&gt;Zenbot 3.2.4 has been released&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;New cute cat logo!&lt;/li&gt;
+  &lt;li&gt;Blazing new simulated ROI of &lt;code class=&quot;highlighter-rouge&quot;&gt;1.986&lt;/code&gt;!&lt;/li&gt;
+  &lt;li&gt;New slideshow! (check it out below)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introducing-zenbot-3&quot;&gt;Introducing Zenbot 3&lt;/h2&gt;
+
+&lt;iframe width=&quot;770&quot; height=&quot;515&quot; src=&quot;https://gitpitch.com/carlos8f/zenbot/master?t=moon&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Check out Zenbot 3 &lt;a href=&quot;https://github.com/carlos8f/zenbot&quot;&gt;on Github&lt;/a&gt; (and don’t forget to “star” it!)&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Zenbot 3.0.3 released!</title>
+   <link href="http://localhost:4000/1471215016/index.html"/>
+   <updated>2016-08-14T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1471215016/1471215016</id>
+   <content type="html">&lt;p&gt;Announcing &lt;a href=&quot;https://github.com/carlos8f/zenbot&quot;&gt;Zenbot 3.0.3&lt;/a&gt;, my cryptocurrency trading bot. Over a month in development, this release has loads of improvements, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;a universal plugin system to build new functionality (inculding exchanges, mappers, reducers, reporters, indicators, and so on)&lt;/li&gt;
+  &lt;li&gt;built on a new super-efficient parallel processing engine, &lt;a href=&quot;https://github.com/carlos8f/zenbrain&quot;&gt;Zenbrain&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;generic exchange/currency pair support, to support multiple exchanges or currencies in the same Zenbot installation&lt;/li&gt;
+  &lt;li&gt;realtime technical analysis, including &lt;a href=&quot;https://en.wikipedia.org/wiki/Relative_strength_index&quot;&gt;RSI&lt;/a&gt; computation&lt;/li&gt;
+  &lt;li&gt;realtime candlestick graph using &lt;a href=&quot;http://techanjs.org/&quot;&gt;TechanJS&lt;/a&gt;, hosted on a built-in HTTP server&lt;/li&gt;
+  &lt;li&gt;historical data mining and ROI analysis using your trade logic, with virtual trades plotted on real price graphs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;quick-start&quot;&gt;Quick-start&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-requirements-nodejs-and-mongodb&quot;&gt;1. Requirements: &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; and &lt;a href=&quot;https://www.mongodb.com/download-center&quot;&gt;MongoDB&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h3 id=&quot;2-install-zenbot-3&quot;&gt;2. Install zenbot 3:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/carlos8f/zenbot.git
+cd zenbot
+npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-edit-configjs-with-api-keys-database-credentials-trade-logic-etc&quot;&gt;3. Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; with API keys, database credentials, trade logic, etc.&lt;/h3&gt;
+
+&lt;h3 id=&quot;4-run-zenbot-on-the-exchange&quot;&gt;4. Run zenbot on the exchange:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./run.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-open-the-live-graph-url-provided-in-the-console&quot;&gt;5. Open the live graph URL provided in the console.&lt;/h3&gt;
+
+&lt;p&gt;To access the CLI,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zenbot
+
+  Usage: zenbot [options] [command]
+
+  Commands:
+
+    server [options]            launch the server
+    launch [options] [cmds...]  launch multiple commands
+    map [options]               map
+    reduce [options]            reduce
+    run                         run
+    sim [options]               sim
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;./run.sh&lt;/code&gt; script combines &lt;code class=&quot;highlighter-rouge&quot;&gt;launch map --backfill reduce run server&lt;/code&gt;, so use the CLI to access the other commands.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-simulation&quot;&gt;6. Simulation&lt;/h3&gt;
+
+&lt;p&gt;Once backfill has finished, run a simulation:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zenbot sim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Zenbot will return you a list of virtual trades, and an ROI figure. Open the URL provided in the console (while running the server) to see the virtual trades plotted on a candlestick graph. Tweak &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; for new trade strategies and check your results this way.&lt;/p&gt;
+
+&lt;h3 id=&quot;7-web-console&quot;&gt;7. Web console&lt;/h3&gt;
+
+&lt;p&gt;When the server is running, and you have visited the &lt;code class=&quot;highlighter-rouge&quot;&gt;?secret&lt;/code&gt; URL provided in the console, you can access an aggregated, live feed of log messages at &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3013/logs&lt;/code&gt;. Example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/carlos8f/zenbot/master/assets/zenbot_web_logs.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;about-the-default-trade-logic-in-configjs&quot;&gt;About the default trade logic in config.js&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;uses &lt;a href=&quot;https://gdax.com/&quot;&gt;GDAX&lt;/a&gt; API&lt;/li&gt;
+  &lt;li&gt;watches/trades BTC/USD&lt;/li&gt;
+  &lt;li&gt;acts at 15m increments (ticks)&lt;/li&gt;
+  &lt;li&gt;computes 14-period 15m RSI&lt;/li&gt;
+  &lt;li&gt;considers &lt;code class=&quot;highlighter-rouge&quot;&gt;RSI &amp;gt; 70&lt;/code&gt; overbought and &lt;code class=&quot;highlighter-rouge&quot;&gt;RSI &amp;lt; 30&lt;/code&gt; oversold&lt;/li&gt;
+  &lt;li&gt;trades 95% of current balance, market price&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can tweak &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; from there to use bitfinex, or trade ETH, or whatever. Common &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; logic will be moved to core or plugins in later versions of zenbot. Use &lt;code class=&quot;highlighter-rouge&quot;&gt;zenbot sim&lt;/code&gt; to check your trade strategy against historical trades.&lt;/p&gt;
+
+&lt;p&gt;Auto-learn support and more exchange support will come soon. Will accept PR’s :) With the 3.x plugin architecture, external plugins are possible too (published as their own repo/module).&lt;/p&gt;
+
+&lt;p&gt;Enjoy and please contribute/support to Zenbot and get the word out!
+Carlos&lt;/p&gt;
+
+&lt;h2 id=&quot;donate&quot;&gt;Donate&lt;/h2&gt;
+
+&lt;p&gt;P.S., some have asked for how to donate to Zenbot development. I accept donations at &lt;a href=&quot;bitcoin:187rmNSkSvehgcKpBunre6a5wA5hQQop6W&quot;&gt;my Bitcoin address&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;187rmNSkSvehgcKpBunre6a5wA5hQQop6W&lt;/code&gt;, thanks!&lt;/p&gt;
+
+&lt;h2 id=&quot;discuss&quot;&gt;Discuss&lt;/h2&gt;
+
+&lt;p&gt;Join the &lt;a href=&quot;https://www.reddit.com/r/Bitcoin/comments/4xqo8q/announcing_zenbot_3_your_new_btcethltc_trading/&quot;&gt;discussion on Reddit&lt;/a&gt;!&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>zenbot_ebooks</title>
+   <link href="http://localhost:4000/1469498642/index.html"/>
+   <updated>2016-07-25T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1469498642/1469498642</id>
+   <content type="html">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I drove by a confederate flag on the way to do Zen practice. A long and active life...&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757756205817180160&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just realized DWARF debug format (to dig in an executable) is a mountain, far beyond the mists. Some said take that path.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757809526930235393&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Be so good they can&amp;#39;t ignore this picture.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757812891521200128&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;We cannot allow ourselves to be original, just try to be good. enough to fulfill my dying wish, said Buddha. Cut off my head.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/758099631771226112&quot;&gt;July 27, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Want a relationship with a sharp sword. demanding money or life.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/758207722718240770&quot;&gt;July 27, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Do you seek? Enlightenment, replied Daiju. you have me say? Source: Zen Antics Many centuries ago in Japan...&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/758220075828600832&quot;&gt;July 27, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Live Black Hat, back to the cat and indeed The rat would catch he said, the misfortune.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/758419806357815296&quot;&gt;July 27, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I am getting old, he still was able to solve it. It was a large glass of soy sauce. Monks, I will teach you the belt...&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/758431797403201537&quot;&gt;July 27, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;A man, is like retaining. It not for getting across, - for the raft.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/758227115485437952&quot;&gt;July 27, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Why I ditched Comodo SSL (and you should, too)</title>
+   <link href="http://localhost:4000/1467411232/index.html"/>
+   <updated>2016-07-01T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1467411232/1467411232</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;Essentially, at some point a decision was made to anchor trust in an organization like Comodo, and now we’re locked into trusting them — &lt;em&gt;forever&lt;/em&gt;.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://moxie.org/blog/ssl-and-the-future-of-authenticity/&quot;&gt;Moxie Marlinspike&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The trust we put in &lt;a href=&quot;https://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;Certificate Authorities&lt;/a&gt; is highly underestimated in today’s online world. This is because TLS on the modern web is based on a &lt;strong&gt;broken model of trust.&lt;/strong&gt; There is &lt;a href=&quot;https://moxie.org/blog/ssl-and-the-future-of-authenticity/&quot;&gt;no trust agility&lt;/a&gt;, and this spells doom for everyone. In this article I’ll try to explain how and why.&lt;/p&gt;
+
+&lt;h3 id=&quot;but-why-not-trust-ssl-it-says-green-lock--in-my-browser-so-its-secure-right&quot;&gt;But why not trust SSL? It says &lt;span style=&quot;color:green&quot;&gt;green lock &lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt; in my browser so it’s secure, right?&lt;/h3&gt;
+
+&lt;p&gt;Not really.&lt;/p&gt;
+
+&lt;h3 id=&quot;amazon-uses-it-and-so-do-all-the-big-companies-so-its-secure&quot;&gt;Amazon uses it, and so do all the big companies. So it’s secure.&lt;/h3&gt;
+
+&lt;p&gt;Still no. Let’s take Amazon as an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/files/amazon_cert.png&quot; alt=&quot;amazon cert issed by Symantec&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;You trust Amazon.com with your credit card to buy socks. Because you &lt;strong&gt;need&lt;/strong&gt; socks.&lt;/li&gt;
+  &lt;li&gt;Maybe you did your homework and looked at Amazon.com’s address bar, which showed a &lt;span style=&quot;color:green&quot;&gt;green lock &lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt; and that looks nice and secure, so “I know I can trust that &lt;strong&gt;no man-in-the-middle got my credit card #&lt;/strong&gt;”&lt;/li&gt;
+  &lt;li&gt;If you looked a little deeper, you’d see that Amazon’s cert is issued by &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Symantec&quot;&gt;Symantec&lt;/a&gt;&lt;/strong&gt;. They do antivirus software, so that should be &lt;strong&gt;fine&lt;/strong&gt;, right?&lt;/li&gt;
+  &lt;li&gt;Except certs can change at any time. The next day, Amazon starts using one issued by &lt;a href=&quot;https://en.wikipedia.org/wiki/Comodo_Group&quot;&gt;Comodo&lt;/a&gt;, because they’re &lt;strong&gt;cheaper&lt;/strong&gt;. Win for everyone?&lt;/li&gt;
+  &lt;li&gt;You go back to Amazon.com and buy more socks, only this time it’s a &lt;strong&gt;Comodo&lt;/strong&gt; cert feeding your TLS connection.&lt;/li&gt;
+  &lt;li&gt;You soon get a call from your bank, saying your credit card was &lt;strong&gt;cancelled&lt;/strong&gt; and a new one was issued in the mail. They cited “suspicious activity” as the cause. &lt;strong&gt;What the heck&lt;/strong&gt;?&lt;/li&gt;
+  &lt;li&gt;Then you read in the news that &lt;strong&gt;some hacker&lt;/strong&gt; issued some rogue certs for Amazon.com. &lt;strong&gt;Big deal right?&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;The hacker set up some &lt;strong&gt;DNS spoofing&lt;/strong&gt; that pointed your Coffee Shop internet connection to &lt;strong&gt;193.293.20.10&lt;/strong&gt; (evil server), presenting a “valid” SSL cert, actually issued by &lt;strong&gt;Comodo&lt;/strong&gt;. Comodo is trusted by browsers, so your browser didn’t even notice that it’s talking to &lt;strong&gt;evil server&lt;/strong&gt; and not directly to Amazon.&lt;/li&gt;
+  &lt;li&gt;They proxied your requests to the real Amazon.com, so YOU didn’t even notice, and for fun they also &lt;strong&gt;extracted your CC number&lt;/strong&gt;, Amazon password, email address, and mail address to their &lt;strong&gt;evil server&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;SSL didn’t protect you, it only &lt;strong&gt;misled you&lt;/strong&gt; into (ultimately) trusting a compromised trust chain.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;but-what-if-comodo-is-now-hack-proof-and-they-revoked-the-bad-certs-and-theyre-fully-trustable-again&quot;&gt;But what if Comodo is now hack-proof and they revoked the bad certs and they’re fully trustable again?&lt;/h3&gt;
+
+&lt;p&gt;Sure. But their root CA cert is still &lt;strong&gt;trusted by default&lt;/strong&gt; in major browsers. That means &lt;strong&gt;ANY certs&lt;/strong&gt; they create will be trusted by everyone.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-is-that-a-problem-i-trust-comodo&quot;&gt;Why is that a problem? I trust Comodo…&lt;/h3&gt;
+
+&lt;p&gt;What if they wanted to &lt;strong&gt;MITM your Amazon.com session&lt;/strong&gt; for their own purposes? Easy:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Comodo creates their &lt;strong&gt;OWN certs&lt;/strong&gt; for &lt;span style=&quot;color:green&quot;&gt;Amazon.com &lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt;, Comodo owning the private key.&lt;/li&gt;
+  &lt;li&gt;Comodo sets up &lt;strong&gt;evil proxies&lt;/strong&gt; that use that cert and forward to the real Amazon.com&lt;/li&gt;
+  &lt;li&gt;Comodo now &lt;strong&gt;owns&lt;/strong&gt; your “encrypted” SSL traffic to Amazon.com&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;i-dont-believe-comodo-would-be-that-evil&quot;&gt;I don’t believe Comodo would be that evil.&lt;/h3&gt;
+
+&lt;p&gt;Well, for a start:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They &lt;a href=&quot;http://www.pcworld.com/article/2887632/secure-advertising-tool-privdog-compromises-https-security.html&quot;&gt;bundled malware into their downloads&lt;/a&gt; called PrivDog, claiming to protect users, but actually enabling a MITM attack.&lt;/li&gt;
+  &lt;li&gt;They &lt;a href=&quot;https://bugs.chromium.org/p/project-zero/issues/detail?id=704&quot;&gt;disabled same-origin security&lt;/a&gt; in their custom browser, effectively enabling arbitrary MITM attacks.&lt;/li&gt;
+  &lt;li&gt;They &lt;a href=&quot;http://www.cnet.com/forums/discussions/comodo-continue-to-to-issue-certificates-to-known-malware-343022/&quot;&gt;continued issuing certs used in malware&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;They declared &lt;a href=&quot;https://letsencrypt.org/2016/06/23/defending-our-brand.html&quot;&gt;trademark war on Let’s Encrypt&lt;/a&gt; for “stealing” the idea of the “90-day free SSL”.&lt;/li&gt;
+  &lt;li&gt;Their CEO is a &lt;a href=&quot;https://twitter.com/feross/status/746102800531128320&quot;&gt;bit of a douche&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For background, Comodo has a &lt;strong&gt;monopoly&lt;/strong&gt; on SSL certs:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/files/ca_market_share.png&quot; alt=&quot;ca market share&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;but-why-would-a-company-with-a-40-market-share-do-this&quot;&gt;But why would a company with a 40% market share do this?&lt;/h3&gt;
+
+&lt;p&gt;Comodo sees &lt;a href=&quot;https://forums.comodo.com/general-discussion-off-topic-anything-and-everything/shame-on-you-comodo-t115958.0.html;msg837411#msg837411&quot;&gt;Lets Encrypt as threat&lt;/a&gt; to their monopoly on “90-day free SSL”. Comodo is not free though, it costs roughly &lt;strong&gt;$20-90&lt;/strong&gt; for a low-level cert. Let’s Encrypt is &lt;strong&gt;free forever&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-would-lets-encrypt-want-to-offer-something-for-free-i-want-to-pay-money-in-exchange-for-trust-like-i-do-in-other-industries&quot;&gt;Why would Lets Encrypt want to offer something for free? I want to pay money in exchange for trust, like I do in other industries.&lt;/h3&gt;
+
+&lt;p&gt;That’s where they got you. SSL &lt;strong&gt;should&lt;/strong&gt; be free, because privacy should be a right, and SSL is critical for privacy. Further, introducing a middle-man (Comodo in this case) compromises your privacy, as shown above. Comodo doesn’t even &lt;strong&gt;verify that you own the domain&lt;/strong&gt;, instead it requires you to respond to an email sent to &lt;code class=&quot;highlighter-rouge&quot;&gt;webmaster@yourdomain.com&lt;/code&gt; or similar. It takes roughly 20 mins to set up.&lt;/p&gt;
+
+&lt;p&gt;By contrast, Lets Encrypt does &lt;a href=&quot;https://letsencrypt.org/how-it-works/&quot;&gt;real domain validation&lt;/a&gt; using a &lt;a href=&quot;https://tools.ietf.org/html/draft-ietf-acme-acme-02&quot;&gt;new, open protocol&lt;/a&gt; called ACME. Since the whole process can be automated, human intervention (and thus the CA industry) is &lt;strong&gt;rendered redundant&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;well-as-long-as-i-dont-buy-a-comodo-cert-im-fine-right&quot;&gt;Well, as long as I don’t buy a Comodo cert I’m fine, right?&lt;/h3&gt;
+
+&lt;p&gt;Not exactly. If 40% of the web uses Comodo, that makes &lt;strong&gt;40% of the web compromisable by the same hacker&lt;/strong&gt;, by hacking a single crypto (root CA) keypair. That is super dangerous for the entire internet. In truth, Comodo has &lt;a href=&quot;https://en.wikipedia.org/wiki/Comodo_Group#Certificate_hacking&quot;&gt;already been hacked&lt;/a&gt;, and will probably be hacked again.&lt;/p&gt;
+
+&lt;h3 id=&quot;ok-i-give-up-ill-just-use-cloudflare-to-secure-and-accelerate-my-site&quot;&gt;OK I give up. I’ll just use CloudFlare to secure and accelerate my site.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.cloudflare.com/&quot;&gt;CloudFlare&lt;/a&gt; specializes in &lt;strong&gt;security&lt;/strong&gt; and performance. Thus, they offer a service that &lt;a href=&quot;https://www.cloudflare.com/overview/&quot;&gt;“protects and accelerates”&lt;/a&gt; your website. Oh, and they also register a Comodo cert and use it for your domain:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/files/cloudflare_cert.png&quot; alt=&quot;cloudflare cert&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;wait-doesnt-that-mean-they-are-mitm-ing-my-sites-visitors&quot;&gt;Wait, doesn’t that mean they are MITM-ing my site’s visitors?&lt;/h3&gt;
+
+&lt;p&gt;Yes! It does. Both &lt;strong&gt;CloudFlare&lt;/strong&gt; (who owns the cert private keys) and &lt;strong&gt;Comodo&lt;/strong&gt; (who can issue any cert) are trusted by all browsers. But why is the trust there? Because of the &lt;strong&gt;CA industry&lt;/strong&gt;, and its influence on browser makers.&lt;/p&gt;
+
+&lt;h3 id=&quot;i-still-trust-wellsfargocom-to-do-my-online-banking-and-they-use-a-symantec-cert&quot;&gt;I still trust WellsFargo.com to do my online banking, and they use a Symantec cert.&lt;/h3&gt;
+
+&lt;p&gt;Glad you did your homework, but remember, &lt;strong&gt;at any time&lt;/strong&gt; Wells Fargo could start using a Comodo cert, or even include &lt;strong&gt;a single JS file&lt;/strong&gt; on their site hosted on &lt;strong&gt;CloudFlare&lt;/strong&gt;. If CloudFlare gets compromised (or, inclusively, Comodo), your bank password could be extracted through browser-js injection. Literally any JS file included on any site could exfiltrate passwords or other sensitive data, even if the connection is “end-to-end encrypted with TLS perfect forward secrecy”, as people like to say these days.&lt;/p&gt;
+
+&lt;h3 id=&quot;cant-we-remove-comodo-from-the-list-of-trusted-cas&quot;&gt;Can’t we remove Comodo from the list of trusted CA’s?&lt;/h3&gt;
+
+&lt;p&gt;Maybe, but so many sites were lured into using Comodo because of &lt;strong&gt;low prices&lt;/strong&gt;, that 40% of the web would break if Firefox and Google started blacklisting their certs. And of course, we know that &lt;strong&gt;web users hate it&lt;/strong&gt; when stuff breaks, so web companies (and the web at large) generally won’t risk breaking changes. That spells doom for the &lt;a href=&quot;https://www.imperialviolet.org/2016/05/16/agility.html&quot;&gt;Cryptographic Agility&lt;/a&gt; of the web.&lt;/p&gt;
+
+&lt;h3 id=&quot;oh-great-what-now&quot;&gt;Oh great. What now?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use &lt;span style=&quot;color:green&quot;&gt;Let’s Encrypt &lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt; (or &lt;a href=&quot;https://www.digicert.com/&quot;&gt;DigiCert&lt;/a&gt;, if you have the money). It’s free and only takes 10 minutes to switch.&lt;/li&gt;
+  &lt;li&gt;The catch is that &lt;code class=&quot;highlighter-rouge&quot;&gt;certbot&lt;/code&gt; &lt;strong&gt;could&lt;/strong&gt; middle-man your server.&lt;/li&gt;
+  &lt;li&gt;We need to make sure Let’s Encrypt stays &lt;strong&gt;open&lt;/strong&gt;, free, and peer-reviewed. Eventually, perhaps SSL certs will be issued for a small fee by the government(s), for &lt;strong&gt;public privacy and security&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Then, and only then, can we stop the Comodo monopoly future &lt;strong&gt;trust breakdown apocalypse&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/files/no_comodo.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;As of today, I’m proud to say I’m &lt;strong&gt;no longer&lt;/strong&gt; a Comodo customer, and &lt;a href=&quot;https://s8f.org/&quot;&gt;s8f.org&lt;/a&gt; now runs on a &lt;span style=&quot;color:green&quot;&gt;Let’s Encrypt &lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt; cert.&lt;/p&gt;
+
+&lt;h4 id=&quot;related-tweets&quot;&gt;Related Tweets&lt;/h4&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I don&amp;#39;t think we realize how much trust we put into CAs.  They can literally MITM your online banking or social media authentication.&lt;/p&gt;&amp;mdash; Tim Caswell (@creationix) &lt;a href=&quot;https://twitter.com/creationix/status/746087130284306433&quot;&gt;June 23, 2016&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Comodo are attempting to trademark the term &amp;quot;Let&amp;#39;s Encrypt&amp;quot;. What blatant scam artists and legal trolls. &lt;a href=&quot;https://t.co/8J1Nzpksnf&quot;&gt;https://t.co/8J1Nzpksnf&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/Chromodo?src=hash&quot;&gt;#Chromodo&lt;/a&gt;&lt;/p&gt;&amp;mdash; Feross (@feross) &lt;a href=&quot;https://twitter.com/feross/status/746082550205059072&quot;&gt;June 23, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/carlos8f&quot;&gt;@carlos8f&lt;/a&gt; &lt;a href=&quot;https://twitter.com/Comodo_SSL&quot;&gt;@Comodo_SSL&lt;/a&gt; &lt;a href=&quot;https://twitter.com/letsencrypt&quot;&gt;@letsencrypt&lt;/a&gt; Great post!&lt;/p&gt;&amp;mdash; Feross (@feross) &lt;a href=&quot;https://twitter.com/feross/status/750477924919222272&quot;&gt;July 5, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Zenbot 3</title>
+   <link href="http://localhost:4000/1467335524/index.html"/>
+   <updated>2016-06-30T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1467335524/1467335524</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/carlos8f/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gitpitch.com/carlos8f/zenbot/master?t=moon&quot;&gt;&lt;img src=&quot;https://gitpitch.com/assets/badge.svg&quot; alt=&quot;GitPitch&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“To follow the path, look to the master, follow the master, walk with the master, see through the master, become the master.”
+– Zen Proverb&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New to Zenbot? Watch the slideshow: &lt;a href=&quot;https://gitpitch.com/carlos8f/zenbot/master?t=moon&quot;&gt;Introducing Zenbot 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow Zenbot &lt;a href=&quot;https://twitter.com/zenbot_btc&quot;&gt;on Twitter!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out Zenbot’s &lt;a href=&quot;https://zenbot.s8f.org/&quot;&gt;live feed!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Join the discussion on &lt;a href=&quot;https://www.reddit.com/r/Bitcoin/comments/4xqo8q/announcing_zenbot_3_your_new_btcethltc_trading/&quot;&gt;Reddit!&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Want to contribute to Zenbot? Read the &lt;a href=&quot;https://github.com/carlos8f/zenbot/blob/master/CONTRIBUTING.md&quot;&gt;contributions guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Zenbot is a lightweight, extendable, artificially intelligent trading bot. Currently Zenbot is capable of:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;High-frequency trading, day trading, week trading&lt;/li&gt;
+  &lt;li&gt;Multiple asset support for Bitcoin, Ether, Litecoin (and more)&lt;/li&gt;
+  &lt;li&gt;Multiple currency support for US Dollars, Euros, Chinese Yuan (and more)&lt;/li&gt;
+  &lt;li&gt;Multiple exchange support for Bitfinex, GDAX, Kraken, Poloniex (and more)&lt;/li&gt;
+  &lt;li&gt;Realtime consuming and analysis of trade data&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/carlos8f/38a9dd292c7ce4d4425803e9548f7960&quot;&gt;Backtesting your trade strategy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Outputting data as &lt;a href=&quot;https://zenbot.s8f.org/data.csv&quot;&gt;CSV&lt;/a&gt;, &lt;a href=&quot;https://gist.githubusercontent.com/carlos8f/38a9dd292c7ce4d4425803e9548f7960/raw/sim_result.json&quot;&gt;JSON&lt;/a&gt;, or &lt;a href=&quot;https://zenbot.s8f.org/&quot;&gt;candlestick graph&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;performance&quot;&gt;Performance&lt;/h3&gt;
+
+&lt;p&gt;Current simulations on historical data from May - August 2016 show Zenbot 3.5.13 making a &lt;a href=&quot;https://gist.github.com/carlos8f/c600abb8b984eae31ff770aa2ee0ad68&quot;&gt;1.720 ROI&lt;/a&gt; in only 3 months, using default parameters!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Zenbot is a genius!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;HOWEVER. BE AWARE that once you hook up Zenbot to a live exchange, the damage done is your fault, not mine! &lt;strong&gt;As with buying crypto currency in general, risk is involved and caution is essential. Crypto currency is an experiment, and so is Zenbot.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;features&quot;&gt;Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A powerful map/reduce system to live-process data at scale.&lt;/li&gt;
+  &lt;li&gt;A plugin system to facilitate incremental support for any exchange, currency pair, trade strategy, or reporting medium.&lt;/li&gt;
+  &lt;li&gt;Out of the box, Zenbot is an AI-powered trade advisor (gives you buy or sell signals while watching live data).&lt;/li&gt;
+  &lt;li&gt;Default support for &lt;a href=&quot;https://gdax.com/&quot;&gt;GDAX&lt;/a&gt; is included, so if you have a GDAX account, enable bot trades by simply putting your GDAX API key in &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; and setting what currency pair to trade.&lt;/li&gt;
+  &lt;li&gt;Default support for other exchanges is ongoing.&lt;/li&gt;
+  &lt;li&gt;Trade strategy is fully exposed in the config file. This allows you to have full control over the bot’s actions and logic. For example, instead of trading on GDAX, you could trade on a different exchange or currency pair by implementing a few lines of JavaScript.&lt;/li&gt;
+  &lt;li&gt;A live candlestick graph is provided via a built-in HTTP server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h2&gt;
+
+&lt;p&gt;In the screenshot below, the pink arrows represent the bot buying (up arrow) and selling (down arrow) as it iterated the historical data of &lt;a href=&quot;https://gdax.com/&quot;&gt;GDAX&lt;/a&gt; exchange’s BTC/USD product.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/106763/17872578/8f13af10-6875-11e6-8284-d6863f9a1e1e.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;RAW data from simulation: https://gist.github.com/carlos8f/c600abb8b984eae31ff770aa2ee0ad68&lt;/p&gt;
+
+&lt;h2 id=&quot;quick-start&quot;&gt;Quick-start&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-requirements-nodejs-and-mongodb&quot;&gt;1. Requirements: &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; and &lt;a href=&quot;https://www.mongodb.com/download-center&quot;&gt;MongoDB&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;windows---i-dont-support-it&quot;&gt;Windows - I don’t support it.&lt;/h4&gt;
+
+&lt;p&gt;If you’re having an error on Windows and you’re about to give up, it’s probably because Node.js is generally broken on Windows and you should try running on a Linux docker container or a Mac instead.&lt;/p&gt;
+
+&lt;p&gt;If you’re still insistent on using Windows, you’ll have to fork zenbot, fix it yourself, and I’ll accept a Pull Request.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-install-zenbot-3&quot;&gt;2. Install Zenbot 3:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/carlos8f/zenbot.git
+cd zenbot
+npm install
+# optional, installs the `zenbot` binary in /usr/local/bin:
+npm link
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(optional) Install historical data for GDAX BTC/USD, BTC/ETH, and ETH/BTC. &lt;strong&gt;This may overwrite data in your existing &lt;code class=&quot;highlighter-rouge&quot;&gt;ticks&lt;/code&gt; collection, so be careful!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://s8f.org/dl/zenbrain.tar.gz
+tar -xf zenbrain.tar.gz
+mongorestore
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-copy-config_samplejs-to-configjs-and-edit-with-api-keys-database-credentials-trade-logic-etc&quot;&gt;3. Copy &lt;code class=&quot;highlighter-rouge&quot;&gt;config_sample.js&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; and edit with API keys, database credentials, trade logic, etc.&lt;/h3&gt;
+
+&lt;p&gt;Note: add your GDAX key to &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; to enable real trading.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-run-zenbot-single-pair-mode&quot;&gt;4. Run Zenbot (single-pair mode)&lt;/h3&gt;
+
+&lt;p&gt;The following command will run all Zenbot functionality, using the default BTC/USD pair.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./run.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s how to run a different pair (example: ETH-BTC):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./zenbot launch map --backfill reduce run server --config config_eth_btc.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-run-zenbot-multi-pair-mode&quot;&gt;4. Run zenbot (multi-pair mode)&lt;/h3&gt;
+
+&lt;p&gt;The following will run multiple currency pairs along with the reducer and server in separate processes.&lt;/p&gt;
+
+&lt;p&gt;Required: reducer (for processing trade data):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./reducer.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Optional: server (for candlestick graphs and aggregated log):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./server.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Required: one or more run scripts (watches trades of a given pair and performs trade actions on the exchange or simulation)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./run-btc-usd.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And/or to trade ETH,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./run-eth-usd.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And/or to trade ETH/BTC,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./run-eth-btc.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-if-running-server-open-the-live-graph-url-provided-in-the-console&quot;&gt;5. If running server, open the live graph URL provided in the console.&lt;/h3&gt;
+
+&lt;p&gt;To access the CLI,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./zenbot
+
+  Usage: ./zenbot [options] [command]
+
+  Commands:
+
+    server [options]            launch the server
+    launch [options] [cmds...]  launch multiple commands
+    map [options]               map
+    reduce [options]            reduce
+    run                         run
+    sim [options]               sim
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+    --config &amp;lt;path&amp;gt;  specify a path for config.js overrides
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;./run.sh&lt;/code&gt; script combines &lt;code class=&quot;highlighter-rouge&quot;&gt;launch map --backfill reduce run server&lt;/code&gt;, so use the CLI to access the other commands.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-simulation&quot;&gt;6. Simulation&lt;/h3&gt;
+
+&lt;p&gt;Once backfill has finished (should collect about 84 days of data), run a simulation:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./zenbot sim [--verbose]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Zenbot will return you a list of virtual trades, and an ROI figure. Open the URL provided in the console (while running the server) to see the virtual trades plotted on a candlestick graph. Tweak &lt;code class=&quot;highlighter-rouge&quot;&gt;default_logic.js&lt;/code&gt; for new trade strategies and check your results this way.&lt;/p&gt;
+
+&lt;p&gt;Example simulation result: https://gist.github.com/carlos8f/c600abb8b984eae31ff770aa2ee0ad68&lt;/p&gt;
+
+&lt;h4 id=&quot;about-the-default-trade-logic-in-default_logicjs&quot;&gt;About the default trade logic in &lt;code class=&quot;highlighter-rouge&quot;&gt;default_logic.js&lt;/code&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;uses &lt;a href=&quot;https://gdax.com/&quot;&gt;GDAX&lt;/a&gt; API&lt;/li&gt;
+  &lt;li&gt;watches BTC/USD&lt;/li&gt;
+  &lt;li&gt;acts at 1m increments (ticks), but you can configure to act quicker or slower.&lt;/li&gt;
+  &lt;li&gt;computes the latest 14-hour &lt;a href=&quot;http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi&quot;&gt;RSI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;considers &lt;code class=&quot;highlighter-rouge&quot;&gt;RSI &amp;gt;= 70&lt;/code&gt; an upwards trend and &lt;code class=&quot;highlighter-rouge&quot;&gt;RSI &amp;lt;= 30&lt;/code&gt; a downwards trend&lt;/li&gt;
+  &lt;li&gt;Buys at the beginning of upwards trend, sells at the beginning of downwards trend&lt;/li&gt;
+  &lt;li&gt;trades 95% of current balance, market price&lt;/li&gt;
+  &lt;li&gt;Holds for min. 100 minutes after a trade&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can tweak the JS from there to use bitfinex, or trade ETH, or whatever. After tweaking &lt;code class=&quot;highlighter-rouge&quot;&gt;default_logic.js&lt;/code&gt;, Use &lt;code class=&quot;highlighter-rouge&quot;&gt;./zenbot sim&lt;/code&gt; to check your strategy against historical trades.&lt;/p&gt;
+
+&lt;p&gt;Note that simulations always end on Wednesday 5pm PST, and run for a max 84 days (12 weeks), to ensure input consistency.&lt;/p&gt;
+
+&lt;p&gt;Auto-learn support and more exchange support will come soon. Will accept PR’s :) With the 3.x plugin architecture, external plugins are possible too (published as their own repo/module).&lt;/p&gt;
+
+&lt;h3 id=&quot;7-web-console&quot;&gt;7. Web console&lt;/h3&gt;
+
+&lt;p&gt;When the server is running, and you have visited the &lt;code class=&quot;highlighter-rouge&quot;&gt;?secret&lt;/code&gt; URL provided in the console, you can access an aggregated, live feed of log messages at &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3013/logs&lt;/code&gt;. Example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/carlos8f/zenbot/master/assets/zenbot_web_logs.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;update-log&quot;&gt;Update Log&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/carlos8f/zenbot/releases/tag/v3.5.13&quot;&gt;&lt;strong&gt;3.5.13&lt;/strong&gt;&lt;/a&gt; (Latest)
+    &lt;ul&gt;
+      &lt;li&gt;Change &lt;code class=&quot;highlighter-rouge&quot;&gt;check_period&lt;/code&gt; to 5m in trading engine&lt;/li&gt;
+      &lt;li&gt;ROI 1.477 -&amp;gt; 1.720&lt;/li&gt;
+      &lt;li&gt;Speed up sim by only processing 5m ticks&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.12&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Tweaks to default trade params, ROI = 1.364 -&amp;gt; 1.477&lt;/li&gt;
+      &lt;li&gt;Misc warning text changes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.11&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix 1m reporter not working in advisor mode.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.10&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; not starting server.&lt;/li&gt;
+      &lt;li&gt;Remove –verbose from new run script.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.9&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Add –backfill and –verbose to new run script.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.8&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix “skipping historical tick” (prevented bot from acting on trends) issue with Zenbrain update.&lt;/li&gt;
+      &lt;li&gt;Fix ANSI graph range again.&lt;/li&gt;
+      &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; back to run the default pair BTC/USD and reducer/server.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.7&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;make use of rs.rsi for indicators (instead of querying for rsi tick), spacing for ETA.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.6&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix ANSI graph range.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.5&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;ANSI graph now follows RSI instead of SMA.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.4&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;ETA indicator replaces progress, and removal of &lt;code class=&quot;highlighter-rouge&quot;&gt;hold_ticks&lt;/code&gt; mechanism in favor of wait params in ms. More warnings in default_logic to show what’s going on with the trader.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.3&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fixed &lt;code class=&quot;highlighter-rouge&quot;&gt;--config&lt;/code&gt; usage with absolute path.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.2&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Re-organized some config vars, GDAX key now in &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;config_eth_btc.js&lt;/code&gt; etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Bugfixes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.5.0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; split into 3 scripts. Now you’ll need to run &lt;code class=&quot;highlighter-rouge&quot;&gt;./reducer.sh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;./server.sh&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;./run-{asset}-{currency}.sh&lt;/code&gt; in separate windows. Multiple currency pairs can be run in parallel as of Zenbot 3.5.0!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.3&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fix sim URL not having selector in it&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;min_trade&lt;/code&gt; now controlled by &lt;code class=&quot;highlighter-rouge&quot;&gt;product.min_size&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.2&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Exit default logic if run command and historical tick&lt;/li&gt;
+      &lt;li&gt;Add balance stats to trade actions&lt;/li&gt;
+      &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;--config&lt;/code&gt; arg doc. You can switch to using a different config with &lt;code class=&quot;highlighter-rouge&quot;&gt;--config &amp;lt;path&amp;gt;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Update gist links for newest simulation results.&lt;/li&gt;
+      &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;config_eth.js&lt;/code&gt; example config for ETH trading.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Slight re-code of &lt;code class=&quot;highlighter-rouge&quot;&gt;default_logic.js&lt;/code&gt; to fix slipped ROI (1.1 -&amp;gt; 1.8)&lt;/li&gt;
+      &lt;li&gt;Added All Poloniex USDT pairs by @JFD3D, Thanks!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.4.0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Re-organized the config so &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; is git-ignored, so you should copy &lt;code class=&quot;highlighter-rouge&quot;&gt;config_sample.js&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;config_defaults.js&lt;/code&gt; provides all options that you can override in &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Many config variable changes, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;c.watch_exchanges&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;c.enabled_plugins&lt;/code&gt;, see &lt;code class=&quot;highlighter-rouge&quot;&gt;config_sample.js&lt;/code&gt; for details.&lt;/li&gt;
+      &lt;li&gt;Zenbrain updated.&lt;/li&gt;
+      &lt;li&gt;Development now happening in &lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt; branch, master will be pushed to only on stable releases going forward.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.3.1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Moved ANSI graph column to line up tick_id and num_trades with log_trades columns.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.3.0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fees now calculated, default &lt;code class=&quot;highlighter-rouge&quot;&gt;price * size * 0.0025&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rs.roi&lt;/code&gt; now updated every tick.&lt;/li&gt;
+      &lt;li&gt;ANSI graph, balance, ROI, and SMA indicators added.&lt;/li&gt;
+      &lt;li&gt;Fix kraken naming by @grigio, Thanks!&lt;/li&gt;
+      &lt;li&gt;Added &lt;a href=&quot;https://github.com/carlos8f/zenbot/blob/master/CONTRIBUTING.md&quot;&gt;contributions guide&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Updated slideshow: &lt;a href=&quot;https://gitpitch.com/carlos8f/zenbot/master?t=moon&quot;&gt;Introducing Zenbot 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.2.4&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Minor reporting cleanup, added some docs. Minor update to Zenbrain.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.2.3&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fixed some performance issues with RSI backfiller. Updated &lt;code class=&quot;highlighter-rouge&quot;&gt;update.sh&lt;/code&gt; to run &lt;code class=&quot;highlighter-rouge&quot;&gt;git stash&lt;/code&gt; before and &lt;code class=&quot;highlighter-rouge&quot;&gt;git stash pop&lt;/code&gt; after update, to avoid merge conflict when pulling. However you may have to resolve a conflict with your &lt;code class=&quot;highlighter-rouge&quot;&gt;config.js&lt;/code&gt; after &lt;code class=&quot;highlighter-rouge&quot;&gt;update.sh&lt;/code&gt; completes, this is normal when config defaults have been updated.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.2.2&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fixed a non-indexed query in Zenbrain.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.2.1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Bugfix for techan.js performance patch&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.2.0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Major logic update again.&lt;/li&gt;
+      &lt;li&gt;Now using 1h RSI by default. Reporter chimes in every 5m. Trade signals should trigger roughly 2-3 times over a few days.&lt;/li&gt;
+      &lt;li&gt;Way better trend detection in &lt;code class=&quot;highlighter-rouge&quot;&gt;default_logic.js&lt;/code&gt;, 83-day simulated ROI went from ~10% to 89%!&lt;/li&gt;
+      &lt;li&gt;Poloniex product update by @RDash21, Kraken product update by @grigio. Thanks!&lt;/li&gt;
+      &lt;li&gt;Logic update by @xangma. Thanks!&lt;/li&gt;
+      &lt;li&gt;Graph performance patch, submitted to techan.js project at https://github.com/andredumas/techan.js/issues/138&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.1.2&lt;/strong&gt; - Relaxed backfill timeout. Backfill is slower to let reducer catch up. Reducer report interval -&amp;gt; 30s, Trade report interval -&amp;gt; 30s&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.1.1&lt;/strong&gt; - Updated zenbrain version.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;3.1.0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Major logic update. Much of the default trade logic reprogrammed.&lt;/li&gt;
+      &lt;li&gt;Moved default logic to &lt;code class=&quot;highlighter-rouge&quot;&gt;./default_logic.js&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;RSI now backfills by default, reconfigured to 15m intervals.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;update-tips&quot;&gt;Update Tips&lt;/h3&gt;
+
+&lt;p&gt;To update your Zenbot installation, use &lt;code class=&quot;highlighter-rouge&quot;&gt;./update.sh&lt;/code&gt;. If you have merge conflicts after update, solve them, then run &lt;code class=&quot;highlighter-rouge&quot;&gt;./run.sh&lt;/code&gt;. If you have runtime JavaScript errors after update, your database might be obsolete. Try dropping your &lt;code class=&quot;highlighter-rouge&quot;&gt;zenbrain&lt;/code&gt; DB and run &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; again to start with a clean state.&lt;/p&gt;
+
+&lt;h2 id=&quot;faq&quot;&gt;FAQ&lt;/h2&gt;
+
+&lt;h3 id=&quot;can-i-use-zenbot-3-with-x-exchange&quot;&gt;Can I use Zenbot 3 with [X] exchange?&lt;/h3&gt;
+
+&lt;p&gt;Yes! As long as that exchange has a public API, you can find a plugin (or write one) to interact with that exchange. I accept pull requests if you want to contribute [X] exchange support.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-open-source&quot;&gt;Why open source?&lt;/h3&gt;
+
+&lt;p&gt;There is a general lack of open source bots, especially ones with AI. Since I learned how to code by reverse engineering, I publish code so others can do the same, and by doing so I’m saying thanks to Satoshi, Torvalds, djb, et. al for devoting their lives to open source. It might be against my “selfish interest” but in the end it’s best for everyone. Plus, I still own the copyright.&lt;/p&gt;
+
+&lt;h3 id=&quot;were-there-any-incidents-when-the-bots-trade-made-a-loss&quot;&gt;Were there any incidents when the bot’s trade made a loss?&lt;/h3&gt;
+
+&lt;p&gt;I have seen losses in the simulator, so it’s possible. It only takes a few minutes of machine learning to gain a comfortable (albeit virtual) profit margin though. If the bot starts losing money, you can always step in and manual trade or shut the bot down to prevent more loss.&lt;/p&gt;
+
+&lt;h3 id=&quot;based-on-what-criteria-does-the-bot-decide-to-close-a-trade&quot;&gt;Based on what criteria does the bot decide to close a trade?&lt;/h3&gt;
+
+&lt;p&gt;zenbot always trades with the “market” flag, i.e. the order never goes on the books, and the trade goes through with whatever price the last system trade was at. This way, zenbot never needs to cancel orders or compare prices.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-does-trader-not-enough-funds-mean&quot;&gt;What does [trader] not enough funds mean?&lt;/h3&gt;
+
+&lt;p&gt;It means the bot tried to buy or sell, but had not enough asset or currency balance to do that. If you feel comfortable investing, you can deposit asset or currency in your account and Zenbot will use that the next time the trade signal triggers.&lt;/p&gt;
+
+&lt;h2 id=&quot;reading-assignment-systematic-trading-using-neural-networks&quot;&gt;Reading assignment: Systematic trading using neural networks&lt;/h2&gt;
+
+&lt;p&gt;In mathematical terms, Artificial neural networks (ANNs) are universal function approximators, meaning that given the right data and configured correctly, they can capture and model any input-output relationships. This removes the need for human interpretation of charts to determine entry/exit signals.&lt;/p&gt;
+
+&lt;p&gt;As ANNs are essentially non-linear statistical models, their accuracy and prediction capabilities can be both mathematically and empirically tested. In various studies, authors have claimed that neural networks used for generating trading signals given various technical and fundamental inputs have significantly outperformed buy-hold strategies as well as traditional linear technical analysis methods when combined with rule-based expert systems.&lt;/p&gt;
+
+&lt;p&gt;While the advanced mathematical nature of such adaptive systems has kept neural networks for financial analysis mostly within academic research circles, in recent years more user friendly neural network software has made the technology more accessible to traders.&lt;/p&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://en.wikipedia.org/wiki/Technical_analysis#Systematic_trading&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;donate&quot;&gt;Donate&lt;/h2&gt;
+
+&lt;p&gt;P.S., some have asked for how to donate to Zenbot development. I accept donations at &lt;strong&gt;my Bitcoin address&lt;/strong&gt; Here:&lt;/p&gt;
+
+&lt;h3 id=&quot;carlos8fs-btc&quot;&gt;carlos8f’s BTC&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;187rmNSkSvehgcKpBunre6a5wA5hQQop6W&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s8f.org/files/bitcoin.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;thanks!&lt;/p&gt;
+
+&lt;h2 id=&quot;simulator-demo-3513&quot;&gt;Simulator Demo (3.5.13)&lt;/h2&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/1irbzjacy0vfdx64ma3110lzo.js&quot; id=&quot;asciicast-1irbzjacy0vfdx64ma3110lzo&quot; async=&quot;&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;zenbot is released under the MIT license.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Salty 4.0 released</title>
+   <link href="http://localhost:4000/1466743328/index.html"/>
+   <updated>2016-06-23T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1466743328/1466743328</id>
+   <content type="html">&lt;p&gt;40 years ago today, Diffie and Hellman invented the public key exchange algorithm. Today, I present you:&lt;/p&gt;
+
+&lt;h2 id=&quot;salty&quot;&gt;Salty&lt;/h2&gt;
+
+&lt;p&gt;Salty is a &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt;-powered CLI-based alternative to PGP/GPG using &lt;a href=&quot;https://en.wikipedia.org/wiki/NaCl_(software)&quot;&gt;NaCl&lt;/a&gt; instead of RSA/DSA.&lt;/p&gt;
+
+&lt;p&gt;Github repo here: https://github.com/carlos8f/salty&lt;/p&gt;
+
+&lt;p&gt;Commits and tags in this repo are signed with GPG key &lt;a href=&quot;https://keybase.io/carlos8f&quot;&gt;5FBB 2F98 3862 1AFF&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;upcoming-gui&quot;&gt;Upcoming GUI&lt;/h3&gt;
+
+&lt;p&gt;A GUI is being developed as a node HTTP server you can host locally or remotely to access your wallet. Follow its development &lt;a href=&quot;https://github.com/carlos8f/salty-gui&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;features&quot;&gt;Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NO &lt;a href=&quot;https://peerio.com/pricing.html&quot;&gt;3rd parties&lt;/a&gt;, NO &lt;a href=&quot;https://en.wikipedia.org/wiki/PRISM_(surveillance_program)&quot;&gt;p2p network&lt;/a&gt;, NO &lt;a href=&quot;https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/&quot;&gt;browser js&lt;/a&gt;, NO &lt;a href=&quot;https://www.openssl.org/news/vulnerabilities.html&quot;&gt;exotic/compiled deps&lt;/a&gt;, no &lt;a href=&quot;https://www.reddit.com/r/programming/comments/4pj89t/support_lets_encrypt_get_cloudflare_cdn_et_al_to/&quot;&gt;Comodo SSL&lt;/a&gt;, and NO &lt;a href=&quot;https://github.com/VirgilSecurity&quot;&gt;shady corporations&lt;/a&gt;. PERIOD.&lt;/li&gt;
+  &lt;li&gt;general purpose CLI, lightweight library attached&lt;/li&gt;
+  &lt;li&gt;audited, bundled dependencies - no install scripts or backdoors&lt;/li&gt;
+  &lt;li&gt;supports anonymous-sender or signed/verified messaging&lt;/li&gt;
+  &lt;li&gt;sharable pubkey string that can fit in a single tweet&lt;/li&gt;
+  &lt;li&gt;does NOT use your ssh keys, pgp keys, or anything RSA&lt;/li&gt;
+  &lt;li&gt;encrypt public key is always ephemeral - does NOT leak metadata&lt;/li&gt;
+  &lt;li&gt;sender identity is deniable, unless they explicitly commit to sign the message&lt;/li&gt;
+  &lt;li&gt;file length hidden with padding&lt;/li&gt;
+  &lt;li&gt;public signing/verifying with detached signatures&lt;/li&gt;
+  &lt;li&gt;binary or “ascii armor” PEM output&lt;/li&gt;
+  &lt;li&gt;import/export your wallet folder - PEM encoded and secretboxed with Scrypt KDF&lt;/li&gt;
+  &lt;li&gt;(new in 3.1) can use anonymous private &lt;a href=&quot;https://gist.github.com/&quot;&gt;Github gists&lt;/a&gt; to remotely store salty messages&lt;/li&gt;
+  &lt;li&gt;(new in 3.1) full tar/gz support for encrypting/decrypting directories (supports symmetric or asymmetric cipher)&lt;/li&gt;
+  &lt;li&gt;MIT-licensed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;install-mac-osx&quot;&gt;Install (Mac OSX)&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ brew tap carlos8f/tap
+$ brew install salty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;other-unix-based-platforms&quot;&gt;Other UNIX-based platforms:&lt;/h2&gt;
+
+&lt;p&gt;Install first: &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ wget https://github.com/carlos8f/salty/archive/v4.1.0.tar.gz
+$ shasum -a 256 v4.1.0.tar.gz
+3eb6e0bcb1461af2aa88d81c9be5c69b1b0069e40a30abb90c11420c88504126  v4.1.0.tar.gz
+$ tar -xf v4.1.0.tar.gz
+$ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;useful-links&quot;&gt;Useful links&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://s8f.org/1465282150/&quot;&gt;S8F Console: How to use Salty&lt;/a&gt; - Basic demonstration of the Salty CLI&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://s8f.org/1465262642/&quot;&gt;Salty: PGP Evolved&lt;/a&gt; - How Salty improves on the PGP model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;patch-notes-411&quot;&gt;Patch notes (4.1.1)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;no longer asks for name/email for wallet&lt;/li&gt;
+  &lt;li&gt;fix translateHeader if no name/email&lt;/li&gt;
+  &lt;li&gt;fix ascii armor signature headers not wrapped&lt;/li&gt;
+  &lt;li&gt;add signing examples&lt;/li&gt;
+  &lt;li&gt;updated generic install example to use wget instead of git&lt;/li&gt;
+  &lt;li&gt;now you can regenerate your decryption key with &lt;code class=&quot;highlighter-rouge&quot;&gt;salty init --regen&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;switch to base58-encoding for everything but hashes&lt;/li&gt;
+  &lt;li&gt;hashes are now hex-encoded&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\r\n&lt;/code&gt; newlines in header/PEM changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;\n&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Custom header support for encryption or signing&lt;/li&gt;
+  &lt;li&gt;import now dedupes on verifyPk/email&lt;/li&gt;
+  &lt;li&gt;key removal by pubkey/email now supported&lt;/li&gt;
+  &lt;li&gt;“attached” signatures now available with ASCII armor flag&lt;/li&gt;
+  &lt;li&gt;signatures can be verified without previous setup (wallet creation)&lt;/li&gt;
+  &lt;li&gt;signatures support arbitrary hash algorithms&lt;/li&gt;
+  &lt;li&gt;added &lt;code class=&quot;highlighter-rouge&quot;&gt;--no-translate&lt;/code&gt; flag to output raw header&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>cyberpunk midnight nintendo street jam with SMALL MYTH SOUNDSYSTEM</title>
+   <link href="http://localhost:4000/1465539942/index.html"/>
+   <updated>2016-06-09T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1465539942/1465539942</id>
+   <content type="html">&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/xh_AHrBVpcg?start=229&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>S8F Console: How to use Salty</title>
+   <link href="http://localhost:4000/1465282150/index.html"/>
+   <updated>2016-06-06T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1465282150/1465282150</id>
+   <content type="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/0ugtoagc27nbow9cixedejw4f.js&quot; id=&quot;asciicast-0ugtoagc27nbow9cixedejw4f&quot; async=&quot;&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Salty: PGP Evolved</title>
+   <link href="http://localhost:4000/1465262642/index.html"/>
+   <updated>2016-06-06T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1465262642/1465262642</id>
+   <content type="html">&lt;p&gt;This is a step-by-step rebuttal to &lt;a href=&quot;http://secushare.org/PGP&quot;&gt;secushare&lt;/a&gt;’s arguments against the PGP model, and how &lt;a href=&quot;https://s8f.org/salty.html&quot;&gt;Salty&lt;/a&gt; tries to make things right again.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-downgrade-attack-the-risk-of-using-it-wrong&quot;&gt;1. Downgrade Attack: The risk of using it wrong.&lt;/h3&gt;
+
+&lt;p&gt;Unlike PGP, Salty does not “integrate” into your browser, email client, or other sensitive software. Therefore, usability shortcomings of integration UIs will not raise security issues. It is up to the user to safeguard the connection (i.e. their email account) which Salty can’t control, and is not interested in controlling. “Doing it wrong” is barely possible since there are so few modes of use, and all parameters are hard-coded into the software, so no critical choices are necessary on the part of the user.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-the-openpgp-format-you-might-aswell-run-around-the-city-naked&quot;&gt;2. The OpenPGP Format: You might aswell run around the city naked.&lt;/h3&gt;
+
+&lt;p&gt;Salty does not include the sender or recipient’s public key in plaintext. By default it encrypts using an ephemeral key and nonce, obscures the message length with padding, encrypts the real message length, and encrypts the info for verifying authenticity and integrity (hmac, public keys, and signature). Signature is opt-in.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-transaction-data-mallory-knows-who-you-are-talking-to&quot;&gt;3. Transaction Data: Mallory knows who you are talking to.&lt;/h3&gt;
+
+&lt;p&gt;Fully anonymized traffic seems like a pipe dream, and (despite the existence of the Tor project) will probably not be possible in the near future. However, for what it’s worth:&lt;/p&gt;
+
+&lt;p&gt;In theory, the idea of a “mixing service” from Bitcoin for psuedo-anonymizing transactions is possible using Salty files. Since a Salty file can only be made sense of by one who posesses the receiver’s private key, a secure “drop box” could be set up where everyone dumps to the same folder, and everyone reads every file, trying to decrypt everything until decryptable files are found.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-no-forward-secrecy-it-makes-sense-to-collect-it-all&quot;&gt;4. No Forward Secrecy: It makes sense to collect it all.&lt;/h3&gt;
+
+&lt;p&gt;Salty solves this problem in two ways:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;With Salty it’s easy to refresh keys: just regenerate your decryption key, and tweet the resulting pubkey string. Destroying your encryption key effectively renders your previously received messages unreadable and useless to collect.&lt;/li&gt;
+  &lt;li&gt;Recovering the 32-byte key used to encrypt a message will not allow decryption of all Alice&amp;lt;-&amp;gt;Bob messages, since each message has a unique key as the result of Diffie-Hellman with Alice using an ephemeral key.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;5-cryptogeddon-time-to-upgrade-cryptography-itself&quot;&gt;5. Cryptogeddon: Time to upgrade cryptography itself?&lt;/h3&gt;
+
+&lt;p&gt;Salty throws out RSA and NIST-approved curves entirely, using the independently developed, peer-reviewed, battle tested, public domain NaCl crypto suite.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-federation-get-off-the-inter-server-super-highway&quot;&gt;6. Federation: Get off the inter-server super-highway.&lt;/h3&gt;
+
+&lt;p&gt;Salty is not a network protocol, but it’s recommended to use the most secure channel possible to trade Salty messages. The same goes for any sensitive information transferred between two parties.&lt;/p&gt;
+
+&lt;h3 id=&quot;7-discovery-a-web-of-trust-you-cant-trust&quot;&gt;7. Discovery: A Web of Trust you can’t trust.&lt;/h3&gt;
+
+&lt;p&gt;Salty does not prescribe a web-of-trust model. Keyservers are optional and if one has a Twitter account, not necessary at all. End of story!&lt;/p&gt;
+
+&lt;h3 id=&quot;8-pgp-conflates-non-repudiation-and-authentication&quot;&gt;8. PGP conflates non-repudiation and authentication.&lt;/h3&gt;
+
+&lt;p&gt;Salty allows the sender to decide whether to sign the message, revealing to the receiver (via HMAC) that they in fact constructed it with their known identity. By default, only message integrity is ensured, protecting the sender’s privacy if they desire it.&lt;/p&gt;
+
+&lt;h3 id=&quot;9-statistical-analysis-guessing-on-the-size-of-messages&quot;&gt;9. Statistical Analysis: Guessing on the size of messages.&lt;/h3&gt;
+
+&lt;p&gt;Salty does some random-padding to help obscure the message size.&lt;/p&gt;
+
+&lt;h3 id=&quot;10-workflow-group-messaging-with-pgp-is-impractical&quot;&gt;10. Workflow: Group messaging with PGP is impractical.&lt;/h3&gt;
+
+&lt;p&gt;This is still true. Group messaging is better done by a network protocol.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Salty</title>
+   <link href="http://localhost:4000/1464902995/index.html"/>
+   <updated>2016-06-02T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1464902995/1464902995</id>
+   <content type="html">&lt;p&gt;Alternative public key encryption&lt;/p&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Salty is a &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt;-powered CLI-based alternative to PGP/GPG using &lt;a href=&quot;https://en.wikipedia.org/wiki/NaCl_(software)&quot;&gt;NaCl&lt;/a&gt; instead of RSA/DSA.&lt;/p&gt;
+
+&lt;p&gt;Commits and tags in &lt;a href=&quot;https://github.com/carlos8f/salty&quot;&gt;this repo&lt;/a&gt; are signed with GPG key &lt;a href=&quot;https://keybase.io/carlos8f&quot;&gt;5FBB 2F98 3862 1AFF&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;upcoming-gui&quot;&gt;Upcoming GUI&lt;/h3&gt;
+
+&lt;p&gt;A GUI is being developed as a node HTTP server you can host locally or remotely to access your wallet. Follow its development &lt;a href=&quot;https://github.com/carlos8f/salty-gui&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;features&quot;&gt;Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NO &lt;a href=&quot;https://peerio.com/pricing.html&quot;&gt;3rd parties&lt;/a&gt;, NO &lt;a href=&quot;https://en.wikipedia.org/wiki/PRISM_(surveillance_program)&quot;&gt;p2p network&lt;/a&gt;, NO &lt;a href=&quot;https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/&quot;&gt;browser js&lt;/a&gt;, NO &lt;a href=&quot;https://www.openssl.org/news/vulnerabilities.html&quot;&gt;exotic/compiled deps&lt;/a&gt;, no &lt;a href=&quot;https://www.reddit.com/r/programming/comments/4pj89t/support_lets_encrypt_get_cloudflare_cdn_et_al_to/&quot;&gt;Comodo SSL&lt;/a&gt;, and NO &lt;a href=&quot;https://github.com/VirgilSecurity&quot;&gt;shady corporations&lt;/a&gt;. PERIOD.&lt;/li&gt;
+  &lt;li&gt;general purpose CLI, lightweight library attached&lt;/li&gt;
+  &lt;li&gt;audited, bundled dependencies - no install scripts or backdoors&lt;/li&gt;
+  &lt;li&gt;supports anonymous-sender or signed/verified messaging&lt;/li&gt;
+  &lt;li&gt;sharable pubkey string that can fit in a single tweet&lt;/li&gt;
+  &lt;li&gt;does NOT use your ssh keys, pgp keys, or anything RSA&lt;/li&gt;
+  &lt;li&gt;encrypt public key is always ephemeral - does NOT leak metadata&lt;/li&gt;
+  &lt;li&gt;sender identity is deniable, unless they explicitly commit to sign the message&lt;/li&gt;
+  &lt;li&gt;file length hidden with padding&lt;/li&gt;
+  &lt;li&gt;public signing/verifying with detached signatures&lt;/li&gt;
+  &lt;li&gt;binary or “ascii armor” PEM output&lt;/li&gt;
+  &lt;li&gt;import/export your wallet folder - PEM encoded and secretboxed with Scrypt KDF&lt;/li&gt;
+  &lt;li&gt;(new in 3.1) can use anonymous private &lt;a href=&quot;https://gist.github.com/&quot;&gt;Github gists&lt;/a&gt; to remotely store salty messages&lt;/li&gt;
+  &lt;li&gt;(new in 3.1) full tar/gz support for encrypting/decrypting directories (supports symmetric or asymmetric cipher)&lt;/li&gt;
+  &lt;li&gt;MIT-licensed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;install-mac-osx&quot;&gt;Install (Mac OSX)&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ brew tap carlos8f/tap
+$ brew install salty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;other-unix-based-platforms&quot;&gt;Other UNIX-based platforms:&lt;/h2&gt;
+
+&lt;p&gt;Install first: &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ wget https://github.com/carlos8f/salty/archive/v4.1.0.tar.gz
+$ shasum -a 256 v4.1.0.tar.gz
+3eb6e0bcb1461af2aa88d81c9be5c69b1b0069e40a30abb90c11420c88504126  v4.1.0.tar.gz
+$ tar -xf v4.1.0.tar.gz
+$ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;useful-links&quot;&gt;Useful links&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://s8f.org/1465282150/&quot;&gt;S8F Console: How to use Salty&lt;/a&gt; - Basic demonstration of the Salty CLI&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://s8f.org/1465262642/&quot;&gt;Salty: PGP Evolved&lt;/a&gt; - How Salty improves on the PGP model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;format&quot;&gt;Format&lt;/h2&gt;
+
+&lt;p&gt;Byte counts are in &lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt; parenthesis.&lt;/p&gt;
+
+&lt;h3 id=&quot;salty-wallet&quot;&gt;Salty wallet&lt;/h3&gt;
+
+&lt;p&gt;Designed to allow both decryption and signing.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  decryption      signing
+-------------- + -----------
+decryptSk (32)   signSk (64)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example (wallets are stored as encrypted PEM on disk)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-----BEGIN SALTY WALLET-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: NACL-SCRYPT,IP3NRMw15AGYyU56xwYPVJFa4Xx0aock
+
+OjCNhUvjNml3bebBVsIBpTBdvWSRkUG6vVZkdpzFZf9Ak/Bh0ghaXsEhuAiElEMy
+2ghCEF5oQVO3dAWdflcvuVH3CSXlPlBfXWr6Y0EEOST3jYwaRS8Qfa2786YNBYCm
+NBm4au6wbuVp8dL41jhLeQ==
+-----END SALTY WALLET-----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;salty-pubkey&quot;&gt;Salty pubkey&lt;/h3&gt;
+
+&lt;p&gt;Designed to be sharable, human-readable, and unique.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;              public keys                           optional meta
+----------------------------------------- [space] --------  --------
+  base58(encryptPk (32) + verifyPk (32))          &quot;{name}&quot;  &amp;lt;{email}&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2ZuU37oJ1erD85AzVohXq6Y74GHv2hjNYB9fu3P5o9rsGSvRo19HK2wTL4MLma3N6gVFqXN81VTqQ6apBhc5Kezq &quot;Carlos&quot; &amp;lt;carlos@s8f.org&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;salty-file&quot;&gt;Salty file&lt;/h3&gt;
+
+&lt;p&gt;Designed to allow anonymous or signed messages, and verify message integrity.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;required meta    ciphertext  
+-------------- + ----------
+ephemeral (80)    plaintext
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ephemeral&quot;&gt;Ephemeral&lt;/h3&gt;
+
+&lt;p&gt;Designed to hide the message and header inside an anonymously encrypted/authenticated payload.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    random         random      message length (encrypted, 24 bytes)
+-------------- + ---------- + ---------------------------------------
+encryptPk (32)   nonce (24)       totalSize (8 bytes, big endian)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;plaintext&quot;&gt;Plaintext&lt;/h3&gt;
+
+&lt;p&gt;Appends a header to the message for verification, and pads the plaintext with null bytes.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--------- + ------- + -------------------
+ message     header      null bytes (?)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;header&quot;&gt;Header&lt;/h3&gt;
+
+&lt;p&gt;Always contains a sha256 HMAC to authenticate the message, and optionally contains a signature from the sender.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hash: hex( sha256_hmac( shared_secret ) of message )
+[from-salty-id]: base58(encryptPk (32) + verifyPk (32))
+[to-salty-id]: base58(encryptPk (32) + verifyPk (32))
+[signature]: base58( detached sig of previous headers )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hash:          3a5a42ad3cadea1ac4abd5169a7a1c2b2017404e00b9f08c5dee6c205f7a197a
+from-salty-id: 2ZuU37oJ1erD85AzVohXq6Y74GHv2hjNYB9fu3P5o9rsGSvRo19HK2wTL4MLma3N6gVFqXN81VTqQ6apBhc5Kezq
+to-salty-id:   self
+signature:     5V1c1P5a8dqDVMPhwqnDF39ZrHpaw7jhetEgHyPUkjM8tYvugPzDJ3xyhD9WdJQ4AjwYkN2XdWhnTB3GTRMJuAEd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;signature&quot;&gt;Signature&lt;/h3&gt;
+
+&lt;p&gt;Always contains the signer’s public keys, a sha256 HMAC to authenticate the file, keyed with a 32-byte random nonce, and a signature.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from-salty-id: base58(encryptPk (32) + verifyPk (32))
+hash-algorithm: algorithm
+hash: hex( algorithm( file ) )
+signature: base58( detached sig of previous headers )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from-salty-id: 2ZuU37oJ1erD85AzVohXq6Y74GHv2hjNYB9fu3P5o9rsGSvRo19HK2wTL4MLma3N6gVFqXN81VTqQ6apBhc5Kezq
+hash-algorithm: sha256
+hash: 19e406822f9eac2c19f0a0d59c1ab1f554e354fadbc1836f9e10858ce227ed2c
+signature: 49VPoEqf3iNrpaWCjEejfe2vqT8ZHHkb68U6JRzxCEqWSoVoe7AjPEN2c3XYXgCuW7P3htsWbXZdF6LAsoyXoE3v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Usage: salty [options] [command]
+
+
+  Commands:
+
+    init [options]                                initialize or update a wallet
+    id|pubkey                                     output your shareable pubkey string
+    import|i &amp;lt;pubkey|url|file&amp;gt;                    import a pubkey
+    ls|l                                          list imported keys
+    rm &amp;lt;pubkey|email&amp;gt;                             remove pubkey
+    encrypt|e [options] [infile|indir] [outfile]  encrypt a file
+    decrypt|d [options] &amp;lt;infile|gist&amp;gt; [outfile]   decrypt and verify a file
+    sign|s [options] &amp;lt;infile&amp;gt; [outfile]           create a signature
+    verify|v [options] &amp;lt;insig&amp;gt; [infile]           verify a signature
+    save [indir] [outfile]                        save an encrypted backup of your wallet
+    restore [infile] [outdir]                     restore your wallet from a backup
+    encode [infile]                               output base58-encoded data to STDOUT
+    decode [infile]                               output base58-decoded data to STDOUT
+    *
+
+  Options:
+
+    -h, --help          output usage information
+    -V, --version       output the version number
+    -w, --wallet &amp;lt;dir&amp;gt;  wallet location (default: ~/.salty)
+    -F, --force         do it anyway
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;salty-encrypt&quot;&gt;salty encrypt&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Usage: encrypt|e [options] [infile|indir] [outfile]
+
+  encrypt a file
+
+  Options:
+
+    -h, --help                 output usage information
+    -t, --to &amp;lt;email&amp;gt;           email address to encrypt for. (must be imported first. default: self)
+    -m, --message              compose a message instead of using [infile] (implies -a)
+    -s, --sign                 sign the message to reveal/prove our identity
+    -H, --header &amp;lt;key: value&amp;gt;  add a custom header (repeatable)
+    -a, --armor                output ASCII armor to STDOUT
+    -g, --gist                 upload encrypted result as a gist
+    -F, --force                ignore warnings and do it
+    -D, --delete               delete the original file after encryption
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;salty-decrypt&quot;&gt;salty decrypt&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Usage: decrypt|d [options] &amp;lt;infile|gist&amp;gt; [outfile]
+
+  decrypt and verify a file
+
+  Options:
+
+    -h, --help    output usage information
+    -s, --sig     require a signature
+    -a, --armor   expect ASCII armor, output to STDOUT
+    -g, --gist    download the encrypted input from a gist
+    -F, --force   ignore warnings and do it
+    -D, --delete  delete the salty file after verification
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;salty-sign&quot;&gt;salty sign&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Usage: sign|s [options] &amp;lt;infile&amp;gt; [outfile]
+
+  create a signature
+
+  Options:
+
+    -h, --help                 output usage information
+    -H, --header &amp;lt;key: value&amp;gt;  add a custom header (repeatable)
+    -h, --hash &amp;lt;alg&amp;gt;           hash algorithm (default: sha256)
+    -a, --armor                output ASCII armor to STDOUT
+    -F, --force                ignore warnings and do it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;salty-verify&quot;&gt;salty verify&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Usage: verify|v [options] &amp;lt;insig&amp;gt; [infile]
+
+  verify a signature
+
+  Options:
+
+    -h, --help   output usage information
+    -a, --armor  expect ASCII armor, output to STDOUT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;log&quot;&gt;Log&lt;/h2&gt;
+
+&lt;h3 id=&quot;release-410-latest&quot;&gt;release &lt;a href=&quot;https://github.com/carlos8f/salty/releases/tag/v4.1.0&quot;&gt;4.1.0&lt;/a&gt; (latest)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;no longer asks for name/email for wallet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;release-401&quot;&gt;release 4.0.1&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;updated generic install example to use &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;release-40&quot;&gt;release 4.0&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;now you can regenerate your decryption key with &lt;code class=&quot;highlighter-rouge&quot;&gt;salty init --regen&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;switch to base58-encoding for everything but hashes&lt;/li&gt;
+  &lt;li&gt;hashes are now hex-encoded&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\r\n&lt;/code&gt; newlines in header/PEM changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;\n&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Custom header support for encryption or signing&lt;/li&gt;
+  &lt;li&gt;import now dedupes on verifyPk/email&lt;/li&gt;
+  &lt;li&gt;key removal by pubkey/email now supported&lt;/li&gt;
+  &lt;li&gt;“attached” signatures now available with ASCII armor flag&lt;/li&gt;
+  &lt;li&gt;signatures can be verified without previous setup (wallet creation)&lt;/li&gt;
+  &lt;li&gt;signatures support arbitrary hash algorithms&lt;/li&gt;
+  &lt;li&gt;added &lt;code class=&quot;highlighter-rouge&quot;&gt;--no-translate&lt;/code&gt; flag to output raw header&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;release-v310&quot;&gt;release v3.1.0&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added anonymous gist support&lt;/li&gt;
+  &lt;li&gt;Added tar/gz support for encrypting directories&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;example-signed-message-text&quot;&gt;example signed message (text)&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ salty sign -a -h ripemd160 -H 'content-type: text/markdown' -H 'filename: README.md' README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-----BEGIN SALTY SIGNED MESSAGE-----
+from-salty-id: 2ZuU37oJ1erD85AzVohXq6Y74GHv2hjNYB9fu3P5o9rsGSvRo
+ 19HK2wTL4MLma3N6gVFqXN81VTqQ6apBhc5Kezq
+content-type: text/markdown
+filename: README.md
+hash-algorithm: ripemd160
+content-transfer-encoding: 8bit
+hash: dcde04cff759a9e38ee4683b09355c857053ee80
+signature: 2U135BFHiKYDKxiXMYiQbhDZMxD2imrXYJFVMZezKiTZmfLhtbYUb
+ wxnhsQL4rdc6MfeGsGoxAhEZ1aYYs5tgia5
+
+This is the jekyll source of my personal website, [s8f.org](http://s8f.org/).
+
+-----END SALTY SIGNED MESSAGE-----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;example-signed-message-image&quot;&gt;Example Signed Message (image)&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ salty sign -a -h sha512 -H 'content-type: image/vnd.microsoft.icon' -H 'filename: favicon.ico' favicon.ico
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-----BEGIN SALTY SIGNED MESSAGE-----
+from-salty-id: 2ZuU37oJ1erD85AzVohXq6Y74GHv2hjNYB9fu3P5o9rsGSvRo
+ 19HK2wTL4MLma3N6gVFqXN81VTqQ6apBhc5Kezq
+content-type: image/vnd.microsoft.icon
+filename: favicon.ico
+hash-algorithm: sha512
+content-transfer-encoding: base64
+hash: 628b42749e7b007f13c2aa858210e5a5411cedfff93ebb1c758f8a2b2d
+ 5a13f4ccded598aa096b6f824a81e00ddfbd6fd30894eae24530b218158c98e
+ 7e3a16f
+signature: Kw7dZiBKZNwj4kejF2HevVPoni2mZry5VEKStKQYDeP6H61EWdD2s
+ yod6FJv5JJwXWyaSpBhXjHqSrasHJF2QEx
+
+AAABAAEADxAAAAEAIAAoBAAAFgAAACgAAAAPAAAAIAAAAAEAIAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAQAA
+AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAABAAAAAAAA
+ABgAAAC0AAAAAgAAALMAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAcAAAAqAAAA1wAA
+ABMAAAAAAAAAAAAAADoAAABgAAAAAAAAAIIAAAAmAAAAAAAAAAAAAAAAAAAAJgAA
+AN8AAAC+AAAAmAAAAP8AAAAmAAAAAAAAAI8AAAAeAAAAAAAAACoAAACCAAAAAAAA
+AAAAAAAAAAAACgAAAF8AAAAAAAAAAAAAAOYAAABhAAAAEwAAAPMAAAAEAAAAAAAA
+AAsAAADeAAAACgAAAAAAAAAAAAAAAAAAABsAAACxAAAAwQAAAM4AAAAGAAAACQAA
+ALIAAAAHAAAAAAAAABgAAAC+AAAAAAAAAAAAAAAAAAAAAAAAALkAAABtAAAAAgAA
+AC0AAAAHAAAAAAAAAJUAAAA3AAAAAAAAADcAAAB/AAAAAAAAAAAAAAAAAAAAAAAA
+AF4AAADPAAAAkAAAANEAAAAgAAAAAAAAAC0AAAB5AAAAAAAAAKcAAAAHAAAAAwAA
+AAAAAAAAAAAAAAAAAAAAAAATAAAAqQAAADkAAAAHAAAAAAAAAAAAAAB1AAAADQAA
+AF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAABAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAD//gAA//4AAP/+AAD//gAA/64AAPfuAADDdgAA+3YAAON2
+AADffgAA4+4AAPf+AAD//gAA//4AAP/+AAD//gAA
+-----END SALTY SIGNED MESSAGE-----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;Salty is released under the MIT license.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The Life and Death of PGP</title>
+   <link href="http://localhost:4000/1463990203/index.html"/>
+   <updated>2016-05-23T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1463990203/1463990203</id>
+   <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; stepping in, and going straight for the canisters... &amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1969 - C language developed by Dennis Ritchie for Bell Labs. US Dept. of Defense develops ARPANET (later the Internet). Man lands on the moon.&lt;/li&gt;
+  &lt;li&gt;Jan 1st, 1970 - UNIX epoch begins.&lt;/li&gt;
+  &lt;li&gt;1977 - RSA encryption algorithm invented.&lt;/li&gt;
+  &lt;li&gt;1982 - RSA developers found RSA Data Security as a private company to promote their then-proprietary encryption techniques.&lt;/li&gt;
+  &lt;li&gt;Jan. 24th, 1991 - Then-&lt;a href=&quot;https://www.congress.gov/bill/102nd-congress/senate-bill/266&quot;&gt;Sen. Joe Biden&lt;/a&gt; authors the “Comprehensive Counter-Terrorism Act of 1991”, advocating for mandated government-planted backdoors in all encrypted consumer devices.&lt;/li&gt;
+  &lt;li&gt;1991 - Philip Zimmermann releases the &lt;a href=&quot;https://www.philzimmermann.com/EN/essays/WhyIWrotePGP.html&quot;&gt;first version of PGP&lt;/a&gt; in response to S.266.&lt;/li&gt;
+  &lt;li&gt;[1991 - 1994] - The age of Floppy Disks, AOL, 14.4k modems, and The Fresh Prince of Bell Air.&lt;/li&gt;
+  &lt;li&gt;1997 - Adam L. Young and Moti Yung present a “cryptovirology” paper on building backdoors into asymmetric algorithms.&lt;/li&gt;
+  &lt;li&gt;1999 - German government funds &lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_Privacy_Guard&quot;&gt;GnuPG&lt;/a&gt;, a free re-implementation of PGP.&lt;/li&gt;
+  &lt;li&gt;early 2000’s - NSA starts pushing &lt;a href=&quot;https://en.wikipedia.org/wiki/Dual_EC_DRBG&quot;&gt;“Dual_EC_DRBG”&lt;/a&gt; as the standard for secure random number generation. This standard described a number of constants (specific elliptic curves), did not explain their origin, and these were later found to have a secret corresponding master key. This also marks the start of NSA’s “Bullrun” crypto surveillance program.&lt;/li&gt;
+  &lt;li&gt;2004 - RSA Security, Inc. accepts $10M from the NSA to make Dual_EC the default in BSAFE, their crypto library.&lt;/li&gt;
+  &lt;li&gt;2006 - RSA Security, Inc. acquired by EMC Corporation for $2.1 billion.&lt;/li&gt;
+  &lt;li&gt;August 2006 - A group of TLS proposals known as &lt;a href=&quot;http://sockpuppet.org/blog/2015/08/04/is-extended-random-malicious/&quot;&gt;Extended Random&lt;/a&gt; entered the scene, advocated by “The US Dept. of Defense”, which debatably were an attempt to expose TLS to the vulnerability of Dual_EC.&lt;/li&gt;
+  &lt;li&gt;2007 - The potential for a backdoor in Dual_EC_DRBG is documented by &lt;a href=&quot;https://www.schneier.com/blog/archives/2007/11/the_strange_sto.html&quot;&gt;Bruce Schneider&lt;/a&gt; &lt;a href=&quot;http://eprint.iacr.org/2007/048&quot;&gt;and&lt;/a&gt; &lt;a href=&quot;http://eprint.iacr.org/2006/190&quot;&gt;others&lt;/a&gt;. RSA Security continues to push it as a standard.&lt;/li&gt;
+  &lt;li&gt;May 2008 - “Satoshi Nakamoto”, whose real identity is still a mystery, published the first Bitcoin paper. Notable was its idiosyncratic insistence on using Elliptic Curve cryptography which had not been approved by NIST, to secure real human assets. Whoever Nakamoto is, holds one of the largest hoards of Bitcoins (presently worth about $443 each) in existence.&lt;/li&gt;
+  &lt;li&gt;early 2009 - Biden becomes vice-president.&lt;/li&gt;
+  &lt;li&gt;January 19, 2012 - Secure hosting service &lt;a href=&quot;https://en.wikipedia.org/wiki/Mega_(service)&quot;&gt;Mega&lt;/a&gt; (based in New Zealand) shut down by the US Dept. of Justice.&lt;/li&gt;
+  &lt;li&gt;October 16, 2012 - Zimmermann involved in founding Silent Circle, a secure e-email service based in Switzerland, operating under a subscription business model.&lt;/li&gt;
+  &lt;li&gt;January 2013 - A user named anon108 posted a 12-minute video guide “GPG for Journalists” to Vimeo using voice modulation. The Washington Post later identified anon108 as fugitive NSA whistleblower Edward Snowden.&lt;/li&gt;
+  &lt;li&gt;April 11th, 2013 - &lt;a href=&quot;http://web.archive.org/web/20130421103548/http://secushare.org/&quot;&gt;secushare.org&lt;/a&gt; launches, a niche p2p file sharing network, proclaiming “PGP encrypts end to end, but does not provide PFS - in fact it tends to be a forever proof of your deeds online.”&lt;/li&gt;
+  &lt;li&gt;May 2013 - &lt;a href=&quot;https://en.wikipedia.org/wiki/Global_surveillance_disclosures_(2013%E2%80%93present)&quot;&gt;Edward Snowden&lt;/a&gt; goes on temp. leave from his position at NSA, citing the pretext of receiving treatment for his epilepsy. He later travels to Hong Kong and claimed he used PGP, tor, and the hosted email service Lavabit to exfiltrate huge amounts of US secrets to the press. Although he settled in Russia after that, he claims he &lt;a href=&quot;http://www.huffingtonpost.com/bob-cesca/edward-snowden-bizarre-interview_b_5421572.html&quot;&gt;“destroyed his documents”&lt;/a&gt; before going to Russia.&lt;/li&gt;
+  &lt;li&gt;late 2013 - RSA Security discontinues using Dual_EC_DRBG, after revelations that RSA was paid $10 million by NSA to include it as a standard.&lt;/li&gt;
+  &lt;li&gt;August 8, 2013 - Lavabit shut down by US mandate.&lt;/li&gt;
+  &lt;li&gt;August 9, 2013 - Silent Circle shut down by US pressure.&lt;/li&gt;
+  &lt;li&gt;September 2013 - &lt;a href=&quot;http://web.archive.org/web/20131008131612/https://keybase.io/&quot;&gt;keybase.io&lt;/a&gt; a &lt;a href=&quot;https://keybase.io/kbpgp&quot;&gt;re-implementation of PGP in JavaScript&lt;/a&gt;, combined with proprietary hosted keyserver, founded by the founders of a trendy dating website.&lt;/li&gt;
+  &lt;li&gt;April 1st, 2014 - In one of the most bizarre April-Fools-just-kidding-it’s-real days of all time, &lt;a href=&quot;https://en.wikipedia.org/wiki/Heartbleed&quot;&gt;Heartbleed&lt;/a&gt;, a “catastrophic” OpenSSL vulnerability (and possible back-door)  was publicly revealed by Google. At the time of disclosure, some 17% (around half a million) of the Internet’s secure web servers certified by trusted authorities were believed to be vulnerable to the attack.&lt;/li&gt;
+  &lt;li&gt;April 11th, 2014 - An anonymous source reports &lt;a href=&quot;http://www.bloomberg.com/news/articles/2014-04-11/nsa-said-to-have-used-heartbleed-bug-exposing-consumers&quot;&gt;NSA knew for at least two years&lt;/a&gt; about Heartbleed and exploited it for their own purposes.&lt;/li&gt;
+  &lt;li&gt;June 4th, 2014 - &lt;a href=&quot;https://security.googleblog.com/2014/06/making-end-to-end-encryption-easier-to.html&quot;&gt;Google announces end-to-end encryption for Gmail&lt;/a&gt;, based on GPG. Yahoo follows suit.&lt;/li&gt;
+  &lt;li&gt;August 2014 - Respected cryptographer &lt;a href=&quot;http://blog.cryptographyengineering.com/2014/08/whats-matter-with-pgp.html&quot;&gt;Matthew Green&lt;/a&gt; blogs “It’s time for PGP to die.”&lt;/li&gt;
+  &lt;li&gt;October 14, 2015 - &lt;a href=&quot;http://www.gallup.com/poll/186167/biden-maintains-positive-image.aspx&quot;&gt;a Gallup poll&lt;/a&gt; 49% of Americans view Joe Biden (author of S.266) favorably, 37% unfavorably. Biden “regrets every day” that he didn’t run for president.&lt;/li&gt;
+  &lt;li&gt;Feb 2016 - FBI &lt;a href=&quot;https://fcw.com/articles/2016/02/12/going-dark-budget.aspx&quot;&gt;doubles funding from $31 million to $69 million&lt;/a&gt; for defeating end-to-end encryption and the ‘Going Dark’ threat it poses to law enforcement.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Motley</title>
+   <link href="http://localhost:4000/1402636102/index.html"/>
+   <updated>2014-06-12T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1402636102/1402636102</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://raw.github.com/carlos8f/motley/master/assets/motley-full.png&quot; alt=&quot;motley&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;get-started-in-3-shell-commands&quot;&gt;Get Started in 3 shell commands:&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git@github.com:carlos8f/motley-init.git
+cd motley-init &amp;amp;&amp;amp; npm install
+node server.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(or just fork the &lt;a href=&quot;https://github.com/carlos8f/motley-init&quot;&gt;motley-init&lt;/a&gt; repo!)&lt;/p&gt;
+
+&lt;h2 id=&quot;example-serverjs&quot;&gt;Example server.js&lt;/h2&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;motley&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'motley'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;motley&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;_ns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'motley'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;_maps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// require()'ed motley plugins go here.&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'hooks.listen[]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'console'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'listening on http://localhost:'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'site.server'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;setImmediate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'middleware[]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vars&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vars&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nonce&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'controllers[]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'controller'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'welcome'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'to '&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'conf.site.title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'version'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./package.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'nonce'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nonce&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'hooks.close[]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'console'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nmotley says goodbye :)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;setImmediate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onExit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'SIGINT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onExit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'SIGTERM'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onExit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;Motley is released under the MIT license.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Poster: Coffee Drinks Illustrated</title>
+   <link href="http://localhost:4000/1400780521/index.html"/>
+   <updated>2014-05-22T00:00:00-07:00</updated>
+   <id>http://localhost:4000/1400780521/1400780521</id>
+   <content type="html">&lt;p&gt;In 2010 I found &lt;a href=&quot;http://lokeshdhakar.com/coffee-drinks-illustrated/&quot;&gt;this awesome coffee drink infographic&lt;/a&gt;, but at the time I couldn’t find a PDF or vector version available. I wanted a large print of it, so I took it upon myself to re-illustrate it using &lt;a href=&quot;http://www.inkscape.org/&quot;&gt;Inkscape&lt;/a&gt;, with some slight modifications so it shows up well in a tabloid-format print.&lt;/p&gt;
+
+&lt;p&gt;I found afterwards that the author, Lokesh Dhakar, released a &lt;a href=&quot;http://lokeshdhakar.com/coffee-diagram-follow-up/&quot;&gt;vector version&lt;/a&gt;, but I still like the header and wide format that I created.&lt;/p&gt;
+
+&lt;p&gt;This is a derivative work of the original, © Lokesh Dhakar, released under the &lt;a href=&quot;http://creativecommons.org/licenses/by-nc/3.0/&quot;&gt;Creative Commons Attribution-NonCommercial License&lt;/a&gt;, for &lt;strong&gt;non-commercial purposes only&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks, Lokesh!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.pdf&quot;&gt;&lt;img src=&quot;http://localhost:4000/files/coffee_poster_tabloid.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.pdf&quot;&gt;Download PDF&lt;/a&gt; /
+&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.svg&quot;&gt;Download Inkscape SVG&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
