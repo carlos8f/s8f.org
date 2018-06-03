@@ -1,14 +1,9 @@
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 title: s8f.org 💾 I stepped inside and went straight for the canisters
 author:
   name: Carlos Rodriguez
 timezone: America/Los_Angeles
 encoding: utf-8
-# markdown: kramdown
-# kramdown:
-#  input: GFM
-#pygments: true
-markdown: KramdownPygments
 permalink: /:title/index.html
 exclude: [_scripts,Makefile]
 paginate: 3
