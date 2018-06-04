@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>s8f.org 💾 I stepped inside and went straight for the canisters</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2018-06-03T08:31:11-07:00</updated>
- <id>http://localhost:4000</id>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2018-06-03T22:01:33-07:00</updated>
+ <id></id>
  <author>
    <name>Carlos Rodriguez</name>
    <email></email>
@@ -13,19 +13,135 @@
 
  
  <entry>
-   <title></title>
-   <link href="http://localhost:4000/1473767018/index.html"/>
-   <updated>2016-09-13T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1473767018/1473767018</id>
-   <content type="html">
+   <title>Happy 12th Anniversary, Ferdinand Brandon!</title>
+   <link href="/1528088439/index.html"/>
+   <updated>2018-06-03T00:00:00-07:00</updated>
+   <id>/1528088439/1528088439</id>
+   <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;X-Gmail-Received: abecf24fb52dbde09312f97f3cd9fba3b975e751
+Delivered-To: finalreflector@gmail.com
+Received: by 10.65.156.11 with SMTP id i11cs8144qbo;
+        Tue, 11 Jul 2006 06:58:55 -0700 (PDT)
+Received: by 10.48.1.10 with SMTP id 10mr532349nfa;
+        Tue, 11 Jul 2006 06:58:55 -0700 (PDT)
+Return-Path: &amp;lt;2Cd5mXDb2n@mail.ru&amp;gt;
+Received: from cuscon15488.tstt.net.tt (cuscon15488.tstt.net.tt [201.238.64.41])
+        by mx.gmail.com with ESMTP id p45si563885nfa.2006.07.11.06.58.29;
+        Tue, 11 Jul 2006 06:58:55 -0700 (PDT)
+Received-SPF: softfail (gmail.com: domain of transitioning 2Cd5mXDb2n@mail.ru does not designate 201.238.64.41 as permitted sender)
+Date: Tue, 11 Jul 2006 13:54:43 +0240
+From: &quot;Ferdinand Brandon&quot; &amp;lt;FerdinandBrandon@mail.ru&amp;gt;
+X-Mailer: The Bat! (v3.01 RC8) Professional
+Reply-To: &quot;Ferdinand Brandon&quot; &amp;lt;FerdinandBrandon@mail.ru&amp;gt;
+X-Priority: 3 (Normal)
+Message-ID: &amp;lt;72387775.20060711135443@mail.ru&amp;gt;
+To: finaly.gfw@gmail.com
+Subject: S8F
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+     I stepped inside  and went straight for the canisters.  I crouched over
+one-in-a-million bird. Most of us came along ever so slowly. We went  from
+     He looked up from the map  and stared out the window.  And I stared out
+and he couldn't help but think that there might be one or two  gulls  back
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[8:01 PM] LoneWolf345: Off topic question.  What is the significance of the 8f in your screen name?  Is it supposed to be pronounced?
+[8:02 PM] carlos8f: ha. i like when people ask me that
+[8:02 PM] LoneWolf345: Or is it a hex number?
+[8:02 PM] carlos8f: just a minute
+[8:02 PM] carlos8f: i used to explain it on my website
+[8:02 PM] carlos8f: but the website's been down for a while
+[8:15 PM] carlos8f: @LoneWolf345 ok, here you go :smile: https://gist.github.com/carlos8f/916687a81a6232981af601f362a7640e
+Gist
+S8F.md
+S8F.md
+
+[8:17 PM] LoneWolf345: Fun
+[8:17 PM] carlos8f: yep, I have no idea who sent me that email
+[8:18 PM] carlos8f: it's the greatest mystery of my life
+[8:18 PM] carlos8f: like, what were they even trying to do?
+[8:19 PM] carlos8f: quote jonathan livingston seagull and cross it with something about cannisters?
+[8:19 PM] carlos8f: LOL
+[8:19 PM] carlos8f: and why S8F as the subject
+[8:19 PM] carlos8f: i will never know.
+[8:19 PM] LoneWolf345: My profile pic say “stupid as a rat”.  It was something an old roommate called once when he was mad.  Never heard of that before so I decided to embrace it.  Paid to have a logo made, started a website for all my experimental stuff, all that fun.
+[8:20 PM] LoneWolf345: That was so many years ago but it still my gravatar
+[8:20 PM] Crankshaw: lol email.  they were probably just seeing what emails existed out there. checking for bounces (or the lack of)
+[8:20 PM] carlos8f: lol, sounds like a cynical motto
+[8:21 PM] carlos8f: i can understand checking for bounces, but why did they have to get CREATIVE lol
+[8:21 PM] carlos8f: it makes no sense
+[8:21 PM] Crankshaw: yeah lol
+[8:21 PM] carlos8f: some genius hacker probably that has autism and can't formulate sentences
+[8:22 PM] Crankshaw: maybe they ran some books through a markov chain thing and used it instead of lorem ipsum
+[8:22 PM] Crankshaw: might have been to avoid spam filters
+[8:22 PM] Crankshaw: but uhh, not sure why they would need to
+[8:22 PM] carlos8f: yeah, but there was no URL in the email!
+[8:22 PM] carlos8f: WTF! what are they baiting me with!
+[8:22 PM] Crankshaw: yeah, it's all rather odd
+[8:22 PM] carlos8f: this is a new category of spam entirely
+[8:22 PM] carlos8f: it's the kind of spam that is more like performance art
+[8:22 PM] Crankshaw: seemingly for no reason at all
+[8:23 PM] Crankshaw: maybe s8f was a sequence id
+[8:23 PM] Crankshaw: and you need to find all the others
+[8:23 PM] Crankshaw: and put them together
+[8:23 PM] Crankshaw: and only then will the world see what the real message is
+[8:23 PM] carlos8f: maybe, a hacker wrote a script that sends those random fucked up emails from EVERY server he conquers in his botnet...
+[8:23 PM] Crankshaw: ohhh, interesting theory.  could be a form of stenography
+[8:24 PM] Crankshaw: one of the mass emails will be to a specific address and contain a specific random phrase
+[8:24 PM] carlos8f: the trippy part, was when i was re-reading  jonathan livingston seagull randomly, and I found the passage that matched the email i was so puzzled about! i was like, MIND BLOWN
+[8:24 PM] Crankshaw: haha
+[8:25 PM] carlos8f: it was like real-world da-vinci code
+[8:25 PM] carlos8f: they picked a really obscure book, and i happened to read it AFTER I got the email
+[8:25 PM] carlos8f: and happened to recognize the passage
+[8:25 PM] carlos8f: even though it was garbled in the email
+[8:26 PM] brucetus: haha that email
+[8:26 PM] carlos8f: it's from russia or something
+[8:26 PM] Crankshaw: so many different email addresses in the headers lol
+[8:26 PM] carlos8f: i'm pretty sure it was the mischief of some genius russian hacker :stuck_out_tongue:
+[8:27 PM] carlos8f: who was attacking and blacklisting all his kills to death for the fun of it
+[8:27 PM] Crankshaw: I need to google &quot;The Bat!&quot; now
+[8:27 PM] carlos8f: yeah, that is one of the funniest details of the whle thing
+[8:27 PM] carlos8f: what is &quot;the bat&quot;? LOL
+[8:28 PM] Crankshaw: oh it's just an email client as it turns out
+[8:28 PM] Crankshaw: like eudora
+[8:28 PM] Crankshaw: https://www.ritlabs.com/en/products/thebat/
+The Bat! - Secure Desktop Email Client for Windows 10
+The Bat! is a secure desktop email client for Windows, designed to protect your correspondence against third-parties and to save your time.
+[8:30 PM] carlos8f: oh geez, this is totally a crypto hacker
+[8:30 PM] carlos8f: he's using end to end!!!
+[8:30 PM] carlos8f: almost no one uses that with email
+[8:31 PM] carlos8f: certainly not in 2006
+[8:31 PM] carlos8f: ferdinand brandon is some kind of alias
+[8:31 PM] carlos8f: i wish i could meet that guy
+[8:32 PM] carlos8f: ok, so if it's just a regular email client, why was he targeting a whole list of addresses?
+[8:32 PM] carlos8f: wouldn't a spammer use custom software to send the emails?
+[8:32 PM] Crankshaw: yeah it's all rather odd.  possibly just a spoofed header though
+[8:32 PM] Crankshaw: or an infected pc that used an installed &quot;The Bat!&quot;
+[8:33 PM] carlos8f: why choose the  Bat as the spoofed client
+[8:33 PM] Crankshaw: could've just called the &quot;send an email&quot; thing and that was the registered app for it
+[8:33 PM] carlos8f: possibly
+[8:33 PM] Crankshaw: ahh, fuck knows lol.
+[8:33 PM] Crankshaw: it's all so strange
+[8:33 PM] carlos8f: but, then they would get their IP blacklisted immediately
+[8:33 PM] carlos8f: the logic totally eludes me
+[8:34 PM] Crankshaw: yeah, wtf
+[8:35 PM] carlos8f: anyway, that's what carlos8f comes from :smiley:
+[8:35 PM] carlos8f: now you know the lore
+[8:36 PM] carlos8f: coming up on the 12 year anniversary
+[8:36 PM] carlos8f: i should re-launch s8f.org
+[8:55 PM] LoneWolf345: Nice
+[8:55 PM] LoneWolf345: Glad I asked
+May 16, 2018
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </content>
  </entry>
  
  <entry>
    <title>An alternate solution to the "The 3 Light Switches" problem</title>
-   <link href="http://localhost:4000/1473461226/index.html"/>
+   <link href="/1473461226/index.html"/>
    <updated>2016-09-09T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1473461226/1473461226</id>
+   <id>/1473461226/1473461226</id>
    <content type="html">&lt;p&gt;Today, I accidentally came up with an alternative, novel solution to the classic interview question, “The 3 Light Switches”.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -76,9 +192,9 @@
  
  <entry>
    <title>Zenbot 3.5.13 released</title>
-   <link href="http://localhost:4000/1472017438/index.html"/>
+   <link href="/1472017438/index.html"/>
    <updated>2016-08-23T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1472017438/1472017438</id>
+   <id>/1472017438/1472017438</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/carlos8f/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Check out Zenbot 3 &lt;a href=&quot;https://github.com/carlos8f/zenbot&quot;&gt;on Github&lt;/a&gt; (and don’t forget to “star” it!)&lt;/p&gt;
@@ -189,9 +305,9 @@
  
  <entry>
    <title>Zenbot 3.4.0 Released</title>
-   <link href="http://localhost:4000/1471848006/index.html"/>
+   <link href="/1471848006/index.html"/>
    <updated>2016-08-21T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1471848006/1471848006</id>
+   <id>/1471848006/1471848006</id>
    <content type="html">&lt;h2 id=&quot;zenbot-340-latest&quot;&gt;Zenbot &lt;a href=&quot;https://github.com/carlos8f/zenbot/releases/tag/v3.4.0&quot;&gt;&lt;strong&gt;3.4.0&lt;/strong&gt;&lt;/a&gt; (Latest)&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -210,9 +326,9 @@
  
  <entry>
    <title>Zenbot 3.2 released</title>
-   <link href="http://localhost:4000/1471728397/index.html"/>
+   <link href="/1471728397/index.html"/>
    <updated>2016-08-20T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1471728397/1471728397</id>
+   <id>/1471728397/1471728397</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/carlos8f/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -232,9 +348,9 @@
  
  <entry>
    <title>Zenbot 3.0.3 released!</title>
-   <link href="http://localhost:4000/1471215016/index.html"/>
+   <link href="/1471215016/index.html"/>
    <updated>2016-08-14T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1471215016/1471215016</id>
+   <id>/1471215016/1471215016</id>
    <content type="html">&lt;p&gt;Announcing &lt;a href=&quot;https://github.com/carlos8f/zenbot&quot;&gt;Zenbot 3.0.3&lt;/a&gt;, my cryptocurrency trading bot. Over a month in development, this release has loads of improvements, including:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -335,9 +451,9 @@ Carlos&lt;/p&gt;
  
  <entry>
    <title>zenbot_ebooks</title>
-   <link href="http://localhost:4000/1469498642/index.html"/>
+   <link href="/1469498642/index.html"/>
    <updated>2016-07-25T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1469498642/1469498642</id>
+   <id>/1469498642/1469498642</id>
    <content type="html">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I drove by a confederate flag on the way to do Zen practice. A long and active life...&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757756205817180160&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just realized DWARF debug format (to dig in an executable) is a mountain, far beyond the mists. Some said take that path.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757809526930235393&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
@@ -363,9 +479,9 @@ Carlos&lt;/p&gt;
  
  <entry>
    <title>Why I ditched Comodo SSL (and you should, too)</title>
-   <link href="http://localhost:4000/1467411232/index.html"/>
+   <link href="/1467411232/index.html"/>
    <updated>2016-07-01T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1467411232/1467411232</id>
+   <id>/1467411232/1467411232</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Essentially, at some point a decision was made to anchor trust in an organization like Comodo, and now we’re locked into trusting them — &lt;em&gt;forever&lt;/em&gt;.&lt;/p&gt;
   &lt;ul&gt;
@@ -489,9 +605,9 @@ Carlos&lt;/p&gt;
  
  <entry>
    <title>Zenbot 3</title>
-   <link href="http://localhost:4000/1467335524/index.html"/>
+   <link href="/1467335524/index.html"/>
    <updated>2016-06-30T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1467335524/1467335524</id>
+   <id>/1467335524/1467335524</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/carlos8f/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://gitpitch.com/carlos8f/zenbot/master?t=moon&quot;&gt;&lt;img src=&quot;https://gitpitch.com/assets/badge.svg&quot; alt=&quot;GitPitch&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -908,9 +1024,9 @@ mongorestore
  
  <entry>
    <title>Salty 4.0 released</title>
-   <link href="http://localhost:4000/1466743328/index.html"/>
+   <link href="/1466743328/index.html"/>
    <updated>2016-06-23T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1466743328/1466743328</id>
+   <id>/1466743328/1466743328</id>
    <content type="html">&lt;p&gt;40 years ago today, Diffie and Hellman invented the public key exchange algorithm. Today, I present you:&lt;/p&gt;
 
 &lt;h2 id=&quot;salty&quot;&gt;Salty&lt;/h2&gt;
@@ -994,18 +1110,18 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
  
  <entry>
    <title>cyberpunk midnight nintendo street jam with SMALL MYTH SOUNDSYSTEM</title>
-   <link href="http://localhost:4000/1465539942/index.html"/>
+   <link href="/1465539942/index.html"/>
    <updated>2016-06-09T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1465539942/1465539942</id>
+   <id>/1465539942/1465539942</id>
    <content type="html">&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/xh_AHrBVpcg?start=229&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </content>
  </entry>
  
  <entry>
    <title>S8F Console: How to use Salty</title>
-   <link href="http://localhost:4000/1465282150/index.html"/>
+   <link href="/1465282150/index.html"/>
    <updated>2016-06-06T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1465282150/1465282150</id>
+   <id>/1465282150/1465282150</id>
    <content type="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/0ugtoagc27nbow9cixedejw4f.js&quot; id=&quot;asciicast-0ugtoagc27nbow9cixedejw4f&quot; async=&quot;&quot;&gt;&lt;/script&gt;
 
 </content>
@@ -1013,9 +1129,9 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
  
  <entry>
    <title>Salty: PGP Evolved</title>
-   <link href="http://localhost:4000/1465262642/index.html"/>
+   <link href="/1465262642/index.html"/>
    <updated>2016-06-06T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1465262642/1465262642</id>
+   <id>/1465262642/1465262642</id>
    <content type="html">&lt;p&gt;This is a step-by-step rebuttal to &lt;a href=&quot;http://secushare.org/PGP&quot;&gt;secushare&lt;/a&gt;’s arguments against the PGP model, and how &lt;a href=&quot;https://s8f.org/salty.html&quot;&gt;Salty&lt;/a&gt; tries to make things right again.&lt;/p&gt;
 
 &lt;h3 id=&quot;1-downgrade-attack-the-risk-of-using-it-wrong&quot;&gt;1. Downgrade Attack: The risk of using it wrong.&lt;/h3&gt;
@@ -1069,9 +1185,9 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
  
  <entry>
    <title>Salty</title>
-   <link href="http://localhost:4000/1464902995/index.html"/>
+   <link href="/1464902995/index.html"/>
    <updated>2016-06-02T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1464902995/1464902995</id>
+   <id>/1464902995/1464902995</id>
    <content type="html">&lt;p&gt;Alternative public key encryption&lt;/p&gt;
 
 &lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
@@ -1435,9 +1551,9 @@ AADffgAA4+4AAPf+AAD//gAA//4AAP/+AAD//gAA
  
  <entry>
    <title>The Life and Death of PGP</title>
-   <link href="http://localhost:4000/1463990203/index.html"/>
+   <link href="/1463990203/index.html"/>
    <updated>2016-05-23T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1463990203/1463990203</id>
+   <id>/1463990203/1463990203</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; stepping in, and going straight for the canisters... &amp;gt;&amp;gt;&amp;gt;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1479,9 +1595,9 @@ AADffgAA4+4AAPf+AAD//gAA//4AAP/+AAD//gAA
  
  <entry>
    <title>Motley</title>
-   <link href="http://localhost:4000/1402636102/index.html"/>
+   <link href="/1402636102/index.html"/>
    <updated>2014-06-12T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1402636102/1402636102</id>
+   <id>/1402636102/1402636102</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://raw.github.com/carlos8f/motley/master/assets/motley-full.png&quot; alt=&quot;motley&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;get-started-in-3-shell-commands&quot;&gt;Get Started in 3 shell commands:&lt;/h2&gt;
@@ -1564,9 +1680,9 @@ node server.js
  
  <entry>
    <title>Poster: Coffee Drinks Illustrated</title>
-   <link href="http://localhost:4000/1400780521/index.html"/>
+   <link href="/1400780521/index.html"/>
    <updated>2014-05-22T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1400780521/1400780521</id>
+   <id>/1400780521/1400780521</id>
    <content type="html">&lt;p&gt;In 2010 I found &lt;a href=&quot;http://lokeshdhakar.com/coffee-drinks-illustrated/&quot;&gt;this awesome coffee drink infographic&lt;/a&gt;, but at the time I couldn’t find a PDF or vector version available. I wanted a large print of it, so I took it upon myself to re-illustrate it using &lt;a href=&quot;http://www.inkscape.org/&quot;&gt;Inkscape&lt;/a&gt;, with some slight modifications so it shows up well in a tabloid-format print.&lt;/p&gt;
 
 &lt;p&gt;I found afterwards that the author, Lokesh Dhakar, released a &lt;a href=&quot;http://lokeshdhakar.com/coffee-diagram-follow-up/&quot;&gt;vector version&lt;/a&gt;, but I still like the header and wide format that I created.&lt;/p&gt;
@@ -1575,10 +1691,10 @@ node server.js
 
 &lt;p&gt;Thanks, Lokesh!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.pdf&quot;&gt;&lt;img src=&quot;http://localhost:4000/files/coffee_poster_tabloid.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/files/coffee_poster_tabloid.pdf&quot;&gt;&lt;img src=&quot;/files/coffee_poster_tabloid.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.pdf&quot;&gt;Download PDF&lt;/a&gt; /
-&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.svg&quot;&gt;Download Inkscape SVG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/files/coffee_poster_tabloid.pdf&quot;&gt;Download PDF&lt;/a&gt; /
+&lt;a href=&quot;/files/coffee_poster_tabloid.svg&quot;&gt;Download Inkscape SVG&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
