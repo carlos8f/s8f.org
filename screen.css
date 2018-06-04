@@ -404,6 +404,14 @@ audio {
   color: black;
 }
 
+.projects a:hover {
+  background: #eee;
+}
+
+.projects a:hover h3 {
+
+}
+
 .projects .inner {
   padding-right: 20px;
   padding-bottom: 10px;
