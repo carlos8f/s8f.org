@@ -8,3 +8,4 @@ encoding: utf-8
 permalink: /:title/index.html
 exclude: [_scripts,Makefile]
 paginate: 3
+paginate_path: "/page:num"

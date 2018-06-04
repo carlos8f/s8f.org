@@ -4,7 +4,7 @@
  <title>s8f.org 💾 I stepped inside and went straight for the canisters</title>
  <link href="https://s8f.org/atom.xml" rel="self"/>
  <link href="https://s8f.org/"/>
- <updated>2018-06-03T23:15:22-07:00</updated>
+ <updated>2018-06-03T23:48:49-07:00</updated>
  <id>https://s8f.org</id>
  <author>
    <name>Carlos Rodriguez</name>
@@ -211,14 +211,14 @@ May 16, 2018
    <link href="https://s8f.org/1472017438/index.html"/>
    <updated>2016-08-23T00:00:00-07:00</updated>
    <id>https://s8f.org/1472017438/1472017438</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/DeviaVir/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/files/zenbot_thumb.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Check out Zenbot 3 &lt;a href=&quot;https://github.com/DeviaVir/zenbot&quot;&gt;on Github&lt;/a&gt; (and don’t forget to “star” it!)&lt;/p&gt;
 
 &lt;h3 id=&quot;update-log&quot;&gt;Update Log&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/carlos8f/zenbot/releases/tag/v3.5.13&quot;&gt;&lt;strong&gt;3.5.13&lt;/strong&gt;&lt;/a&gt; (Latest)
+  &lt;li&gt;&lt;a href=&quot;https://github.com/DeviaVir/zenbot/releases/tag/v3.5.13&quot;&gt;&lt;strong&gt;3.5.13&lt;/strong&gt;&lt;/a&gt; (Latest)
     &lt;ul&gt;
       &lt;li&gt;Change &lt;code class=&quot;highlighter-rouge&quot;&gt;check_period&lt;/code&gt; to 5m in trading engine&lt;/li&gt;
       &lt;li&gt;ROI 1.477 -&amp;gt; 1.720&lt;/li&gt;
