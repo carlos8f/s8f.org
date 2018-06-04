@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>s8f.org 💾 I stepped inside and went straight for the canisters</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2018-06-03T23:12:27-07:00</updated>
- <id>http://localhost:4000</id>
+ <link href="https://s8f.org/atom.xml" rel="self"/>
+ <link href="https://s8f.org/"/>
+ <updated>2018-06-03T23:15:22-07:00</updated>
+ <id>https://s8f.org</id>
  <author>
    <name>Carlos Rodriguez</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Happy 12th Anniversary, Ferdinand Brandon!</title>
-   <link href="http://localhost:4000/1528088439/index.html"/>
+   <link href="https://s8f.org/1528088439/index.html"/>
    <updated>2018-06-03T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1528088439/1528088439</id>
+   <id>https://s8f.org/1528088439/1528088439</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;X-Gmail-Received: abecf24fb52dbde09312f97f3cd9fba3b975e751
 Delivered-To: finalreflector@gmail.com
 Received: by 10.65.156.11 with SMTP id i11cs8144qbo;
@@ -155,9 +155,9 @@ May 16, 2018
  
  <entry>
    <title>An alternate solution to the "The 3 Light Switches" problem</title>
-   <link href="http://localhost:4000/1473461226/index.html"/>
+   <link href="https://s8f.org/1473461226/index.html"/>
    <updated>2016-09-09T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1473461226/1473461226</id>
+   <id>https://s8f.org/1473461226/1473461226</id>
    <content type="html">&lt;p&gt;Today, I accidentally came up with an alternative, novel solution to the classic interview question, “The 3 Light Switches”.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -208,9 +208,9 @@ May 16, 2018
  
  <entry>
    <title>Zenbot 3.5.13 released</title>
-   <link href="http://localhost:4000/1472017438/index.html"/>
+   <link href="https://s8f.org/1472017438/index.html"/>
    <updated>2016-08-23T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1472017438/1472017438</id>
+   <id>https://s8f.org/1472017438/1472017438</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/DeviaVir/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Check out Zenbot 3 &lt;a href=&quot;https://github.com/DeviaVir/zenbot&quot;&gt;on Github&lt;/a&gt; (and don’t forget to “star” it!)&lt;/p&gt;
@@ -321,9 +321,9 @@ May 16, 2018
  
  <entry>
    <title>Zenbot 3.4.0 Released</title>
-   <link href="http://localhost:4000/1471848006/index.html"/>
+   <link href="https://s8f.org/1471848006/index.html"/>
    <updated>2016-08-21T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1471848006/1471848006</id>
+   <id>https://s8f.org/1471848006/1471848006</id>
    <content type="html">&lt;h2 id=&quot;zenbot-340-latest&quot;&gt;Zenbot &lt;a href=&quot;https://github.com/DeviaVir/zenbot/releases/tag/v3.4.0&quot;&gt;&lt;strong&gt;3.4.0&lt;/strong&gt;&lt;/a&gt; (Latest)&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -342,9 +342,9 @@ May 16, 2018
  
  <entry>
    <title>Zenbot 3.2 released</title>
-   <link href="http://localhost:4000/1471728397/index.html"/>
+   <link href="https://s8f.org/1471728397/index.html"/>
    <updated>2016-08-20T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1471728397/1471728397</id>
+   <id>https://s8f.org/1471728397/1471728397</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/DeviaVir/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -364,9 +364,9 @@ May 16, 2018
  
  <entry>
    <title>Zenbot 3.0.3 released!</title>
-   <link href="http://localhost:4000/1471215016/index.html"/>
+   <link href="https://s8f.org/1471215016/index.html"/>
    <updated>2016-08-14T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1471215016/1471215016</id>
+   <id>https://s8f.org/1471215016/1471215016</id>
    <content type="html">&lt;p&gt;Announcing &lt;a href=&quot;https://github.com/DeviaVir/zenbot&quot;&gt;Zenbot 3.0.3&lt;/a&gt;, my cryptocurrency trading bot. Over a month in development, this release has loads of improvements, including:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -467,9 +467,9 @@ Carlos&lt;/p&gt;
  
  <entry>
    <title>zenbot_ebooks</title>
-   <link href="http://localhost:4000/1469498642/index.html"/>
+   <link href="https://s8f.org/1469498642/index.html"/>
    <updated>2016-07-25T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1469498642/1469498642</id>
+   <id>https://s8f.org/1469498642/1469498642</id>
    <content type="html">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I drove by a confederate flag on the way to do Zen practice. A long and active life...&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757756205817180160&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just realized DWARF debug format (to dig in an executable) is a mountain, far beyond the mists. Some said take that path.&lt;/p&gt;&amp;mdash; zen ebooks (@zenbot_ebooks) &lt;a href=&quot;https://twitter.com/zenbot_ebooks/status/757809526930235393&quot;&gt;July 26, 2016&lt;/a&gt;&lt;/blockquote&gt;
@@ -495,9 +495,9 @@ Carlos&lt;/p&gt;
  
  <entry>
    <title>Why I ditched Comodo SSL (and you should, too)</title>
-   <link href="http://localhost:4000/1467411232/index.html"/>
+   <link href="https://s8f.org/1467411232/index.html"/>
    <updated>2016-07-01T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1467411232/1467411232</id>
+   <id>https://s8f.org/1467411232/1467411232</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Essentially, at some point a decision was made to anchor trust in an organization like Comodo, and now we’re locked into trusting them — &lt;em&gt;forever&lt;/em&gt;.&lt;/p&gt;
   &lt;ul&gt;
@@ -621,9 +621,9 @@ Carlos&lt;/p&gt;
  
  <entry>
    <title>Zenbot 3</title>
-   <link href="http://localhost:4000/1467335524/index.html"/>
+   <link href="https://s8f.org/1467335524/index.html"/>
    <updated>2016-06-30T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1467335524/1467335524</id>
+   <id>https://s8f.org/1467335524/1467335524</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://rawgit.com/DeviaVir/zenbot/master/assets/zenbot_3_logo.png&quot; alt=&quot;zenbot logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://gitpitch.com/DeviaVir/zenbot/master?t=moon&quot;&gt;&lt;img src=&quot;https://gitpitch.com/assets/badge.svg&quot; alt=&quot;GitPitch&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1040,9 +1040,9 @@ mongorestore
  
  <entry>
    <title>Salty 4.0 released</title>
-   <link href="http://localhost:4000/1466743328/index.html"/>
+   <link href="https://s8f.org/1466743328/index.html"/>
    <updated>2016-06-23T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1466743328/1466743328</id>
+   <id>https://s8f.org/1466743328/1466743328</id>
    <content type="html">&lt;p&gt;40 years ago today, Diffie and Hellman invented the public key exchange algorithm. Today, I present you:&lt;/p&gt;
 
 &lt;h2 id=&quot;salty&quot;&gt;Salty&lt;/h2&gt;
@@ -1126,18 +1126,18 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
  
  <entry>
    <title>cyberpunk midnight nintendo street jam with SMALL MYTH SOUNDSYSTEM</title>
-   <link href="http://localhost:4000/1465539942/index.html"/>
+   <link href="https://s8f.org/1465539942/index.html"/>
    <updated>2016-06-09T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1465539942/1465539942</id>
+   <id>https://s8f.org/1465539942/1465539942</id>
    <content type="html">&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/xh_AHrBVpcg?start=229&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </content>
  </entry>
  
  <entry>
    <title>S8F Console: How to use Salty</title>
-   <link href="http://localhost:4000/1465282150/index.html"/>
+   <link href="https://s8f.org/1465282150/index.html"/>
    <updated>2016-06-06T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1465282150/1465282150</id>
+   <id>https://s8f.org/1465282150/1465282150</id>
    <content type="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/0ugtoagc27nbow9cixedejw4f.js&quot; id=&quot;asciicast-0ugtoagc27nbow9cixedejw4f&quot; async=&quot;&quot;&gt;&lt;/script&gt;
 
 </content>
@@ -1145,9 +1145,9 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
  
  <entry>
    <title>Salty: PGP Evolved</title>
-   <link href="http://localhost:4000/1465262642/index.html"/>
+   <link href="https://s8f.org/1465262642/index.html"/>
    <updated>2016-06-06T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1465262642/1465262642</id>
+   <id>https://s8f.org/1465262642/1465262642</id>
    <content type="html">&lt;p&gt;This is a step-by-step rebuttal to &lt;a href=&quot;http://secushare.org/PGP&quot;&gt;secushare&lt;/a&gt;’s arguments against the PGP model, and how &lt;a href=&quot;https://s8f.org/salty.html&quot;&gt;Salty&lt;/a&gt; tries to make things right again.&lt;/p&gt;
 
 &lt;h3 id=&quot;1-downgrade-attack-the-risk-of-using-it-wrong&quot;&gt;1. Downgrade Attack: The risk of using it wrong.&lt;/h3&gt;
@@ -1201,9 +1201,9 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
  
  <entry>
    <title>Salty</title>
-   <link href="http://localhost:4000/1464902995/index.html"/>
+   <link href="https://s8f.org/1464902995/index.html"/>
    <updated>2016-06-02T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1464902995/1464902995</id>
+   <id>https://s8f.org/1464902995/1464902995</id>
    <content type="html">&lt;p&gt;Alternative public key encryption&lt;/p&gt;
 
 &lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
@@ -1567,9 +1567,9 @@ AADffgAA4+4AAPf+AAD//gAA//4AAP/+AAD//gAA
  
  <entry>
    <title>The Life and Death of PGP</title>
-   <link href="http://localhost:4000/1463990203/index.html"/>
+   <link href="https://s8f.org/1463990203/index.html"/>
    <updated>2016-05-23T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1463990203/1463990203</id>
+   <id>https://s8f.org/1463990203/1463990203</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; stepping in, and going straight for the canisters... &amp;gt;&amp;gt;&amp;gt;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1611,9 +1611,9 @@ AADffgAA4+4AAPf+AAD//gAA//4AAP/+AAD//gAA
  
  <entry>
    <title>Motley</title>
-   <link href="http://localhost:4000/1402636102/index.html"/>
+   <link href="https://s8f.org/1402636102/index.html"/>
    <updated>2014-06-12T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1402636102/1402636102</id>
+   <id>https://s8f.org/1402636102/1402636102</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://raw.github.com/carlos8f/motley/master/assets/motley-full.png&quot; alt=&quot;motley&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;get-started-in-3-shell-commands&quot;&gt;Get Started in 3 shell commands:&lt;/h2&gt;
@@ -1696,9 +1696,9 @@ node server.js
  
  <entry>
    <title>Poster: Coffee Drinks Illustrated</title>
-   <link href="http://localhost:4000/1400780521/index.html"/>
+   <link href="https://s8f.org/1400780521/index.html"/>
    <updated>2014-05-22T00:00:00-07:00</updated>
-   <id>http://localhost:4000/1400780521/1400780521</id>
+   <id>https://s8f.org/1400780521/1400780521</id>
    <content type="html">&lt;p&gt;In 2010 I found &lt;a href=&quot;http://lokeshdhakar.com/coffee-drinks-illustrated/&quot;&gt;this awesome coffee drink infographic&lt;/a&gt;, but at the time I couldn’t find a PDF or vector version available. I wanted a large print of it, so I took it upon myself to re-illustrate it using &lt;a href=&quot;http://www.inkscape.org/&quot;&gt;Inkscape&lt;/a&gt;, with some slight modifications so it shows up well in a tabloid-format print.&lt;/p&gt;
 
 &lt;p&gt;I found afterwards that the author, Lokesh Dhakar, released a &lt;a href=&quot;http://lokeshdhakar.com/coffee-diagram-follow-up/&quot;&gt;vector version&lt;/a&gt;, but I still like the header and wide format that I created.&lt;/p&gt;
@@ -1707,10 +1707,10 @@ node server.js
 
 &lt;p&gt;Thanks, Lokesh!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.pdf&quot;&gt;&lt;img src=&quot;http://localhost:4000/files/coffee_poster_tabloid.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://s8f.org/files/coffee_poster_tabloid.pdf&quot;&gt;&lt;img src=&quot;https://s8f.org/files/coffee_poster_tabloid.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.pdf&quot;&gt;Download PDF&lt;/a&gt; /
-&lt;a href=&quot;http://localhost:4000/files/coffee_poster_tabloid.svg&quot;&gt;Download Inkscape SVG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://s8f.org/files/coffee_poster_tabloid.pdf&quot;&gt;Download PDF&lt;/a&gt; /
+&lt;a href=&quot;https://s8f.org/files/coffee_poster_tabloid.svg&quot;&gt;Download Inkscape SVG&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
