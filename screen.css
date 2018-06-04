@@ -404,15 +404,6 @@ audio {
   color: black;
 }
 
-.projects a:hover {
-  color: #3ceb00;
-  background: black;
-}
-
-.projects a:hover h3 {
-  color: #3ceb00;
-}
-
 .projects .inner {
   padding-right: 20px;
   padding-bottom: 10px;
