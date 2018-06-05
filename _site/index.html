@@ -74,6 +74,33 @@
   
   <section class="post-section section">
   <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1528191087/index.html">The probabilities of finding aliens in our galaxy</a></h1>
+    <div class="meta">
+      <time datetime="2018-06-05T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 5<span>th</span>, 2018
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p>According to Drake Equation estimates, the closest aliens in our own galaxy are likely to be about 21,000 light-years away. That means it will take 21 thousand years for our signals to reach them, and 21 thousand years to wait for a response. By the time we get a response, they may be all dead, or we may be all dead. That is some serious PING time!</p>
+
+<p>Aliens may very well exist, in fact their existence may be a probabilistic certainty. But in all likelihood, one civilization won’t know about the other(s) unless it has existed for over 42 thousand years, and the foreign one has existed for at least 21 thousand years.</p>
+
+<p>That is all assuming that both civilizations are actively trying to contact each other, and listen for any possible transmissions, and can decipher such transmissions meaningfully and concoct and transmit a logical response.</p>
+
+<p>Assuming a civilization broadcasts messages for an average of 10,000 years, there may be about 22 currently broadcasting civilizations in our galaxy. Assuming 500 years (which may be much more realistic, since we’ve only been broadcasting for less than 100 years), there may be just 1.2 civilizations – Ours.</p>
+
+<p>Source: http://www.astrodigital.org/astronomy/drake_equation.html</p>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
     <h1 class="entry-title"><a class="entry-title-link" href="/1528088439/index.html">Happy 12th Anniversary, Ferdinand Brandon!</a></h1>
     <div class="meta">
       <time datetime="2018-06-03T00:00:00-07:00" pubdate data-updated="true">
@@ -279,129 +306,6 @@ May 16, 2018
   <li>if yes, the bulb in the room is switch B.</li>
   <li>if no, the bulb in the room is switch C.</li>
   <li>the “X” bulb is the remaining switch, either B or C depending on the light or darkness coming from the room.</li>
-</ul>
-
-  </div>
-</section>
-
-  
-  
-  <section class="post-section section">
-  <header class="entry-header">
-    <h1 class="entry-title"><a class="entry-title-link" href="/1472017438/index.html">Zenbot 3.5.13 released</a></h1>
-    <div class="meta">
-      <time datetime="2016-08-23T00:00:00-07:00" pubdate data-updated="true">
-  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
-  Aug. 23<span>rd</span>, 2016
-</time>
-
-    </div>
-  </header>
-  <div class="entry-content">
-  <p><img src="/files/zenbot_thumb.png" alt="zenbot logo" /></p>
-
-<p>Check out Zenbot 3 <a href="https://github.com/DeviaVir/zenbot">on Github</a> (and don’t forget to “star” it!)</p>
-
-<h3 id="update-log">Update Log</h3>
-
-<ul>
-  <li><a href="https://github.com/DeviaVir/zenbot/releases/tag/v3.5.13"><strong>3.5.13</strong></a> (Latest)
-    <ul>
-      <li>Change <code class="highlighter-rouge">check_period</code> to 5m in trading engine</li>
-      <li>ROI 1.477 -&gt; 1.720</li>
-      <li>Speed up sim by only processing 5m ticks</li>
-    </ul>
-  </li>
-  <li><strong>3.5.12</strong>
-    <ul>
-      <li>Tweaks to default trade params, ROI = 1.364 -&gt; 1.477</li>
-      <li>Misc warning text changes</li>
-    </ul>
-  </li>
-  <li><strong>3.5.11</strong>
-    <ul>
-      <li>Fix 1m reporter not working in advisor mode.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.10</strong>
-    <ul>
-      <li>Fix <code class="highlighter-rouge">run.sh</code> not starting server.</li>
-      <li>Remove –verbose from new run script.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.9</strong>
-    <ul>
-      <li>Add –backfill and –verbose to new run script.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.8</strong>
-    <ul>
-      <li>Fix “skipping historical tick” (prevented bot from acting on trends) issue with Zenbrain update.</li>
-      <li>Fix ANSI graph range again.</li>
-      <li>Added <code class="highlighter-rouge">run.sh</code> back to run the default pair BTC/USD and reducer/server.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.7</strong>
-    <ul>
-      <li>make use of rs.rsi for indicators (instead of querying for rsi tick), spacing for ETA.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.6</strong>
-    <ul>
-      <li>Fix ANSI graph range.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.5</strong>
-    <ul>
-      <li>ANSI graph now follows RSI instead of SMA.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.4</strong>
-    <ul>
-      <li>ETA indicator replaces progress, and removal of <code class="highlighter-rouge">hold_ticks</code> mechanism in favor of wait params in ms. More warnings in default_logic to show what’s going on with the trader.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.3</strong>
-    <ul>
-      <li>Fixed <code class="highlighter-rouge">--config</code> usage with absolute path.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.2</strong>
-    <ul>
-      <li>Re-organized some config vars, GDAX key now in <code class="highlighter-rouge">config.js</code> instead of <code class="highlighter-rouge">config_eth_btc.js</code> etc.</li>
-    </ul>
-  </li>
-  <li><strong>3.5.1</strong>
-    <ul>
-      <li>Bugfixes</li>
-    </ul>
-  </li>
-  <li><strong>3.5.0</strong>
-    <ul>
-      <li><code class="highlighter-rouge">run.sh</code> split into 3 scripts. Now you’ll need to run <code class="highlighter-rouge">./reducer.sh</code>, <code class="highlighter-rouge">./server.sh</code>, and <code class="highlighter-rouge">./run-{asset}-{currency}.sh</code> in separate windows. Multiple currency pairs can be run in parallel as of Zenbot 3.5.0!</li>
-    </ul>
-  </li>
-  <li><strong>3.4.3</strong>
-    <ul>
-      <li>Fix sim URL not having selector in it</li>
-      <li><code class="highlighter-rouge">min_trade</code> now controlled by <code class="highlighter-rouge">product.min_size</code></li>
-    </ul>
-  </li>
-  <li><strong>3.4.2</strong>
-    <ul>
-      <li>Exit default logic if run command and historical tick</li>
-      <li>Add balance stats to trade actions</li>
-      <li>Add <code class="highlighter-rouge">--config</code> arg doc. You can switch to using a different config with <code class="highlighter-rouge">--config &lt;path&gt;</code></li>
-      <li>Update gist links for newest simulation results.</li>
-      <li>Added <code class="highlighter-rouge">config_eth.js</code> example config for ETH trading.</li>
-    </ul>
-  </li>
-  <li><strong>3.4.1</strong>
-    <ul>
-      <li>Slight re-code of <code class="highlighter-rouge">default_logic.js</code> to fix slipped ROI (1.1 -&gt; 1.8)</li>
-      <li>Added All Poloniex USDT pairs by @JFD3D, Thanks!</li>
-    </ul>
-  </li>
 </ul>
 
   </div>

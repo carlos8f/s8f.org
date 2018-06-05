@@ -23,6 +23,435 @@
   
   <section class="post-section section">
   <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1467335524/index.html">Zenbot 3</a></h1>
+    <div class="meta">
+      <time datetime="2016-06-30T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 30<span>th</span>, 2016
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p><img src="https://rawgit.com/DeviaVir/zenbot/master/assets/zenbot_3_logo.png" alt="zenbot logo" /></p>
+
+<p><a href="https://gitpitch.com/DeviaVir/zenbot/master?t=moon"><img src="https://gitpitch.com/assets/badge.svg" alt="GitPitch" /></a></p>
+
+<blockquote>
+  <p>“To follow the path, look to the master, follow the master, walk with the master, see through the master, become the master.”
+– Zen Proverb</p>
+</blockquote>
+
+<ul>
+  <li>New to Zenbot? Watch the slideshow: <a href="https://gitpitch.com/DeviaVir/zenbot/master?t=moon">Introducing Zenbot 3</a></li>
+  <li>Follow Zenbot <a href="https://twitter.com/zenbot_btc">on Twitter!</a></li>
+  <li>Check out Zenbot’s <a href="https://zenbot.s8f.org/">live feed!</a></li>
+  <li>Join the discussion on <a href="https://www.reddit.com/r/Bitcoin/comments/4xqo8q/announcing_zenbot_3_your_new_btcethltc_trading/">Reddit!</a>!</li>
+  <li>Want to contribute to Zenbot? Read the <a href="https://github.com/DeviaVir/zenbot/blob/master/CONTRIBUTING.md">contributions guide</a></li>
+</ul>
+
+<h2 id="description">Description</h2>
+
+<p>Zenbot is a lightweight, extendable, artificially intelligent trading bot. Currently Zenbot is capable of:</p>
+
+<ul>
+  <li>High-frequency trading, day trading, week trading</li>
+  <li>Multiple asset support for Bitcoin, Ether, Litecoin (and more)</li>
+  <li>Multiple currency support for US Dollars, Euros, Chinese Yuan (and more)</li>
+  <li>Multiple exchange support for Bitfinex, GDAX, Kraken, Poloniex (and more)</li>
+  <li>Realtime consuming and analysis of trade data</li>
+  <li><a href="https://gist.github.com/carlos8f/38a9dd292c7ce4d4425803e9548f7960">Backtesting your trade strategy</a></li>
+  <li>Outputting data as <a href="https://zenbot.s8f.org/data.csv">CSV</a>, <a href="https://gist.githubusercontent.com/carlos8f/38a9dd292c7ce4d4425803e9548f7960/raw/sim_result.json">JSON</a>, or <a href="https://zenbot.s8f.org/">candlestick graph</a></li>
+</ul>
+
+<h3 id="performance">Performance</h3>
+
+<p>Current simulations on historical data from May - August 2016 show Zenbot 3.5.13 making a <a href="https://gist.github.com/carlos8f/c600abb8b984eae31ff770aa2ee0ad68">1.720 ROI</a> in only 3 months, using default parameters!</p>
+
+<p><em>Zenbot is a genius!</em></p>
+
+<p>HOWEVER. BE AWARE that once you hook up Zenbot to a live exchange, the damage done is your fault, not mine! <strong>As with buying crypto currency in general, risk is involved and caution is essential. Crypto currency is an experiment, and so is Zenbot.</strong></p>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>A powerful map/reduce system to live-process data at scale.</li>
+  <li>A plugin system to facilitate incremental support for any exchange, currency pair, trade strategy, or reporting medium.</li>
+  <li>Out of the box, Zenbot is an AI-powered trade advisor (gives you buy or sell signals while watching live data).</li>
+  <li>Default support for <a href="https://gdax.com/">GDAX</a> is included, so if you have a GDAX account, enable bot trades by simply putting your GDAX API key in <code class="highlighter-rouge">config.js</code> and setting what currency pair to trade.</li>
+  <li>Default support for other exchanges is ongoing.</li>
+  <li>Trade strategy is fully exposed in the config file. This allows you to have full control over the bot’s actions and logic. For example, instead of trading on GDAX, you could trade on a different exchange or currency pair by implementing a few lines of JavaScript.</li>
+  <li>A live candlestick graph is provided via a built-in HTTP server.</li>
+</ul>
+
+<h2 id="screenshot">Screenshot</h2>
+
+<p>In the screenshot below, the pink arrows represent the bot buying (up arrow) and selling (down arrow) as it iterated the historical data of <a href="https://gdax.com/">GDAX</a> exchange’s BTC/USD product.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/106763/17872578/8f13af10-6875-11e6-8284-d6863f9a1e1e.png" alt="screenshot" /></p>
+
+<p>RAW data from simulation: https://gist.github.com/carlos8f/c600abb8b984eae31ff770aa2ee0ad68</p>
+
+<h2 id="quick-start">Quick-start</h2>
+
+<h3 id="1-requirements-nodejs-and-mongodb">1. Requirements: <a href="https://nodejs.org/">Node.js</a> and <a href="https://www.mongodb.com/download-center">MongoDB</a></h3>
+
+<h4 id="windows---i-dont-support-it">Windows - I don’t support it.</h4>
+
+<p>If you’re having an error on Windows and you’re about to give up, it’s probably because Node.js is generally broken on Windows and you should try running on a Linux docker container or a Mac instead.</p>
+
+<p>If you’re still insistent on using Windows, you’ll have to fork zenbot, fix it yourself, and I’ll accept a Pull Request.</p>
+
+<h3 id="2-install-zenbot-3">2. Install Zenbot 3:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/DeviaVir/zenbot.git
+cd zenbot
+npm install
+# optional, installs the `zenbot` binary in /usr/local/bin:
+npm link
+</code></pre></div></div>
+
+<p>(optional) Install historical data for GDAX BTC/USD, BTC/ETH, and ETH/BTC. <strong>This may overwrite data in your existing <code class="highlighter-rouge">ticks</code> collection, so be careful!</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://s8f.org/dl/zenbrain.tar.gz
+tar -xf zenbrain.tar.gz
+mongorestore
+</code></pre></div></div>
+
+<h3 id="3-copy-config_samplejs-to-configjs-and-edit-with-api-keys-database-credentials-trade-logic-etc">3. Copy <code class="highlighter-rouge">config_sample.js</code> to <code class="highlighter-rouge">config.js</code> and edit with API keys, database credentials, trade logic, etc.</h3>
+
+<p>Note: add your GDAX key to <code class="highlighter-rouge">config.js</code> to enable real trading.</p>
+
+<h3 id="4-run-zenbot-single-pair-mode">4. Run Zenbot (single-pair mode)</h3>
+
+<p>The following command will run all Zenbot functionality, using the default BTC/USD pair.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./run.sh
+</code></pre></div></div>
+
+<p>Here’s how to run a different pair (example: ETH-BTC):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./zenbot launch map --backfill reduce run server --config config_eth_btc.js
+</code></pre></div></div>
+
+<h3 id="4-run-zenbot-multi-pair-mode">4. Run zenbot (multi-pair mode)</h3>
+
+<p>The following will run multiple currency pairs along with the reducer and server in separate processes.</p>
+
+<p>Required: reducer (for processing trade data):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./reducer.sh
+</code></pre></div></div>
+
+<p>Optional: server (for candlestick graphs and aggregated log):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./server.sh
+</code></pre></div></div>
+
+<p>Required: one or more run scripts (watches trades of a given pair and performs trade actions on the exchange or simulation)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./run-btc-usd.sh
+</code></pre></div></div>
+
+<p>And/or to trade ETH,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./run-eth-usd.sh
+</code></pre></div></div>
+
+<p>And/or to trade ETH/BTC,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./run-eth-btc.sh
+</code></pre></div></div>
+
+<h3 id="5-if-running-server-open-the-live-graph-url-provided-in-the-console">5. If running server, open the live graph URL provided in the console.</h3>
+
+<p>To access the CLI,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./zenbot
+
+  Usage: ./zenbot [options] [command]
+
+  Commands:
+
+    server [options]            launch the server
+    launch [options] [cmds...]  launch multiple commands
+    map [options]               map
+    reduce [options]            reduce
+    run                         run
+    sim [options]               sim
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+    --config &lt;path&gt;  specify a path for config.js overrides
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">./run.sh</code> script combines <code class="highlighter-rouge">launch map --backfill reduce run server</code>, so use the CLI to access the other commands.</p>
+
+<h3 id="6-simulation">6. Simulation</h3>
+
+<p>Once backfill has finished (should collect about 84 days of data), run a simulation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./zenbot sim [--verbose]
+</code></pre></div></div>
+
+<p>Zenbot will return you a list of virtual trades, and an ROI figure. Open the URL provided in the console (while running the server) to see the virtual trades plotted on a candlestick graph. Tweak <code class="highlighter-rouge">default_logic.js</code> for new trade strategies and check your results this way.</p>
+
+<p>Example simulation result: https://gist.github.com/carlos8f/c600abb8b984eae31ff770aa2ee0ad68</p>
+
+<h4 id="about-the-default-trade-logic-in-default_logicjs">About the default trade logic in <code class="highlighter-rouge">default_logic.js</code></h4>
+
+<ul>
+  <li>uses <a href="https://gdax.com/">GDAX</a> API</li>
+  <li>watches BTC/USD</li>
+  <li>acts at 1m increments (ticks), but you can configure to act quicker or slower.</li>
+  <li>computes the latest 14-hour <a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi">RSI</a></li>
+  <li>considers <code class="highlighter-rouge">RSI &gt;= 70</code> an upwards trend and <code class="highlighter-rouge">RSI &lt;= 30</code> a downwards trend</li>
+  <li>Buys at the beginning of upwards trend, sells at the beginning of downwards trend</li>
+  <li>trades 95% of current balance, market price</li>
+  <li>Holds for min. 100 minutes after a trade</li>
+</ul>
+
+<p>You can tweak the JS from there to use bitfinex, or trade ETH, or whatever. After tweaking <code class="highlighter-rouge">default_logic.js</code>, Use <code class="highlighter-rouge">./zenbot sim</code> to check your strategy against historical trades.</p>
+
+<p>Note that simulations always end on Wednesday 5pm PST, and run for a max 84 days (12 weeks), to ensure input consistency.</p>
+
+<p>Auto-learn support and more exchange support will come soon. Will accept PR’s :) With the 3.x plugin architecture, external plugins are possible too (published as their own repo/module).</p>
+
+<h3 id="7-web-console">7. Web console</h3>
+
+<p>When the server is running, and you have visited the <code class="highlighter-rouge">?secret</code> URL provided in the console, you can access an aggregated, live feed of log messages at <code class="highlighter-rouge">http://localhost:3013/logs</code>. Example:</p>
+
+<p><img src="https://raw.githubusercontent.com/DeviaVir/zenbot/master/assets/zenbot_web_logs.png" alt="screenshot" /></p>
+
+<h3 id="update-log">Update Log</h3>
+
+<ul>
+  <li><a href="https://github.com/DeviaVir/zenbot/releases/tag/v3.5.13"><strong>3.5.13</strong></a> (Latest)
+    <ul>
+      <li>Change <code class="highlighter-rouge">check_period</code> to 5m in trading engine</li>
+      <li>ROI 1.477 -&gt; 1.720</li>
+      <li>Speed up sim by only processing 5m ticks</li>
+    </ul>
+  </li>
+  <li><strong>3.5.12</strong>
+    <ul>
+      <li>Tweaks to default trade params, ROI = 1.364 -&gt; 1.477</li>
+      <li>Misc warning text changes</li>
+    </ul>
+  </li>
+  <li><strong>3.5.11</strong>
+    <ul>
+      <li>Fix 1m reporter not working in advisor mode.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.10</strong>
+    <ul>
+      <li>Fix <code class="highlighter-rouge">run.sh</code> not starting server.</li>
+      <li>Remove –verbose from new run script.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.9</strong>
+    <ul>
+      <li>Add –backfill and –verbose to new run script.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.8</strong>
+    <ul>
+      <li>Fix “skipping historical tick” (prevented bot from acting on trends) issue with Zenbrain update.</li>
+      <li>Fix ANSI graph range again.</li>
+      <li>Added <code class="highlighter-rouge">run.sh</code> back to run the default pair BTC/USD and reducer/server.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.7</strong>
+    <ul>
+      <li>make use of rs.rsi for indicators (instead of querying for rsi tick), spacing for ETA.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.6</strong>
+    <ul>
+      <li>Fix ANSI graph range.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.5</strong>
+    <ul>
+      <li>ANSI graph now follows RSI instead of SMA.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.4</strong>
+    <ul>
+      <li>ETA indicator replaces progress, and removal of <code class="highlighter-rouge">hold_ticks</code> mechanism in favor of wait params in ms. More warnings in default_logic to show what’s going on with the trader.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.3</strong>
+    <ul>
+      <li>Fixed <code class="highlighter-rouge">--config</code> usage with absolute path.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.2</strong>
+    <ul>
+      <li>Re-organized some config vars, GDAX key now in <code class="highlighter-rouge">config.js</code> instead of <code class="highlighter-rouge">config_eth_btc.js</code> etc.</li>
+    </ul>
+  </li>
+  <li><strong>3.5.1</strong>
+    <ul>
+      <li>Bugfixes</li>
+    </ul>
+  </li>
+  <li><strong>3.5.0</strong>
+    <ul>
+      <li><code class="highlighter-rouge">run.sh</code> split into 3 scripts. Now you’ll need to run <code class="highlighter-rouge">./reducer.sh</code>, <code class="highlighter-rouge">./server.sh</code>, and <code class="highlighter-rouge">./run-{asset}-{currency}.sh</code> in separate windows. Multiple currency pairs can be run in parallel as of Zenbot 3.5.0!</li>
+    </ul>
+  </li>
+  <li><strong>3.4.3</strong>
+    <ul>
+      <li>Fix sim URL not having selector in it</li>
+      <li><code class="highlighter-rouge">min_trade</code> now controlled by <code class="highlighter-rouge">product.min_size</code></li>
+    </ul>
+  </li>
+  <li><strong>3.4.2</strong>
+    <ul>
+      <li>Exit default logic if run command and historical tick</li>
+      <li>Add balance stats to trade actions</li>
+      <li>Add <code class="highlighter-rouge">--config</code> arg doc. You can switch to using a different config with <code class="highlighter-rouge">--config &lt;path&gt;</code></li>
+      <li>Update gist links for newest simulation results.</li>
+      <li>Added <code class="highlighter-rouge">config_eth.js</code> example config for ETH trading.</li>
+    </ul>
+  </li>
+  <li><strong>3.4.1</strong>
+    <ul>
+      <li>Slight re-code of <code class="highlighter-rouge">default_logic.js</code> to fix slipped ROI (1.1 -&gt; 1.8)</li>
+      <li>Added All Poloniex USDT pairs by @JFD3D, Thanks!</li>
+    </ul>
+  </li>
+  <li><strong>3.4.0</strong>
+    <ul>
+      <li>Re-organized the config so <code class="highlighter-rouge">config.js</code> is git-ignored, so you should copy <code class="highlighter-rouge">config_sample.js</code> to <code class="highlighter-rouge">config.js</code>. <code class="highlighter-rouge">config_defaults.js</code> provides all options that you can override in <code class="highlighter-rouge">config.js</code>.</li>
+      <li>Many config variable changes, such as <code class="highlighter-rouge">c.watch_exchanges</code> instead of <code class="highlighter-rouge">c.enabled_plugins</code>, see <code class="highlighter-rouge">config_sample.js</code> for details.</li>
+      <li>Zenbrain updated.</li>
+      <li>Development now happening in <code class="highlighter-rouge">develop</code> branch, master will be pushed to only on stable releases going forward.</li>
+    </ul>
+  </li>
+  <li><strong>3.3.1</strong>
+    <ul>
+      <li>Moved ANSI graph column to line up tick_id and num_trades with log_trades columns.</li>
+    </ul>
+  </li>
+  <li><strong>3.3.0</strong>
+    <ul>
+      <li>Fees now calculated, default <code class="highlighter-rouge">price * size * 0.0025</code>.</li>
+      <li><code class="highlighter-rouge">rs.roi</code> now updated every tick.</li>
+      <li>ANSI graph, balance, ROI, and SMA indicators added.</li>
+      <li>Fix kraken naming by @grigio, Thanks!</li>
+      <li>Added <a href="https://github.com/DeviaVir/zenbot/blob/master/CONTRIBUTING.md">contributions guide</a>.</li>
+      <li>Updated slideshow: <a href="https://gitpitch.com/DeviaVir/zenbot/master?t=moon">Introducing Zenbot 3</a></li>
+    </ul>
+  </li>
+  <li><strong>3.2.4</strong>
+    <ul>
+      <li>Minor reporting cleanup, added some docs. Minor update to Zenbrain.</li>
+    </ul>
+  </li>
+  <li><strong>3.2.3</strong>
+    <ul>
+      <li>Fixed some performance issues with RSI backfiller. Updated <code class="highlighter-rouge">update.sh</code> to run <code class="highlighter-rouge">git stash</code> before and <code class="highlighter-rouge">git stash pop</code> after update, to avoid merge conflict when pulling. However you may have to resolve a conflict with your <code class="highlighter-rouge">config.js</code> after <code class="highlighter-rouge">update.sh</code> completes, this is normal when config defaults have been updated.</li>
+    </ul>
+  </li>
+  <li><strong>3.2.2</strong>
+    <ul>
+      <li>Fixed a non-indexed query in Zenbrain.</li>
+    </ul>
+  </li>
+  <li><strong>3.2.1</strong>
+    <ul>
+      <li>Bugfix for techan.js performance patch</li>
+    </ul>
+  </li>
+  <li><strong>3.2.0</strong>
+    <ul>
+      <li>Major logic update again.</li>
+      <li>Now using 1h RSI by default. Reporter chimes in every 5m. Trade signals should trigger roughly 2-3 times over a few days.</li>
+      <li>Way better trend detection in <code class="highlighter-rouge">default_logic.js</code>, 83-day simulated ROI went from ~10% to 89%!</li>
+      <li>Poloniex product update by @RDash21, Kraken product update by @grigio. Thanks!</li>
+      <li>Logic update by @xangma. Thanks!</li>
+      <li>Graph performance patch, submitted to techan.js project at https://github.com/andredumas/techan.js/issues/138</li>
+    </ul>
+  </li>
+  <li><strong>3.1.2</strong> - Relaxed backfill timeout. Backfill is slower to let reducer catch up. Reducer report interval -&gt; 30s, Trade report interval -&gt; 30s</li>
+  <li><strong>3.1.1</strong> - Updated zenbrain version.</li>
+  <li><strong>3.1.0</strong>
+    <ul>
+      <li>Major logic update. Much of the default trade logic reprogrammed.</li>
+      <li>Moved default logic to <code class="highlighter-rouge">./default_logic.js</code>.</li>
+      <li>RSI now backfills by default, reconfigured to 15m intervals.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="update-tips">Update Tips</h3>
+
+<p>To update your Zenbot installation, use <code class="highlighter-rouge">./update.sh</code>. If you have merge conflicts after update, solve them, then run <code class="highlighter-rouge">./run.sh</code>. If you have runtime JavaScript errors after update, your database might be obsolete. Try dropping your <code class="highlighter-rouge">zenbrain</code> DB and run <code class="highlighter-rouge">run.sh</code> again to start with a clean state.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="can-i-use-zenbot-3-with-x-exchange">Can I use Zenbot 3 with [X] exchange?</h3>
+
+<p>Yes! As long as that exchange has a public API, you can find a plugin (or write one) to interact with that exchange. I accept pull requests if you want to contribute [X] exchange support.</p>
+
+<h3 id="why-open-source">Why open source?</h3>
+
+<p>There is a general lack of open source bots, especially ones with AI. Since I learned how to code by reverse engineering, I publish code so others can do the same, and by doing so I’m saying thanks to Satoshi, Torvalds, djb, et. al for devoting their lives to open source. It might be against my “selfish interest” but in the end it’s best for everyone. Plus, I still own the copyright.</p>
+
+<h3 id="were-there-any-incidents-when-the-bots-trade-made-a-loss">Were there any incidents when the bot’s trade made a loss?</h3>
+
+<p>I have seen losses in the simulator, so it’s possible. It only takes a few minutes of machine learning to gain a comfortable (albeit virtual) profit margin though. If the bot starts losing money, you can always step in and manual trade or shut the bot down to prevent more loss.</p>
+
+<h3 id="based-on-what-criteria-does-the-bot-decide-to-close-a-trade">Based on what criteria does the bot decide to close a trade?</h3>
+
+<p>zenbot always trades with the “market” flag, i.e. the order never goes on the books, and the trade goes through with whatever price the last system trade was at. This way, zenbot never needs to cancel orders or compare prices.</p>
+
+<h3 id="what-does-trader-not-enough-funds-mean">What does [trader] not enough funds mean?</h3>
+
+<p>It means the bot tried to buy or sell, but had not enough asset or currency balance to do that. If you feel comfortable investing, you can deposit asset or currency in your account and Zenbot will use that the next time the trade signal triggers.</p>
+
+<h2 id="reading-assignment-systematic-trading-using-neural-networks">Reading assignment: Systematic trading using neural networks</h2>
+
+<p>In mathematical terms, Artificial neural networks (ANNs) are universal function approximators, meaning that given the right data and configured correctly, they can capture and model any input-output relationships. This removes the need for human interpretation of charts to determine entry/exit signals.</p>
+
+<p>As ANNs are essentially non-linear statistical models, their accuracy and prediction capabilities can be both mathematically and empirically tested. In various studies, authors have claimed that neural networks used for generating trading signals given various technical and fundamental inputs have significantly outperformed buy-hold strategies as well as traditional linear technical analysis methods when combined with rule-based expert systems.</p>
+
+<p>While the advanced mathematical nature of such adaptive systems has kept neural networks for financial analysis mostly within academic research circles, in recent years more user friendly neural network software has made the technology more accessible to traders.</p>
+
+<p>Source: <a href="https://en.wikipedia.org/wiki/Technical_analysis#Systematic_trading">Wikipedia</a></p>
+
+<h2 id="donate">Donate</h2>
+
+<p>P.S., some have asked for how to donate to Zenbot development. I accept donations at <strong>my Bitcoin address</strong> Here:</p>
+
+<h3 id="carlos8fs-btc">carlos8f’s BTC</h3>
+
+<p><code class="highlighter-rouge">187rmNSkSvehgcKpBunre6a5wA5hQQop6W</code></p>
+
+<p><img src="https://s8f.org/files/bitcoin.png" alt="zenbot logo" /></p>
+
+<p>thanks!</p>
+
+<h2 id="simulator-demo-3513">Simulator Demo (3.5.13)</h2>
+
+<script type="text/javascript" src="https://asciinema.org/a/1irbzjacy0vfdx64ma3110lzo.js" id="asciicast-1irbzjacy0vfdx64ma3110lzo" async=""></script>
+
+<h2 id="license">License</h2>
+
+<p>zenbot is released under the MIT license.</p>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
     <h1 class="entry-title"><a class="entry-title-link" href="/1466743328/index.html">Salty 4.0 released</a></h1>
     <div class="meta">
       <time datetime="2016-06-23T00:00:00-07:00" pubdate data-updated="true">
@@ -130,26 +559,6 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
   </header>
   <div class="entry-content">
   <iframe width="100%" height="500" src="https://www.youtube.com/embed/xh_AHrBVpcg?start=229" frameborder="0" allowfullscreen=""></iframe>
-
-  </div>
-</section>
-
-  
-  
-  <section class="post-section section">
-  <header class="entry-header">
-    <h1 class="entry-title"><a class="entry-title-link" href="/1465282150/index.html">S8F Console: How to use Salty</a></h1>
-    <div class="meta">
-      <time datetime="2016-06-06T00:00:00-07:00" pubdate data-updated="true">
-  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
-  June 6<span>th</span>, 2016
-</time>
-
-    </div>
-  </header>
-  <div class="entry-content">
-  <script type="text/javascript" src="https://asciinema.org/a/0ugtoagc27nbow9cixedejw4f.js" id="asciicast-0ugtoagc27nbow9cixedejw4f" async=""></script>
-
 
   </div>
 </section>
