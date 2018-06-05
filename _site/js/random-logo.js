@@ -1,1 +1,3 @@
-random-logo.js
+function s8f_randomLogo () {
+  
+}

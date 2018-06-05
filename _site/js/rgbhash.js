@@ -1,1 +1,3 @@
-random-color.js
+function s8f_rgbhash () {
+  
+}
