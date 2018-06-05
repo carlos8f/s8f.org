@@ -56,7 +56,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body, input, textarea {
   color: #333;
-  font-size: 18px;
   line-height: 1.5em;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -64,41 +63,41 @@ body, input, textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 1em 0;
   line-height: 1.2em;
   color: black;
   font-weight: 900;
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 1.8em;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 1.6em;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 1.4em;
 }
 
 hr {
-  background-color: #cccccc;
+  background-color: #ccc;
   border: 0;
   height: 1px;
   margin-bottom: 1.625em;
 }
 
 p {
-  margin: 0 0 20px 0;
+  margin: 0 0 1em 0;
 }
 
 ul, ol {
-  margin: 0 0 20px 0;
+  margin: 0 0 1em 0;
 }
 
 ol ol {
@@ -148,8 +147,8 @@ blockquote em, blockquote i, blockquote cite {
 }
 
 blockquote cite {
-  color: #666666;
-  font-size: 12px;
+  color: #666;
+  font-size: 1.5em;
   font-weight: 300;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -157,22 +156,22 @@ blockquote cite {
 
 code, kbd {
   display: inline-block;
-  font: 14px "Roboto Mono", monospace;
+  font: 1em "Roboto Mono", monospace;
   background-color: black;
-  color: #3ceb00;
+  color: #000;
+  background: #ccc;
   font-weight: 500;
-  border-radius: 4px;
-  padding: 2px 4px;
+  border-radius: 7px;
+  padding: 2px 7px;
+  margin: 0 5px;
 }
 
 pre, div.code {
-  font: 14px "Roboto Mono", monospace;
+  font: "Roboto Mono", monospace;
   display: block;
-  margin: 2em 0;
-  padding: 15px;
-  background-color: black;
+  margin: 1.5em 0;
+  padding: 0;
   color: #3ceb00;
-  border-radius: 5px;
   overflow: auto;
   font-weight: 500;
   line-height: 1.35em;
@@ -231,22 +230,22 @@ a:hover {
 
 @media (max-width: 586px) {
   body, input, textarea {
-    font-size: 15px;
+    font-size: 1em;
   }
   h1 {
-    font-size: 30px;
+    font-size: 2em;
   }
   h2 {
-    font-size: 20px;
+    font-size: 1.8em;
   }
   h3 {
-    font-size: 18px;
+    font-size: 1.6em;
   }
   h4 {
-    font-size: 17px;
+    font-size: 1.4em;
   }
   code, kbd {
-    font-size: 11px;
+    font-size: 1em;
   }
 }
 
@@ -264,6 +263,7 @@ body {
 .main-column .header {
   margin-top: 40px;
   margin-bottom: 40px;
+  font-size: 105%;
 }
 
 .main-column .section {
@@ -284,9 +284,9 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 25px;
+  top: 0;
   left: 0;
-  width: 255px
+  width: 250px
 }
 
 @media (max-width: 586px) {
@@ -321,13 +321,20 @@ body {
 }
 
 .sidebar {
-  font-size: 16px;
+  font-size: 1.2em;
   text-align: right;
   white-space: nowrap;
 }
 
+.sidebar .logo {
+  font-size: 2em;
+}
+.sidebar .logo a {
+  color: black;
+}
+
 .sidebar h3, .sidebar h4 {
-  font-size: 1.2em;
+  font-size: 0.8em;
   margin: 0.5em 0;
 }
 
@@ -447,29 +454,23 @@ audio {
   color: #888;
 }
 
-.contact {
-  font-family: monospace;
-  font-size: 0.8em;
-  letter-spacing: 0;
-  color: black;
-  margin: 0;
-  padding: 0;
-}
-
 .contact li {
-  margin: 0;
+  margin: 0 0 5px 0;
   line-height: 1.5em;
 }
 
 .sidebar a {
-  color: black;
+  color: #666;
+  display: block;
+  padding: 5px 15px;
+  border-radius: 30px;
+  margin-left: 20px;
   display: inline-block;
-  padding: 2px;
 }
 
 .sidebar a:hover {
-  background-color: black;
-  color: #3ceb00;
+  background: #eee;
+  color: black;
 }
 
 .accounts {
@@ -481,6 +482,6 @@ audio {
   float: left;
 }
 
-.sidebar .accounts a {
-  display: block;
+#animation {
+  height: 200px;
 }

@@ -1,8 +1,8 @@
 plugins: [jekyll-paginate]
 url: https://s8f.org
-title: s8f.org 💾 I stepped inside and went straight for the canisters
+title: s8f.org
 author:
-  name: Carlos Rodriguez
+  name: Carlos Rodriguez <carlos@s8f.org>
 timezone: America/Los_Angeles
 encoding: utf-8
 permalink: /:title/index.html
