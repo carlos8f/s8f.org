@@ -21,7 +21,15 @@
   </head>
   <body>
     <div class="main-column">
+      <nav class="mobile-nav">
+        <p><small><a href="#footer">To Navigation <i class="fas fa-arrow-down"></i></a></small></p>
+      </nav>
+
       {{ content }}
+
+      <footer id="footer">
+        <p><small><a href="#">Back to top <i class="fas fa-arrow-up"></i></a></small></p>
+      </footer>
     </div>
 
     {% include sidebar.html %}

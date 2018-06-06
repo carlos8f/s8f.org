@@ -156,11 +156,11 @@ blockquote cite {
 
 code, kbd {
   display: inline-block;
-  font: 1em "Roboto Mono", monospace;
+  font: 0.7em "Roboto Mono", monospace;
   background-color: black;
-  color: #000;
-  background: #ccc;
-  font-weight: 500;
+  color: #888;
+  background: #eee;
+  font-weight: 700;
   border-radius: 7px;
   padding: 2px 7px;
   margin: 0 5px;
@@ -169,16 +169,15 @@ code, kbd {
 pre, div.code {
   font: "Roboto Mono", monospace;
   display: block;
+  max-width: 2000px;
   margin: 1.5em 0;
-  padding: 0;
-  color: #3ceb00;
-  overflow: auto;
+  overflow: visible;
   font-weight: 500;
   line-height: 1.35em;
 }
 
 pre code {
-  padding: 0;
+  padding: 20px;
 }
 
 .markdown-body {
@@ -252,17 +251,21 @@ a:hover {
 body {
   background: white;
   padding: 0;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
 }
 
 .main-column {
-  margin-left: 300px;
+  margin-top: 50px;
+  margin-left: 250px;
   padding-right: 50px;
   padding-bottom: 50px;
 }
 
 .main-column .header {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-size: 105%;
 }
 
@@ -282,21 +285,41 @@ body {
   max-width: 850px;
 }
 
+.entry-content h2 {
+  color: #666;
+  font-size: 1.5em;
+}
+
 .sidebar {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: -35px;
   left: 0;
-  width: 250px
+  width: 200px;
+  text-align: right;
+}
+
+.mobile-nav {
+  display: none;
 }
 
 @media (max-width: 586px) {
+  footer {
+    text-align: center;
+  }
+  .mobile-nav {
+    display: block;
+    float: right;
+  }
   .main-column {
     margin-left: 0;
+    padding-bottom: 0;
   }
   .sidebar {
     position: static;
     top: 0;
     left: 0;
+    width: auto;
+    text-align: center;
   }
   body {
     padding: 20px;
@@ -322,20 +345,25 @@ body {
 
 .sidebar {
   font-size: 1.2em;
-  text-align: right;
   white-space: nowrap;
 }
 
-.sidebar .logo {
+.sidebar h2 {
   font-size: 2em;
+  margin-bottom: 0;
+  margin-left: -20px;
 }
-.sidebar .logo a {
-  color: black;
+.sidebar h2.logo img {
+  width: 200px;
+  height: auto;
 }
-
-.sidebar h3, .sidebar h4 {
-  font-size: 0.8em;
+.sidebar h3 {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+.sidebar h4 {
   margin: 0.5em 0;
+  font-size: 0.8em;
 }
 
 img.avatar {
@@ -345,7 +373,12 @@ img.avatar {
   float: left;
   margin: 0 40px 20px 0;
 }
-
+.entry-title {
+  font-size: 2.6em;
+}
+.entry-content {
+  font-size: 1.2em;
+}
 .entry-content img {
   max-width: 100%;
 }
@@ -398,21 +431,22 @@ audio {
   padding-left: 2em;
 }
 
-.projects h2 {
+.projects h3 {
   text-align: center;
 }
 
 .projects a {
   display: inline-block;
   float: left;
-  width: 50%;
+  width: 40%;
+  margin-right: 10%;
   height: 100px;
   text-decoration: none;
   color: black;
 }
 
 .projects a:hover {
-  background: #eee;
+
 }
 
 .projects a:hover h3 {
@@ -425,7 +459,7 @@ audio {
 }
 
 .projects .row {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   display: block;
 }
 
@@ -444,9 +478,9 @@ audio {
   font-size: 1.6em;
 }
 
-.projects .thumb {
-  width: 100px;
-  margin-right: 30px;
+.projects .thumb img {
+  width: 40%;
+  margin-right: 10%;
   float: left;
 }
 
@@ -459,16 +493,19 @@ audio {
   line-height: 1.5em;
 }
 
-.sidebar a {
+.sidebar a, h1 a {
   color: #666;
-  display: block;
   padding: 5px 15px;
-  border-radius: 30px;
+  border-radius: 15px;
   margin-left: 20px;
   display: inline-block;
 }
 
-.sidebar a:hover {
+h1 a {
+  margin-left: -15px;
+}
+
+.sidebar a:hover, h1 a:hover {
   background: #eee;
   color: black;
 }
