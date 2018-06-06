@@ -201,9 +201,13 @@ pre code {
 a {
   text-decoration: none;
   color: rgba(3, 139, 255, 1);
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 15px;
 }
 a:hover {
   color: black;
+  background-color: #eee;
 }
 
 .entry-content ul li {
@@ -250,7 +254,7 @@ a:hover {
 
 body {
   background: white;
-  padding: 0;
+  padding: 0 50px 50px 0;
   max-width: 1000px;
   margin: auto;
   position: relative;
@@ -290,6 +294,16 @@ body {
   font-size: 1.5em;
 }
 
+.entry-content h3 {
+  color: #888;
+  font-size: 1.2em;
+}
+
+.entry-content h4 {
+  color: #aaa;
+  font-size: 1em;
+}
+
 .sidebar {
   position: absolute;
   top: -35px;
@@ -313,12 +327,13 @@ body {
   .main-column {
     margin-left: 0;
     padding-bottom: 0;
+    width: 730px;
   }
   .sidebar {
     position: static;
     top: 0;
     left: 0;
-    width: auto;
+    width: 730px;
     text-align: center;
   }
   body {
