@@ -4,13 +4,22 @@
  <title>s8f.org</title>
  <link href="https://s8f.org/atom.xml" rel="self"/>
  <link href="https://s8f.org/"/>
- <updated>2018-06-05T19:40:38-07:00</updated>
+ <updated>2018-06-05T23:04:25-07:00</updated>
  <id>https://s8f.org</id>
  <author>
    <name>Carlos Rodriguez <carlos@s8f.org></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title></title>
+   <link href="https://s8f.org/1528264943/index.html"/>
+   <updated>2018-06-05T00:00:00-07:00</updated>
+   <id>https://s8f.org/1528264943/1528264943</id>
+   <content type="html">
+</content>
+ </entry>
  
  <entry>
    <title>The probabilities of finding aliens in our galaxy</title>

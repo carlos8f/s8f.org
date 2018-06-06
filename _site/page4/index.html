@@ -33,6 +33,142 @@
   
   <section class="post-section section">
   <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1467411232/index.html">Why I ditched Comodo SSL (and you should, too)</a></h1>
+    <div class="meta">
+      <time datetime="2016-07-01T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  July 1<span>st</span>, 2016
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <blockquote>
+  <p>Essentially, at some point a decision was made to anchor trust in an organization like Comodo, and now we’re locked into trusting them — <em>forever</em>.</p>
+  <ul>
+    <li><a href="https://moxie.org/blog/ssl-and-the-future-of-authenticity/">Moxie Marlinspike</a></li>
+  </ul>
+</blockquote>
+
+<p>The trust we put in <a href="https://en.wikipedia.org/wiki/Certificate_authority">Certificate Authorities</a> is highly underestimated in today’s online world. This is because TLS on the modern web is based on a <strong>broken model of trust.</strong> There is <a href="https://moxie.org/blog/ssl-and-the-future-of-authenticity/">no trust agility</a>, and this spells doom for everyone. In this article I’ll try to explain how and why.</p>
+
+<h3 id="but-why-not-trust-ssl-it-says-green-lock--in-my-browser-so-its-secure-right">But why not trust SSL? It says <span style="color:green">green lock <i class="fas fa-lock"></i></span> in my browser so it’s secure, right?</h3>
+
+<p>Not really.</p>
+
+<h3 id="amazon-uses-it-and-so-do-all-the-big-companies-so-its-secure">Amazon uses it, and so do all the big companies. So it’s secure.</h3>
+
+<p>Still no. Let’s take Amazon as an example:</p>
+
+<p><img src="/files/amazon_cert.png" alt="amazon cert issed by Symantec" /></p>
+
+<ol>
+  <li>You trust Amazon.com with your credit card to buy socks. Because you <strong>need</strong> socks.</li>
+  <li>Maybe you did your homework and looked at Amazon.com’s address bar, which showed a <span style="color:green">green lock <i class="fas fa-lock"></i></span> and that looks nice and secure, so “I know I can trust that <strong>no man-in-the-middle got my credit card #</strong>”</li>
+  <li>If you looked a little deeper, you’d see that Amazon’s cert is issued by <strong><a href="https://en.wikipedia.org/wiki/Symantec">Symantec</a></strong>. They do antivirus software, so that should be <strong>fine</strong>, right?</li>
+  <li>Except certs can change at any time. The next day, Amazon starts using one issued by <a href="https://en.wikipedia.org/wiki/Comodo_Group">Comodo</a>, because they’re <strong>cheaper</strong>. Win for everyone?</li>
+  <li>You go back to Amazon.com and buy more socks, only this time it’s a <strong>Comodo</strong> cert feeding your TLS connection.</li>
+  <li>You soon get a call from your bank, saying your credit card was <strong>cancelled</strong> and a new one was issued in the mail. They cited “suspicious activity” as the cause. <strong>What the heck</strong>?</li>
+  <li>Then you read in the news that <strong>some hacker</strong> issued some rogue certs for Amazon.com. <strong>Big deal right?</strong></li>
+  <li>The hacker set up some <strong>DNS spoofing</strong> that pointed your Coffee Shop internet connection to <strong>193.293.20.10</strong> (evil server), presenting a “valid” SSL cert, actually issued by <strong>Comodo</strong>. Comodo is trusted by browsers, so your browser didn’t even notice that it’s talking to <strong>evil server</strong> and not directly to Amazon.</li>
+  <li>They proxied your requests to the real Amazon.com, so YOU didn’t even notice, and for fun they also <strong>extracted your CC number</strong>, Amazon password, email address, and mail address to their <strong>evil server</strong>.</li>
+  <li>SSL didn’t protect you, it only <strong>misled you</strong> into (ultimately) trusting a compromised trust chain.</li>
+</ol>
+
+<h3 id="but-what-if-comodo-is-now-hack-proof-and-they-revoked-the-bad-certs-and-theyre-fully-trustable-again">But what if Comodo is now hack-proof and they revoked the bad certs and they’re fully trustable again?</h3>
+
+<p>Sure. But their root CA cert is still <strong>trusted by default</strong> in major browsers. That means <strong>ANY certs</strong> they create will be trusted by everyone.</p>
+
+<h3 id="why-is-that-a-problem-i-trust-comodo">Why is that a problem? I trust Comodo…</h3>
+
+<p>What if they wanted to <strong>MITM your Amazon.com session</strong> for their own purposes? Easy:</p>
+
+<ol>
+  <li>Comodo creates their <strong>OWN certs</strong> for <span style="color:green">Amazon.com <i class="fas fa-lock"></i></span>, Comodo owning the private key.</li>
+  <li>Comodo sets up <strong>evil proxies</strong> that use that cert and forward to the real Amazon.com</li>
+  <li>Comodo now <strong>owns</strong> your “encrypted” SSL traffic to Amazon.com</li>
+</ol>
+
+<h3 id="i-dont-believe-comodo-would-be-that-evil">I don’t believe Comodo would be that evil.</h3>
+
+<p>Well, for a start:</p>
+
+<ul>
+  <li>They <a href="http://www.pcworld.com/article/2887632/secure-advertising-tool-privdog-compromises-https-security.html">bundled malware into their downloads</a> called PrivDog, claiming to protect users, but actually enabling a MITM attack.</li>
+  <li>They <a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=704">disabled same-origin security</a> in their custom browser, effectively enabling arbitrary MITM attacks.</li>
+  <li>They <a href="http://www.cnet.com/forums/discussions/comodo-continue-to-to-issue-certificates-to-known-malware-343022/">continued issuing certs used in malware</a>.</li>
+  <li>They declared <a href="https://letsencrypt.org/2016/06/23/defending-our-brand.html">trademark war on Let’s Encrypt</a> for “stealing” the idea of the “90-day free SSL”.</li>
+  <li>Their CEO is a <a href="https://twitter.com/feross/status/746102800531128320">bit of a douche</a>.</li>
+</ul>
+
+<p>For background, Comodo has a <strong>monopoly</strong> on SSL certs:</p>
+
+<p><img src="/files/ca_market_share.png" alt="ca market share" /></p>
+
+<h3 id="but-why-would-a-company-with-a-40-market-share-do-this">But why would a company with a 40% market share do this?</h3>
+
+<p>Comodo sees <a href="https://forums.comodo.com/general-discussion-off-topic-anything-and-everything/shame-on-you-comodo-t115958.0.html;msg837411#msg837411">Lets Encrypt as threat</a> to their monopoly on “90-day free SSL”. Comodo is not free though, it costs roughly <strong>$20-90</strong> for a low-level cert. Let’s Encrypt is <strong>free forever</strong>.</p>
+
+<h3 id="why-would-lets-encrypt-want-to-offer-something-for-free-i-want-to-pay-money-in-exchange-for-trust-like-i-do-in-other-industries">Why would Lets Encrypt want to offer something for free? I want to pay money in exchange for trust, like I do in other industries.</h3>
+
+<p>That’s where they got you. SSL <strong>should</strong> be free, because privacy should be a right, and SSL is critical for privacy. Further, introducing a middle-man (Comodo in this case) compromises your privacy, as shown above. Comodo doesn’t even <strong>verify that you own the domain</strong>, instead it requires you to respond to an email sent to <code class="highlighter-rouge">webmaster@yourdomain.com</code> or similar. It takes roughly 20 mins to set up.</p>
+
+<p>By contrast, Lets Encrypt does <a href="https://letsencrypt.org/how-it-works/">real domain validation</a> using a <a href="https://tools.ietf.org/html/draft-ietf-acme-acme-02">new, open protocol</a> called ACME. Since the whole process can be automated, human intervention (and thus the CA industry) is <strong>rendered redundant</strong>.</p>
+
+<h3 id="well-as-long-as-i-dont-buy-a-comodo-cert-im-fine-right">Well, as long as I don’t buy a Comodo cert I’m fine, right?</h3>
+
+<p>Not exactly. If 40% of the web uses Comodo, that makes <strong>40% of the web compromisable by the same hacker</strong>, by hacking a single crypto (root CA) keypair. That is super dangerous for the entire internet. In truth, Comodo has <a href="https://en.wikipedia.org/wiki/Comodo_Group#Certificate_hacking">already been hacked</a>, and will probably be hacked again.</p>
+
+<h3 id="ok-i-give-up-ill-just-use-cloudflare-to-secure-and-accelerate-my-site">OK I give up. I’ll just use CloudFlare to secure and accelerate my site.</h3>
+
+<p><a href="https://www.cloudflare.com/">CloudFlare</a> specializes in <strong>security</strong> and performance. Thus, they offer a service that <a href="https://www.cloudflare.com/overview/">“protects and accelerates”</a> your website. Oh, and they also register a Comodo cert and use it for your domain:</p>
+
+<p><img src="/files/cloudflare_cert.png" alt="cloudflare cert" /></p>
+
+<h3 id="wait-doesnt-that-mean-they-are-mitm-ing-my-sites-visitors">Wait, doesn’t that mean they are MITM-ing my site’s visitors?</h3>
+
+<p>Yes! It does. Both <strong>CloudFlare</strong> (who owns the cert private keys) and <strong>Comodo</strong> (who can issue any cert) are trusted by all browsers. But why is the trust there? Because of the <strong>CA industry</strong>, and its influence on browser makers.</p>
+
+<h3 id="i-still-trust-wellsfargocom-to-do-my-online-banking-and-they-use-a-symantec-cert">I still trust WellsFargo.com to do my online banking, and they use a Symantec cert.</h3>
+
+<p>Glad you did your homework, but remember, <strong>at any time</strong> Wells Fargo could start using a Comodo cert, or even include <strong>a single JS file</strong> on their site hosted on <strong>CloudFlare</strong>. If CloudFlare gets compromised (or, inclusively, Comodo), your bank password could be extracted through browser-js injection. Literally any JS file included on any site could exfiltrate passwords or other sensitive data, even if the connection is “end-to-end encrypted with TLS perfect forward secrecy”, as people like to say these days.</p>
+
+<h3 id="cant-we-remove-comodo-from-the-list-of-trusted-cas">Can’t we remove Comodo from the list of trusted CA’s?</h3>
+
+<p>Maybe, but so many sites were lured into using Comodo because of <strong>low prices</strong>, that 40% of the web would break if Firefox and Google started blacklisting their certs. And of course, we know that <strong>web users hate it</strong> when stuff breaks, so web companies (and the web at large) generally won’t risk breaking changes. That spells doom for the <a href="https://www.imperialviolet.org/2016/05/16/agility.html">Cryptographic Agility</a> of the web.</p>
+
+<h3 id="oh-great-what-now">Oh great. What now?</h3>
+
+<ul>
+  <li>Use <span style="color:green">Let’s Encrypt <i class="fas fa-lock"></i></span> (or <a href="https://www.digicert.com/">DigiCert</a>, if you have the money). It’s free and only takes 10 minutes to switch.</li>
+  <li>The catch is that <code class="highlighter-rouge">certbot</code> <strong>could</strong> middle-man your server.</li>
+  <li>We need to make sure Let’s Encrypt stays <strong>open</strong>, free, and peer-reviewed. Eventually, perhaps SSL certs will be issued for a small fee by the government(s), for <strong>public privacy and security</strong>.</li>
+  <li>Then, and only then, can we stop the Comodo monopoly future <strong>trust breakdown apocalypse</strong>.</li>
+</ul>
+
+<p><img src="/files/no_comodo.png" alt="image" /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>As of today, I’m proud to say I’m <strong>no longer</strong> a Comodo customer, and <a href="https://s8f.org/">s8f.org</a> now runs on a <span style="color:green">Let’s Encrypt <i class="fas fa-lock"></i></span> cert.</p>
+
+<h4 id="related-tweets">Related Tweets</h4>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I don&#39;t think we realize how much trust we put into CAs.  They can literally MITM your online banking or social media authentication.</p>&mdash; Tim Caswell (@creationix) <a href="https://twitter.com/creationix/status/746087130284306433">June 23, 2016</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Comodo are attempting to trademark the term &quot;Let&#39;s Encrypt&quot;. What blatant scam artists and legal trolls. <a href="https://t.co/8J1Nzpksnf">https://t.co/8J1Nzpksnf</a> <a href="https://twitter.com/hashtag/Chromodo?src=hash">#Chromodo</a></p>&mdash; Feross (@feross) <a href="https://twitter.com/feross/status/746082550205059072">June 23, 2016</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/carlos8f">@carlos8f</a> <a href="https://twitter.com/Comodo_SSL">@Comodo_SSL</a> <a href="https://twitter.com/letsencrypt">@letsencrypt</a> Great post!</p>&mdash; Feross (@feross) <a href="https://twitter.com/feross/status/750477924919222272">July 5, 2016</a></blockquote>
+
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
     <h1 class="entry-title"><a class="entry-title-link" href="/1467335524/index.html">Zenbot 3</a></h1>
     <div class="meta">
       <time datetime="2016-06-30T00:00:00-07:00" pubdate data-updated="true">
@@ -550,25 +686,6 @@ $ sudo ln -sf `pwd`/salty-4.1.0/bin/salty /usr/local/bin/salty
   <li>signatures support arbitrary hash algorithms</li>
   <li>added <code class="highlighter-rouge">--no-translate</code> flag to output raw header</li>
 </ul>
-
-  </div>
-</section>
-
-  
-  
-  <section class="post-section section">
-  <header class="entry-header">
-    <h1 class="entry-title"><a class="entry-title-link" href="/1465539942/index.html">cyberpunk midnight nintendo street jam with SMALL MYTH SOUNDSYSTEM</a></h1>
-    <div class="meta">
-      <time datetime="2016-06-09T00:00:00-07:00" pubdate data-updated="true">
-  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
-  June 9<span>th</span>, 2016
-</time>
-
-    </div>
-  </header>
-  <div class="entry-content">
-  <iframe width="100%" height="500" src="https://www.youtube.com/embed/xh_AHrBVpcg?start=229" frameborder="0" allowfullscreen=""></iframe>
 
   </div>
 </section>
