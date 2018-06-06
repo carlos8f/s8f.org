@@ -269,7 +269,6 @@ body {
 
 .main-column .header {
   margin-top: 50px;
-  margin-bottom: 50px;
   font-size: 105%;
 }
 
@@ -316,6 +315,12 @@ body {
   display: none;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 @media (max-width: 586px) {
   footer {
     text-align: center;
@@ -340,7 +345,10 @@ body {
     padding: 20px;
   }
   .main-column .header {
-    margin-bottom: 40px;
+
+  }
+  .main-column .projects {
+    margin-bottom: 20px;
   }
   .main-column .section {
     padding-bottom: 40px;
@@ -381,12 +389,17 @@ body {
   font-size: 0.8em;
 }
 
-img.avatar {
-  display: block;
+.avatar {
   width: 110px;
   height: 110px;
   float: left;
   margin: 0 40px 20px 0;
+}
+.avatar a {
+  display: block;
+}
+.avatar a:hover {
+  background-color: transparent;
 }
 .entry-title {
   font-size: 2.6em;
@@ -453,9 +466,6 @@ audio {
 .projects a {
   display: inline-block;
   float: left;
-  width: 40%;
-  margin-right: 10%;
-  height: 100px;
   text-decoration: none;
   color: black;
 }
@@ -474,7 +484,6 @@ audio {
 }
 
 .projects .row {
-  margin-bottom: 50px;
   display: block;
 }
 
@@ -493,14 +502,20 @@ audio {
   font-size: 1.6em;
 }
 
+.projects .thumb {
+  text-align: center;
+}
+
 .projects .thumb img {
-  width: 40%;
-  margin-right: 10%;
+  width: 100%;
+  height: auto;
   float: left;
 }
 
 .projects .description {
   color: #888;
+  text-align: center;
+  display: block;
 }
 
 .contact li {
@@ -535,5 +550,5 @@ h1 a {
 }
 
 #animation {
-  height: 200px;
+  
 }

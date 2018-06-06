@@ -4,43 +4,56 @@ layout: default
 
 {% if paginator.page == 1 %}
 <section class="header">
-  <div id="animation"></div>
+  <div id="animation clearfix">
+    <div class="avatar">
+      <a href="/about.html">
+        <img class="avatar" alt="picture of Carlos Rodriguez" src="{{site.url}}/files/helvetica.jpg">
+      </a>
+    </div>
+    <div class="author">
+      <h2><i class="far fa-comment-dots"></i> Hi, I'm {{ site.author.name }}.</h2>
+      <p>
+        I build <i class="fas fa-wrench"></i> software <i class="fas fa-globe"></i> at home <i class="fab fa-fort-awesome-alt"></i> in Watsonville, CA <i class="fas fa-sun"></i>.<br>
+        I'm a hacker <i class="fas fa-terminal"></i>, audiophile <i class="fas fa-microphone-alt"></i>, and enjoyer of all things technical <i class="fas fa-flask"></i>.
+      </p>
+      <p>"I stepped inside and went straight for the canisters" &mdash; <a href="https://gist.github.com/carlos8f/916687a81a6232981af601f362a7640e" target="_blank">Ferdinand Brandon</a>, July 11th 2006
+      </p>
+    </div>
+  </div>
 </section>
+
 <hr>
 
-<div class="projects">
-  <div class="row">
-    <a href="https://bot18.net/" target="_blank">
-      <div class="inner">
-        <div class="thumb"><img src="/files/bot18_thumb.png"></div>
-        <h3>Bot18</h3>
-        <div class="description">crypto trading bot</div>
-      </div>
-    </a>
-    <a href="/salty.html">
-      <div class="inner">
-        <div class="thumb"><img src="/files/salty_thumb.png"></div>
-        <h3>Salty</h3>
-        <div class="description">next-gen pubkey crypto</div>
-      </div>
-    </a>
-  </div>
-  <div class="row">
-    <a href="/motley.html">
-      <div class="inner">
-        <div class="thumb"><img src="/files/motley_thumb.png"></div>
-        <h3>Motley</h3>
-        <div class="description">Node.js framework</div>
-      </div>
-    </a>
-    <a href="https://open.spotify.com/album/1KiNBeeXgQAgYrnZVcQ6Xb?si=jKQzFtaOTemL7F2D3MTEHA" target="_blank">
-      <div class="inner">
-        <div class="thumb"><img src="/files/music_thumb.png"></div>
-        <h3>Music</h3>
-        <div class="description">by Carlos Rodriguez</div>
-      </div>
-    </a>
-  </div>
+<div class="projects clearfix">
+  <a href="https://bot18.net/" target="_blank">
+    <span class="inner">
+      <span class="thumb"><img src="/files/bot18_thumb.png"></span>
+      <h3>Bot18</h3>
+      <span class="description">crypto trading bot</span>
+    </span>
+  </a>
+  <a href="/salty.html">
+    <span class="inner">
+      <span class="thumb"><img src="/files/salty_thumb.png"></span>
+      <h3>Salty</h3>
+      <span class="description">next-gen pubkey crypto</span>
+    </span>
+  </a>
+
+  <a href="/motley.html">
+    <span class="inner">
+      <span class="thumb"><img src="/files/motley_thumb.png"></span>
+      <h3>Motley</h3>
+      <span class="description">Node.js framework</span>
+    </span>
+  </a>
+  <a href="https://open.spotify.com/album/1KiNBeeXgQAgYrnZVcQ6Xb?si=jKQzFtaOTemL7F2D3MTEHA" target="_blank">
+    <span class="inner">
+      <span class="thumb"><img src="/files/music_thumb.png"></span>
+      <h3>Music</h3>
+      <span class="description">by Carlos Rodriguez</span>
+    </span>
+  </a>
 </div>
 
 <hr>

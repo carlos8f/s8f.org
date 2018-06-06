@@ -19,7 +19,7 @@
     <script 
     <script src="/js/animation.js"></script>
   </head>
-  <body>
+  <body{% if paginator.page == 1 %} class="home"{% endif %}>
     <div class="main-column">
       <nav class="mobile-nav">
         <p><small><a href="#footer">To Navigation <i class="fas fa-arrow-down"></i></a></small></p>
