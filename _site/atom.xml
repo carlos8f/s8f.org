@@ -4,7 +4,7 @@
  <title>Homepage of Carlos Rodriguez (@carlos8f) - I stepped inside, and went straight for the canisters</title>
  <link href="https://s8f.org/atom.xml" rel="self"/>
  <link href="https://s8f.org/"/>
- <updated>2018-06-08T09:54:23-07:00</updated>
+ <updated>2018-06-08T10:18:31-07:00</updated>
  <id>https://s8f.org</id>
  <author>
    <name>Carlos Rodriguez <carlos@s8f.org></name>
@@ -142,29 +142,70 @@ tidal wave of liquidity. Suddenly, struggling markets will spring to new life. A
    <link href="https://s8f.org/1528088439/index.html"/>
    <updated>2018-06-03T00:00:00-07:00</updated>
    <id>https://s8f.org/1528088439/1528088439</id>
-   <content type="html">&lt;p&gt;Origin:&lt;/p&gt;
+   <content type="html">&lt;h2 id=&quot;origin&quot;&gt;Origin&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;E. Frey &amp;lt;2Cd5mXDb2n@mail.ru&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;IP: &lt;a href=&quot;https://www.spamhaus.org/query/ip/125.178.246.33&quot;&gt;125.178.246.33&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Location: &lt;a href=&quot;https://earth.google.com/web/@37.4386,127.1378,76.3129818a,818.18420299d,35y,0h,45t,0r/data=CjwaOhIyCgAZRwN4CyS4QkAh4lgXt9HIX0AqHDM3wrAyNicxOS4wIk4gMTI3wrAwOCcxNi4xIkUYAiABKAIoAg&quot;&gt;Seongnam-si, Gyeonggi-do, Republic of Korea (KR)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-  &quot;ip&quot;:&quot;201.238.64.41&quot;,
-  &quot;type&quot;:&quot;ipv4&quot;,
-  &quot;continent_code&quot;:&quot;NA&quot;,
-  &quot;continent_name&quot;:&quot;North America&quot;,
-  &quot;country_code&quot;:&quot;TT&quot;,
-  &quot;country_name&quot;:&quot;Trinidad and Tobago&quot;,
-  &quot;region_code&quot;:&quot;TUP&quot;,
-  &quot;region_name&quot;:&quot;Tunapuna/Piarco&quot;,
-  &quot;city&quot;:&quot;Valsayn&quot;,
-  &quot;zip&quot;:null,
-  &quot;latitude&quot;:10.65,
-  &quot;longitude&quot;:-61.4167,
+  &quot;ip&quot;: &quot;125.178.246.33&quot;,
+  &quot;type&quot;: &quot;ipv4&quot;,
+  &quot;continent_code&quot;: &quot;AS&quot;,
+  &quot;continent_name&quot;: &quot;Asia&quot;,
+  &quot;country_code&quot;: &quot;KR&quot;,
+  &quot;country_name&quot;: &quot;Republic of Korea&quot;,
+  &quot;region_code&quot;: &quot;41&quot;,
+  &quot;region_name&quot;: &quot;Gyeonggi-do&quot;,
+  &quot;city&quot;: &quot;Seongnam-si&quot;,
+  &quot;zip&quot;: null,
+  &quot;latitude&quot;: 37.4386,
+  &quot;longitude&quot;: 127.1378,
   &quot;location&quot;: {
-    &quot;geoname_id&quot;:3573557,
-    &quot;capital&quot;:&quot;Port of Spain&quot;,
+    &quot;geoname_id&quot;: 1897000,
+    &quot;capital&quot;: &quot;Seoul&quot;,
     &quot;languages&quot;: [
       {
-        &quot;code&quot;:&quot;en&quot;,
-        &quot;name&quot;:&quot;English&quot;,
-        &quot;native&quot;:&quot;English&quot;
+        &quot;code&quot;: &quot;ko&quot;,
+        &quot;name&quot;: &quot;Korean&quot;,
+        &quot;native&quot;: &quot;\ud55c\uad6d\uc5b4&quot;
+      }
+    ],
+    &quot;country_flag&quot;: &quot;http://assets.ipstack.com/flags/kr.svg&quot;,
+    &quot;country_flag_emoji&quot;: &quot;\ud83c\uddf0\ud83c\uddf7&quot;,
+    &quot;country_flag_emoji_unicode&quot;: &quot;U+1F1F0 U+1F1F7&quot;,
+    &quot;calling_code&quot;: &quot;82&quot;,
+    &quot;is_eu&quot;:false
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Botnet:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;ip&quot;: &quot;201.238.64.41&quot;,
+  &quot;type&quot;: &quot;ipv4&quot;,
+  &quot;continent_code&quot;: &quot;NA&quot;,
+  &quot;continent_name&quot;: &quot;North America&quot;,
+  &quot;country_code&quot;: &quot;TT&quot;,
+  &quot;country_name&quot;: &quot;Trinidad and Tobago&quot;,
+  &quot;region_code&quot;: &quot;TUP&quot;,
+  &quot;region_name&quot;: &quot;Tunapuna/Piarco&quot;,
+  &quot;city&quot;: &quot;Valsayn&quot;,
+  &quot;zip&quot;: null,
+  &quot;latitude&quot;: 10.65,
+  &quot;longitude&quot;: -61.4167,
+  &quot;location&quot;: {
+    &quot;geoname_id&quot;: 3573557,
+    &quot;capital&quot;: &quot;Port of Spain&quot;,
+    &quot;languages&quot;: [
+      {
+        &quot;code&quot;: &quot;en&quot;,
+        &quot;name&quot;: &quot;English&quot;,
+        &quot;native&quot;: &quot;English&quot;
       }
     ],
     &quot;country_flag&quot;: &quot;http://assets.ipstack.com/flags/tt.svg&quot;,
@@ -205,7 +246,382 @@ one-in-a-million bird. Most of us came along ever so slowly. We went  from
 and he couldn't help but think that there might be one or two  gulls  back
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[8:01 PM] LoneWolf345: Off topic question.  What is the significance of the 8f in your screen name?  Is it supposed to be pronounced?
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Jonathan_Livingston_Seagull&quot;&gt;Jonathan Livingston Seagull&lt;/a&gt;, by Richard Bach&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Full text:&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;p&gt;&lt;h4&gt;Part Two&lt;/h4&gt;
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;So this is heaven, he thought, and he had to smile at himself. It was
+hardly respectful to analyze heaven in the very moment that one  flies  up
+to enter it.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;As he came from Earth now, above the clouds and  in  close  formation
+with the two brilliant gulls, he saw that his  own  body  was  growing  as
+bright as theirs. True, the same young Jonathan Seagull was there that had
+always lived behind his golden eyes, but the outer form had changed.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;It felt like a seagull body, but alreadv it flew far better than  his
+old one had ever flown. Why, with half the effort, he  thought,  I'll  get
+twice the speed, twice the performance of my best days on Earth!
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;His feathers glowed brilliant white now, and his  wings  were  smooth
+and perfect as sheets of polished silver. He began, delightedly, to  learn
+about them, to press power into these new wings.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;At two hundred fifty mlles per hour he felt that he was  nearing  his
+level-flight maximum speed. At two hundred seventy-three he  thought  that
+he was flying as fast as  he  could  fly,  and  he  was  ever  so  faintly
+disappointed. There was a limit to how much the new  body  could  do,  and
+though it was much faster than his old level-flight record, it was still a
+limit that would take great effort to crack. In heaven, he thought,  there
+should be no limits.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;The  clouds  broke  apart,  his  escorts  called,  &quot;Happy   landings,
+Jonathan,&quot; and vanished into thin air.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;He was flying over a sea, toward  a  jagged  shoreline.  A  very  few
+seagulls were working the updrafts on the cliffs. Away off to  the  north,
+at the horizon itself, flew a few others. New sights,  new  thoughts,  new
+questions. Why so few gulls? Heaven should be flocked with gulls! And  why
+am I so tired, all at once? Gulls in  heaven  are  never  supposed  to  be
+tired, or to sleep.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Where had he heard that? The memory of his life on Earth was  falling
+away. Earth had been a place where he had learned much, of course, but the
+details were blurred -  something  about  fighting  for  food,  and  being
+Outcast.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;The dozen gulls by the shoreline came to  meet  him,  none  saying  a
+word. He felt only that he was welcome and that this was home. It had been
+a bigday for him, a day whose sunrise he no longer remembered.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;He turned to land on the beach, beating his wings to stop an inch  in
+the air, then dropping lightly to the sand, The other  gulls  landed  too,
+but not one of them so much as flapped a  feather.  They  swung  into  the
+wind, bright wings outstretched, then somehow they changed  the  curve  of
+their feathers until they had stopped  in  the  same  instant  their  feet
+touched the ground. It was beautiful control, but now  Jonathan  was  just
+too tired to try it. Standiug there on the beach,  still  without  a  word
+spoken, he was asleep.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;In the days that followed, Jonathan saw that there  was  as  much  to
+learn about flight in this place as there had been in the life behind him.
+But with a difference. Here were gulls who thought as he thought, For each
+of them, the most important thing in living was to  reach  out  and  touch
+perfection in that which they most loved to do, and that was to fly.  They
+were magnificent birds, all of them, and they spent hour after hour  every
+day practicing flight, testing advanced aeronautics.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;For a long time Jonathan forgot about the  world  that  he  had  come
+from, that place where the Flock lived with its eyes tightly shut  to  the
+joy of flight, using its wings as means to the end of finding and fighting
+for food. But now and then, just for a moment, he remembered.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;He remembered it one morning when he was  out  with  his  instructor,
+while they rested on the beach after a session of folded-wing snap rolls.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Where is everybody, Sullivan?&quot; he asked silently, quite at home  now
+with the easy telepathy that  these  gulls  used  instead  of  screes  and
+gracks. &quot;Why aren't there more of us here? Why, where I  came  from  there
+were.. &quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;... thousands and thousands of gulls. I know. &quot; Sullivan  shook  his
+head. &quot;The only answer I can see, Jonathan, is that you are pretty well  a
+one-in-a-million bird. Most of us came along ever so slowly. We went  from
+one world into another that was almost exactly like it,  forgettiug  right
+away where we had come from, not caring where we were headed,  living  for
+the moment. Do you have any idea how many lives we must have gone  through
+before we even gor the first idea that there is more to life than  eating,
+or fighting, or power in the Flock? A thousand lives, Jon,  ten  thousand!
+And then another hundred lives until we began to learn that there is  such
+a thing as perfection, and another hundred again to get the idea that  our
+purpose for living is to find that perfection and show it forth. The  same
+rule holds for us now, of course: we choose our next world through what we
+learn in this one. Learn nothing, and the next world is the same  as  this
+one, all the same limitations and lead weights to overcome.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;He stretched his wings and turned to face the wind. &quot;But  you,  Jon,&quot;
+he said, &quot;learned so much at one time that you didn't have to go through a
+thousand lives to reach this one.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;In a moment they  were  airborne  again,  practicing.  The  formation
+point-roils were difficult, for through the inverted half Jonathan had  to
+think upside down, reversing the curve  of  his  wing,  and  reversing  it
+exactly in harmony with his instructor's.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Let's try it again.&quot; Sullivan said over  and  over:  &quot;Let's  try  it
+again.&quot; Then, finally, &quot;Good.&quot; And they began practicing outside loops.
+&lt;p&gt;
+&lt;CENTER&gt;
+........................................
+&lt;/CENTER&gt;
+&lt;p&gt;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;One evening the gulls that were not night-flying  stood  together  on
+the sand, thinking. Jonathan took all his courage in hand  and  walked  to
+the Elder Gull, who, it was said, was soon to be moving beyond this world.
+&quot;Chiang...&quot; he said a little nervously.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;The old seagull looked at him kindly. &quot;Yes, my son?&quot; Instead of being
+enfeebled by age, the Elder had been empowered by it; he could outfly  any
+gull in the Flock, and he had learned skills that  the  others  were  only
+gradually coming to know.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Chiang, this world isn't heaven at all, is it?&quot; The Elder smiled  in
+the moonlight. &quot;You are learning again, Jonathan Seagull,&quot; he said.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Well, what happens from here? Where are we going? Is there  no  such
+place as heaven?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;No, Jonathan, there is no such place. Heaven is not a place, and  it
+is not a time. Heaven is being perfect.&quot; He was silent for a moment.  &quot;You
+are a very fast flier, aren't you?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I... I enjoy speed,&quot; Jonathan said, taken aback but proud  that  the
+Elder had noticed.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;You will begin to touch heaven, Jonathan, in  the  moment  that  you
+touch perfect speed. And that isn't flying a thousand miles an hour, or  a
+million, or flying at the speed of light. Because any number is  a  limit,
+and perfection doesn't have  limits.  Perfect  speed,  my  son,  is  being
+there.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Without warning, Chiang vanished and appeared  at  the  water's  edge
+fifty feet away, all in the flicker of an instant. Then he vanished  again
+and stood, in the same millisecond, at Jonathan's shoulder. &quot;It's kind  of
+fun,&quot; he said.
+&lt;p&gt;
+&lt;CENTER&gt;
+........................................
+&lt;/CENTER&gt;
+&lt;p&gt;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Jonathan was dazzled. He forgot to ask about heaven. &quot;How do  you  do
+that? What does it feel like? How far can you go?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;You can go to any place and to any time that you wish  to  go,&quot;  the
+Elder said. &quot;I've gone everywhere and everywhen I can think of.&quot; He looked
+across the sea. &quot;It's strange. The gulls who scorn perfection for the sake
+of travel go nowhere, slowly. Those who put aside travel for the  sake  of
+perfection go anywhere, instantly.  Remember,  Jonathan,  heaven  isn't  a
+place or a time, because place and time are so  very  meaningless.  Heaven
+is...&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Can you teach me to fly like that?&quot;  Jonathan  Seagull  trembled  to
+conquer another unknown.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Of course if you wish to learn.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I wish. When can we start?&quot;.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;We could start now if you'd like.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I want to learn to fly like that,&quot; Jonathan said and a strange light
+glowed in his eyes. &quot;Tell me what to do,&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Chiang spoke slowly and watched the younger gull ever  so  carefully.
+&quot;To fly as fast as thought, to anywhere that is,&quot; he said, &quot;you must begin
+by knowing that you have already arrived ...&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;The trick, according to Chiang,  was  for  Jonathan  to  stop  seeing
+himself as trapped inside  a  limited  body  that  had  a  forty-two  inch
+wingspan and performance that could be plotted on a chart. The  trick  was
+to know that his true nature lived, as perfect  as  an  unwritten  number,
+everywhere at once across space and time.
+&lt;p&gt;
+&lt;CENTER&gt;
+........................................
+&lt;/CENTER&gt;
+&lt;p&gt;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Jonathan kept at it, fiercely, day after  day,  from  before  sunrise
+till past midnight. And for all his effort he moved not  a  feather  width
+from his spot.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Forget about faith!&quot; Chiang said it time and again. &quot;You didn't need
+faith to fly, you needed to understand flying.This is jast the  same.  Now
+try again ...&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Then one day Jonathan, standing  on  the  shore,  closing  his  eyes,
+concentrating, all in a flash knew what Chiang had been telling him. &quot;Why,
+that's true! I am a perfect, unlimited gull!&quot; He felt  a  great  shock  of
+joy.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Good!&quot; said Chiang and there was victory in his voice.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Jonathan opened his eyes. He stood alone with the Elder on a  totally
+different seashore - trees down to the  water's  edge,  twin  yellow  suns
+turning overhead.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;At last you've got the idea,&quot; Chiang said, &quot;but your control needs a
+little work... &quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Jonathan was stunned. &quot;Where are we?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Utterly unimpressed with the strange surroundings, the Elder  brushed
+the question aside. &quot;We're on some planet, obviously, with a green sky and
+a double star for a sun.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Jonathan made a scree of delight, the first sound he had  made  since
+he had left Earth. &quot;IT WORKS!&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Well, of course, it works, Jon.&quot; said Chiang. &quot;It always works, when
+you know what you're doing. Now about your control...&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;By the time they returned, it was dark. The  other  gulls  looked  at
+Jonathan with awe in their golden eyes, for they had  seen  him  disappear
+from where he had been rooted for so long.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;He stood their congratulations for  less  than  a  minute.  &quot;I'm  the
+newcomer here! I'm just beginning! It is I who must learn from you!&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I wonder about that, Jon,&quot; said Sullivan standing  near.  &quot;You  have
+less fear of learning than any gull I've seen in ten thousand years.  &quot;The
+Flock fell silent, and Jonathan fidgeted in embarrassment.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;We can start working with time if you wish,&quot; Chiang said, &quot;till  you
+can fly the past and the future. And then you will be ready to  begin  the
+most difficult, the most powerful, the most fun of all. You will be  ready
+to begin to fly up and know the meaning of kindness and of love.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;A month went by, or something that  felt  about  like  a  month,  and
+Jonathan learned at a tremendous rate. He always had learned quickly  from
+ordinary experience, and now, the special student of the Elder Himself, he
+took in new ideas like a streamlined feathered computer.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;But then the day came that  Chiang  vanished.  He  had  been  talking
+quietly with them all, exhorting them never to  stop  their  learning  and
+their practicing and their striving to  understand  more  of  the  perfect
+invisible principle of all life. Then, as  he  spoke,  his  feathers  went
+brighter and brighter and at last turned so brilliant that no  gull  could
+look upon him.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Jonathan,&quot; he said, and these were the last  words  that  he  spoke,
+&quot;keep working on love.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;When they could see again, Chiang was gone.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;As the days went past, Jonathan found himself thinking time and again
+of the Earth from which he had come. If he had known there just  a  tenth,
+just a hundredth, of what he knew here, how  much  more  life  would  have
+meant! He stood on the sand and fell to wondering if there was a gull back
+there who might be struggling to break out  of  his  limits,  to  see  the
+meaning of flight beyond a way of  travel  to  get  a  breadcrumb  from  a
+rowboat. Perhaps there might even have been one made Outcast for  speaking
+his truth in the face of the Flock. And the more  Jonathan  practiced  his
+kindness lessons, and the more he worked to know the nature of  love,  the
+more he wanted to go back to Earth. For  in  spite  of  his  lonely  past,
+Jonathan Seagull was born  to  be  an  instructor,  and  his  own  way  of
+demonstrating love was to give something of the truth that he had seen  to
+a gull who asked only a chance to see truth for himself.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Sullivan, adept now at thought-speed flight and helping the others to
+learn, was doubrful.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Jon, you were Outcast once. Why do you think that any of  the  gulls
+in your old time would listen to you now? You know the proverb,  and  it's
+true: The gull sees farthest who flies highest. Those gulls where you came
+from are standing on the ground, squawking and fighting among  themselves.
+They're a thousand miles from heaven - and you say you want to  show  them
+heaven from where they stand! Jon, they can't see their own wingtips! Stay
+here. Help the new gulls here, the ones who are high enough  to  see  what
+you have to tell them.&quot; He was quiet for a moment, and then he said, &quot;What
+if Chiang had gone back to his old  worlds?  Where  would  you  have  been
+today?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;The last point was the telling one, and Sullivan was right  The  gull
+sees farthest who flies highest.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Jonathan stayed and worked with the new birds coming in, who were all
+very bright and quick with their lessons. But the old feeling  came  back,
+and he couldn't help but think that there might be one or two  gulls  back
+on Earth who would be able to learn, too. How  much  more  would  he  have
+known by now if Chiang had come to him on the day that he was Outcast!
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Sully, I must go back &quot; he said at last  &quot;Your  students  are  doing
+well. They can help you bring the newcomers along.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Sullivan sighed, but he did  not  argue.  &quot;I  think  I'll  miss  you,
+Jonathan,&quot; was all he said.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Sully, for shame!&quot; Jonathan said in reproach, &quot;and don't be foolish!
+What are we trying to practice every day? If  our  friendship  depends  on
+things like space and time, then when we finally overcome space and  time,
+we've destroyed our own brotherhood! But overcome space, and all  we  have
+left is Here. Overcome time, and all we have  left  is  Now.  And  in  the
+middle of Here and Now, don't you think that we might see each other  once
+or twice?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Sullivan Seagull laughed in spite of himself. &quot;You  crazy  bird,&quot;  he
+said kindly. &quot;If anybody can show someone on  the  ground  how  to  see  a
+thousand miles, it will be Jonathan Livingston Seagull.&quot; He looked at  the
+sand. &quot;Good-bye, Jon, my friend.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Good bye, Sully. We'll meet again.&quot; And with that, Jonathan held  in
+thought an image of the great gull flocks on the shore  of  another  time,
+and he knew with practiced ease that he was not bone  and  feather  but  a
+perfect idea of freedom and flight, limited by nothing at all.
+&lt;p&gt;
+&lt;CENTER&gt;
+........................................
+&lt;/CENTER&gt;
+&lt;p&gt;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Fletcher Lynd Seagull was still quite young, but already he knew that
+no bird had ever been so harshly treated by any Flock,  or  with  so  much
+injustice.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I don't care what they say,&quot; he thought  fiercely,  and  his  vision
+blurred as he flew out toward the Far Cliffs. &quot;There's  so  much  more  to
+flying than just flapping around from place to place! A...  a...  mosquito
+does that! One little barrel roll around the Elder Gull, just for fun, and
+I'm Outcast! Are they blind? Can't they see? Can't they think of the glory
+that it'll be when we really learn to fly?
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I don't care what they think. I'll show them what flying is! I'll be
+pure Outlaw, if that's the way  they  want  it.  And  I'll  make  them  so
+sorry...&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;The voice came inside his own head, and though it was very gentle, it
+startled him so much that he faltered and stumbled in the air.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Don't be harsh on them, Fletcher Seagull. In casting  you  out,  the
+other gulls have only hurt themselves, and one day they  will  know  this,
+and one day they will see what you see. Forgive them,  and  help  them  to
+understand.&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;An inch from his right wingtip flew the most brilliant white gull  in
+all the world, gliding effortlessly along, not moving a feather,  at  what
+was very nearly Fletcher's top speed.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;There was a moment of chaos in the young bird. &quot;What's going on? Am I
+mad? Am I dead? What is this?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Low and calm, the voice went on  within  his  thought,  demanding  an
+answer. &quot;Fletcher Lynd Seagull, do you want to fly?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;YES, I WANT TO FLY!&quot;.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Fletcher Lynd Seagull, do you want to fly  so  much  that  you  will
+forgive the Flock, and learn, and go back to them one day and work to help
+them know?&quot;
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;There was no lying to this magniflcent skillful being, no matter  how
+proud or how hurt a bird was Fletcher Seagull.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;I do &quot; he said softly.
+&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Then, Fletch,&quot; that bright creature said to him, and the  voice  was
+very kind, &quot;let's begin with Level Flight....&quot;
+  &lt;p&gt;&amp;nbsp;&lt;p&gt;
+
+Retrospective in #bot18 chat:
+
+```
+[8:01 PM] LoneWolf345: Off topic question.  What is the significance of the 8f in your screen name?  Is it supposed to be pronounced?
 [8:02 PM] carlos8f: ha. i like when people ask me that
 [8:02 PM] LoneWolf345: Or is it a hex number?
 [8:02 PM] carlos8f: just a minute
@@ -292,23 +708,25 @@ The Bat! is a secure desktop email client for Windows, designed to protect your 
 [8:55 PM] LoneWolf345: Nice
 [8:55 PM] LoneWolf345: Glad I asked
 May 16, 2018
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;h1 id=&quot;what-does-s8f-mean&quot;&gt;What does “S8F” mean?&lt;/h1&gt;
+What does “S8F” mean?
+===
 
-&lt;p&gt;The name “S8F” came to me, oddly, through &lt;a href=&quot;https://gist.github.com/carlos8f/3491314&quot;&gt;an unsolicited email from one “Ferdinand Brandon”&lt;/a&gt; I received on Tuesday, July 11th 2006.&lt;/p&gt;
+The name “S8F” came to me, oddly, through [an unsolicited email from one &quot;Ferdinand Brandon&quot;](https://gist.github.com/carlos8f/3491314) I received on Tuesday, July 11th 2006.
 
-&lt;p&gt;The subject, simply “S8F”, didn’t make sense, and neither did the message itself, which was simply nonsense!&lt;/p&gt;
+The subject, simply “S8F”, didn't make sense, and neither did the message itself, which was simply nonsense!
 
-&lt;p&gt;Not the kind of spam you get every day!&lt;/p&gt;
+Not the kind of spam you get every day!
 
-&lt;p&gt;The more I read the message, I began to recognize something familiar. There were pieces of a book I’d read, Jonathan Livingston Seagull. The other bits were apparently from another work of fiction. Inspired by a spam message that had failed utterly at its job (to sell me something), I made a portmanteau out of my name, carloS8F.&lt;/p&gt;
+The more I read the message, I began to recognize something familiar. There were pieces of a book I'd read, Jonathan Livingston Seagull. The other bits were apparently from another work of fiction. Inspired by a spam message that had failed utterly at its job (to sell me something), I made a portmanteau out of my name, carloS8F.
 
-&lt;p&gt;I have come to pronounce S8F as “safe”, and have used the domain s8f.org for all things experimental.&lt;/p&gt;
+I have come to pronounce S8F as “safe”, and have used the domain s8f.org for all things experimental.
 
-&lt;p&gt;I usually pronounce “carlos8f” as “Carlos ehh-t eff” but since I prounce S8F as “safe”, I should probably be saying “Carlo-seyf”.&lt;/p&gt;
+I usually pronounce &quot;carlos8f&quot; as &quot;Carlos ehh-t eff&quot; but since I prounce S8F as &quot;safe&quot;, I should probably be saying &quot;Carlo-seyf&quot;.
 
-&lt;p&gt;An older explanation: http://carlos8f.github.io/README.html&lt;/p&gt;
+An older explanation: http://carlos8f.github.io/README.html
+&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;
 </content>
  </entry>
  
