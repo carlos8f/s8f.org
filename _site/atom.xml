@@ -4,7 +4,7 @@
  <title>Homepage of Carlos Rodriguez (@carlos8f) - I stepped inside, and went straight for the canisters</title>
  <link href="https://s8f.org/atom.xml" rel="self"/>
  <link href="https://s8f.org/"/>
- <updated>2018-06-08T10:38:27-07:00</updated>
+ <updated>2018-06-08T10:39:51-07:00</updated>
  <id>https://s8f.org</id>
  <author>
    <name>Carlos Rodriguez <carlos@s8f.org></name>
@@ -270,7 +270,8 @@ and he couldn't help but think that there might be one or two  gulls  back
 
 &lt;p&gt;Full text of the passage from &lt;em&gt;Jonathan Livingston Seagull&lt;/em&gt;:&lt;/p&gt;
 
-&lt;p&gt;&amp;nbsp;&lt;p&gt;&lt;h4&gt;Part Two&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;h4&gt;Part Two&lt;/h4&gt;
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp;So this is heaven, he thought, and he had to smile at himself. It was
 hardly respectful to analyze heaven in the very moment that one  flies  up
@@ -634,7 +635,7 @@ proud or how hurt a bird was Fletcher Seagull.
 &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Then, Fletch,&quot; that bright creature said to him, and the  voice  was
 very kind, &quot;let's begin with Level Flight....&quot;
-  &lt;p&gt;&amp;nbsp;&lt;p&gt;
+&amp;lt;/blockquote&amp;gt;
 
 Retrospective in #bot18 chat:
 
@@ -744,7 +745,7 @@ I have come to pronounce S8F as “safe”, and have used the domain s8f.org for
 I usually pronounce &quot;carlos8f&quot; as &quot;Carlos ehh-t eff&quot; but since I prounce S8F as &quot;safe&quot;, I should probably be saying &quot;Carlo-seyf&quot;.
 
 An older explanation: http://carlos8f.github.io/README.html
-&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/blockquote&gt;
 </content>
  </entry>
  
