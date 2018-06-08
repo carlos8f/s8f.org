@@ -1,0 +1,9 @@
+---
+layout: default
+title: "The origin of S8F, a cipherpunk collective"
+---
+
+{% for post in site.categories.s8f %}
+  {% assign content = post.content %}
+  {% include post.html %}
+{% endfor %}
