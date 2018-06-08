@@ -33,6 +33,101 @@
   
   <section class="post-section section">
   <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1402636102/index.html">Motley</a></h1>
+    <div class="meta">
+      <time datetime="2014-06-12T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 12<span>th</span>, 2014
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p><img src="https://raw.github.com/carlos8f/motley/master/assets/motley-full.png" alt="motley" /></p>
+
+<h2 id="get-started-in-3-shell-commands">Get Started in 3 shell commands:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:carlos8f/motley-init.git
+cd motley-init &amp;&amp; npm install
+node server.js
+</code></pre></div></div>
+
+<p>(or just fork the <a href="https://github.com/carlos8f/motley-init">motley-init</a> repo!)</p>
+
+<h2 id="example-serverjs">Example server.js</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">motley</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'motley'</span><span class="p">)</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">motley</span><span class="p">({</span>
+    <span class="na">_ns</span><span class="p">:</span> <span class="s1">'motley'</span><span class="p">,</span>
+    <span class="na">_maps</span><span class="p">:</span> <span class="p">[</span>
+      <span class="c1">// require()'ed motley plugins go here.</span>
+    <span class="p">],</span>
+    <span class="s1">'hooks.listen[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="nx">task</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">get</span><span class="p">(</span><span class="s1">'console'</span><span class="p">).</span><span class="nx">log</span><span class="p">(</span><span class="s1">'listening on http://localhost:'</span> <span class="o">+</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'site.server'</span><span class="p">).</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span> <span class="o">+</span> <span class="s1">'/'</span><span class="p">)</span>
+        <span class="nx">setImmediate</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">'middleware[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="nx">handler</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span> <span class="o">||</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">vars</span> <span class="o">=</span> <span class="p">{})</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span><span class="p">.</span><span class="nx">nonce</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+        <span class="nx">next</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">'controllers[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'controller'</span><span class="p">)()</span>
+        <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
+            <span class="s1">'welcome'</span><span class="p">:</span> <span class="s1">'to '</span> <span class="o">+</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'conf.site.title'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'!'</span><span class="p">,</span>
+            <span class="s1">'version'</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./package.json'</span><span class="p">).</span><span class="nx">version</span><span class="p">,</span>
+            <span class="s1">'nonce'</span><span class="p">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span><span class="p">.</span><span class="nx">nonce</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">},</span>
+    <span class="s1">'hooks.close[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="nx">task</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">get</span><span class="p">(</span><span class="s1">'console'</span><span class="p">).</span><span class="nx">log</span><span class="p">(</span><span class="s1">'</span><span class="err">\</span><span class="s1">n</span><span class="err">\</span><span class="s1">nmotley says goodbye :)</span><span class="err">\</span><span class="s1">n'</span><span class="p">)</span>
+        <span class="nx">setImmediate</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">exit</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">)</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="kd">function</span> <span class="nx">onExit</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'SIGINT'</span><span class="p">,</span> <span class="nx">onExit</span><span class="p">)</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'SIGTERM'</span><span class="p">,</span> <span class="nx">onExit</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="license">License</h2>
+
+<p>Motley is released under the MIT license.</p>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
     <h1 class="entry-title"><a class="entry-title-link" href="/1400780521/index.html">Poster: Coffee Drinks Illustrated</a></h1>
     <div class="meta">
       <time datetime="2014-05-22T00:00:00-07:00" pubdate data-updated="true">

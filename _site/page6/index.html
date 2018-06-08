@@ -33,6 +33,72 @@
   
   <section class="post-section section">
   <header class="entry-header">
+    <h1 class="entry-title"><a class="entry-title-link" href="/1465262642/index.html">Salty: PGP Evolved</a></h1>
+    <div class="meta">
+      <time datetime="2016-06-06T00:00:00-07:00" pubdate data-updated="true">
+  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
+  June 6<span>th</span>, 2016
+</time>
+
+    </div>
+  </header>
+  <div class="entry-content">
+  <p>This is a step-by-step rebuttal to <a href="http://secushare.org/PGP">secushare</a>’s arguments against the PGP model, and how <a href="https://s8f.org/salty.html">Salty</a> tries to make things right again.</p>
+
+<h3 id="1-downgrade-attack-the-risk-of-using-it-wrong">1. Downgrade Attack: The risk of using it wrong.</h3>
+
+<p>Unlike PGP, Salty does not “integrate” into your browser, email client, or other sensitive software. Therefore, usability shortcomings of integration UIs will not raise security issues. It is up to the user to safeguard the connection (i.e. their email account) which Salty can’t control, and is not interested in controlling. “Doing it wrong” is barely possible since there are so few modes of use, and all parameters are hard-coded into the software, so no critical choices are necessary on the part of the user.</p>
+
+<h3 id="2-the-openpgp-format-you-might-aswell-run-around-the-city-naked">2. The OpenPGP Format: You might aswell run around the city naked.</h3>
+
+<p>Salty does not include the sender or recipient’s public key in plaintext. By default it encrypts using an ephemeral key and nonce, obscures the message length with padding, encrypts the real message length, and encrypts the info for verifying authenticity and integrity (hmac, public keys, and signature). Signature is opt-in.</p>
+
+<h3 id="3-transaction-data-mallory-knows-who-you-are-talking-to">3. Transaction Data: Mallory knows who you are talking to.</h3>
+
+<p>Fully anonymized traffic seems like a pipe dream, and (despite the existence of the Tor project) will probably not be possible in the near future. However, for what it’s worth:</p>
+
+<p>In theory, the idea of a “mixing service” from Bitcoin for psuedo-anonymizing transactions is possible using Salty files. Since a Salty file can only be made sense of by one who posesses the receiver’s private key, a secure “drop box” could be set up where everyone dumps to the same folder, and everyone reads every file, trying to decrypt everything until decryptable files are found.</p>
+
+<h3 id="4-no-forward-secrecy-it-makes-sense-to-collect-it-all">4. No Forward Secrecy: It makes sense to collect it all.</h3>
+
+<p>Salty solves this problem in two ways:</p>
+
+<ol>
+  <li>With Salty it’s easy to refresh keys: just regenerate your decryption key, and tweet the resulting pubkey string. Destroying your encryption key effectively renders your previously received messages unreadable and useless to collect.</li>
+  <li>Recovering the 32-byte key used to encrypt a message will not allow decryption of all Alice&lt;-&gt;Bob messages, since each message has a unique key as the result of Diffie-Hellman with Alice using an ephemeral key.</li>
+</ol>
+
+<h3 id="5-cryptogeddon-time-to-upgrade-cryptography-itself">5. Cryptogeddon: Time to upgrade cryptography itself?</h3>
+
+<p>Salty throws out RSA and NIST-approved curves entirely, using the independently developed, peer-reviewed, battle tested, public domain NaCl crypto suite.</p>
+
+<h3 id="6-federation-get-off-the-inter-server-super-highway">6. Federation: Get off the inter-server super-highway.</h3>
+
+<p>Salty is not a network protocol, but it’s recommended to use the most secure channel possible to trade Salty messages. The same goes for any sensitive information transferred between two parties.</p>
+
+<h3 id="7-discovery-a-web-of-trust-you-cant-trust">7. Discovery: A Web of Trust you can’t trust.</h3>
+
+<p>Salty does not prescribe a web-of-trust model. Keyservers are optional and if one has a Twitter account, not necessary at all. End of story!</p>
+
+<h3 id="8-pgp-conflates-non-repudiation-and-authentication">8. PGP conflates non-repudiation and authentication.</h3>
+
+<p>Salty allows the sender to decide whether to sign the message, revealing to the receiver (via HMAC) that they in fact constructed it with their known identity. By default, only message integrity is ensured, protecting the sender’s privacy if they desire it.</p>
+
+<h3 id="9-statistical-analysis-guessing-on-the-size-of-messages">9. Statistical Analysis: Guessing on the size of messages.</h3>
+
+<p>Salty does some random-padding to help obscure the message size.</p>
+
+<h3 id="10-workflow-group-messaging-with-pgp-is-impractical">10. Workflow: Group messaging with PGP is impractical.</h3>
+
+<p>This is still true. Group messaging is better done by a network protocol.</p>
+
+  </div>
+</section>
+
+  
+  
+  <section class="post-section section">
+  <header class="entry-header">
     <h1 class="entry-title"><a class="entry-title-link" href="/1464902995/index.html">Salty</a></h1>
     <div class="meta">
       <time datetime="2016-06-02T00:00:00-07:00" pubdate data-updated="true">
@@ -455,101 +521,6 @@ AADffgAA4+4AAPf+AAD//gAA//4AAP/+AAD//gAA
   <li>October 14, 2015 - <a href="http://www.gallup.com/poll/186167/biden-maintains-positive-image.aspx">a Gallup poll</a> 49% of Americans view Joe Biden (author of S.266) favorably, 37% unfavorably. Biden “regrets every day” that he didn’t run for president.</li>
   <li>Feb 2016 - FBI <a href="https://fcw.com/articles/2016/02/12/going-dark-budget.aspx">doubles funding from $31 million to $69 million</a> for defeating end-to-end encryption and the ‘Going Dark’ threat it poses to law enforcement.</li>
 </ul>
-
-  </div>
-</section>
-
-  
-  
-  <section class="post-section section">
-  <header class="entry-header">
-    <h1 class="entry-title"><a class="entry-title-link" href="/1402636102/index.html">Motley</a></h1>
-    <div class="meta">
-      <time datetime="2014-06-12T00:00:00-07:00" pubdate data-updated="true">
-  <!-- via: http://alanwsmith.com/jekyll-liquid-date-formatting-examples -->
-  June 12<span>th</span>, 2014
-</time>
-
-    </div>
-  </header>
-  <div class="entry-content">
-  <p><img src="https://raw.github.com/carlos8f/motley/master/assets/motley-full.png" alt="motley" /></p>
-
-<h2 id="get-started-in-3-shell-commands">Get Started in 3 shell commands:</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:carlos8f/motley-init.git
-cd motley-init &amp;&amp; npm install
-node server.js
-</code></pre></div></div>
-
-<p>(or just fork the <a href="https://github.com/carlos8f/motley-init">motley-init</a> repo!)</p>
-
-<h2 id="example-serverjs">Example server.js</h2>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">motley</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'motley'</span><span class="p">)</span>
-
-<span class="k">try</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">motley</span><span class="p">({</span>
-    <span class="na">_ns</span><span class="p">:</span> <span class="s1">'motley'</span><span class="p">,</span>
-    <span class="na">_maps</span><span class="p">:</span> <span class="p">[</span>
-      <span class="c1">// require()'ed motley plugins go here.</span>
-    <span class="p">],</span>
-    <span class="s1">'hooks.listen[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kd">function</span> <span class="nx">task</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">get</span><span class="p">(</span><span class="s1">'console'</span><span class="p">).</span><span class="nx">log</span><span class="p">(</span><span class="s1">'listening on http://localhost:'</span> <span class="o">+</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'site.server'</span><span class="p">).</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span> <span class="o">+</span> <span class="s1">'/'</span><span class="p">)</span>
-        <span class="nx">setImmediate</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s1">'middleware[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kd">function</span> <span class="nx">handler</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span> <span class="o">||</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">vars</span> <span class="o">=</span> <span class="p">{})</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span><span class="p">.</span><span class="nx">nonce</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
-        <span class="nx">next</span><span class="p">()</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s1">'controllers[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'controller'</span><span class="p">)()</span>
-        <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
-            <span class="s1">'welcome'</span><span class="p">:</span> <span class="s1">'to '</span> <span class="o">+</span> <span class="kd">get</span><span class="p">(</span><span class="s1">'conf.site.title'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'!'</span><span class="p">,</span>
-            <span class="s1">'version'</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./package.json'</span><span class="p">).</span><span class="nx">version</span><span class="p">,</span>
-            <span class="s1">'nonce'</span><span class="p">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">vars</span><span class="p">.</span><span class="nx">nonce</span>
-          <span class="p">})</span>
-        <span class="p">})</span>
-    <span class="p">},</span>
-    <span class="s1">'hooks.close[]'</span><span class="p">:</span> <span class="kd">function</span> <span class="nx">container</span> <span class="p">(</span><span class="kd">get</span><span class="p">,</span> <span class="kd">set</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kd">function</span> <span class="nx">task</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">get</span><span class="p">(</span><span class="s1">'console'</span><span class="p">).</span><span class="nx">log</span><span class="p">(</span><span class="s1">'</span><span class="err">\</span><span class="s1">n</span><span class="err">\</span><span class="s1">nmotley says goodbye :)</span><span class="err">\</span><span class="s1">n'</span><span class="p">)</span>
-        <span class="nx">setImmediate</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">})</span>
-<span class="p">}</span>
-<span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">exit</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">)</span>
-  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-  <span class="kd">function</span> <span class="nx">onExit</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">app</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">exit</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-  <span class="nx">process</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'SIGINT'</span><span class="p">,</span> <span class="nx">onExit</span><span class="p">)</span>
-  <span class="nx">process</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'SIGTERM'</span><span class="p">,</span> <span class="nx">onExit</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div></div>
-
-<h2 id="license">License</h2>
-
-<p>Motley is released under the MIT license.</p>
 
   </div>
 </section>
