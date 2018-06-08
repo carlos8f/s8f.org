@@ -4,7 +4,7 @@
  <title>Homepage of Carlos Rodriguez (@carlos8f) - I stepped inside, and went straight for the canisters</title>
  <link href="https://s8f.org/atom.xml" rel="self"/>
  <link href="https://s8f.org/"/>
- <updated>2018-06-08T06:17:40-07:00</updated>
+ <updated>2018-06-08T06:18:03-07:00</updated>
  <id>https://s8f.org</id>
  <author>
    <name>Carlos Rodriguez <carlos@s8f.org></name>
@@ -43,7 +43,7 @@ And because of her, we do a lot of partying and slacking off. &lt;strong&gt;Chee
   &lt;li&gt;Buy a 4”x2” IOT micro-appliance, known as “M.I.A.” from GetMIA.io, for $275 fully assembled.&lt;/li&gt;
   &lt;li&gt;Power it with a USB cable (or battery pack) and connect via Wi-Fi or Ethernet cable.&lt;/li&gt;
   &lt;li&gt;MIA creates a locally-hosted Bitcoin wallet, and a BTC address (or choose your crypto-currency) for you
-send coins to, and displays the QR code on her 3.5” touch screen. Control it with a built-in
+send coins to, and displays the QR code on her 3.5” touch screen. Control MIA with a built-in
 webserver/GUI, or SSH/VNC for nerds.&lt;/li&gt;
   &lt;li&gt;Send her capital, and she invests using a strategy you can choose from some presets. These
 presets are the statistically most profitable algorithms on the ZalgoNet “SWARM” p2p network,
